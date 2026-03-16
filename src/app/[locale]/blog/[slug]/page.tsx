@@ -6,6 +6,9 @@ import Container from "@/components/ui/Container";
 import GoldDivider from "@/components/ui/GoldDivider";
 import { getPostBySlug, getAllSlugs } from "@/lib/blog";
 import { OFFICE } from "@/lib/constants";
+import { LOCALES, getLocalizedPath } from "@/lib/i18n";
+import type { Locale } from "@/lib/i18n";
+import { getDictionary } from "@/lib/dictionaries";
 import {
   CalendarIcon,
   ClockIcon,
@@ -14,18 +17,26 @@ import {
 } from "@heroicons/react/24/outline";
 
 export async function generateStaticParams() {
-  const slugs = getAllSlugs();
-  return slugs.map((slug) => ({ slug }));
+  const params: { locale: string; slug: string }[] = [];
+  for (const locale of LOCALES) {
+    const slugs = getAllSlugs(locale);
+    for (const slug of slugs) {
+      params.push({ locale, slug });
+    }
+  }
+  return params;
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
-  const post = getPostBySlug(slug);
-  if (!post) return { title: "Artikull i Panjohur" };
+  const { locale, slug } = await params;
+  const lang = locale as Locale;
+  const dict = await getDictionary(lang);
+  const post = getPostBySlug(slug, lang);
+  if (!post) return { title: dict.notFound?.title || "Not Found" };
 
   return {
     title: post.meta.title,
@@ -40,21 +51,33 @@ export async function generateMetadata({
   };
 }
 
+const LOCALE_DATE_MAP: Record<string, string> = {
+  sq: "sq-AL",
+  en: "en-US",
+  it: "it-IT",
+};
+
 export default async function BlogPostPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const { locale, slug } = await params;
+  const lang = locale as Locale;
+  const dict = await getDictionary(lang);
+  const post = getPostBySlug(slug, lang);
 
   if (!post) notFound();
 
-  const formattedDate = new Date(post.meta.date).toLocaleDateString("sq-AL", {
+  const dateLocale = LOCALE_DATE_MAP[lang] || "sq-AL";
+  const formattedDate = new Date(post.meta.date).toLocaleDateString(dateLocale, {
     year: "numeric",
     month: "long",
     day: "numeric",
   });
+
+  const blogPath = getLocalizedPath(lang, "blog");
+  const aboutPath = getLocalizedPath(lang, "about");
 
   const articleJsonLd = {
     "@context": "https://schema.org",
@@ -62,10 +85,11 @@ export default async function BlogPostPage({
     headline: post.meta.title,
     description: post.meta.excerpt,
     datePublished: post.meta.date,
+    inLanguage: lang,
     author: {
       "@type": "Person",
       name: post.meta.author,
-      url: "https://www.onlawoffice.com/rreth-nesh",
+      url: `https://www.onlawoffice.com${aboutPath}`,
     },
     publisher: {
       "@type": "Organization",
@@ -74,9 +98,12 @@ export default async function BlogPostPage({
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://www.onlawoffice.com/blog/${slug}`,
+      "@id": `https://www.onlawoffice.com${blogPath}/${slug}`,
     },
   };
+
+  // Back to blog text
+  const backText = lang === "en" ? "Back to Blog" : lang === "it" ? "Torna al Blog" : "Kthehu te Blogu";
 
   return (
     <>
@@ -88,11 +115,11 @@ export default async function BlogPostPage({
       <section className="bg-navy pt-28 pb-12 lg:pt-36 lg:pb-16">
         <Container className="max-w-3xl">
           <Link
-            href="/blog"
+            href={blogPath}
             className="inline-flex items-center gap-2 text-gray-300 hover:text-gold transition-colors text-sm mb-6"
           >
             <ArrowLeftIcon className="w-4 h-4" />
-            Kthehu te Blogu
+            {backText}
           </Link>
 
           {post.meta.category && (

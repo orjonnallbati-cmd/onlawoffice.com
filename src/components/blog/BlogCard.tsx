@@ -1,17 +1,28 @@
 import Link from "next/link";
 import type { BlogPostMeta } from "@/types";
+import { getLocalizedPath } from "@/lib/i18n";
+import type { Locale } from "@/lib/i18n";
 import { CalendarIcon, ClockIcon } from "@heroicons/react/24/outline";
 
-export default function BlogCard({ post }: { post: BlogPostMeta }) {
-  const formattedDate = new Date(post.date).toLocaleDateString("sq-AL", {
+const LOCALE_DATE_MAP: Record<string, string> = {
+  sq: "sq-AL",
+  en: "en-US",
+  it: "it-IT",
+};
+
+export default function BlogCard({ post, locale }: { post: BlogPostMeta; locale: Locale }) {
+  const dateLocale = LOCALE_DATE_MAP[locale] || "sq-AL";
+  const formattedDate = new Date(post.date).toLocaleDateString(dateLocale, {
     year: "numeric",
     month: "long",
     day: "numeric",
   });
 
+  const blogPath = getLocalizedPath(locale, "blog");
+
   return (
     <Link
-      href={`/blog/${post.slug}`}
+      href={`${blogPath}/${post.slug}`}
       className="group block bg-white rounded-lg border border-gray-100 hover:border-gold/30 hover:shadow-lg transition-all duration-300 overflow-hidden"
     >
       {/* Category badge */}

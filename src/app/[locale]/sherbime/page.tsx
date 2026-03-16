@@ -3,7 +3,8 @@ import PageHeader from "@/components/ui/PageHeader";
 import Container from "@/components/ui/Container";
 import GoldDivider from "@/components/ui/GoldDivider";
 import CTABanner from "@/components/home/CTABanner";
-import { SERVICES } from "@/lib/constants";
+import { getDictionary } from "@/lib/dictionaries";
+import type { Locale } from "@/lib/i18n";
 import {
   ScaleIcon,
   BuildingOffice2Icon,
@@ -13,11 +14,18 @@ import {
   PencilSquareIcon,
 } from "@heroicons/react/24/outline";
 
-export const metadata: Metadata = {
-  title: "Shërbimet Juridike",
-  description:
-    "Shërbime juridike profesionale: e drejta civile, tregtare, administrative, kushtetuese, mbrojtja e të dhënave dhe hartim kontratash.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const dict = await getDictionary(locale as Locale);
+  return {
+    title: dict.metadata.services.title,
+    description: dict.metadata.services.description,
+  };
+}
 
 const ICONS: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
   civile: ScaleIcon,
@@ -28,22 +36,33 @@ const ICONS: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> 
   kontrata: PencilSquareIcon,
 };
 
-export default function SherbimePage() {
+const SERVICE_IDS = ["civile", "tregtare", "administrative", "kushtetuese", "gdpr", "kontrata"] as const;
+
+export default async function SherbimePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const lang = locale as Locale;
+  const dict = await getDictionary(lang);
+
   return (
     <>
       <PageHeader
-        title="Shërbimet Juridike"
-        subtitle="Ofrojmë asistencë ligjore të plotë në gjashtë fusha kryesore të praktikës"
+        title={dict.servicesPage.title}
+        subtitle={dict.servicesPage.subtitle}
       />
 
       <div className="py-16 lg:py-24">
-        {SERVICES.map((service, idx) => {
-          const Icon = ICONS[service.id];
+        {SERVICE_IDS.map((serviceId, idx) => {
+          const Icon = ICONS[serviceId];
+          const service = dict.services[serviceId];
           const isAlt = idx % 2 === 1;
           return (
             <section
-              key={service.id}
-              id={service.id}
+              key={serviceId}
+              id={serviceId}
               className={`py-12 lg:py-16 ${isAlt ? "bg-alt" : "bg-white"}`}
             >
               <Container>
@@ -63,7 +82,7 @@ export default function SherbimePage() {
                     {service.description}
                   </p>
                   <ul className="space-y-3">
-                    {service.details.map((detail) => (
+                    {service.details.map((detail: string) => (
                       <li
                         key={detail}
                         className="flex items-start gap-3 text-gray-600"
@@ -92,7 +111,7 @@ export default function SherbimePage() {
         })}
       </div>
 
-      <CTABanner />
+      <CTABanner dict={dict} locale={lang} />
     </>
   );
 }

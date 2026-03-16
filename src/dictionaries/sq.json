@@ -1,0 +1,426 @@
+{
+  "metadata": {
+    "home": {
+      "title": "OnLaw Office — Studio Ligjore",
+      "description": "OnLaw Office — Studio Ligjore e Av. Orjon Nallbati. Shërbime juridike profesionale në Tiranë: e drejta civile, tregtare, administrative, kushtetuese dhe mbrojtja e të dhënave."
+    },
+    "services": {
+      "title": "Shërbimet Juridike",
+      "description": "Shërbime juridike profesionale: e drejta civile, tregtare, administrative, kushtetuese, mbrojtja e të dhënave dhe hartim kontratash."
+    },
+    "about": {
+      "title": "Rreth Nesh",
+      "description": "Mësoni më shumë rreth OnLaw Office dhe Av. Orjon Nallbati — studio ligjore profesionale në Tiranë."
+    },
+    "contact": {
+      "title": "Na Kontaktoni",
+      "description": "Na kontaktoni për konsultë juridike. OnLaw Office — Blv. Gjergj Fishta, Tiranë. Tel: +355 69 331 4640."
+    },
+    "blog": {
+      "title": "Blog Juridik",
+      "description": "Artikuj dhe analiza juridike mbi legjislacionin shqiptar, praktikën gjyqësore dhe mbrojtjen e të dhënave personale."
+    },
+    "privacy": {
+      "title": "Politika e Privatësisë & Cookie Policy",
+      "description": "Si i mbrojmë të dhënat tuaja personale — OnLaw Office, Studio Ligjore e Av. Orjon Nallbati. Ligji Nr. 124/2024."
+    }
+  },
+  "nav": {
+    "home": "Kryefaqja",
+    "services": "Shërbimet",
+    "about": "Rreth Nesh",
+    "blog": "Blog",
+    "contact": "Kontakt",
+    "contactCta": "Na Kontaktoni"
+  },
+  "hero": {
+    "badge": "Studio Ligjore Profesionale",
+    "subtitle": "Studio Ligjore — Av. Orjon Nallbati",
+    "description": "Shërbime juridike profesionale në fushën e së drejtës civile, tregtare, administrative, kushtetuese dhe mbrojtjen e të dhënave personale.",
+    "ctaPrimary": "Na Kontaktoni",
+    "ctaSecondary": "Shërbimet Tona",
+    "features": {
+      "civil": "E Drejta Civile & Tregtare",
+      "constitutional": "E Drejta Kushtetuese",
+      "data": "Mbrojtja e të Dhënave"
+    }
+  },
+  "servicesOverview": {
+    "title": "Fushat e Praktikës",
+    "subtitle": "Ofrojmë shërbime juridike të specializuara në gjashtë fusha kryesore"
+  },
+  "services": {
+    "civile": {
+      "title": "E Drejta Civile",
+      "description": "Përfaqësim në çështje civile, pronësore, familjare, trashëgimore dhe detyrime.",
+      "details": [
+        "Çështje pronësie dhe regjistrim pasurie",
+        "E drejta familjare — divorc, kujdestari, birësim",
+        "Trashëgimi dhe testament",
+        "Detyrime kontraktore dhe jashtëkontraktore",
+        "Ekzekutim i vendimeve gjyqësore"
+      ]
+    },
+    "tregtare": {
+      "title": "E Drejta Tregtare",
+      "description": "Themelim shoqërish, kontrata tregtare, ristrukturime, falimentim dhe arbitrazh.",
+      "details": [
+        "Themelim dhe ristrukturim shoqërish tregtare",
+        "Kontrata tregtare dhe negociata",
+        "Mbrojtja e interesave të ortakëve",
+        "Procedura falimentimi",
+        "Arbitrazh tregtar"
+      ]
+    },
+    "administrative": {
+      "title": "E Drejta Administrative",
+      "description": "Ankime administrative, kundërshtim aktesh, përfaqësim pranë autoriteteve publike.",
+      "details": [
+        "Kundërshtim i akteve administrative",
+        "Ankime në gjykata administrative",
+        "Procedura tenderimi dhe prokurime publike",
+        "Përgjegjësia jashtëkontraktore e shtetit",
+        "Leje dhe licenca"
+      ]
+    },
+    "kushtetuese": {
+      "title": "E Drejta Kushtetuese",
+      "description": "Ankime individuale kushtetuese, çështje pranë Gjykatës Kushtetuese.",
+      "details": [
+        "Ankime individuale kushtetuese",
+        "Mbrojtja e të drejtave themelore",
+        "Procese pranë Gjykatës Kushtetuese",
+        "Çështje pranë GJEDNJ"
+      ]
+    },
+    "gdpr": {
+      "title": "Mbrojtja e të Dhënave",
+      "description": "Përputhshmëria me Ligjin 124/2024, DPO i jashtëm, auditime privatësie, GDPR.",
+      "details": [
+        "Përputhshmëri me Ligjin 124/2024 dhe GDPR",
+        "DPO i jashtëm (Data Protection Officer)",
+        "Auditime dhe vlerësime privatësie (DPIA)",
+        "Hartim politikash dhe rregulloresh",
+        "Trajnime për stafin"
+      ]
+    },
+    "kontrata": {
+      "title": "Hartim Kontratash",
+      "description": "Kontrata pune, qiraje, shërbimi, SPA, NDA, dhe marrëveshje të ndryshme.",
+      "details": [
+        "Kontrata pune dhe marrëdhënie punësimi",
+        "Kontrata qiraje (rezidenciale dhe tregtare)",
+        "Kontrata shërbimi profesional",
+        "NDA, SPA, SLA dhe marrëveshje ndërkombëtare",
+        "Prokura dhe autorizime"
+      ]
+    }
+  },
+  "servicesPage": {
+    "title": "Shërbimet Juridike",
+    "subtitle": "Ofrojmë asistencë ligjore të plotë në gjashtë fusha kryesore të praktikës"
+  },
+  "aboutPreview": {
+    "label": "Rreth Nesh",
+    "title": "Përvojë dhe Profesionalizëm në Shërbim të Drejtësisë",
+    "description1": "{name} është studio ligjore e themeluar nga {lawyer}, anëtar i {chamber}. Me përvojë të gjerë në fushat e së drejtës civile, tregtare, administrative, kushtetuese, si dhe në mbrojtjen e të dhënave personale, zyra jonë ofron shërbime juridike të standardit më të lartë.",
+    "description2": "Besojmë se çdo klient meriton përfaqësim cilësor, strategji të personalizuar dhe përkushtim profesional për arritjen e rezultatit më të mirë të mundshëm.",
+    "readMore": "Lexo Më Shumë",
+    "features": {
+      "experience": {
+        "title": "Përvojë e Gjerë",
+        "description": "Përfaqësim profesional në të gjitha nivelet e gjykatave shqiptare"
+      },
+      "expertise": {
+        "title": "Ekspertizë e Thelluar",
+        "description": "Specializim në fusha specifike të së drejtës civile dhe tregtare"
+      },
+      "personal": {
+        "title": "Qasje Personale",
+        "description": "Strategji e personalizuar për çdo çështje dhe klient"
+      },
+      "international": {
+        "title": "Standardet Ndërkombëtare",
+        "description": "Përputhshmëri me GJEDNJ, GDPR dhe praktikat më të mira"
+      }
+    }
+  },
+  "aboutPage": {
+    "title": "Rreth Nesh",
+    "subtitle": "Studio Ligjore profesionale me përkushtim ndaj drejtësisë",
+    "firmOverview": {
+      "description1": "{name} është studio ligjore e themeluar me qëllim ofrimin e shërbimeve juridike profesionale të standardit më të lartë. E angazhuar në përfaqësimin e klientëve në çdo nivel të sistemit gjyqësor shqiptar, zyra jonë kombinon njohuritë akademike me përvojën praktike.",
+      "description2": "Jemi të specializuar në fushën e së drejtës civile, tregtare, administrative dhe kushtetuese, si edhe në fushën e mbrojtjes së të dhënave personale dhe përputhshmërisë me legjislacionin GDPR."
+    },
+    "lawyerProfile": {
+      "founderTitle": "Themelues & Drejtor i {name}",
+      "licenseLabel": "Liçensë: {license}",
+      "nuisLabel": "NUIS: {nuis}",
+      "bio": "Av. Orjon Nallbati ka përvojë të gjerë në përfaqësimin e klientëve para të gjitha niveleve të gjykatave shqiptare, përfshirë Gjykatën e Lartë dhe Gjykatën Kushtetuese. I specializuar në çështje civile komplekse, kontrata tregtare ndërkombëtare, dhe mbrojtjen e të dhënave personale."
+    },
+    "values": {
+      "title": "Vlerat Tona",
+      "professionalism": {
+        "title": "Profesionalizëm",
+        "description": "Çdo çështje trajtohet me kujdesin maksimal, njohuri të thella ligjore dhe standardet më të larta etike."
+      },
+      "integrity": {
+        "title": "Integritet",
+        "description": "Transparenca dhe ndershmëria janë baza e marrëdhënies tonë me klientët. Besimi ndërtohet me vepra."
+      },
+      "results": {
+        "title": "Rezultate",
+        "description": "Jemi të orientuar drejt arritjes së rezultatit më të mirë për klientët tanë, me strategji efektive."
+      }
+    }
+  },
+  "cta": {
+    "title": "Keni nevojë për konsultë juridike?",
+    "description": "Na kontaktoni për një takim fillestar pa detyrim. Do të vlerësojmë çështjen tuaj dhe do t'ju ofrojmë këshillimin më të përshtatshëm.",
+    "button": "Cakto një Takim"
+  },
+  "contactPage": {
+    "title": "Na Kontaktoni",
+    "subtitle": "Jemi këtu për t'ju ndihmuar me çdo çështje juridike",
+    "formTitle": "Dërgoni një Mesazh",
+    "formSubtitle": "Plotësoni formularin dhe do t'ju kontaktojmë brenda 24 orëve.",
+    "infoTitle": "Informacione Kontakti",
+    "address": "Adresa",
+    "phone": "Telefon",
+    "email": "Email",
+    "workingHours": "Orari i Punës",
+    "workingHoursValue": "E Hënë - E Premte: 09:00 - 17:00"
+  },
+  "contactForm": {
+    "fullName": "Emri i Plotë *",
+    "namePlaceholder": "Emri juaj",
+    "email": "Email *",
+    "emailPlaceholder": "email@shembull.com",
+    "phone": "Telefon",
+    "phonePlaceholder": "+355 6X XXX XXXX",
+    "subject": "Subjekti",
+    "subjectPlaceholder": "Çfarë ju intereson?",
+    "message": "Mesazhi *",
+    "messagePlaceholder": "Përshkruani shkurtimisht çështjen tuaj...",
+    "submit": "Dërgo Mesazhin",
+    "sending": "Duke dërguar...",
+    "successTitle": "Mesazhi u dërgua me sukses!",
+    "successMessage": "Do t'ju kontaktojmë sa më shpejt të jetë e mundur.",
+    "errorMessage": "Ndodhi një gabim. Ju lutem provoni përsëri ose na kontaktoni direkt me telefon."
+  },
+  "blogPage": {
+    "title": "Blog Juridik",
+    "subtitle": "Artikuj, analiza dhe komente mbi legjislacionin shqiptar",
+    "emptyTitle": "Artikujt e blogut do të publikohen së shpejti.",
+    "emptySubtitle": "Na ndiqni për përditësime mbi legjislacionin shqiptar."
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Faqja Nuk u Gjet",
+    "description": "Faqja që po kërkoni nuk ekziston ose mund të jetë zhvendosur.",
+    "backHome": "Kthehu në Kryefaqje"
+  },
+  "footer": {
+    "description": "Studio ligjore profesionale me përvojë në fushën e së drejtës civile, tregtare, administrative, kushtetuese dhe mbrojtjen e të dhënave personale.",
+    "quickLinks": "Lidhje të Shpejta",
+    "contact": "Kontakt",
+    "copyright": "© {year} {name}. Të gjitha të drejtat e rezervuara.",
+    "privacyLink": "Privatësia & Cookies"
+  },
+  "privacy": {
+    "hero": {
+      "badge": "Ligji Nr. 124/2024",
+      "title": "Politika e Privatesise",
+      "titleHighlight": "& Cookie Policy",
+      "subtitle": "Si i mbrojme te dhenat tuaja personale — OnLaw Office, Studio Ligjore e Av. Orjon Nallbati"
+    },
+    "tabs": {
+      "privacy": "Politika e Privatesise",
+      "cookies": "Cookie Policy"
+    },
+    "privacyTab": {
+      "introTitle": "Informacion mbi mbrojtjen e te dhenave personale",
+      "introText": "Kjo politike privatësie shpjegon se si OnLaw Office mbledh, perdor dhe mbron te dhenat tuaja personale kur vizitoni faqen tone te internetit onlawoffice.com ose na kontaktoni nepermjet saj, ne perputhje me Ligjin Nr. 124/2024 \"Per mbrojtjen e te dhenave personale\".",
+      "updated": "Perditesuar: Mars 2026",
+      "lawReference": "Ligji 124/2024, Neni 13",
+      "sections": {
+        "controller": {
+          "title": "Kush jemi ne? (Kontrolluesi i te dhenave)",
+          "text": "Kontrolluesi i te dhenave personale eshte:",
+          "boxTitle": "OnLaw Office — Studio Ligjore",
+          "contactNote": "Per cdo pyetje ne lidhje me perpunimin e te dhenave tuaja personale, mund te na kontaktoni ne adresen e emailit te mesiperm."
+        },
+        "dataCollected": {
+          "title": "Cfare te dhenash mbledhim?",
+          "intro": "Kur perdorni faqen tone te internetit, mund te mbledhim keto kategori te dhenash:",
+          "contactFormTitle": "a) Te dhena nga formulari i kontaktit:",
+          "contactFormItems": [
+            "Emri i plote",
+            "Adresa e emailit",
+            "Numri i telefonit (opsionale)",
+            "Subjekti dhe permbajtja e mesazhit"
+          ],
+          "technicalTitle": "b) Te dhena teknike (automatike):",
+          "technicalItems": [
+            "Adresa IP (per sigurine teknike)",
+            "Lloji i shfletuesit (browser) dhe pajisjes",
+            "Data dhe ora e vizites"
+          ],
+          "noSensitive": "Nuk mbledhim te dhena sensitive (si p.sh. te dhena shendetesore, fetare, biometrike) nepermjet faqes sone."
+        },
+        "purpose": {
+          "title": "Pse i perpunojme dhe mbi cfare baze ligjore?",
+          "intro": "Te dhenat tuaja perpunohen per qellimet e meposhtme:",
+          "contactResponse": {
+            "title": "Pergjigja ndaj kerkeses suaj (Formulari i kontaktit)",
+            "text": "Baza ligjore: Masat paraprake me kerkese tuajen per te lidhur nje marredhenie kontraktore, ose pelqimi juaj (Neni 7, shkronja \"b\" dhe \"a\", Ligji 124/2024)."
+          },
+          "technicalFunction": {
+            "title": "Funksionimi teknik i faqes",
+            "text": "Baza ligjore: Interesi i ligjshem i kontrolluesit per sigurimin e funksionimit teknik te faqes (Neni 7, shkronja \"dh\", Ligji 124/2024)."
+          },
+          "legalObligation": {
+            "title": "Permbushja e detyrimeve ligjore",
+            "text": "Baza ligjore: Detyrimi ligjor i kontrolluesit (Neni 7, shkronja \"c\", Ligji 124/2024), si p.sh. ruajtja e dokumentacionit sipas legjislacionit fiskal ose arkivor."
+          }
+        },
+        "retention": {
+          "title": "Sa kohe i ruajme te dhenat?",
+          "intro": "Zbatojme parimin e kufizimit te periudhes se ruajtjes sipas Nenit 6, pika 1, shkronja \"dh\" te Ligjit 124/2024:",
+          "items": [
+            {
+              "label": "Te dhena kontakti:",
+              "text": "Ruhen deri ne perfundimin e komunikimit me ju dhe jo me gjate se 12 muaj nga kontakti i fundit, pervecse kur krijohet nje marredhenie kontraktore."
+            },
+            {
+              "label": "Te dhena teknike (log):",
+              "text": "Ruhen deri ne 90 dite, vetem per qellime sigurie teknike."
+            },
+            {
+              "label": "Dokumentacion ligjor/kontraktual:",
+              "text": "Ruhen sipas afateve ligjore ne fuqi (deri ne 10 vjet sipas legjislacionit fiskal)."
+            }
+          ],
+          "afterExpiry": "Pas perfundimit te afatit, te dhenat fshihen ose anonimizohen."
+        },
+        "sharing": {
+          "title": "Me ke ndahen te dhenat?",
+          "intro": "Te dhenat tuaja personale nuk shiten, nuk tregtohen dhe nuk ndahen me pale te treta per qellime marketingu.",
+          "availableTo": "Ato mund t'u vihen ne dispozicion vetem:",
+          "items": [
+            {
+              "label": "Ofruesve te sherbimit teknik",
+              "text": "(hosting, email) — qe veprojne si perpunues te dhenash sipas udhezimeve tona dhe me garancite perkatese kontraktore;"
+            },
+            {
+              "label": "Autoriteteve publike",
+              "text": "— vetem kur kerkohet me ligj ose me urdher gjykate."
+            }
+          ],
+          "formNote": "Formulari i kontaktit funksionon nepermjet sherbimit te dergimit me email. Te dhenat e derguara nepermjet formularit dergohen drejtperdrejt ne emailin tone profesional dhe nuk ruhen ne baza te dhenash te jashtme."
+        },
+        "transfers": {
+          "title": "A transferohen te dhenat jashte Shqiperise?",
+          "text1": "Si rregull, te dhenat tuaja perpunohen brenda territorit te Republikes se Shqiperise ose ne vende qe ofrojne nivel adekuat mbrojtjeje.",
+          "text2": "Nese per arsye teknike (si p.sh. infrastruktura e sherbimit te emailit) te dhenat transferohen ne nje vend tjeter, ne sigurohemi qe transferimi te mbeshetet ne garanci te pershtatshme sipas Pjeses II, Kapitulli V (Nenet 37-44) te Ligjit 124/2024, duke perfshire klauza standarde kontraktore ose vendime pershtatshmerie."
+        },
+        "rights": {
+          "title": "Cilat jane te drejtat tuaja?",
+          "intro": "Sipas Neneve 13-20 te Ligjit 124/2024, ju gezoni keto te drejta:",
+          "items": [
+            { "label": "E drejta per informim", "text": "(Neni 13) — te informoheni mbi perpunimin e te dhenave" },
+            { "label": "E drejta e aksesit", "text": "(Neni 14) — te merrni nje kopje te te dhenave tuaja" },
+            { "label": "E drejta per korrigjim", "text": "(Neni 15) — te korrigjoni te dhena te pasakta" },
+            { "label": "E drejta per fshirje", "text": "(Neni 15) — te kerkoni fshirjen e te dhenave" },
+            { "label": "E drejta per kufizim", "text": "(Neni 16) — te kufizoni perpunimin" },
+            { "label": "E drejta per transferueshmeri", "text": "(Neni 18) — te merrni te dhenat ne format elektronik" },
+            { "label": "E drejta per te kundershtuar", "text": "(Neni 19) — te kundershtoni perpunimin" },
+            { "label": "E drejta per terheqjen e pelqimit", "text": "— ne cdo kohe, pa ndikuar ligjshmerine e perpunimit te meparshem" }
+          ],
+          "exerciseTitle": "Si t'i ushtroni?",
+          "exerciseText": "Dergoni kerkesen tuaj me email ne {email}. Do t'ju pergjigjemi brenda 30 diteve."
+        },
+        "complaint": {
+          "title": "E drejta per ankese te Komisioneri",
+          "intro": "Nese konsideroni se te drejtat tuaja te mbrojtjes se te dhenave personale jane cenuar, keni te drejte te paraqisni ankese prane:",
+          "boxTitle": "Komisioneri per te Drejten e Informimit dhe Mbrojtjen e te Dhenave Personale",
+          "boxAddress": "Adresa: Rruga \"Abdi Toptani\", Nd. 5, Tirane",
+          "boxTel": "Tel: +355 42 237 200",
+          "boxWeb": "www.idp.al",
+          "boxEmail": "Email: info@idp.al",
+          "legalRemedy": "Gjithashtu, sipas Nenit 88 te Ligjit 124/2024, keni te drejte per mjet juridik efektiv prane gjykates kompetente."
+        },
+        "automated": {
+          "title": "A merren vendime automatike?",
+          "text": "Jo. OnLaw Office nuk perdor asnje sistem vendimmarrjeje automatike ose profilizimi sipas Nenit 20 te Ligjit 124/2024 ne lidhje me vizitoret e faqes ose klientet."
+        },
+        "changes": {
+          "title": "Ndryshimet e kesaj politike",
+          "text": "Kjo politike mund te perditësohet here pas here per te pasqyruar ndryshime ligjore ose te praktikes sone. Versioni i perditesuar do te publikohet ne kete faqe me daten e perditesimit. Ju inkurajojme ta rishikoni periodikisht.",
+          "currentVersion": "Versioni aktual:",
+          "versionDate": "Mars 2026"
+        }
+      }
+    },
+    "cookieTab": {
+      "introTitle": "Politika e Cookies (Skedareve te Perkohshem)",
+      "introText": "Kjo politike shpjegon se si faqja onlawoffice.com perdor cookies — skedare te vegjel teksti qe ruhen ne pajisjen tuaj kur vizitoni faqen tone.",
+      "updated": "Perditesuar: Mars 2026",
+      "lawReference": "Ligji 124/2024",
+      "sections": {
+        "whatAreCookies": {
+          "title": "Cfare jane cookies?",
+          "text1": "Cookies jane skedare te vegjel teksti qe faqet e internetit ruajne ne pajisjen tuaj (kompjuter, telefon, tablet). Ato ndihmojne faqen te funksionoje sic duhet, te ruaje preferencat tuaja dhe te ofroje nje pervoje me te mire navigimi.",
+          "text2": "Cookies nuk permbajne viruse dhe nuk mund te aksesojne informacione te tjera ne pajisjen tuaj."
+        },
+        "whichCookies": {
+          "title": "Cilat cookies perdorim?",
+          "intro": "Faqja onlawoffice.com perdor vetem cookies teknike (te domosdoshme) per funksionimin e faqes. Nuk perdorim cookies analitike, marketingu ose profilizimi.",
+          "tableHeaders": {
+            "cookie": "Cookie",
+            "purpose": "Qellimi",
+            "duration": "Kohezgjatja",
+            "type": "Lloji"
+          },
+          "cookies": [
+            {
+              "name": "session_id",
+              "purpose": "Menaxhimi i sesionit te navigimit",
+              "duration": "Deri ne mbylljen e shfletuesit",
+              "type": "I domosdoshem"
+            },
+            {
+              "name": "csrf_token",
+              "purpose": "Mbrojtja e formularit nga sulme",
+              "duration": "Deri ne mbylljen e shfletuesit",
+              "type": "I domosdoshem"
+            }
+          ],
+          "noAnalyticsTitle": "Pa cookies analitike ose marketingu",
+          "noAnalyticsText": "Nuk perdorim Google Analytics, Facebook Pixel ose ndonje mjet tjeter gjurmimi. Navigimi juaj ne faqen tone nuk gjurmohet per qellime profilizimi ose reklamimi."
+        },
+        "legalBasis": {
+          "title": "Baza ligjore e cookies",
+          "text1": "Cookies teknike (te domosdoshme) nuk kerkojne pelqimin tuaj, pasi jane te nevojshme per funksionimin baze te faqes.",
+          "text2": "Baza ligjore: Interesi i ligjshem i kontrolluesit (Neni 7, shkronja \"dh\", Ligji 124/2024) per sigurimin e funksionimit teknik dhe sigurise se faqes.",
+          "text3": "Nese ne te ardhmen vendosim te perdorim cookies analitike ose marketingu, do te perditesojme kete politike dhe do te kerkojme pelqimin tuaj te shprehur perpara aktivizimit te tyre."
+        },
+        "manageCookies": {
+          "title": "Si t'i menaxhoni cookies?",
+          "intro": "Ju mund t'i menaxhoni ose fshini cookies nepermjet cilesimeve te shfletuesit tuaj:",
+          "browsers": [
+            { "name": "Chrome", "path": "Settings → Privacy and Security → Cookies" },
+            { "name": "Firefox", "path": "Settings → Privacy & Security → Cookies" },
+            { "name": "Safari", "path": "Preferences → Privacy → Cookies" },
+            { "name": "Edge", "path": "Settings → Privacy → Cookies" }
+          ],
+          "warning": "Kujdes: Caktivizimi i cookies teknike mund te ndikoje funksionimin e faqes, si p.sh. mundesine e perdorimit te formularit te kontaktit."
+        }
+      }
+    },
+    "contactFooter": {
+      "title": "Keni pyetje per te dhenat tuaja?",
+      "text": "Na kontaktoni per cdo ceshtje qe lidhet me privatesine dhe mbrojtjen e te dhenave personale."
+    }
+  }
+}

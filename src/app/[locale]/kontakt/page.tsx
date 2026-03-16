@@ -3,6 +3,8 @@ import PageHeader from "@/components/ui/PageHeader";
 import Container from "@/components/ui/Container";
 import ContactForm from "@/components/contact/ContactForm";
 import { OFFICE } from "@/lib/constants";
+import { getDictionary } from "@/lib/dictionaries";
+import type { Locale } from "@/lib/i18n";
 import {
   MapPinIcon,
   PhoneIcon,
@@ -10,19 +12,32 @@ import {
   ClockIcon,
 } from "@heroicons/react/24/outline";
 
-export const metadata: Metadata = {
-  title: "Na Kontaktoni",
-  description:
-    "Na kontaktoni për konsultë juridike. OnLaw Office — Blv. Gjergj Fishta, Tiranë. Tel: +355 69 331 4640.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const dict = await getDictionary(locale as Locale);
+  return {
+    title: dict.metadata.contact.title,
+    description: dict.metadata.contact.description,
+  };
+}
 
-export default function KontaktPage() {
+export default async function KontaktPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const lang = locale as Locale;
+  const dict = await getDictionary(lang);
+  const cp = dict.contactPage;
+
   return (
     <>
-      <PageHeader
-        title="Na Kontaktoni"
-        subtitle="Jemi këtu për t'ju ndihmuar me çdo çështje juridike"
-      />
+      <PageHeader title={cp.title} subtitle={cp.subtitle} />
 
       <section className="py-16 lg:py-24 bg-white">
         <Container>
@@ -30,20 +45,19 @@ export default function KontaktPage() {
             {/* Contact Form */}
             <div className="lg:col-span-3">
               <h2 className="text-xl font-bold text-navy mb-2">
-                Dërgoni një Mesazh
+                {cp.formTitle}
               </h2>
               <p className="text-gray-500 text-sm mb-6">
-                Plotësoni formularin dhe do t&apos;ju kontaktojmë brenda 24
-                orëve.
+                {cp.formSubtitle}
               </p>
-              <ContactForm />
+              <ContactForm dict={dict.contactForm} />
             </div>
 
             {/* Contact Info */}
             <div className="lg:col-span-2">
               <div className="bg-alt rounded-xl p-8">
                 <h2 className="text-xl font-bold text-navy mb-6">
-                  Informacione Kontakti
+                  {cp.infoTitle}
                 </h2>
 
                 <div className="space-y-5">
@@ -52,7 +66,7 @@ export default function KontaktPage() {
                       <MapPinIcon className="w-5 h-5 text-navy" />
                     </div>
                     <div>
-                      <p className="font-medium text-dark text-sm">Adresa</p>
+                      <p className="font-medium text-dark text-sm">{cp.address}</p>
                       <p className="text-gray-500 text-sm">{OFFICE.address}</p>
                     </div>
                   </div>
@@ -62,7 +76,7 @@ export default function KontaktPage() {
                       <PhoneIcon className="w-5 h-5 text-navy" />
                     </div>
                     <div>
-                      <p className="font-medium text-dark text-sm">Telefon</p>
+                      <p className="font-medium text-dark text-sm">{cp.phone}</p>
                       <a
                         href={`tel:${OFFICE.phone}`}
                         className="text-gray-500 hover:text-navy text-sm"
@@ -77,7 +91,7 @@ export default function KontaktPage() {
                       <EnvelopeIcon className="w-5 h-5 text-navy" />
                     </div>
                     <div>
-                      <p className="font-medium text-dark text-sm">Email</p>
+                      <p className="font-medium text-dark text-sm">{cp.email}</p>
                       <a
                         href={`mailto:${OFFICE.email}`}
                         className="text-gray-500 hover:text-navy text-sm"
@@ -93,10 +107,10 @@ export default function KontaktPage() {
                     </div>
                     <div>
                       <p className="font-medium text-dark text-sm">
-                        Orari i Punës
+                        {cp.workingHours}
                       </p>
                       <p className="text-gray-500 text-sm">
-                        E Hënë - E Premte: 09:00 - 17:00
+                        {cp.workingHoursValue}
                       </p>
                     </div>
                   </div>

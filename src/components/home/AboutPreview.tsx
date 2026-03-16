@@ -2,13 +2,30 @@ import Link from "next/link";
 import Container from "@/components/ui/Container";
 import GoldDivider from "@/components/ui/GoldDivider";
 import { OFFICE } from "@/lib/constants";
+import { getLocalizedPath } from "@/lib/i18n";
+import type { Locale } from "@/lib/i18n";
 import {
   AcademicCapIcon,
   BriefcaseIcon,
   UserGroupIcon,
 } from "@heroicons/react/24/outline";
 
-export default function AboutPreview() {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default function AboutPreview({ dict, locale }: { dict: Record<string, any>; locale: Locale }) {
+  const ap = dict.aboutPreview;
+
+  const desc1 = ap.description1
+    .replace("{name}", OFFICE.name)
+    .replace("{lawyer}", OFFICE.lawyer)
+    .replace("{chamber}", OFFICE.chamber);
+
+  const features = [
+    { icon: BriefcaseIcon, ...ap.features.experience },
+    { icon: AcademicCapIcon, ...ap.features.expertise },
+    { icon: UserGroupIcon, ...ap.features.personal },
+    { icon: AcademicCapIcon, ...ap.features.international },
+  ];
+
   return (
     <section className="py-16 lg:py-24 bg-alt">
       <Container>
@@ -16,29 +33,19 @@ export default function AboutPreview() {
           {/* Text Content */}
           <div>
             <p className="text-gold font-semibold text-sm uppercase tracking-wider mb-3">
-              Rreth Nesh
+              {ap.label}
             </p>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy mb-4">
-              Përvojë dhe Profesionalizëm në Shërbim të Drejtësisë
+              {ap.title}
             </h2>
             <GoldDivider short className="!mx-0 mb-6" />
-            <p className="text-gray-600 leading-relaxed mb-6">
-              {OFFICE.name} është studio ligjore e themeluar nga {OFFICE.lawyer},
-              anëtar i {OFFICE.chamber}. Me përvojë të gjerë në fushat e së
-              drejtës civile, tregtare, administrative, kushtetuese, si dhe në
-              mbrojtjen e të dhënave personale, zyra jonë ofron shërbime juridike
-              të standardit më të lartë.
-            </p>
-            <p className="text-gray-600 leading-relaxed mb-8">
-              Besojmë se çdo klient meriton përfaqësim cilësor, strategji të
-              personalizuar dhe përkushtim profesional për arritjen e rezultatit
-              më të mirë të mundshëm.
-            </p>
+            <p className="text-gray-600 leading-relaxed mb-6">{desc1}</p>
+            <p className="text-gray-600 leading-relaxed mb-8">{ap.description2}</p>
             <Link
-              href="/rreth-nesh"
+              href={getLocalizedPath(locale, "about")}
               className="inline-flex items-center text-navy font-semibold hover:text-gold transition-colors"
             >
-              Lexo Më Shumë
+              {ap.readMore}
               <svg
                 className="ml-2 w-4 h-4"
                 fill="none"
@@ -57,28 +64,7 @@ export default function AboutPreview() {
 
           {/* Stats / Features */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {[
-              {
-                icon: BriefcaseIcon,
-                title: "Përvojë e Gjerë",
-                desc: "Përfaqësim profesional në të gjitha nivelet e gjykatave shqiptare",
-              },
-              {
-                icon: AcademicCapIcon,
-                title: "Ekspertizë e Thelluar",
-                desc: "Specializim në fusha specifike të së drejtës civile dhe tregtare",
-              },
-              {
-                icon: UserGroupIcon,
-                title: "Qasje Personale",
-                desc: "Strategji e personalizuar për çdo çështje dhe klient",
-              },
-              {
-                icon: AcademicCapIcon,
-                title: "Standardet Ndërkombëtare",
-                desc: "Përputhshmëri me GJEDNJ, GDPR dhe praktikat më të mira",
-              },
-            ].map((item) => (
+            {features.map((item) => (
               <div
                 key={item.title}
                 className="bg-white p-6 rounded-lg shadow-sm"
@@ -88,7 +74,7 @@ export default function AboutPreview() {
                   {item.title}
                 </h3>
                 <p className="text-gray-500 text-xs leading-relaxed">
-                  {item.desc}
+                  {item.description}
                 </p>
               </div>
             ))}

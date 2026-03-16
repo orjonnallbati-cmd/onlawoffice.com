@@ -1,13 +1,28 @@
 import Link from "next/link";
-import { OFFICE, NAV_LINKS } from "@/lib/constants";
+import { OFFICE } from "@/lib/constants";
+import { getLocalizedPath } from "@/lib/i18n";
+import type { Locale } from "@/lib/i18n";
 import {
   MapPinIcon,
   PhoneIcon,
   EnvelopeIcon,
 } from "@heroicons/react/24/outline";
 
-export default function Footer() {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default function Footer({ locale, dict }: { locale: Locale; dict: Record<string, any> }) {
   const currentYear = new Date().getFullYear();
+
+  const navLinks = [
+    { href: getLocalizedPath(locale, "home"), label: dict.nav.home },
+    { href: getLocalizedPath(locale, "services"), label: dict.nav.services },
+    { href: getLocalizedPath(locale, "about"), label: dict.nav.about },
+    { href: getLocalizedPath(locale, "blog"), label: dict.nav.blog },
+    { href: getLocalizedPath(locale, "contact"), label: dict.nav.contact },
+  ];
+
+  const copyright = dict.footer.copyright
+    .replace("{year}", String(currentYear))
+    .replace("{name}", OFFICE.name);
 
   return (
     <footer className="bg-navy text-white">
@@ -21,19 +36,17 @@ export default function Footer() {
             <h3 className="text-xl font-bold text-white mb-2">OnLaw Office</h3>
             <p className="text-gold text-sm mb-4">{OFFICE.full}</p>
             <p className="text-gray-300 text-sm leading-relaxed">
-              Studio ligjore profesionale me përvojë në fushën e së drejtës
-              civile, tregtare, administrative, kushtetuese dhe mbrojtjen e të
-              dhënave personale.
+              {dict.footer.description}
             </p>
           </div>
 
           {/* Column 2: Quick Links */}
           <div>
             <h3 className="text-lg font-bold text-white mb-4">
-              Lidhje të Shpejta
+              {dict.footer.quickLinks}
             </h3>
             <nav className="space-y-2">
-              {NAV_LINKS.map((link) => (
+              {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
@@ -47,7 +60,9 @@ export default function Footer() {
 
           {/* Column 3: Contact */}
           <div>
-            <h3 className="text-lg font-bold text-white mb-4">Kontakt</h3>
+            <h3 className="text-lg font-bold text-white mb-4">
+              {dict.footer.contact}
+            </h3>
             <div className="space-y-3">
               <div className="flex items-start gap-3">
                 <MapPinIcon className="w-5 h-5 text-gold shrink-0 mt-0.5" />
@@ -80,16 +95,13 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-gray-400">
-            <p>
-              &copy; {currentYear} {OFFICE.name}. Të gjitha të drejtat e
-              rezervuara.
-            </p>
+            <p>{copyright}</p>
             <div className="flex items-center gap-3">
               <Link
-                href="/privatesia"
+                href={getLocalizedPath(locale, "privacy")}
                 className="hover:text-gold transition-colors"
               >
-                Privatësia & Cookies
+                {dict.footer.privacyLink}
               </Link>
               <span>|</span>
               <p>

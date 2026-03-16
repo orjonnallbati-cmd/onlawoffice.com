@@ -4,6 +4,8 @@ import Container from "@/components/ui/Container";
 import GoldDivider from "@/components/ui/GoldDivider";
 import CTABanner from "@/components/home/CTABanner";
 import { OFFICE } from "@/lib/constants";
+import { getDictionary } from "@/lib/dictionaries";
+import type { Locale } from "@/lib/i18n";
 import {
   ShieldCheckIcon,
   HandRaisedIcon,
@@ -13,19 +15,46 @@ import {
   BriefcaseIcon,
 } from "@heroicons/react/24/outline";
 
-export const metadata: Metadata = {
-  title: "Rreth Nesh",
-  description:
-    "Mësoni më shumë rreth OnLaw Office dhe Av. Orjon Nallbati — studio ligjore profesionale në Tiranë.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const dict = await getDictionary(locale as Locale);
+  return {
+    title: dict.metadata.about.title,
+    description: dict.metadata.about.description,
+  };
+}
 
-export default function RrethNeshPage() {
+export default async function RrethNeshPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const lang = locale as Locale;
+  const dict = await getDictionary(lang);
+  const ap = dict.aboutPage;
+
+  const firmDesc1 = ap.firmOverview.description1
+    .replace("{name}", OFFICE.name)
+    .replace("{name}", OFFICE.name);
+  const firmDesc2 = ap.firmOverview.description2;
+  const founderTitle = ap.lawyerProfile.founderTitle.replace("{name}", OFFICE.name);
+  const licLabel = ap.lawyerProfile.licenseLabel.replace("{license}", OFFICE.license);
+  const nuisLabel = ap.lawyerProfile.nuisLabel.replace("{nuis}", OFFICE.nuis);
+
+  const values = [
+    { icon: ShieldCheckIcon, ...ap.values.professionalism },
+    { icon: HandRaisedIcon, ...ap.values.integrity },
+    { icon: TrophyIcon, ...ap.values.results },
+  ];
+
   return (
     <>
-      <PageHeader
-        title="Rreth Nesh"
-        subtitle="Studio Ligjore profesionale me përkushtim ndaj drejtësisë"
-      />
+      <PageHeader title={ap.title} subtitle={ap.subtitle} />
 
       {/* Firm Overview */}
       <section className="py-16 lg:py-24 bg-white">
@@ -36,18 +65,8 @@ export default function RrethNeshPage() {
             </h2>
             <p className="text-gold font-medium mb-6">{OFFICE.full}</p>
             <GoldDivider short className="mb-8" />
-            <p className="text-gray-600 leading-relaxed mb-6">
-              {OFFICE.name} është studio ligjore e themeluar me qëllim ofrimin e
-              shërbimeve juridike profesionale të standardit më të lartë. E
-              angazhuar në përfaqësimin e klientëve në çdo nivel të sistemit
-              gjyqësor shqiptar, zyra jonë kombinon njohuritë akademike me
-              përvojën praktike.
-            </p>
-            <p className="text-gray-600 leading-relaxed">
-              Jemi të specializuar në fushën e së drejtës civile, tregtare,
-              administrative dhe kushtetuese, si edhe në fushën e mbrojtjes së të
-              dhënave personale dhe përputhshmërisë me legjislacionin GDPR.
-            </p>
+            <p className="text-gray-600 leading-relaxed mb-6">{firmDesc1}</p>
+            <p className="text-gray-600 leading-relaxed">{firmDesc2}</p>
           </div>
         </Container>
       </section>
@@ -70,29 +89,15 @@ export default function RrethNeshPage() {
                   <h2 className="text-2xl lg:text-3xl font-bold text-navy mb-1">
                     {OFFICE.lawyer}
                   </h2>
-                  <p className="text-gold font-medium mb-4">
-                    Themelues & Drejtor i {OFFICE.name}
-                  </p>
+                  <p className="text-gold font-medium mb-4">{founderTitle}</p>
                   <GoldDivider short className="!mx-0 mb-4" />
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
                     {[
-                      {
-                        icon: BriefcaseIcon,
-                        label: `Liçensë: ${OFFICE.license}`,
-                      },
-                      {
-                        icon: MapPinIcon,
-                        label: OFFICE.chamber,
-                      },
-                      {
-                        icon: AcademicCapIcon,
-                        label: `NUIS: ${OFFICE.nuis}`,
-                      },
-                      {
-                        icon: MapPinIcon,
-                        label: OFFICE.city,
-                      },
+                      { icon: BriefcaseIcon, label: licLabel },
+                      { icon: MapPinIcon, label: OFFICE.chamber },
+                      { icon: AcademicCapIcon, label: nuisLabel },
+                      { icon: MapPinIcon, label: OFFICE.city },
                     ].map((item) => (
                       <div
                         key={item.label}
@@ -105,11 +110,7 @@ export default function RrethNeshPage() {
                   </div>
 
                   <p className="text-gray-600 text-sm leading-relaxed">
-                    Av. Orjon Nallbati ka përvojë të gjerë në përfaqësimin e
-                    klientëve para të gjitha niveleve të gjykatave shqiptare,
-                    përfshirë Gjykatën e Lartë dhe Gjykatën Kushtetuese. I
-                    specializuar në çështje civile komplekse, kontrata tregtare
-                    ndërkombëtare, dhe mbrojtjen e të dhënave personale.
+                    {ap.lawyerProfile.bio}
                   </p>
                 </div>
               </div>
@@ -123,29 +124,13 @@ export default function RrethNeshPage() {
         <Container>
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-navy mb-4">
-              Vlerat Tona
+              {ap.values.title}
             </h2>
             <GoldDivider short />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {[
-              {
-                icon: ShieldCheckIcon,
-                title: "Profesionalizëm",
-                desc: "Çdo çështje trajtohet me kujdesin maksimal, njohuri të thella ligjore dhe standardet më të larta etike.",
-              },
-              {
-                icon: HandRaisedIcon,
-                title: "Integritet",
-                desc: "Transparenca dhe ndershmëria janë baza e marrëdhënies tonë me klientët. Besimi ndërtohet me vepra.",
-              },
-              {
-                icon: TrophyIcon,
-                title: "Rezultate",
-                desc: "Jemi të orientuar drejt arritjes së rezultatit më të mirë për klientët tanë, me strategji efektive.",
-              },
-            ].map((item) => (
+            {values.map((item) => (
               <div key={item.title} className="text-center p-6">
                 <div className="w-14 h-14 bg-navy-50 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <item.icon className="w-7 h-7 text-navy" />
@@ -154,7 +139,7 @@ export default function RrethNeshPage() {
                   {item.title}
                 </h3>
                 <p className="text-sm text-gray-500 leading-relaxed">
-                  {item.desc}
+                  {item.description}
                 </p>
               </div>
             ))}
@@ -162,7 +147,7 @@ export default function RrethNeshPage() {
         </Container>
       </section>
 
-      <CTABanner />
+      <CTABanner dict={dict} locale={lang} />
     </>
   );
 }

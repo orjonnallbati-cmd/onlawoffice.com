@@ -2,7 +2,8 @@
 
 import { useState, type FormEvent } from "react";
 
-export default function ContactForm() {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default function ContactForm({ dict }: { dict: Record<string, any> }) {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle"
   );
@@ -52,10 +53,10 @@ export default function ContactForm() {
           />
         </svg>
         <h3 className="text-lg font-bold text-green-800 mb-2">
-          Mesazhi u dërgua me sukses!
+          {dict.successTitle}
         </h3>
         <p className="text-green-600 text-sm">
-          Do t&apos;ju kontaktojmë sa më shpejt të jetë e mundur.
+          {dict.successMessage}
         </p>
       </div>
     );
@@ -72,7 +73,7 @@ export default function ContactForm() {
             htmlFor="name"
             className="block text-sm font-medium text-dark mb-1.5"
           >
-            Emri i Plotë *
+            {dict.fullName}
           </label>
           <input
             type="text"
@@ -80,7 +81,7 @@ export default function ContactForm() {
             name="name"
             required
             className="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-colors text-sm"
-            placeholder="Emri juaj"
+            placeholder={dict.namePlaceholder}
           />
         </div>
         <div>
@@ -88,7 +89,7 @@ export default function ContactForm() {
             htmlFor="email"
             className="block text-sm font-medium text-dark mb-1.5"
           >
-            Email *
+            {dict.email}
           </label>
           <input
             type="email"
@@ -96,7 +97,7 @@ export default function ContactForm() {
             name="email"
             required
             className="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-colors text-sm"
-            placeholder="email@shembull.com"
+            placeholder={dict.emailPlaceholder}
           />
         </div>
       </div>
@@ -107,14 +108,14 @@ export default function ContactForm() {
             htmlFor="phone"
             className="block text-sm font-medium text-dark mb-1.5"
           >
-            Telefon
+            {dict.phone}
           </label>
           <input
             type="tel"
             id="phone"
             name="phone"
             className="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-colors text-sm"
-            placeholder="+355 6X XXX XXXX"
+            placeholder={dict.phonePlaceholder}
           />
         </div>
         <div>
@@ -122,14 +123,14 @@ export default function ContactForm() {
             htmlFor="subject"
             className="block text-sm font-medium text-dark mb-1.5"
           >
-            Subjekti
+            {dict.subject}
           </label>
           <input
             type="text"
             id="subject"
             name="subject"
             className="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-colors text-sm"
-            placeholder="Çfarë ju intereson?"
+            placeholder={dict.subjectPlaceholder}
           />
         </div>
       </div>
@@ -139,7 +140,7 @@ export default function ContactForm() {
           htmlFor="message"
           className="block text-sm font-medium text-dark mb-1.5"
         >
-          Mesazhi *
+          {dict.message}
         </label>
         <textarea
           id="message"
@@ -147,7 +148,7 @@ export default function ContactForm() {
           required
           rows={5}
           className="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-colors text-sm resize-none"
-          placeholder="Përshkruani shkurtimisht çështjen tuaj..."
+          placeholder={dict.messagePlaceholder}
         />
       </div>
 
@@ -156,13 +157,12 @@ export default function ContactForm() {
         disabled={status === "sending"}
         className="w-full sm:w-auto px-8 py-3.5 bg-navy text-white font-semibold rounded-md hover:bg-navy-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {status === "sending" ? "Duke dërguar..." : "Dërgo Mesazhin"}
+        {status === "sending" ? dict.sending : dict.submit}
       </button>
 
       {status === "error" && (
         <p className="text-red-600 text-sm">
-          Ndodhi një gabim. Ju lutem provoni përsëri ose na kontaktoni direkt me
-          telefon.
+          {dict.errorMessage}
         </p>
       )}
     </form>

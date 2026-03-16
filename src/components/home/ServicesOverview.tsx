@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { SERVICES } from "@/lib/constants";
+import { getLocalizedPath } from "@/lib/i18n";
+import type { Locale } from "@/lib/i18n";
 import {
   ScaleIcon,
   BuildingOffice2Icon,
@@ -20,22 +21,28 @@ const ICONS: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> 
   kontrata: PencilSquareIcon,
 };
 
-export default function ServicesOverview() {
+const SERVICE_IDS = ["civile", "tregtare", "administrative", "kushtetuese", "gdpr", "kontrata"] as const;
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default function ServicesOverview({ dict, locale }: { dict: Record<string, any>; locale: Locale }) {
+  const servicesPath = getLocalizedPath(locale, "services");
+
   return (
     <section className="py-16 lg:py-24 bg-white">
       <Container>
         <SectionHeading
-          title="Fushat e Praktikës"
-          subtitle="Ofrojmë shërbime juridike të specializuara në gjashtë fusha kryesore"
+          title={dict.servicesOverview.title}
+          subtitle={dict.servicesOverview.subtitle}
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {SERVICES.map((service) => {
-            const Icon = ICONS[service.id];
+          {SERVICE_IDS.map((serviceId) => {
+            const Icon = ICONS[serviceId];
+            const service = dict.services[serviceId];
             return (
               <Link
-                key={service.id}
-                href={`/sherbime#${service.id}`}
+                key={serviceId}
+                href={`${servicesPath}#${serviceId}`}
                 className="group p-6 lg:p-8 rounded-lg border border-gray-100 hover:border-gold/30 hover:shadow-lg transition-all duration-300"
               >
                 <div className="w-12 h-12 bg-navy-50 rounded-lg flex items-center justify-center mb-4 group-hover:bg-gold-50 transition-colors">

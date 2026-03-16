@@ -1,0 +1,426 @@
+{
+  "metadata": {
+    "home": {
+      "title": "OnLaw Office — Law Firm",
+      "description": "OnLaw Office — Law Firm of Av. Orjon Nallbati. Professional legal services in Tirana: civil, commercial, administrative, constitutional law and data protection."
+    },
+    "services": {
+      "title": "Legal Services",
+      "description": "Professional legal services: civil, commercial, administrative, constitutional law, data protection and contract drafting."
+    },
+    "about": {
+      "title": "About Us",
+      "description": "Learn more about OnLaw Office and Av. Orjon Nallbati — a professional law firm in Tirana."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "Contact us for legal consultation. OnLaw Office — Blv. Gjergj Fishta, Tirana. Tel: +355 69 331 4640."
+    },
+    "blog": {
+      "title": "Legal Blog",
+      "description": "Legal articles and analyses on Albanian legislation, judicial practice and personal data protection."
+    },
+    "privacy": {
+      "title": "Privacy Policy & Cookie Policy",
+      "description": "How we protect your personal data — OnLaw Office, Law Firm of Av. Orjon Nallbati. Law No. 124/2024."
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About Us",
+    "blog": "Blog",
+    "contact": "Contact",
+    "contactCta": "Contact Us"
+  },
+  "hero": {
+    "badge": "Professional Law Firm",
+    "subtitle": "Law Firm — Av. Orjon Nallbati",
+    "description": "Professional legal services in civil, commercial, administrative, constitutional law and personal data protection.",
+    "ctaPrimary": "Contact Us",
+    "ctaSecondary": "Our Services",
+    "features": {
+      "civil": "Civil & Commercial Law",
+      "constitutional": "Constitutional Law",
+      "data": "Data Protection"
+    }
+  },
+  "servicesOverview": {
+    "title": "Practice Areas",
+    "subtitle": "We offer specialised legal services in six core practice areas"
+  },
+  "services": {
+    "civile": {
+      "title": "Civil Law",
+      "description": "Representation in civil, property, family, inheritance and obligations cases.",
+      "details": [
+        "Property cases and asset registration",
+        "Family law — divorce, custody, adoption",
+        "Inheritance and wills",
+        "Contractual and non-contractual obligations",
+        "Enforcement of court decisions"
+      ]
+    },
+    "tregtare": {
+      "title": "Commercial Law",
+      "description": "Company formation, commercial contracts, restructuring, bankruptcy and arbitration.",
+      "details": [
+        "Formation and restructuring of commercial companies",
+        "Commercial contracts and negotiations",
+        "Protection of shareholders' interests",
+        "Bankruptcy proceedings",
+        "Commercial arbitration"
+      ]
+    },
+    "administrative": {
+      "title": "Administrative Law",
+      "description": "Administrative appeals, challenging administrative acts, representation before public authorities.",
+      "details": [
+        "Challenging administrative acts",
+        "Appeals before administrative courts",
+        "Tender procedures and public procurement",
+        "Non-contractual liability of the state",
+        "Permits and licences"
+      ]
+    },
+    "kushtetuese": {
+      "title": "Constitutional Law",
+      "description": "Individual constitutional appeals, cases before the Constitutional Court.",
+      "details": [
+        "Individual constitutional appeals",
+        "Protection of fundamental rights",
+        "Proceedings before the Constitutional Court",
+        "Cases before the ECtHR"
+      ]
+    },
+    "gdpr": {
+      "title": "Data Protection",
+      "description": "Compliance with Law 124/2024, external DPO, privacy audits, GDPR.",
+      "details": [
+        "Compliance with Law 124/2024 and GDPR",
+        "External DPO (Data Protection Officer)",
+        "Privacy audits and assessments (DPIA)",
+        "Drafting policies and regulations",
+        "Staff training"
+      ]
+    },
+    "kontrata": {
+      "title": "Contract Drafting",
+      "description": "Employment, lease, service, SPA, NDA, and various agreements.",
+      "details": [
+        "Employment contracts and employment relations",
+        "Lease contracts (residential and commercial)",
+        "Professional service contracts",
+        "NDA, SPA, SLA and international agreements",
+        "Powers of attorney and authorisations"
+      ]
+    }
+  },
+  "servicesPage": {
+    "title": "Legal Services",
+    "subtitle": "We provide comprehensive legal assistance across six core practice areas"
+  },
+  "aboutPreview": {
+    "label": "About Us",
+    "title": "Experience and Professionalism in the Service of Justice",
+    "description1": "{name} is a law firm founded by {lawyer}, member of the {chamber}. With extensive experience in civil, commercial, administrative, constitutional law, as well as personal data protection, our office provides legal services of the highest standard.",
+    "description2": "We believe that every client deserves quality representation, personalised strategy and professional dedication to achieving the best possible result.",
+    "readMore": "Read More",
+    "features": {
+      "experience": {
+        "title": "Extensive Experience",
+        "description": "Professional representation at all levels of Albanian courts"
+      },
+      "expertise": {
+        "title": "Deep Expertise",
+        "description": "Specialisation in specific areas of civil and commercial law"
+      },
+      "personal": {
+        "title": "Personal Approach",
+        "description": "Personalised strategy for every case and client"
+      },
+      "international": {
+        "title": "International Standards",
+        "description": "Compliance with ECtHR, GDPR and best practices"
+      }
+    }
+  },
+  "aboutPage": {
+    "title": "About Us",
+    "subtitle": "A professional law firm dedicated to justice",
+    "firmOverview": {
+      "description1": "{name} is a law firm established with the aim of providing professional legal services of the highest standard. Committed to representing clients at every level of the Albanian judicial system, our office combines academic knowledge with practical experience.",
+      "description2": "We specialise in civil, commercial, administrative and constitutional law, as well as personal data protection and GDPR compliance."
+    },
+    "lawyerProfile": {
+      "founderTitle": "Founder & Director of {name}",
+      "licenseLabel": "Licence: {license}",
+      "nuisLabel": "NUIS: {nuis}",
+      "bio": "Av. Orjon Nallbati has extensive experience representing clients before all levels of Albanian courts, including the High Court and the Constitutional Court. Specialised in complex civil cases, international commercial contracts, and personal data protection."
+    },
+    "values": {
+      "title": "Our Values",
+      "professionalism": {
+        "title": "Professionalism",
+        "description": "Every case is handled with maximum care, deep legal knowledge and the highest ethical standards."
+      },
+      "integrity": {
+        "title": "Integrity",
+        "description": "Transparency and honesty are the foundation of our relationship with clients. Trust is built through actions."
+      },
+      "results": {
+        "title": "Results",
+        "description": "We are oriented towards achieving the best result for our clients, with effective strategies."
+      }
+    }
+  },
+  "cta": {
+    "title": "Need legal consultation?",
+    "description": "Contact us for an initial no-obligation meeting. We will assess your case and offer you the most suitable advice.",
+    "button": "Schedule a Meeting"
+  },
+  "contactPage": {
+    "title": "Contact Us",
+    "subtitle": "We are here to help you with any legal matter",
+    "formTitle": "Send a Message",
+    "formSubtitle": "Fill in the form and we will contact you within 24 hours.",
+    "infoTitle": "Contact Information",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "workingHours": "Working Hours",
+    "workingHoursValue": "Monday - Friday: 09:00 - 17:00"
+  },
+  "contactForm": {
+    "fullName": "Full Name *",
+    "namePlaceholder": "Your name",
+    "email": "Email *",
+    "emailPlaceholder": "email@example.com",
+    "phone": "Phone",
+    "phonePlaceholder": "+355 6X XXX XXXX",
+    "subject": "Subject",
+    "subjectPlaceholder": "What are you interested in?",
+    "message": "Message *",
+    "messagePlaceholder": "Briefly describe your case...",
+    "submit": "Send Message",
+    "sending": "Sending...",
+    "successTitle": "Message sent successfully!",
+    "successMessage": "We will contact you as soon as possible.",
+    "errorMessage": "An error occurred. Please try again or contact us directly by phone."
+  },
+  "blogPage": {
+    "title": "Legal Blog",
+    "subtitle": "Articles, analyses and commentaries on Albanian legislation",
+    "emptyTitle": "Blog articles will be published soon.",
+    "emptySubtitle": "Follow us for updates on Albanian legislation."
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Page Not Found",
+    "description": "The page you are looking for does not exist or may have been moved.",
+    "backHome": "Back to Home"
+  },
+  "footer": {
+    "description": "A professional law firm with experience in civil, commercial, administrative, constitutional law and personal data protection.",
+    "quickLinks": "Quick Links",
+    "contact": "Contact",
+    "copyright": "© {year} {name}. All rights reserved.",
+    "privacyLink": "Privacy & Cookies"
+  },
+  "privacy": {
+    "hero": {
+      "badge": "Law No. 124/2024",
+      "title": "Privacy Policy",
+      "titleHighlight": "& Cookie Policy",
+      "subtitle": "How we protect your personal data — OnLaw Office, Law Firm of Av. Orjon Nallbati"
+    },
+    "tabs": {
+      "privacy": "Privacy Policy",
+      "cookies": "Cookie Policy"
+    },
+    "privacyTab": {
+      "introTitle": "Information on personal data protection",
+      "introText": "This privacy policy explains how OnLaw Office collects, uses and protects your personal data when you visit our website onlawoffice.com or contact us through it, in compliance with Law No. 124/2024 \"On the protection of personal data\".",
+      "updated": "Updated: March 2026",
+      "lawReference": "Law 124/2024, Article 13",
+      "sections": {
+        "controller": {
+          "title": "Who are we? (Data Controller)",
+          "text": "The controller of personal data is:",
+          "boxTitle": "OnLaw Office — Law Firm",
+          "contactNote": "For any questions regarding the processing of your personal data, you may contact us at the email address above."
+        },
+        "dataCollected": {
+          "title": "What data do we collect?",
+          "intro": "When you use our website, we may collect the following categories of data:",
+          "contactFormTitle": "a) Data from the contact form:",
+          "contactFormItems": [
+            "Full name",
+            "Email address",
+            "Phone number (optional)",
+            "Subject and message content"
+          ],
+          "technicalTitle": "b) Technical data (automatic):",
+          "technicalItems": [
+            "IP address (for technical security)",
+            "Browser and device type",
+            "Date and time of visit"
+          ],
+          "noSensitive": "We do not collect sensitive data (such as health, religious, or biometric data) through our website."
+        },
+        "purpose": {
+          "title": "Why do we process data and on what legal basis?",
+          "intro": "Your data is processed for the following purposes:",
+          "contactResponse": {
+            "title": "Responding to your request (Contact form)",
+            "text": "Legal basis: Pre-contractual measures at your request, or your consent (Article 7, letters \"b\" and \"a\", Law 124/2024)."
+          },
+          "technicalFunction": {
+            "title": "Technical operation of the website",
+            "text": "Legal basis: Legitimate interest of the controller to ensure the technical operation of the website (Article 7, letter \"dh\", Law 124/2024)."
+          },
+          "legalObligation": {
+            "title": "Fulfilment of legal obligations",
+            "text": "Legal basis: Legal obligation of the controller (Article 7, letter \"c\", Law 124/2024), such as document retention under fiscal or archival legislation."
+          }
+        },
+        "retention": {
+          "title": "How long do we keep data?",
+          "intro": "We apply the principle of storage limitation pursuant to Article 6, paragraph 1, letter \"dh\" of Law 124/2024:",
+          "items": [
+            {
+              "label": "Contact data:",
+              "text": "Retained until the end of communication with you and no longer than 12 months from the last contact, unless a contractual relationship is established."
+            },
+            {
+              "label": "Technical data (logs):",
+              "text": "Retained for up to 90 days, solely for technical security purposes."
+            },
+            {
+              "label": "Legal/contractual documentation:",
+              "text": "Retained according to applicable legal deadlines (up to 10 years under fiscal legislation)."
+            }
+          ],
+          "afterExpiry": "After the expiry of the retention period, data is deleted or anonymised."
+        },
+        "sharing": {
+          "title": "With whom do we share data?",
+          "intro": "Your personal data is not sold, traded or shared with third parties for marketing purposes.",
+          "availableTo": "They may only be made available to:",
+          "items": [
+            {
+              "label": "Technical service providers",
+              "text": "(hosting, email) — who act as data processors under our instructions and with appropriate contractual safeguards;"
+            },
+            {
+              "label": "Public authorities",
+              "text": "— only when required by law or court order."
+            }
+          ],
+          "formNote": "The contact form operates through an email delivery service. Data submitted through the form is sent directly to our professional email and is not stored in external databases."
+        },
+        "transfers": {
+          "title": "Is data transferred outside Albania?",
+          "text1": "As a rule, your data is processed within the territory of the Republic of Albania or in countries that provide an adequate level of protection.",
+          "text2": "If, for technical reasons (such as email service infrastructure), data is transferred to another country, we ensure that the transfer is supported by appropriate safeguards under Part II, Chapter V (Articles 37-44) of Law 124/2024, including standard contractual clauses or adequacy decisions."
+        },
+        "rights": {
+          "title": "What are your rights?",
+          "intro": "Under Articles 13-20 of Law 124/2024, you have the following rights:",
+          "items": [
+            { "label": "Right to information", "text": "(Article 13) — to be informed about data processing" },
+            { "label": "Right of access", "text": "(Article 14) — to obtain a copy of your data" },
+            { "label": "Right to rectification", "text": "(Article 15) — to correct inaccurate data" },
+            { "label": "Right to erasure", "text": "(Article 15) — to request deletion of data" },
+            { "label": "Right to restriction", "text": "(Article 16) — to restrict processing" },
+            { "label": "Right to portability", "text": "(Article 18) — to receive your data in electronic format" },
+            { "label": "Right to object", "text": "(Article 19) — to object to processing" },
+            { "label": "Right to withdraw consent", "text": "— at any time, without affecting the lawfulness of prior processing" }
+          ],
+          "exerciseTitle": "How to exercise them?",
+          "exerciseText": "Send your request by email to {email}. We will respond within 30 days."
+        },
+        "complaint": {
+          "title": "Right to complain to the Commissioner",
+          "intro": "If you consider that your personal data protection rights have been violated, you have the right to file a complaint with:",
+          "boxTitle": "Commissioner for the Right to Information and Personal Data Protection",
+          "boxAddress": "Address: Rruga \"Abdi Toptani\", Nd. 5, Tirana",
+          "boxTel": "Tel: +355 42 237 200",
+          "boxWeb": "www.idp.al",
+          "boxEmail": "Email: info@idp.al",
+          "legalRemedy": "Furthermore, under Article 88 of Law 124/2024, you have the right to an effective legal remedy before the competent court."
+        },
+        "automated": {
+          "title": "Are automated decisions made?",
+          "text": "No. OnLaw Office does not use any automated decision-making system or profiling under Article 20 of Law 124/2024 in relation to website visitors or clients."
+        },
+        "changes": {
+          "title": "Changes to this policy",
+          "text": "This policy may be updated from time to time to reflect legal changes or changes in our practice. The updated version will be published on this page with the date of update. We encourage you to review it periodically.",
+          "currentVersion": "Current version:",
+          "versionDate": "March 2026"
+        }
+      }
+    },
+    "cookieTab": {
+      "introTitle": "Cookie Policy (Temporary Files)",
+      "introText": "This policy explains how the website onlawoffice.com uses cookies — small text files stored on your device when you visit our website.",
+      "updated": "Updated: March 2026",
+      "lawReference": "Law 124/2024",
+      "sections": {
+        "whatAreCookies": {
+          "title": "What are cookies?",
+          "text1": "Cookies are small text files that websites store on your device (computer, phone, tablet). They help the website function properly, save your preferences and provide a better browsing experience.",
+          "text2": "Cookies do not contain viruses and cannot access other information on your device."
+        },
+        "whichCookies": {
+          "title": "Which cookies do we use?",
+          "intro": "The website onlawoffice.com uses only technical (essential) cookies for the website to function. We do not use analytics, marketing or profiling cookies.",
+          "tableHeaders": {
+            "cookie": "Cookie",
+            "purpose": "Purpose",
+            "duration": "Duration",
+            "type": "Type"
+          },
+          "cookies": [
+            {
+              "name": "session_id",
+              "purpose": "Browsing session management",
+              "duration": "Until browser is closed",
+              "type": "Essential"
+            },
+            {
+              "name": "csrf_token",
+              "purpose": "Form protection against attacks",
+              "duration": "Until browser is closed",
+              "type": "Essential"
+            }
+          ],
+          "noAnalyticsTitle": "No analytics or marketing cookies",
+          "noAnalyticsText": "We do not use Google Analytics, Facebook Pixel or any other tracking tool. Your browsing on our website is not tracked for profiling or advertising purposes."
+        },
+        "legalBasis": {
+          "title": "Legal basis for cookies",
+          "text1": "Technical (essential) cookies do not require your consent, as they are necessary for the basic functioning of the website.",
+          "text2": "Legal basis: Legitimate interest of the controller (Article 7, letter \"dh\", Law 124/2024) to ensure the technical operation and security of the website.",
+          "text3": "If in the future we decide to use analytics or marketing cookies, we will update this policy and request your explicit consent before activating them."
+        },
+        "manageCookies": {
+          "title": "How to manage cookies?",
+          "intro": "You can manage or delete cookies through your browser settings:",
+          "browsers": [
+            { "name": "Chrome", "path": "Settings → Privacy and Security → Cookies" },
+            { "name": "Firefox", "path": "Settings → Privacy & Security → Cookies" },
+            { "name": "Safari", "path": "Preferences → Privacy → Cookies" },
+            { "name": "Edge", "path": "Settings → Privacy → Cookies" }
+          ],
+          "warning": "Warning: Disabling technical cookies may affect the website's functionality, such as the ability to use the contact form."
+        }
+      }
+    },
+    "contactFooter": {
+      "title": "Questions about your data?",
+      "text": "Contact us for any matter related to privacy and personal data protection."
+    }
+  }
+}
