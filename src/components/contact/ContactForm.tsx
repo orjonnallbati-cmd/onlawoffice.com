@@ -3,7 +3,7 @@
 import { useState, type FormEvent } from "react";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function ContactForm({ dict }: { dict: Record<string, any> }) {
+export default function ContactForm({ dict, locale, privacyPath }: { dict: Record<string, any>; locale: string; privacyPath: string }) {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle"
   );
@@ -150,6 +150,28 @@ export default function ContactForm({ dict }: { dict: Record<string, any> }) {
           className="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-colors text-sm resize-none"
           placeholder={dict.messagePlaceholder}
         />
+      </div>
+
+      {/* Consent checkbox */}
+      <div className="flex items-start gap-3">
+        <input
+          type="checkbox"
+          id="consent"
+          name="consent"
+          required
+          className="mt-1 h-4 w-4 rounded border-gray-300 text-navy focus:ring-navy/20 cursor-pointer"
+        />
+        <label htmlFor="consent" className="text-sm text-gray-600 leading-relaxed cursor-pointer">
+          {dict.consentText}{" "}
+          <a
+            href={privacyPath}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-navy hover:text-gold underline font-medium"
+          >
+            {dict.consentLink}
+          </a>
+        </label>
       </div>
 
       <button

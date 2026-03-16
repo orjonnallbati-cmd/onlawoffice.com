@@ -206,7 +206,9 @@
     "sending": "Invio in corso...",
     "successTitle": "Messaggio inviato con successo!",
     "successMessage": "Ti contatteremo il prima possibile.",
-    "errorMessage": "Si è verificato un errore. Riprova o contattaci direttamente per telefono."
+    "errorMessage": "Si è verificato un errore. Riprova o contattaci direttamente per telefono.",
+    "consentText": "Acconsento al trattamento dei miei dati personali in conformità con la",
+    "consentLink": "Privacy Policy"
   },
   "blogPage": {
     "title": "Blog Giuridico",

@@ -206,7 +206,9 @@
     "sending": "Duke dërguar...",
     "successTitle": "Mesazhi u dërgua me sukses!",
     "successMessage": "Do t'ju kontaktojmë sa më shpejt të jetë e mundur.",
-    "errorMessage": "Ndodhi një gabim. Ju lutem provoni përsëri ose na kontaktoni direkt me telefon."
+    "errorMessage": "Ndodhi një gabim. Ju lutem provoni përsëri ose na kontaktoni direkt me telefon.",
+    "consentText": "Pranoj përpunimin e të dhënave të mia personale sipas",
+    "consentLink": "Politikës së Privatësisë"
   },
   "blogPage": {
     "title": "Blog Juridik",

@@ -5,6 +5,7 @@ import ContactForm from "@/components/contact/ContactForm";
 import { OFFICE } from "@/lib/constants";
 import { getDictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/i18n";
+import { getLocalizedPath } from "@/lib/i18n";
 import {
   MapPinIcon,
   PhoneIcon,
@@ -50,7 +51,7 @@ export default async function KontaktPage({
               <p className="text-gray-500 text-sm mb-6">
                 {cp.formSubtitle}
               </p>
-              <ContactForm dict={dict.contactForm} />
+              <ContactForm dict={dict.contactForm} locale={lang} privacyPath={getLocalizedPath(lang, "privacy")} />
             </div>
 
             {/* Contact Info */}

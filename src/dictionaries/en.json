@@ -206,7 +206,9 @@
     "sending": "Sending...",
     "successTitle": "Message sent successfully!",
     "successMessage": "We will contact you as soon as possible.",
-    "errorMessage": "An error occurred. Please try again or contact us directly by phone."
+    "errorMessage": "An error occurred. Please try again or contact us directly by phone.",
+    "consentText": "I consent to the processing of my personal data in accordance with the",
+    "consentLink": "Privacy Policy"
   },
   "blogPage": {
     "title": "Legal Blog",
