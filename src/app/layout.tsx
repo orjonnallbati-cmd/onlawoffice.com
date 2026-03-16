@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     canonical: "https://www.onlawoffice.com",
   },
   verification: {
-    google: "GOOGLE_VERIFICATION_CODE",
+    google: "HqakyWy5o6kDcoMNEkd7_p3CsDZI5soRPV53eS29aic",
   },
 };
 
