@@ -56,8 +56,34 @@ export default async function BlogPostPage({
     day: "numeric",
   });
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.meta.title,
+    description: post.meta.excerpt,
+    datePublished: post.meta.date,
+    author: {
+      "@type": "Person",
+      name: post.meta.author,
+      url: "https://www.onlawoffice.com/rreth-nesh",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "OnLaw Office",
+      url: "https://www.onlawoffice.com",
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://www.onlawoffice.com/blog/${slug}`,
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       {/* Article Header */}
       <section className="bg-navy pt-28 pb-12 lg:pt-36 lg:pb-16">
         <Container className="max-w-3xl">

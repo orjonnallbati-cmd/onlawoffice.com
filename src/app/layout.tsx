@@ -36,6 +36,29 @@ export const metadata: Metadata = {
     description:
       "Studio Ligjore profesionale në Tiranë. E drejta civile, tregtare, administrative dhe kushtetuese.",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "OnLaw Office — Studio Ligjore, Av. Orjon Nallbati",
+    description:
+      "Studio Ligjore profesionale në Tiranë. Shërbime juridike në fushën civile, tregtare, administrative dhe kushtetuese.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://www.onlawoffice.com",
+  },
+  verification: {
+    google: "GOOGLE_VERIFICATION_CODE",
+  },
 };
 
 export default function RootLayout({
