@@ -207,7 +207,7 @@
     "successTitle": "Message sent successfully!",
     "successMessage": "We will contact you as soon as possible.",
     "errorMessage": "An error occurred. Please try again or contact us directly by phone.",
-    "consentText": "I consent to the processing of my personal data in accordance with the",
+    "consentText": "I consent to the processing of my personal data, including any sensitive data that may be included in my message, for the purpose of being contacted regarding my request, in accordance with the",
     "consentLink": "Privacy Policy"
   },
   "blogPage": {
@@ -268,7 +268,7 @@
             "Browser and device type",
             "Date and time of visit"
           ],
-          "noSensitive": "We do not collect sensitive data (such as health, religious, or biometric data) through our website."
+          "noSensitive": "We do not actively request sensitive data through our website. However, if you voluntarily choose to communicate such information through the contact form (e.g., information about health conditions, criminal matters, or family situations), the processing thereof shall be based on your explicit consent pursuant to Article 9, paragraph 2, letter \"a\" of Law 124/2024. Such data will be used solely for the purpose of assessing your legal request."
         },
         "purpose": {
           "title": "Why do we process data and on what legal basis?",

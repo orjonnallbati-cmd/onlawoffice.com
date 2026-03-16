@@ -207,7 +207,7 @@
     "successTitle": "Mesazhi u dërgua me sukses!",
     "successMessage": "Do t'ju kontaktojmë sa më shpejt të jetë e mundur.",
     "errorMessage": "Ndodhi një gabim. Ju lutem provoni përsëri ose na kontaktoni direkt me telefon.",
-    "consentText": "Pranoj përpunimin e të dhënave të mia personale sipas",
+    "consentText": "Pranoj përpunimin e të dhënave të mia personale, përfshirë çdo të dhënë sensitive që mund të përfshihet në mesazhin tim, për t'u kontaktuar në lidhje me kërkesën time, sipas",
     "consentLink": "Politikës së Privatësisë"
   },
   "blogPage": {
@@ -268,7 +268,7 @@
             "Lloji i shfletuesit (browser) dhe pajisjes",
             "Data dhe ora e vizites"
           ],
-          "noSensitive": "Nuk mbledhim te dhena sensitive (si p.sh. te dhena shendetesore, fetare, biometrike) nepermjet faqes sone."
+          "noSensitive": "Nëpërmjet faqes sonë nuk kërkojmë në mënyrë aktive të dhëna sensitive. Megjithatë, nëse ju vendosni vullnetarisht të na komunikoni informacione të tilla nëpërmjet formularit të kontaktit (si p.sh. informacione mbi gjendjen shëndetësore, çështje penale ose situata familjare), përpunimi i tyre do të bazohet në pëlqimin tuaj të shprehur sipas Nenit 9, pika 2, shkronja \"a\" të Ligjit 124/2024. Këto të dhëna do të përdoren vetëm për qëllimin e vlerësimit të kërkesës suaj juridike."
         },
         "purpose": {
           "title": "Pse i perpunojme dhe mbi cfare baze ligjore?",

@@ -207,7 +207,7 @@
     "successTitle": "Messaggio inviato con successo!",
     "successMessage": "Ti contatteremo il prima possibile.",
     "errorMessage": "Si è verificato un errore. Riprova o contattaci direttamente per telefono.",
-    "consentText": "Acconsento al trattamento dei miei dati personali in conformità con la",
+    "consentText": "Acconsento al trattamento dei miei dati personali, inclusi eventuali dati sensibili che potrebbero essere contenuti nel mio messaggio, al fine di essere contattato/a in merito alla mia richiesta, in conformità con la",
     "consentLink": "Privacy Policy"
   },
   "blogPage": {
@@ -268,7 +268,7 @@
             "Tipo di browser e dispositivo",
             "Data e ora della visita"
           ],
-          "noSensitive": "Non raccogliamo dati sensibili (come dati sanitari, religiosi o biometrici) attraverso il nostro sito web."
+          "noSensitive": "Non richiediamo attivamente dati sensibili attraverso il nostro sito web. Tuttavia, se scegliete volontariamente di comunicarci tali informazioni attraverso il modulo di contatto (ad es. informazioni sulle condizioni di salute, questioni penali o situazioni familiari), il loro trattamento sarà basato sul vostro consenso esplicito ai sensi dell'Articolo 9, comma 2, lettera \"a\" della Legge 124/2024. Tali dati saranno utilizzati esclusivamente ai fini della valutazione della vostra richiesta legale."
         },
         "purpose": {
           "title": "Perché trattiamo i dati e su quale base giuridica?",
