@@ -84,9 +84,18 @@ export default function Footer() {
               &copy; {currentYear} {OFFICE.name}. Të gjitha të drejtat e
               rezervuara.
             </p>
-            <p>
-              NUIS: {OFFICE.nuis} | Lic. {OFFICE.license}
-            </p>
+            <div className="flex items-center gap-3">
+              <Link
+                href="/privatesia"
+                className="hover:text-gold transition-colors"
+              >
+                Privatësia & Cookies
+              </Link>
+              <span>|</span>
+              <p>
+                NUIS: {OFFICE.nuis} | Lic. {OFFICE.license}
+              </p>
+            </div>
           </div>
         </div>
       </div>
