@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { OFFICE } from "@/lib/constants";
 
 /* ─── Accordion Item ─── */
@@ -89,6 +89,13 @@ function HighlightBox({
 export default function PrivacyCookiePolicy({ dict }: { dict: Record<string, any> }) {
   const [activeTab, setActiveTab] = useState<"privacy" | "cookies">("privacy");
   const [openItem, setOpenItem] = useState<string | null>(null);
+
+  // Auto-switch to cookies tab if URL has #cookies
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash === "#cookies") {
+      setActiveTab("cookies");
+    }
+  }, []);
 
   const toggle = (id: string) => {
     setOpenItem(openItem === id ? null : id);
