@@ -1,4 +1,11 @@
 {
+  "cookieConsent": {
+    "title": "Cookie Policy",
+    "description": "This website uses only essential technical cookies necessary for its operation. We do not use marketing or profiling cookies. For more information, please read our",
+    "acceptAll": "Accept all",
+    "acceptNecessary": "Necessary only",
+    "privacyLink": "Cookie Policy"
+  },
   "metadata": {
     "home": {
       "title": "OnLaw Office — Law Firm",

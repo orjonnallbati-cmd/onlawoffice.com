@@ -1,4 +1,11 @@
 {
+  "cookieConsent": {
+    "title": "Politica dei Cookie",
+    "description": "Questo sito web utilizza esclusivamente cookie tecnici essenziali per il suo funzionamento. Non utilizziamo cookie di marketing o profilazione. Per maggiori informazioni, consultate la nostra",
+    "acceptAll": "Accetta tutti",
+    "acceptNecessary": "Solo necessari",
+    "privacyLink": "Politica dei Cookie"
+  },
   "metadata": {
     "home": {
       "title": "OnLaw Office — Studio Legale",

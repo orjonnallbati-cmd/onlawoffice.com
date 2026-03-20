@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import HtmlLangSetter from "@/components/layout/HtmlLangSetter";
+import CookieConsent from "@/components/layout/CookieConsent";
 import { LOCALES, DEFAULT_LOCALE, getLocalizedPath } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
 import { getDictionary } from "@/lib/dictionaries";
@@ -129,6 +130,7 @@ export default async function LocaleLayout({
       <Header locale={lang} dict={dict} />
       <main className="min-h-screen">{children}</main>
       <Footer locale={lang} dict={dict} />
+      <CookieConsent locale={lang} dict={dict.cookieConsent} />
     </>
   );
 }

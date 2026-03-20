@@ -1,4 +1,11 @@
 {
+  "cookieConsent": {
+    "title": "Politika e Cookies",
+    "description": "Kjo faqe përdor vetëm cookies teknike të domosdoshme për funksionimin e saj. Nuk përdorim cookies marketingu ose profilizimi. Për më shumë informacion, lexoni",
+    "acceptAll": "Pranoj të gjitha",
+    "acceptNecessary": "Vetëm të domosdoshmet",
+    "privacyLink": "Politikën e Cookies"
+  },
   "metadata": {
     "home": {
       "title": "OnLaw Office — Studio Ligjore",
