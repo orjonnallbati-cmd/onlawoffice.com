@@ -87,14 +87,27 @@ function HighlightBox({
 /* ─── Main Component ─── */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function PrivacyCookiePolicy({ dict }: { dict: Record<string, any> }) {
-  const [activeTab, setActiveTab] = useState<"privacy" | "cookies">("privacy");
+  const getInitialTab = (): "privacy" | "cookies" => {
+    if (typeof window !== "undefined" && window.location.hash === "#cookies") {
+      return "cookies";
+    }
+    return "privacy";
+  };
+
+  const [activeTab, setActiveTab] = useState<"privacy" | "cookies">(getInitialTab);
   const [openItem, setOpenItem] = useState<string | null>(null);
 
-  // Auto-switch to cookies tab if URL has #cookies
+  // Listen for hash changes (e.g. clicking cookie policy link from banner)
   useEffect(() => {
-    if (typeof window !== "undefined" && window.location.hash === "#cookies") {
-      setActiveTab("cookies");
-    }
+    const handleHash = () => {
+      if (window.location.hash === "#cookies") {
+        setActiveTab("cookies");
+      }
+    };
+    window.addEventListener("hashchange", handleHash);
+    // Also check on mount in case hash was already set
+    handleHash();
+    return () => window.removeEventListener("hashchange", handleHash);
   }, []);
 
   const toggle = (id: string) => {

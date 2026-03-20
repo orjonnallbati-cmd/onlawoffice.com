@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
 import { getLocalizedPath } from "@/lib/i18n";
 
@@ -71,12 +70,12 @@ export default function CookieConsent({
         {/* Description */}
         <p className="text-gray-300 text-sm leading-relaxed mb-5">
           {dict.description}{" "}
-          <Link
+          <a
             href={privacyPath}
             className="text-[#C4A35A] hover:text-[#d4b36a] underline underline-offset-2"
           >
             {dict.privacyLink}
-          </Link>
+          </a>
           .
         </p>
 
