@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { signOut } from 'next-auth/react';
 import {
   HomeIcon,
   BriefcaseIcon,
@@ -85,10 +86,7 @@ export default function AppSidebar() {
         </Link>
         <button
           className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-red-600 hover:bg-red-50"
-          onClick={() => {
-            // Will be connected to signOut
-            window.location.href = '/api/auth/signout';
-          }}
+          onClick={() => signOut({ callbackUrl: '/app/login' })}
         >
           <ArrowLeftOnRectangleIcon className="h-5 w-5" />
           Dil

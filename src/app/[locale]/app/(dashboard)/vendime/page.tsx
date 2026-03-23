@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import {
   MagnifyingGlassIcon,
   ScaleIcon,
@@ -12,84 +12,20 @@ import {
 import { BookmarkIcon as BookmarkSolidIcon } from '@heroicons/react/24/solid';
 import AppHeader from '@/components/app/AppHeader';
 
-// Demo data representing scraped court decisions
-const demoDecisions = [
-  {
-    id: '1',
-    decisionNumber: 'Nr. 00-2026-234',
-    caseNumber: '11243-00834-00-2025',
-    court: 'GJYKATA_LARTE',
-    college: 'Kolegji Civil',
-    decisionType: 'Vendim Përfundimtar',
-    decisionDate: '2026-03-15',
-    subject: 'Pavlefshmëri e kontratës së shitblerjes. Kthim i sendit. Shpërblim dëmi.',
-    summary:
-      'Kolegji Civil i Gjykatës së Lartë vendosi të lërë në fuqi vendimin e Gjykatës së Apelit Tiranë, duke konfirmuar pavlefshmërinë e kontratës së shitblerjes për mungesë të formës së kërkuar me ligj. Pala paditëse ka të drejtë për kthimin e sendit dhe shpërblimin e dëmit të shkaktuar.',
-    sourceUrl: 'https://www.gjykataelarte.gov.al/sq/vendime-perfundimtare/',
-    pdfUrl: null,
-    saved: false,
-  },
-  {
-    id: '2',
-    decisionNumber: 'Nr. 00-2026-198',
-    caseNumber: '11243-00756-00-2025',
-    court: 'GJYKATA_LARTE',
-    college: 'Kolegji Administrativ',
-    decisionType: 'Vendim Përfundimtar',
-    decisionDate: '2026-03-10',
-    subject: 'Shfuqizim i aktit administrativ. Leje ndërtimi. Kompetenca territoriale.',
-    summary:
-      'Kolegji Administrativ vendosi shfuqizimin e aktit administrativ të lëshuar nga ASHK-ja, duke konstatuar se leja e ndërtimit ishte lëshuar në kundërshtim me planin e përgjithshëm vendor.',
-    sourceUrl: 'https://www.gjykataelarte.gov.al/sq/vendime-perfundimtare/',
-    pdfUrl: 'https://example.com/decision.pdf',
-    saved: true,
-  },
-  {
-    id: '3',
-    decisionNumber: 'Nr. 00-2026-167',
-    caseNumber: '11243-00689-00-2025',
-    court: 'GJYKATA_LARTE',
-    college: 'Kolegji Penal',
-    decisionType: 'Vendim Përfundimtar',
-    decisionDate: '2026-03-05',
-    subject: 'Vjedhje e kualifikuar. Masë sigurimi. Arrest në burg.',
-    summary:
-      'Kolegji Penal i Gjykatës së Lartë vendosi rrëzimin e rekursit, duke lënë në fuqi vendimin e Gjykatës së Apelit për dënimin e të pandehurit me 5 vjet burgim për veprën penale të vjedhjes së kualifikuar.',
-    sourceUrl: 'https://www.gjykataelarte.gov.al/sq/vendime-perfundimtare/',
-    pdfUrl: null,
-    saved: false,
-  },
-  {
-    id: '4',
-    decisionNumber: 'Nr. 5/2026',
-    caseNumber: null,
-    court: 'GJYKATA_KUSHTETUESE',
-    college: 'Gjykata Kushtetuese',
-    decisionType: 'Vendim Përfundimtar',
-    decisionDate: '2026-02-28',
-    subject: 'Shfuqizim i nenit 45/3 të Ligjit "Për Tatimin mbi Vlerën e Shtuar". Antikushtetutshmëri.',
-    summary:
-      'Gjykata Kushtetuese vendosi shfuqizimin e nenit 45/3 të Ligjit Nr. 92/2014 "Për Tatimin mbi Vlerën e Shtuar", duke e gjetur në kundërshtim me nenin 17 dhe 131 të Kushtetutës, për shkak të shkeljes së parimit të proporcionalitetit.',
-    sourceUrl: 'https://www.gjykatakushtetuese.gov.al/vendime-perfundimtare-2026/',
-    pdfUrl: 'https://example.com/gjk-decision.pdf',
-    saved: false,
-  },
-  {
-    id: '5',
-    decisionNumber: 'Nr. 00-2026-145',
-    caseNumber: '21001-00432-00-2024',
-    court: 'GJYKATA_LARTE',
-    college: 'Kolegjet e Bashkuara',
-    decisionType: 'Vendim Njësues',
-    decisionDate: '2026-02-20',
-    subject: 'Njësim i praktikës gjyqësore. Afati i parashkrimit për paditë e kundërshtimit të akteve administrative.',
-    summary:
-      'Kolegjet e Bashkuara të Gjykatës së Lartë vendosën njësimin e praktikës gjyqësore lidhur me afatin e parashkrimit për paditë e kundërshtimit të akteve administrative, duke vendosur se afati 45-ditor fillon nga dita e njoftimit të aktit, jo nga dita e nxjerrjes.',
-    sourceUrl: 'https://www.gjykataelarte.gov.al/sq/vendime-per-njesiminndryshimin-e-praktikes-gjyqesore/',
-    pdfUrl: null,
-    saved: true,
-  },
-];
+interface DecisionData {
+  id: string;
+  decisionNumber: string;
+  caseNumber: string | null;
+  court: string;
+  college: string | null;
+  decisionType: string | null;
+  decisionDate: string | null;
+  subject: string;
+  summary: string | null;
+  sourceUrl: string | null;
+  pdfUrl: string | null;
+  isSaved: boolean;
+}
 
 const courtLabels: Record<string, string> = {
   GJYKATA_LARTE: 'Gjykata e Lartë',
@@ -108,35 +44,63 @@ const collegeColors: Record<string, string> = {
 };
 
 export default function VendimePage() {
+  const [decisions, setDecisions] = useState<DecisionData[]>([]);
+  const [total, setTotal] = useState(0);
+  const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [courtFilter, setCourtFilter] = useState('');
   const [collegeFilter, setCollegeFilter] = useState('');
-  const [savedDecisions, setSavedDecisions] = useState<Set<string>>(
-    new Set(demoDecisions.filter((d) => d.saved).map((d) => d.id))
-  );
 
-  const toggleSave = (id: string) => {
-    setSavedDecisions((prev) => {
-      const newSet = new Set(prev);
-      if (newSet.has(id)) {
-        newSet.delete(id);
-      } else {
-        newSet.add(id);
+  const fetchDecisions = useCallback(async (q?: string, court?: string, college?: string) => {
+    try {
+      const params = new URLSearchParams();
+      if (q) params.set('q', q);
+      if (court) params.set('court', court);
+      if (college) params.set('college', college);
+      const url = `/api/vendime${params.toString() ? '?' + params.toString() : ''}`;
+      const res = await fetch(url);
+      if (res.ok) {
+        const data = await res.json();
+        setDecisions(data.decisions || []);
+        setTotal(data.pagination?.total || 0);
       }
-      return newSet;
-    });
-  };
+    } catch (error) {
+      console.error('Error fetching decisions:', error);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
-  const filteredDecisions = demoDecisions.filter((d) => {
-    const matchesSearch =
-      !search ||
-      d.subject.toLowerCase().includes(search.toLowerCase()) ||
-      d.summary?.toLowerCase().includes(search.toLowerCase()) ||
-      d.decisionNumber?.toLowerCase().includes(search.toLowerCase());
-    const matchesCourt = !courtFilter || d.court === courtFilter;
-    const matchesCollege = !collegeFilter || d.college === collegeFilter;
-    return matchesSearch && matchesCourt && matchesCollege;
-  });
+  useEffect(() => {
+    fetchDecisions();
+  }, [fetchDecisions]);
+
+  // Debounced search & filters
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(true);
+      fetchDecisions(search || undefined, courtFilter || undefined, collegeFilter || undefined);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [search, courtFilter, collegeFilter, fetchDecisions]);
+
+  const toggleSave = async (decisionId: string) => {
+    try {
+      const res = await fetch('/api/vendime/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ decisionId }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setDecisions((prev) =>
+          prev.map((d) => (d.id === decisionId ? { ...d, isSaved: data.saved } : d))
+        );
+      }
+    } catch (error) {
+      console.error('Error saving decision:', error);
+    }
+  };
 
   return (
     <div>
@@ -148,7 +112,6 @@ export default function VendimePage() {
       <div className="p-6">
         {/* Search & Filters */}
         <div className="mb-6 space-y-4">
-          {/* Main search */}
           <div className="relative">
             <MagnifyingGlassIcon className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
             <input
@@ -160,7 +123,6 @@ export default function VendimePage() {
             />
           </div>
 
-          {/* Filters */}
           <div className="flex flex-wrap items-center gap-3">
             <FunnelIcon className="h-4 w-4 text-gray-400" />
             <select
@@ -186,7 +148,7 @@ export default function VendimePage() {
             </select>
 
             <span className="text-sm text-gray-500">
-              {filteredDecisions.length} vendime të gjetura
+              {loading ? 'Duke ngarkuar...' : `${total} vendime të gjetura`}
             </span>
           </div>
         </div>
@@ -216,7 +178,6 @@ export default function VendimePage() {
                 >
                   gjykatakushtetuese.gov.al
                 </a>
-                . Përditësimi i fundit: sot.
               </p>
             </div>
           </div>
@@ -224,105 +185,119 @@ export default function VendimePage() {
 
         {/* Decision Cards */}
         <div className="space-y-4">
-          {filteredDecisions.map((decision) => {
-            const isSaved = savedDecisions.has(decision.id);
-            const collegeColor = collegeColors[decision.college || ''] || 'bg-gray-100 text-gray-700';
-
-            return (
-              <div
-                key={decision.id}
-                className="rounded-xl border border-gray-200 bg-white p-6 transition-shadow hover:shadow-md"
-              >
-                {/* Header */}
-                <div className="flex items-start justify-between">
-                  <div className="flex items-center gap-3">
-                    <span className={`rounded-full px-2.5 py-1 text-xs font-medium ${collegeColor}`}>
-                      {decision.college}
-                    </span>
-                    <span className="text-sm text-gray-500">
-                      {courtLabels[decision.court] || decision.court}
-                    </span>
-                    <span className="text-sm text-gray-400">·</span>
-                    <span className="text-sm text-gray-500">
-                      {decision.decisionDate &&
-                        new Date(decision.decisionDate).toLocaleDateString('sq-AL')}
-                    </span>
-                  </div>
-                  <button
-                    onClick={() => toggleSave(decision.id)}
-                    className="rounded-lg p-1.5 hover:bg-gray-100"
-                    title={isSaved ? 'Hiq nga të ruajturat' : 'Ruaj vendimin'}
-                  >
-                    {isSaved ? (
-                      <BookmarkSolidIcon className="h-5 w-5 text-amber-500" />
-                    ) : (
-                      <BookmarkIcon className="h-5 w-5 text-gray-400" />
-                    )}
-                  </button>
-                </div>
-
-                {/* Decision Number */}
-                <div className="mt-2 flex items-center gap-2">
-                  <span className="text-sm font-medium text-gray-900">
-                    {decision.decisionNumber}
-                  </span>
-                  {decision.caseNumber && (
-                    <>
-                      <span className="text-gray-300">|</span>
-                      <span className="text-sm text-gray-500">
-                        Çështja: {decision.caseNumber}
-                      </span>
-                    </>
-                  )}
-                </div>
-
-                {/* Subject */}
-                <h3 className="mt-2 text-base font-semibold text-gray-900">
-                  {decision.subject}
-                </h3>
-
-                {/* Summary */}
-                {decision.summary && (
-                  <p className="mt-2 text-sm leading-relaxed text-gray-600">
-                    {decision.summary}
-                  </p>
-                )}
-
-                {/* Actions */}
-                <div className="mt-4 flex items-center gap-3">
-                  <a
-                    href={decision.sourceUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 rounded-lg border border-gray-300 px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-50"
-                  >
-                    <ArrowTopRightOnSquareIcon className="h-4 w-4" />
-                    Shiko origjinalin
-                  </a>
-                  {decision.pdfUrl && (
-                    <a
-                      href={decision.pdfUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 rounded-lg border border-gray-300 px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-50"
-                    >
-                      <DocumentArrowDownIcon className="h-4 w-4" />
-                      Shkarko PDF
-                    </a>
-                  )}
-                </div>
-              </div>
-            );
-          })}
-
-          {filteredDecisions.length === 0 && (
+          {loading ? (
+            <div className="py-16 text-center text-sm text-gray-500">Duke ngarkuar vendimet...</div>
+          ) : decisions.length === 0 ? (
             <div className="py-16 text-center">
               <ScaleIcon className="mx-auto h-12 w-12 text-gray-300" />
-              <p className="mt-4 text-gray-500">Nuk u gjet asnjë vendim me këto kritere</p>
+              <p className="mt-4 text-gray-500">
+                {search || courtFilter || collegeFilter
+                  ? 'Nuk u gjet asnjë vendim me këto kritere'
+                  : 'Nuk ka vendime ende në databazë'}
+              </p>
               <p className="mt-1 text-sm text-gray-400">
-                Provoni të ndryshoni filtrat ose fjalët kyçe
+                {search || courtFilter || collegeFilter
+                  ? 'Provoni të ndryshoni filtrat ose fjalët kyçe'
+                  : 'Vendimet do të shtohen automatikisht nga scraper-i'}
               </p>
             </div>
+          ) : (
+            decisions.map((decision) => {
+              const collegeColor = collegeColors[decision.college || ''] || 'bg-gray-100 text-gray-700';
+
+              return (
+                <div
+                  key={decision.id}
+                  className="rounded-xl border border-gray-200 bg-white p-6 transition-shadow hover:shadow-md"
+                >
+                  {/* Header */}
+                  <div className="flex items-start justify-between">
+                    <div className="flex items-center gap-3">
+                      {decision.college && (
+                        <span className={`rounded-full px-2.5 py-1 text-xs font-medium ${collegeColor}`}>
+                          {decision.college}
+                        </span>
+                      )}
+                      <span className="text-sm text-gray-500">
+                        {courtLabels[decision.court] || decision.court}
+                      </span>
+                      {decision.decisionDate && (
+                        <>
+                          <span className="text-sm text-gray-400">·</span>
+                          <span className="text-sm text-gray-500">
+                            {new Date(decision.decisionDate).toLocaleDateString('sq-AL')}
+                          </span>
+                        </>
+                      )}
+                    </div>
+                    <button
+                      onClick={() => toggleSave(decision.id)}
+                      className="rounded-lg p-1.5 hover:bg-gray-100"
+                      title={decision.isSaved ? 'Hiq nga të ruajturat' : 'Ruaj vendimin'}
+                    >
+                      {decision.isSaved ? (
+                        <BookmarkSolidIcon className="h-5 w-5 text-amber-500" />
+                      ) : (
+                        <BookmarkIcon className="h-5 w-5 text-gray-400" />
+                      )}
+                    </button>
+                  </div>
+
+                  {/* Decision Number */}
+                  <div className="mt-2 flex items-center gap-2">
+                    <span className="text-sm font-medium text-gray-900">
+                      {decision.decisionNumber}
+                    </span>
+                    {decision.caseNumber && (
+                      <>
+                        <span className="text-gray-300">|</span>
+                        <span className="text-sm text-gray-500">
+                          Çështja: {decision.caseNumber}
+                        </span>
+                      </>
+                    )}
+                  </div>
+
+                  {/* Subject */}
+                  <h3 className="mt-2 text-base font-semibold text-gray-900">
+                    {decision.subject}
+                  </h3>
+
+                  {/* Summary */}
+                  {decision.summary && (
+                    <p className="mt-2 text-sm leading-relaxed text-gray-600">
+                      {decision.summary}
+                    </p>
+                  )}
+
+                  {/* Actions */}
+                  <div className="mt-4 flex items-center gap-3">
+                    {decision.sourceUrl && (
+                      <a
+                        href={decision.sourceUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 rounded-lg border border-gray-300 px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-50"
+                      >
+                        <ArrowTopRightOnSquareIcon className="h-4 w-4" />
+                        Shiko origjinalin
+                      </a>
+                    )}
+                    {decision.pdfUrl && (
+                      <a
+                        href={decision.pdfUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 rounded-lg border border-gray-300 px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-50"
+                      >
+                        <DocumentArrowDownIcon className="h-4 w-4" />
+                        Shkarko PDF
+                      </a>
+                    )}
+                  </div>
+                </div>
+              );
+            })
           )}
         </div>
       </div>
