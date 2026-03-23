@@ -49,21 +49,6 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Protect /app routes (except login and register) - require authentication
-  const appRouteMatch = pathname.match(/^(?:\/(?:sq|en|it))?\/app\//);
-  if (appRouteMatch) {
-    const isAuthPage = pathname.includes('/app/login') || pathname.includes('/app/register');
-    if (!isAuthPage) {
-      const token = await getToken({ req: request, secret: process.env.NEXTAUTH_SECRET });
-      if (!token) {
-        const loginUrl = request.nextUrl.clone();
-        loginUrl.pathname = '/app/login';
-        loginUrl.searchParams.set('callbackUrl', pathname);
-        return NextResponse.redirect(loginUrl);
-      }
-    }
-  }
-
   // Check if pathname already starts with a locale
   const segments = pathname.split("/").filter(Boolean);
   const firstSegment = segments[0] as Locale | undefined;
@@ -80,11 +65,27 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
-  // Has locale prefix — check if the slug needs rewriting to internal (Albanian) slug
+  // Determine locale from URL
   const locale = firstSegment as Locale;
-  const restSegments = segments.slice(1);
-  const restPath = restSegments.join("/");
+  const restPath = segments.slice(1).join("/");
 
+  // Protect /app routes (except login and register) - require authentication
+  if (restPath.startsWith("app/") || restPath === "app") {
+    const isAuthPage = restPath.startsWith('app/login') || restPath.startsWith('app/register');
+    if (!isAuthPage) {
+      const token = await getToken({ req: request, secret: process.env.NEXTAUTH_SECRET });
+      if (!token) {
+        const loginUrl = request.nextUrl.clone();
+        loginUrl.pathname = `/${locale}/app/login`;
+        loginUrl.searchParams.set('callbackUrl', pathname);
+        return NextResponse.redirect(loginUrl);
+      }
+    }
+    // App routes don't need slug rewriting, pass through
+    return NextResponse.next();
+  }
+
+  // Has locale prefix — check if the slug needs rewriting to internal (Albanian) slug
   if (locale !== DEFAULT_LOCALE && restPath) {
     // Try to find a rewrite match: e.g. "en/services" -> "sherbime"
     const lookupKey = `${locale}/${restPath}`;
