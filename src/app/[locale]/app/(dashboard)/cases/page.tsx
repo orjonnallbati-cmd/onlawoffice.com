@@ -7,6 +7,7 @@ import {
   MagnifyingGlassIcon,
   FunnelIcon,
   BriefcaseIcon,
+  TrashIcon,
 } from '@heroicons/react/24/outline';
 import AppHeader from '@/components/app/AppHeader';
 
@@ -96,6 +97,18 @@ export default function CasesPage() {
     }, 300);
     return () => clearTimeout(timer);
   }, [search, statusFilter, typeFilter, fetchCases]);
+
+  const handleDeleteCase = async (id: string, title: string) => {
+    if (!confirm(`Jeni të sigurt që dëshironi të fshini çështjen "${title}"?`)) return;
+    try {
+      const res = await fetch(`/api/cases/${id}`, { method: 'DELETE' });
+      if (res.ok) {
+        fetchCases(search || undefined, statusFilter || undefined, typeFilter || undefined);
+      }
+    } catch (error) {
+      console.error('Error deleting case:', error);
+    }
+  };
 
   const getClientName = (c: CaseData) => {
     if (c.clients?.length > 0) {
@@ -202,6 +215,9 @@ export default function CasesPage() {
                   <th className="px-6 py-3 text-left text-xs font-medium uppercase text-gray-500">
                     Seanca
                   </th>
+                  <th className="px-6 py-3 text-right text-xs font-medium uppercase text-gray-500">
+                    Veprime
+                  </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
@@ -237,6 +253,15 @@ export default function CasesPage() {
                         {c.nextHearing
                           ? new Date(c.nextHearing).toLocaleDateString('sq-AL')
                           : '—'}
+                      </td>
+                      <td className="px-6 py-4 text-right">
+                        <button
+                          onClick={() => handleDeleteCase(c.id, c.title)}
+                          className="inline-flex items-center gap-1 text-sm text-red-500 hover:text-red-700"
+                        >
+                          <TrashIcon className="h-4 w-4" />
+                          Fshi
+                        </button>
                       </td>
                     </tr>
                   );

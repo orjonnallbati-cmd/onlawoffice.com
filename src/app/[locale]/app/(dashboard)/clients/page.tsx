@@ -7,6 +7,7 @@ import {
   UsersIcon,
   PhoneIcon,
   EnvelopeIcon,
+  TrashIcon,
 } from '@heroicons/react/24/outline';
 import AppHeader from '@/components/app/AppHeader';
 
@@ -70,6 +71,18 @@ export default function ClientsPage() {
     }, 300);
     return () => clearTimeout(timer);
   }, [search, fetchClients]);
+
+  const handleDeleteClient = async (id: string, name: string) => {
+    if (!confirm(`Jeni të sigurt që dëshironi të fshini klientin "${name}"?`)) return;
+    try {
+      const res = await fetch(`/api/clients/${id}`, { method: 'DELETE' });
+      if (res.ok) {
+        fetchClients(search || undefined);
+      }
+    } catch (error) {
+      console.error('Error deleting client:', error);
+    }
+  };
 
   const handleCreateClient = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -181,8 +194,12 @@ export default function ClientsPage() {
                   <span className="text-sm text-gray-500">
                     {client._count?.cases || 0} çështje
                   </span>
-                  <button className="text-sm font-medium text-blue-600 hover:text-blue-700">
-                    Shiko detajet
+                  <button
+                    onClick={() => handleDeleteClient(client.id, `${client.firstName} ${client.lastName}`)}
+                    className="flex items-center gap-1 text-sm font-medium text-red-500 hover:text-red-700"
+                  >
+                    <TrashIcon className="h-4 w-4" />
+                    Fshi
                   </button>
                 </div>
               </div>
