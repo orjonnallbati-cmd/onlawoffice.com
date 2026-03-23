@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { signIn } from 'next-auth/react';
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { ScaleIcon } from '@heroicons/react/24/outline';
@@ -20,17 +21,13 @@ export default function LoginPage() {
     setError('');
 
     try {
-      const res = await fetch('/api/auth/callback/credentials', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email,
-          password,
-          redirect: false,
-        }),
+      const res = await signIn('credentials', {
+        email,
+        password,
+        redirect: false,
       });
 
-      if (res.ok) {
+      if (res?.ok) {
         router.push(locale === 'sq' ? '/app/dashboard' : `/${locale}/app/dashboard`);
       } else {
         setError('Email ose fjalëkalimi nuk është i saktë');
