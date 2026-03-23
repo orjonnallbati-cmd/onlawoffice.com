@@ -38,7 +38,9 @@
     "about": "Chi Siamo",
     "blog": "Blog",
     "contact": "Contatto",
-    "contactCta": "Contattaci"
+    "contactCta": "Contattaci",
+    "app": "Piattaforma",
+    "appCta": "Entra nella Piattaforma"
   },
   "hero": {
     "badge": "Studio Legale Professionale",

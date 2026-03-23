@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { LOCALES, DEFAULT_LOCALE, ROUTE_SLUGS } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
+import { getToken } from "next-auth/jwt";
 
 /**
  * Build a reverse map: { "en/services" => "sherbime", "it/servizi" => "sherbime", ... }
@@ -37,7 +38,7 @@ const SKIP_PREFIXES = [
 
 const STATIC_EXT = /\.(?:ico|png|jpg|jpeg|gif|svg|webp|woff2?|ttf|eot|css|js|map|json|xml|txt)$/;
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Skip static assets and internal routes
@@ -46,6 +47,21 @@ export function middleware(request: NextRequest) {
     STATIC_EXT.test(pathname)
   ) {
     return NextResponse.next();
+  }
+
+  // Protect /app routes (except login and register) - require authentication
+  const appRouteMatch = pathname.match(/^(?:\/(?:sq|en|it))?\/app\//);
+  if (appRouteMatch) {
+    const isAuthPage = pathname.includes('/app/login') || pathname.includes('/app/register');
+    if (!isAuthPage) {
+      const token = await getToken({ req: request, secret: process.env.NEXTAUTH_SECRET });
+      if (!token) {
+        const loginUrl = request.nextUrl.clone();
+        loginUrl.pathname = '/app/login';
+        loginUrl.searchParams.set('callbackUrl', pathname);
+        return NextResponse.redirect(loginUrl);
+      }
+    }
   }
 
   // Check if pathname already starts with a locale

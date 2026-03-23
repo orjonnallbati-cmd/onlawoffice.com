@@ -38,7 +38,9 @@
     "about": "About Us",
     "blog": "Blog",
     "contact": "Contact",
-    "contactCta": "Contact Us"
+    "contactCta": "Contact Us",
+    "app": "Platform",
+    "appCta": "Enter Platform"
   },
   "hero": {
     "badge": "Professional Law Firm",
