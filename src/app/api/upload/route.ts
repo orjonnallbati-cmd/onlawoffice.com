@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
         fileUrl: `/uploads/${uniqueName}`,
         fileSize: file.size,
         mimeType: file.type,
-        category: category || 'OTHER',
+        category: (category || 'OTHER') as 'CONTRACT' | 'COURT_FILING' | 'EVIDENCE' | 'CORRESPONDENCE' | 'POWER_OF_ATTORNEY' | 'DECISION' | 'APPEAL' | 'OTHER',
         userId: (session.user as { id: string }).id,
         caseId: caseId || null,
       },
