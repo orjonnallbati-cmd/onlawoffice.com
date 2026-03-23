@@ -225,12 +225,12 @@ export default function CasesPage() {
                   const status = statusLabels[c.status] || statusLabels.OPEN;
                   const priority = priorityLabels[c.priority] || priorityLabels.MEDIUM;
                   return (
-                    <tr key={c.id} className="hover:bg-gray-50">
+                    <tr key={c.id} className="hover:bg-gray-50 cursor-pointer" onClick={() => window.location.href = `/app/cases/${c.id}`}>
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-3">
                           <BriefcaseIcon className="h-5 w-5 text-gray-400" />
                           <div>
-                            <p className="font-medium text-gray-900">{c.title}</p>
+                            <p className="font-medium text-blue-600 hover:text-blue-700">{c.title}</p>
                             <p className="text-sm text-gray-500">{c.caseNumber}</p>
                           </div>
                         </div>

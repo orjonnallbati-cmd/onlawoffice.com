@@ -44,7 +44,7 @@ export default function CalendarPage() {
   const [newEvent, setNewEvent] = useState({
     title: '',
     startDate: '',
-    startTime: '',
+    startTime: '09:00',
     endTime: '',
     eventType: 'MEETING',
     location: '',
@@ -97,7 +97,7 @@ export default function CalendarPage() {
       });
       if (res.ok) {
         setShowModal(false);
-        setNewEvent({ title: '', startDate: '', startTime: '', endTime: '', eventType: 'MEETING', location: '' });
+        setNewEvent({ title: '', startDate: '', startTime: '09:00', endTime: '', eventType: 'MEETING', location: '' });
         fetchEvents();
       }
     } catch (error) {
@@ -378,21 +378,68 @@ export default function CalendarPage() {
                 </div>
                 <div>
                   <label className="mb-1 block text-sm font-medium text-gray-700">Ora fillimit</label>
-                  <input
-                    type="time"
-                    value={newEvent.startTime}
-                    onChange={(e) => setNewEvent({ ...newEvent, startTime: e.target.value })}
-                    className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
-                  />
+                  <div className="flex gap-1">
+                    <select
+                      value={newEvent.startTime.split(':')[0] || '09'}
+                      onChange={(e) => {
+                        const mins = newEvent.startTime.split(':')[1] || '00';
+                        setNewEvent({ ...newEvent, startTime: `${e.target.value}:${mins}` });
+                      }}
+                      className="w-full rounded-lg border border-gray-300 px-2 py-2 text-sm focus:border-blue-500 focus:outline-none"
+                    >
+                      {Array.from({ length: 24 }, (_, i) => (
+                        <option key={i} value={String(i).padStart(2, '0')}>
+                          {String(i).padStart(2, '0')}
+                        </option>
+                      ))}
+                    </select>
+                    <span className="flex items-center text-gray-500">:</span>
+                    <select
+                      value={newEvent.startTime.split(':')[1] || '00'}
+                      onChange={(e) => {
+                        const hrs = newEvent.startTime.split(':')[0] || '09';
+                        setNewEvent({ ...newEvent, startTime: `${hrs}:${e.target.value}` });
+                      }}
+                      className="w-full rounded-lg border border-gray-300 px-2 py-2 text-sm focus:border-blue-500 focus:outline-none"
+                    >
+                      {['00', '15', '30', '45'].map((m) => (
+                        <option key={m} value={m}>{m}</option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
                 <div>
                   <label className="mb-1 block text-sm font-medium text-gray-700">Ora mbarimit</label>
-                  <input
-                    type="time"
-                    value={newEvent.endTime}
-                    onChange={(e) => setNewEvent({ ...newEvent, endTime: e.target.value })}
-                    className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
-                  />
+                  <div className="flex gap-1">
+                    <select
+                      value={newEvent.endTime.split(':')[0] || '10'}
+                      onChange={(e) => {
+                        const mins = newEvent.endTime.split(':')[1] || '00';
+                        setNewEvent({ ...newEvent, endTime: `${e.target.value}:${mins}` });
+                      }}
+                      className="w-full rounded-lg border border-gray-300 px-2 py-2 text-sm focus:border-blue-500 focus:outline-none"
+                    >
+                      <option value="">—</option>
+                      {Array.from({ length: 24 }, (_, i) => (
+                        <option key={i} value={String(i).padStart(2, '0')}>
+                          {String(i).padStart(2, '0')}
+                        </option>
+                      ))}
+                    </select>
+                    <span className="flex items-center text-gray-500">:</span>
+                    <select
+                      value={newEvent.endTime.split(':')[1] || '00'}
+                      onChange={(e) => {
+                        const hrs = newEvent.endTime.split(':')[0] || '';
+                        if (hrs) setNewEvent({ ...newEvent, endTime: `${hrs}:${e.target.value}` });
+                      }}
+                      className="w-full rounded-lg border border-gray-300 px-2 py-2 text-sm focus:border-blue-500 focus:outline-none"
+                    >
+                      {['00', '15', '30', '45'].map((m) => (
+                        <option key={m} value={m}>{m}</option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
               </div>
 
