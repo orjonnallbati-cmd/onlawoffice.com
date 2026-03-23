@@ -1,0 +1,331 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ============================================================
+// AUTHENTICATION & USERS
+// ============================================================
+
+model User {
+  id             String    @id @default(cuid())
+  email          String    @unique
+  name           String
+  hashedPassword String
+  role           UserRole  @default(LAWYER)
+  phone          String?
+  licenseNumber  String?   // Nr. license avokati
+  barAssociation String?   // Dhoma e Avokatisë
+  avatar         String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  cases          Case[]
+  clients        Client[]
+  documents      Document[]
+  events         CalendarEvent[]
+  timeEntries    TimeEntry[]
+  savedDecisions SavedDecision[]
+
+  @@map("users")
+}
+
+enum UserRole {
+  ADMIN
+  LAWYER
+  PARALEGAL
+  SECRETARY
+}
+
+// ============================================================
+// CLIENT MANAGEMENT
+// ============================================================
+
+model Client {
+  id          String     @id @default(cuid())
+  firstName   String
+  lastName    String
+  email       String?
+  phone       String?
+  address     String?
+  city        String?
+  nuis        String?    // NUIS / Tax ID for businesses
+  type        ClientType @default(INDIVIDUAL)
+  notes       String?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  userId      String
+  user        User       @relation(fields: [userId], references: [id])
+  cases       CaseClient[]
+
+  @@map("clients")
+}
+
+enum ClientType {
+  INDIVIDUAL
+  BUSINESS
+  GOVERNMENT
+}
+
+// ============================================================
+// CASE MANAGEMENT
+// ============================================================
+
+model Case {
+  id            String     @id @default(cuid())
+  caseNumber    String?    // Nr. çështjes gjyqësore
+  title         String
+  description   String?
+  status        CaseStatus @default(OPEN)
+  priority      Priority   @default(MEDIUM)
+  caseType      CaseType
+  courtName     String?    // Emri i gjykatës
+  courtCaseId   String?    // Nr. çështjes në gjykatë
+  judge         String?    // Gjyqtari
+  opposingParty String?    // Pala kundërshtare
+  opposingLawyer String?   // Avokati i palës kundërshtare
+  openedAt      DateTime   @default(now())
+  closedAt      DateTime?
+  nextHearing   DateTime?  // Data e seancës së ardhshme
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+
+  userId        String
+  user          User       @relation(fields: [userId], references: [id])
+
+  clients       CaseClient[]
+  documents     Document[]
+  events        CalendarEvent[]
+  timeEntries   TimeEntry[]
+  caseNotes     CaseNote[]
+
+  @@map("cases")
+}
+
+enum CaseStatus {
+  OPEN
+  IN_PROGRESS
+  HEARING_SCHEDULED
+  AWAITING_DECISION
+  APPEALED
+  CLOSED_WON
+  CLOSED_LOST
+  CLOSED_SETTLED
+  ARCHIVED
+}
+
+enum CaseType {
+  CIVIL
+  CRIMINAL
+  ADMINISTRATIVE
+  CONSTITUTIONAL
+  COMMERCIAL
+  FAMILY
+  LABOR
+  PROPERTY
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+// Junction table for Case-Client many-to-many
+model CaseClient {
+  id        String         @id @default(cuid())
+  role      CaseClientRole @default(CLIENT)
+  caseId    String
+  case      Case           @relation(fields: [caseId], references: [id], onDelete: Cascade)
+  clientId  String
+  client    Client         @relation(fields: [clientId], references: [id])
+
+  @@unique([caseId, clientId])
+  @@map("case_clients")
+}
+
+enum CaseClientRole {
+  CLIENT
+  PLAINTIFF
+  DEFENDANT
+  WITNESS
+  THIRD_PARTY
+}
+
+model CaseNote {
+  id        String   @id @default(cuid())
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  caseId    String
+  case      Case     @relation(fields: [caseId], references: [id], onDelete: Cascade)
+
+  @@map("case_notes")
+}
+
+// ============================================================
+// DOCUMENTS
+// ============================================================
+
+model Document {
+  id          String       @id @default(cuid())
+  title       String
+  fileName    String
+  fileUrl     String
+  fileSize    Int?
+  mimeType    String?
+  category    DocumentCategory @default(OTHER)
+  createdAt   DateTime     @default(now())
+
+  userId      String
+  user        User         @relation(fields: [userId], references: [id])
+  caseId      String?
+  case        Case?        @relation(fields: [caseId], references: [id])
+
+  @@map("documents")
+}
+
+enum DocumentCategory {
+  CONTRACT
+  COURT_FILING
+  EVIDENCE
+  CORRESPONDENCE
+  POWER_OF_ATTORNEY
+  DECISION
+  APPEAL
+  OTHER
+}
+
+// ============================================================
+// CALENDAR & EVENTS
+// ============================================================
+
+model CalendarEvent {
+  id          String    @id @default(cuid())
+  title       String
+  description String?
+  startDate   DateTime
+  endDate     DateTime?
+  location    String?
+  eventType   EventType @default(MEETING)
+  reminder    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+  caseId      String?
+  case        Case?     @relation(fields: [caseId], references: [id])
+
+  @@map("calendar_events")
+}
+
+enum EventType {
+  HEARING       // Seancë gjyqësore
+  MEETING       // Takim
+  DEADLINE      // Afat
+  CONSULTATION  // Konsultë
+  FILING        // Dorëzim dokumenti
+  OTHER
+}
+
+// ============================================================
+// TIME TRACKING & BILLING
+// ============================================================
+
+model TimeEntry {
+  id          String   @id @default(cuid())
+  description String
+  hours       Float
+  date        DateTime
+  billable    Boolean  @default(true)
+  rate        Float?   // Tarifa për orë
+  createdAt   DateTime @default(now())
+
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  caseId      String
+  case        Case     @relation(fields: [caseId], references: [id])
+
+  @@map("time_entries")
+}
+
+// ============================================================
+// COURT DECISIONS (from scraped data)
+// ============================================================
+
+model CourtDecision {
+  id            String       @id @default(cuid())
+  decisionNumber String?     // Nr. vendimit
+  caseNumber    String?      // Nr. çështjes
+  court         CourtSource
+  college       String?      // Kolegji (Civil, Penal, Administrativ)
+  decisionType  String?      // Tip vendimi
+  decisionDate  DateTime?
+  parties       String?      // Palët (anonimizuar)
+  subject       String?      // Objekti
+  summary       String?      // Përmbledhje
+  fullText      String?      // Teksti i plotë
+  pdfUrl        String?      // Link PDF origjinal
+  sourceUrl     String       // URL origjinale
+  scrapedAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+
+  savedBy       SavedDecision[]
+
+  @@index([court, decisionDate])
+  @@index([college])
+  @@map("court_decisions")
+}
+
+enum CourtSource {
+  GJYKATA_LARTE        // Gjykata e Lartë
+  GJYKATA_KUSHTETUESE  // Gjykata Kushtetuese
+  GJYKATA_APELIT       // Gjykata e Apelit
+  GJYKATA_RRETHIT      // Gjykata e Rrethit
+  GJYKATA_ADMINISTRATIVE // Gjykata Administrative
+}
+
+// Saved decisions per user (bookmarks)
+model SavedDecision {
+  id         String   @id @default(cuid())
+  notes      String?
+  savedAt    DateTime @default(now())
+
+  userId     String
+  user       User     @relation(fields: [userId], references: [id])
+  decisionId String
+  decision   CourtDecision @relation(fields: [decisionId], references: [id])
+
+  @@unique([userId, decisionId])
+  @@map("saved_decisions")
+}
+
+// ============================================================
+// SCRAPING LOG
+// ============================================================
+
+model ScrapeLog {
+  id         String      @id @default(cuid())
+  source     CourtSource
+  status     ScrapeStatus
+  itemsFound Int         @default(0)
+  itemsNew   Int         @default(0)
+  error      String?
+  startedAt  DateTime    @default(now())
+  finishedAt DateTime?
+
+  @@map("scrape_logs")
+}
+
+enum ScrapeStatus {
+  RUNNING
+  SUCCESS
+  FAILED
+}
