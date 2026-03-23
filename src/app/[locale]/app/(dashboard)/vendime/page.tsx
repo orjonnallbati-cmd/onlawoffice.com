@@ -8,6 +8,7 @@ import {
   ArrowTopRightOnSquareIcon,
   DocumentArrowDownIcon,
   FunnelIcon,
+  ArrowPathIcon,
 } from '@heroicons/react/24/outline';
 import { BookmarkIcon as BookmarkSolidIcon } from '@heroicons/react/24/solid';
 import AppHeader from '@/components/app/AppHeader';
@@ -50,6 +51,8 @@ export default function VendimePage() {
   const [search, setSearch] = useState('');
   const [courtFilter, setCourtFilter] = useState('');
   const [collegeFilter, setCollegeFilter] = useState('');
+  const [scraping, setScraping] = useState(false);
+  const [scrapeMessage, setScrapeMessage] = useState('');
 
   const fetchDecisions = useCallback(async (q?: string, court?: string, college?: string) => {
     try {
@@ -75,7 +78,6 @@ export default function VendimePage() {
     fetchDecisions();
   }, [fetchDecisions]);
 
-  // Debounced search & filters
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(true);
@@ -102,6 +104,28 @@ export default function VendimePage() {
     }
   };
 
+  const handleScrape = async () => {
+    setScraping(true);
+    setScrapeMessage('');
+    try {
+      const res = await fetch('/api/scraper', { method: 'POST' });
+      if (res.ok) {
+        const data = await res.json();
+        setScrapeMessage(`U gjetën ${data.itemsFound} vendime, ${data.itemsNew} të reja.`);
+        fetchDecisions();
+      } else if (res.status === 403) {
+        setScrapeMessage('Vetëm administratori mund të ekzekutojë scraper-in.');
+      } else {
+        const err = await res.json();
+        setScrapeMessage(err.error || 'Gabim gjatë scraping.');
+      }
+    } catch {
+      setScrapeMessage('Gabim gjatë lidhjes me serverin.');
+    } finally {
+      setScraping(false);
+    }
+  };
+
   return (
     <div>
       <AppHeader
@@ -125,20 +149,14 @@ export default function VendimePage() {
 
           <div className="flex flex-wrap items-center gap-3">
             <FunnelIcon className="h-4 w-4 text-gray-400" />
-            <select
-              value={courtFilter}
-              onChange={(e) => setCourtFilter(e.target.value)}
-              className="rounded-lg border border-gray-300 py-2 pl-3 pr-8 text-sm focus:border-blue-500 focus:outline-none"
-            >
+            <select value={courtFilter} onChange={(e) => setCourtFilter(e.target.value)}
+              className="rounded-lg border border-gray-300 py-2 pl-3 pr-8 text-sm focus:border-blue-500 focus:outline-none">
               <option value="">Të gjitha gjykatat</option>
               <option value="GJYKATA_LARTE">Gjykata e Lartë</option>
               <option value="GJYKATA_KUSHTETUESE">Gjykata Kushtetuese</option>
             </select>
-            <select
-              value={collegeFilter}
-              onChange={(e) => setCollegeFilter(e.target.value)}
-              className="rounded-lg border border-gray-300 py-2 pl-3 pr-8 text-sm focus:border-blue-500 focus:outline-none"
-            >
+            <select value={collegeFilter} onChange={(e) => setCollegeFilter(e.target.value)}
+              className="rounded-lg border border-gray-300 py-2 pl-3 pr-8 text-sm focus:border-blue-500 focus:outline-none">
               <option value="">Të gjitha kolegjet</option>
               <option value="Kolegji Civil">Kolegji Civil</option>
               <option value="Kolegji Penal">Kolegji Penal</option>
@@ -150,7 +168,22 @@ export default function VendimePage() {
             <span className="text-sm text-gray-500">
               {loading ? 'Duke ngarkuar...' : `${total} vendime të gjetura`}
             </span>
+
+            <button
+              onClick={handleScrape}
+              disabled={scraping}
+              className="ml-auto flex items-center gap-2 rounded-lg border border-gray-300 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+            >
+              <ArrowPathIcon className={`h-4 w-4 ${scraping ? 'animate-spin' : ''}`} />
+              {scraping ? 'Duke kërkuar...' : 'Përditëso vendimet'}
+            </button>
           </div>
+
+          {scrapeMessage && (
+            <div className="rounded-lg bg-blue-50 px-4 py-3 text-sm text-blue-700">
+              {scrapeMessage}
+            </div>
+          )}
         </div>
 
         {/* Info banner */}
@@ -160,24 +193,15 @@ export default function VendimePage() {
             <div>
               <p className="font-medium text-blue-800">Burimet e të dhënave</p>
               <p className="mt-1 text-sm text-blue-600">
-                Vendimet merren automatikisht nga{' '}
-                <a
-                  href="https://www.gjykataelarte.gov.al/sq/vendimet-e-gjykates/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline"
-                >
-                  gjykataelarte.gov.al
+                Vendimet merren nga faqjet zyrtare të{' '}
+                <a href="https://www.gjykataelarte.gov.al/sq/vendimet-e-gjykates/" target="_blank" rel="noopener noreferrer" className="underline">
+                  Gjykatës së Lartë
                 </a>{' '}
                 dhe{' '}
-                <a
-                  href="https://www.gjykatakushtetuese.gov.al/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline"
-                >
-                  gjykatakushtetuese.gov.al
-                </a>
+                <a href="https://www.gjykatakushtetuese.gov.al/" target="_blank" rel="noopener noreferrer" className="underline">
+                  Gjykatës Kushtetuese
+                </a>.
+                Klikoni &quot;Përditëso vendimet&quot; për të marrë vendimet e fundit.
               </p>
             </div>
           </div>
@@ -198,21 +222,28 @@ export default function VendimePage() {
               <p className="mt-1 text-sm text-gray-400">
                 {search || courtFilter || collegeFilter
                   ? 'Provoni të ndryshoni filtrat ose fjalët kyçe'
-                  : 'Vendimet do të shtohen automatikisht nga scraper-i'}
+                  : 'Klikoni butonin "Përditëso vendimet" më lart për të marrë vendimet e fundit nga gjykatat'}
               </p>
+              {!search && !courtFilter && !collegeFilter && (
+                <button
+                  onClick={handleScrape}
+                  disabled={scraping}
+                  className="mt-4 inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 disabled:opacity-50"
+                >
+                  <ArrowPathIcon className={`h-4 w-4 ${scraping ? 'animate-spin' : ''}`} />
+                  {scraping ? 'Duke kërkuar...' : 'Përditëso vendimet tani'}
+                </button>
+              )}
             </div>
           ) : (
             decisions.map((decision) => {
               const collegeColor = collegeColors[decision.college || ''] || 'bg-gray-100 text-gray-700';
 
               return (
-                <div
-                  key={decision.id}
-                  className="rounded-xl border border-gray-200 bg-white p-6 transition-shadow hover:shadow-md"
-                >
-                  {/* Header */}
+                <div key={decision.id}
+                  className="rounded-xl border border-gray-200 bg-white p-6 transition-shadow hover:shadow-md">
                   <div className="flex items-start justify-between">
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-wrap items-center gap-3">
                       {decision.college && (
                         <span className={`rounded-full px-2.5 py-1 text-xs font-medium ${collegeColor}`}>
                           {decision.college}
@@ -230,11 +261,9 @@ export default function VendimePage() {
                         </>
                       )}
                     </div>
-                    <button
-                      onClick={() => toggleSave(decision.id)}
+                    <button onClick={() => toggleSave(decision.id)}
                       className="rounded-lg p-1.5 hover:bg-gray-100"
-                      title={decision.isSaved ? 'Hiq nga të ruajturat' : 'Ruaj vendimin'}
-                    >
+                      title={decision.isSaved ? 'Hiq nga të ruajturat' : 'Ruaj vendimin'}>
                       {decision.isSaved ? (
                         <BookmarkSolidIcon className="h-5 w-5 text-amber-500" />
                       ) : (
@@ -243,53 +272,33 @@ export default function VendimePage() {
                     </button>
                   </div>
 
-                  {/* Decision Number */}
                   <div className="mt-2 flex items-center gap-2">
-                    <span className="text-sm font-medium text-gray-900">
-                      {decision.decisionNumber}
-                    </span>
+                    <span className="text-sm font-medium text-gray-900">{decision.decisionNumber}</span>
                     {decision.caseNumber && (
                       <>
                         <span className="text-gray-300">|</span>
-                        <span className="text-sm text-gray-500">
-                          Çështja: {decision.caseNumber}
-                        </span>
+                        <span className="text-sm text-gray-500">Çështja: {decision.caseNumber}</span>
                       </>
                     )}
                   </div>
 
-                  {/* Subject */}
-                  <h3 className="mt-2 text-base font-semibold text-gray-900">
-                    {decision.subject}
-                  </h3>
+                  <h3 className="mt-2 text-base font-semibold text-gray-900">{decision.subject}</h3>
 
-                  {/* Summary */}
                   {decision.summary && (
-                    <p className="mt-2 text-sm leading-relaxed text-gray-600">
-                      {decision.summary}
-                    </p>
+                    <p className="mt-2 text-sm leading-relaxed text-gray-600">{decision.summary}</p>
                   )}
 
-                  {/* Actions */}
                   <div className="mt-4 flex items-center gap-3">
                     {decision.sourceUrl && (
-                      <a
-                        href={decision.sourceUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 rounded-lg border border-gray-300 px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-50"
-                      >
+                      <a href={decision.sourceUrl} target="_blank" rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 rounded-lg border border-gray-300 px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-50">
                         <ArrowTopRightOnSquareIcon className="h-4 w-4" />
                         Shiko origjinalin
                       </a>
                     )}
                     {decision.pdfUrl && (
-                      <a
-                        href={decision.pdfUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 rounded-lg border border-gray-300 px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-50"
-                      >
+                      <a href={decision.pdfUrl} target="_blank" rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 rounded-lg border border-gray-300 px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-50">
                         <DocumentArrowDownIcon className="h-4 w-4" />
                         Shkarko PDF
                       </a>

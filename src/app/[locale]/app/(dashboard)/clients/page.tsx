@@ -155,7 +155,8 @@ export default function ClientsPage() {
             {clients.map((client) => (
               <div
                 key={client.id}
-                className="rounded-xl border border-gray-200 bg-white p-5 transition-shadow hover:shadow-md"
+                className="rounded-xl border border-gray-200 bg-white p-5 transition-shadow hover:shadow-md cursor-pointer"
+                onClick={() => window.location.href = `/app/clients/${client.id}`}
               >
                 <div className="flex items-start justify-between">
                   <div className="flex items-center gap-3">
