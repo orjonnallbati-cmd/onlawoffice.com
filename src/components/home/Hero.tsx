@@ -66,6 +66,17 @@ export default function Hero({ dict, locale }: { dict: Record<string, any>; loca
             </Link>
           </div>
 
+          {/* Platform CTA */}
+          <div className="mt-6">
+            <Link
+              href={locale === "sq" ? "/app/login" : `/${locale}/app/login`}
+              className="inline-flex items-center gap-2 px-6 py-2.5 bg-white/10 border border-gold/30 text-gold font-medium rounded-md hover:bg-gold/10 transition-colors text-sm"
+            >
+              <ScaleIcon className="w-4 h-4" />
+              {dict.nav.appCta || "Hyr në Platformë"}
+            </Link>
+          </div>
+
           {/* Quick features */}
           <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[

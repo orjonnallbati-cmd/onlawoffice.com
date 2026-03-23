@@ -76,6 +76,12 @@ export default function Header({ locale, dict }: { locale: Locale; dict: Record<
             >
               {dict.nav.contactCta}
             </Link>
+            <Link
+              href={locale === "sq" ? "/app/login" : `/${locale}/app/login`}
+              className="ml-2 px-5 py-2.5 bg-gold text-navy text-sm font-semibold rounded-md hover:bg-gold/90 transition-colors"
+            >
+              {dict.nav.appCta}
+            </Link>
             <div className="ml-3">
               <LanguageSwitcher locale={locale} />
             </div>
@@ -119,12 +125,18 @@ export default function Header({ locale, dict }: { locale: Locale; dict: Record<
                 {link.label}
               </Link>
             ))}
-            <div className="pt-2">
+            <div className="pt-2 space-y-2">
               <Link
                 href={contactHref}
                 className="block text-center px-4 py-3 bg-navy text-white font-medium rounded-md"
               >
                 {dict.nav.contactCta}
+              </Link>
+              <Link
+                href={locale === "sq" ? "/app/login" : `/${locale}/app/login`}
+                className="block text-center px-4 py-3 bg-gold text-navy font-semibold rounded-md"
+              >
+                {dict.nav.appCta}
               </Link>
             </div>
           </nav>
