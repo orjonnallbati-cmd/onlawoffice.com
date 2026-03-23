@@ -27,7 +27,10 @@ const BASE_URL = 'https://www.gjykataelarte.gov.al';
 const DECISION_PAGES = {
   final: '/sq/vendime-perfundimtare/',
   unification: '/sq/vendime-per-njesiminndryshimin-e-praktikes-gjyqesore/',
+  unification_intermediate: '/sq/vendime-te-ndermjetme-per-njesiminndryshimin-e-praktikes-gjyqesore/',
+  unification_years: '/sq/vendime-unifikuese-ne-vite/',
   administrative: '/sq/per-shqyrtim-ne-dhome-keshillimi-administrative/',
+  archive: '/sq/vendimet-e-gjykates/vendimet-1999-2019/',
 };
 
 const COLLEGES = {

@@ -10,6 +10,8 @@ import {
   CalendarIcon,
   ScaleIcon,
   DocumentTextIcon,
+  BookOpenIcon,
+  BuildingOfficeIcon,
   Cog6ToothIcon,
   ArrowLeftOnRectangleIcon,
 } from '@heroicons/react/24/outline';
@@ -20,6 +22,8 @@ const navigation = [
   { name: 'Klientët', href: '/app/clients', icon: UsersIcon },
   { name: 'Kalendari', href: '/app/calendar', icon: CalendarIcon },
   { name: 'Vendime Gjyqësore', href: '/app/vendime', icon: ScaleIcon },
+  { name: 'Legjislacioni', href: '/app/legislation', icon: BookOpenIcon },
+  { name: 'Regjistri QKB', href: '/app/qkb', icon: BuildingOfficeIcon },
   { name: 'Dokumente', href: '/app/documents', icon: DocumentTextIcon },
 ];
 
