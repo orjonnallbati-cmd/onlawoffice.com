@@ -53,9 +53,9 @@ export async function POST(request: NextRequest) {
       });
 
     if (uploadError) {
-      console.error('[Upload] Supabase error:', uploadError);
+      console.error('[Upload] Supabase error:', uploadError.message, uploadError);
       return NextResponse.json(
-        { error: 'Gabim gjatë ngarkimit të skedarit. Sigurohuni që storage është konfiguruar.' },
+        { error: `Gabim storage: ${uploadError.message}` },
         { status: 500 }
       );
     }
@@ -83,7 +83,8 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(document, { status: 201 });
   } catch (error) {
-    console.error('[Upload POST] Error:', error);
-    return NextResponse.json({ error: 'Gabim serveri' }, { status: 500 });
+    const message = error instanceof Error ? error.message : String(error);
+    console.error('[Upload POST] Error:', message, error);
+    return NextResponse.json({ error: `Gabim serveri: ${message}` }, { status: 500 });
   }
 }
