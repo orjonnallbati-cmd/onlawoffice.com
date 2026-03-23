@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import {
   PlusIcon,
   MagnifyingGlassIcon,
@@ -10,70 +10,17 @@ import {
 } from '@heroicons/react/24/outline';
 import AppHeader from '@/components/app/AppHeader';
 
-// Demo data
-const demoClients = [
-  {
-    id: '1',
-    firstName: 'Arben',
-    lastName: 'Hoxha',
-    email: 'arben.hoxha@email.com',
-    phone: '+355 69 123 4567',
-    type: 'INDIVIDUAL',
-    city: 'Tiranë',
-    casesCount: 2,
-  },
-  {
-    id: '2',
-    firstName: 'ABC',
-    lastName: 'Shpk',
-    email: 'info@abc-shpk.al',
-    phone: '+355 4 234 5678',
-    type: 'BUSINESS',
-    city: 'Tiranë',
-    nuis: 'L12345678A',
-    casesCount: 3,
-  },
-  {
-    id: '3',
-    firstName: 'Elena',
-    lastName: 'Muka',
-    email: 'elena.muka@email.com',
-    phone: '+355 68 987 6543',
-    type: 'INDIVIDUAL',
-    city: 'Durrës',
-    casesCount: 1,
-  },
-  {
-    id: '4',
-    firstName: 'Fatmir',
-    lastName: 'Kaci',
-    email: null,
-    phone: '+355 69 456 7890',
-    type: 'INDIVIDUAL',
-    city: 'Tiranë',
-    casesCount: 1,
-  },
-  {
-    id: '5',
-    firstName: 'Dritan',
-    lastName: 'Nexhipi',
-    email: 'dritan.n@email.com',
-    phone: '+355 67 321 0987',
-    type: 'INDIVIDUAL',
-    city: 'Elbasan',
-    casesCount: 1,
-  },
-  {
-    id: '6',
-    firstName: 'Blerim',
-    lastName: 'Dema',
-    email: null,
-    phone: '+355 69 111 2222',
-    type: 'INDIVIDUAL',
-    city: 'Tiranë',
-    casesCount: 1,
-  },
-];
+interface ClientData {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string | null;
+  phone: string | null;
+  type: string;
+  city: string | null;
+  nuis: string | null;
+  _count: { cases: number };
+}
 
 const typeLabels: Record<string, string> = {
   INDIVIDUAL: 'Individ',
@@ -82,7 +29,9 @@ const typeLabels: Record<string, string> = {
 };
 
 export default function ClientsPage() {
+  const [clients, setClients] = useState<ClientData[]>([]);
   const [search, setSearch] = useState('');
+  const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [newClient, setNewClient] = useState({
     firstName: '',
@@ -95,37 +44,55 @@ export default function ClientsPage() {
     notes: '',
   });
 
-  const filteredClients = demoClients.filter((c) => {
-    if (!search) return true;
-    const q = search.toLowerCase();
-    return (
-      c.firstName.toLowerCase().includes(q) ||
-      c.lastName.toLowerCase().includes(q) ||
-      c.email?.toLowerCase().includes(q) ||
-      c.phone?.includes(q)
-    );
-  });
+  const fetchClients = useCallback(async (q?: string) => {
+    try {
+      const url = q ? `/api/clients?q=${encodeURIComponent(q)}` : '/api/clients';
+      const res = await fetch(url);
+      if (res.ok) {
+        const data = await res.json();
+        setClients(Array.isArray(data) ? data : []);
+      }
+    } catch (error) {
+      console.error('Error fetching clients:', error);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchClients();
+  }, [fetchClients]);
+
+  // Debounced search
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      fetchClients(search || undefined);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [search, fetchClients]);
 
   const handleCreateClient = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Will connect to API
     try {
-      await fetch('/api/clients', {
+      const res = await fetch('/api/clients', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newClient),
       });
-      setShowModal(false);
-      setNewClient({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        type: 'INDIVIDUAL',
-        city: '',
-        nuis: '',
-        notes: '',
-      });
+      if (res.ok) {
+        setShowModal(false);
+        setNewClient({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          type: 'INDIVIDUAL',
+          city: '',
+          nuis: '',
+          notes: '',
+        });
+        fetchClients(search || undefined);
+      }
     } catch (error) {
       console.error('Error creating client:', error);
     }
@@ -135,7 +102,7 @@ export default function ClientsPage() {
     <div>
       <AppHeader
         title="Klientët"
-        subtitle={`${demoClients.length} klientë të regjistruar`}
+        subtitle={loading ? 'Duke ngarkuar...' : `${clients.length} klientë të regjistruar`}
       />
 
       <div className="p-6">
@@ -161,61 +128,65 @@ export default function ClientsPage() {
         </div>
 
         {/* Client Cards Grid */}
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredClients.map((client) => (
-            <div
-              key={client.id}
-              className="rounded-xl border border-gray-200 bg-white p-5 transition-shadow hover:shadow-md"
-            >
-              <div className="flex items-start justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-100">
-                    <span className="text-sm font-semibold text-blue-700">
-                      {client.firstName[0]}{client.lastName[0]}
-                    </span>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900">
-                      {client.firstName} {client.lastName}
-                    </p>
-                    <span className="text-xs text-gray-500">
-                      {typeLabels[client.type]} · {client.city}
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-4 space-y-2">
-                {client.email && (
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
-                    <EnvelopeIcon className="h-4 w-4 text-gray-400" />
-                    {client.email}
-                  </div>
-                )}
-                {client.phone && (
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
-                    <PhoneIcon className="h-4 w-4 text-gray-400" />
-                    {client.phone}
-                  </div>
-                )}
-              </div>
-
-              <div className="mt-4 flex items-center justify-between border-t border-gray-100 pt-3">
-                <span className="text-sm text-gray-500">
-                  {client.casesCount} çështje
-                </span>
-                <button className="text-sm font-medium text-blue-600 hover:text-blue-700">
-                  Shiko detajet
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {filteredClients.length === 0 && (
+        {loading ? (
+          <div className="py-16 text-center text-sm text-gray-500">Duke ngarkuar klientët...</div>
+        ) : clients.length === 0 ? (
           <div className="py-16 text-center">
             <UsersIcon className="mx-auto h-12 w-12 text-gray-300" />
-            <p className="mt-3 text-sm text-gray-500">Nuk u gjet asnjë klient</p>
+            <p className="mt-3 text-sm text-gray-500">
+              {search ? 'Nuk u gjet asnjë klient' : 'Nuk keni klientë ende. Shtoni klientin e parë!'}
+            </p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {clients.map((client) => (
+              <div
+                key={client.id}
+                className="rounded-xl border border-gray-200 bg-white p-5 transition-shadow hover:shadow-md"
+              >
+                <div className="flex items-start justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-100">
+                      <span className="text-sm font-semibold text-blue-700">
+                        {client.firstName[0]}{client.lastName[0]}
+                      </span>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900">
+                        {client.firstName} {client.lastName}
+                      </p>
+                      <span className="text-xs text-gray-500">
+                        {typeLabels[client.type] || client.type}{client.city ? ` · ${client.city}` : ''}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-4 space-y-2">
+                  {client.email && (
+                    <div className="flex items-center gap-2 text-sm text-gray-600">
+                      <EnvelopeIcon className="h-4 w-4 text-gray-400" />
+                      {client.email}
+                    </div>
+                  )}
+                  {client.phone && (
+                    <div className="flex items-center gap-2 text-sm text-gray-600">
+                      <PhoneIcon className="h-4 w-4 text-gray-400" />
+                      {client.phone}
+                    </div>
+                  )}
+                </div>
+
+                <div className="mt-4 flex items-center justify-between border-t border-gray-100 pt-3">
+                  <span className="text-sm text-gray-500">
+                    {client._count?.cases || 0} çështje
+                  </span>
+                  <button className="text-sm font-medium text-blue-600 hover:text-blue-700">
+                    Shiko detajet
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         )}
       </div>

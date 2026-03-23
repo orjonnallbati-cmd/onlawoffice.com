@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
 import {
   PlusIcon,
@@ -10,81 +10,22 @@ import {
 } from '@heroicons/react/24/outline';
 import AppHeader from '@/components/app/AppHeader';
 
-// Demo data - will be replaced with API calls
-const demoCases = [
-  {
-    id: '1',
-    caseNumber: 'CIV-2026-0142',
-    title: 'Çështja e pronës - Rruga Myslym Shyri',
-    status: 'IN_PROGRESS',
-    caseType: 'CIVIL',
-    client: 'Arben Hoxha',
-    courtName: 'Gjykata e Rrethit Gjyqësor Tiranë',
-    nextHearing: '2026-04-02',
-    priority: 'HIGH',
-    openedAt: '2026-01-15',
-  },
-  {
-    id: '2',
-    caseNumber: 'ADM-2026-0088',
-    title: 'Ankimim vendimi administrativ - ASHK',
-    status: 'HEARING_SCHEDULED',
-    caseType: 'ADMINISTRATIVE',
-    client: 'Fatmir Kaci',
-    courtName: 'Gjykata Administrative Tiranë',
-    nextHearing: '2026-03-28',
-    priority: 'MEDIUM',
-    openedAt: '2026-02-10',
-  },
-  {
-    id: '3',
-    caseNumber: 'COM-2026-0203',
-    title: 'Kontratë punësimi - ABC Shpk',
-    status: 'OPEN',
-    caseType: 'COMMERCIAL',
-    client: 'ABC Shpk',
-    courtName: null,
-    nextHearing: null,
-    priority: 'LOW',
-    openedAt: '2026-03-01',
-  },
-  {
-    id: '4',
-    caseNumber: 'FAM-2026-0067',
-    title: 'Divorc me pëlqim - Çifti Muka',
-    status: 'AWAITING_DECISION',
-    caseType: 'FAMILY',
-    client: 'Elena Muka',
-    courtName: 'Gjykata e Rrethit Gjyqësor Tiranë',
-    nextHearing: null,
-    priority: 'MEDIUM',
-    openedAt: '2026-02-20',
-  },
-  {
-    id: '5',
-    caseNumber: 'PEN-2025-0891',
-    title: 'Mbrojtje penale - Çështja Dema',
-    status: 'CLOSED_WON',
-    caseType: 'CRIMINAL',
-    client: 'Blerim Dema',
-    courtName: 'Gjykata e Rrethit Gjyqësor Tiranë',
-    nextHearing: null,
-    priority: 'URGENT',
-    openedAt: '2025-11-05',
-  },
-  {
-    id: '6',
-    caseNumber: 'LAB-2026-0034',
-    title: 'Largim nga puna pa shkaqe - Nexhipi',
-    status: 'IN_PROGRESS',
-    caseType: 'LABOR',
-    client: 'Dritan Nexhipi',
-    courtName: 'Gjykata e Rrethit Gjyqësor Tiranë',
-    nextHearing: '2026-04-10',
-    priority: 'HIGH',
-    openedAt: '2026-01-22',
-  },
-];
+interface CaseClient {
+  client: { firstName: string; lastName: string };
+}
+
+interface CaseData {
+  id: string;
+  caseNumber: string;
+  title: string;
+  status: string;
+  caseType: string;
+  courtName: string | null;
+  nextHearing: string | null;
+  priority: string;
+  openedAt: string;
+  clients: CaseClient[];
+}
 
 const statusLabels: Record<string, { label: string; color: string }> = {
   OPEN: { label: 'E hapur', color: 'bg-blue-100 text-blue-700' },
@@ -116,26 +57,59 @@ const priorityLabels: Record<string, { label: string; color: string }> = {
 };
 
 export default function CasesPage() {
+  const [cases, setCases] = useState<CaseData[]>([]);
+  const [total, setTotal] = useState(0);
+  const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
   const [typeFilter, setTypeFilter] = useState('');
 
-  const filteredCases = demoCases.filter((c) => {
-    const matchesSearch =
-      !search ||
-      c.title.toLowerCase().includes(search.toLowerCase()) ||
-      c.caseNumber.toLowerCase().includes(search.toLowerCase()) ||
-      c.client.toLowerCase().includes(search.toLowerCase());
-    const matchesStatus = !statusFilter || c.status === statusFilter;
-    const matchesType = !typeFilter || c.caseType === typeFilter;
-    return matchesSearch && matchesStatus && matchesType;
-  });
+  const fetchCases = useCallback(async (q?: string, status?: string, type?: string) => {
+    try {
+      const params = new URLSearchParams();
+      if (q) params.set('q', q);
+      if (status) params.set('status', status);
+      if (type) params.set('type', type);
+      const url = `/api/cases${params.toString() ? '?' + params.toString() : ''}`;
+      const res = await fetch(url);
+      if (res.ok) {
+        const data = await res.json();
+        setCases(data.cases || []);
+        setTotal(data.pagination?.total || 0);
+      }
+    } catch (error) {
+      console.error('Error fetching cases:', error);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchCases();
+  }, [fetchCases]);
+
+  // Debounced search & filters
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(true);
+      fetchCases(search || undefined, statusFilter || undefined, typeFilter || undefined);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [search, statusFilter, typeFilter, fetchCases]);
+
+  const getClientName = (c: CaseData) => {
+    if (c.clients?.length > 0) {
+      const client = c.clients[0].client;
+      return `${client.firstName} ${client.lastName}`;
+    }
+    return '—';
+  };
 
   return (
     <div>
       <AppHeader
         title="Çështjet"
-        subtitle={`${demoCases.length} çështje totale`}
+        subtitle={loading ? 'Duke ngarkuar...' : `${total} çështje totale`}
       />
 
       <div className="p-6">
@@ -195,74 +169,80 @@ export default function CasesPage() {
 
         {/* Cases Table */}
         <div className="overflow-hidden rounded-xl border border-gray-200 bg-white">
-          <table className="w-full">
-            <thead>
-              <tr className="border-b border-gray-200 bg-gray-50">
-                <th className="px-6 py-3 text-left text-xs font-medium uppercase text-gray-500">
-                  Çështja
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium uppercase text-gray-500">
-                  Klienti
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium uppercase text-gray-500">
-                  Lloji
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium uppercase text-gray-500">
-                  Statusi
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium uppercase text-gray-500">
-                  Prioriteti
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium uppercase text-gray-500">
-                  Seanca
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-100">
-              {filteredCases.map((c) => {
-                const status = statusLabels[c.status] || statusLabels.OPEN;
-                const priority = priorityLabels[c.priority] || priorityLabels.MEDIUM;
-                return (
-                  <tr key={c.id} className="hover:bg-gray-50">
-                    <td className="px-6 py-4">
-                      <div className="flex items-center gap-3">
-                        <BriefcaseIcon className="h-5 w-5 text-gray-400" />
-                        <div>
-                          <p className="font-medium text-gray-900">{c.title}</p>
-                          <p className="text-sm text-gray-500">{c.caseNumber}</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 text-sm text-gray-700">{c.client}</td>
-                    <td className="px-6 py-4 text-sm text-gray-700">
-                      {caseTypeLabels[c.caseType] || c.caseType}
-                    </td>
-                    <td className="px-6 py-4">
-                      <span className={`rounded-full px-2.5 py-1 text-xs font-medium ${status.color}`}>
-                        {status.label}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4">
-                      <span className={`text-sm font-medium ${priority.color}`}>
-                        {priority.label}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 text-sm text-gray-500">
-                      {c.nextHearing
-                        ? new Date(c.nextHearing).toLocaleDateString('sq-AL')
-                        : '—'}
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-
-          {filteredCases.length === 0 && (
+          {loading ? (
+            <div className="px-6 py-12 text-center text-sm text-gray-500">Duke ngarkuar çështjet...</div>
+          ) : cases.length === 0 ? (
             <div className="px-6 py-12 text-center">
               <BriefcaseIcon className="mx-auto h-12 w-12 text-gray-300" />
-              <p className="mt-3 text-sm text-gray-500">Nuk u gjet asnjë çështje</p>
+              <p className="mt-3 text-sm text-gray-500">
+                {search || statusFilter || typeFilter
+                  ? 'Nuk u gjet asnjë çështje me këto filtra'
+                  : 'Nuk keni çështje ende. Krijoni çështjen e parë!'}
+              </p>
             </div>
+          ) : (
+            <table className="w-full">
+              <thead>
+                <tr className="border-b border-gray-200 bg-gray-50">
+                  <th className="px-6 py-3 text-left text-xs font-medium uppercase text-gray-500">
+                    Çështja
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium uppercase text-gray-500">
+                    Klienti
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium uppercase text-gray-500">
+                    Lloji
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium uppercase text-gray-500">
+                    Statusi
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium uppercase text-gray-500">
+                    Prioriteti
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium uppercase text-gray-500">
+                    Seanca
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {cases.map((c) => {
+                  const status = statusLabels[c.status] || statusLabels.OPEN;
+                  const priority = priorityLabels[c.priority] || priorityLabels.MEDIUM;
+                  return (
+                    <tr key={c.id} className="hover:bg-gray-50">
+                      <td className="px-6 py-4">
+                        <div className="flex items-center gap-3">
+                          <BriefcaseIcon className="h-5 w-5 text-gray-400" />
+                          <div>
+                            <p className="font-medium text-gray-900">{c.title}</p>
+                            <p className="text-sm text-gray-500">{c.caseNumber}</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 text-sm text-gray-700">{getClientName(c)}</td>
+                      <td className="px-6 py-4 text-sm text-gray-700">
+                        {caseTypeLabels[c.caseType] || c.caseType}
+                      </td>
+                      <td className="px-6 py-4">
+                        <span className={`rounded-full px-2.5 py-1 text-xs font-medium ${status.color}`}>
+                          {status.label}
+                        </span>
+                      </td>
+                      <td className="px-6 py-4">
+                        <span className={`text-sm font-medium ${priority.color}`}>
+                          {priority.label}
+                        </span>
+                      </td>
+                      <td className="px-6 py-4 text-sm text-gray-500">
+                        {c.nextHearing
+                          ? new Date(c.nextHearing).toLocaleDateString('sq-AL')
+                          : '—'}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
           )}
         </div>
       </div>
