@@ -5,6 +5,7 @@ import BlogCard from "@/components/blog/BlogCard";
 import { getAllPosts } from "@/lib/blog";
 import { getDictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/i18n";
+import { buildPageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -12,11 +13,14 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const dict = await getDictionary(locale as Locale);
-  return {
+  const lang = locale as Locale;
+  const dict = await getDictionary(lang);
+  return buildPageMetadata({
+    locale: lang,
+    routeKey: "blog",
     title: dict.metadata.blog.title,
     description: dict.metadata.blog.description,
-  };
+  });
 }
 
 export default async function BlogPage({

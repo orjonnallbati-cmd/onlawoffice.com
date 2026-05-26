@@ -5,6 +5,7 @@ import AboutPreview from "@/components/home/AboutPreview";
 import CTABanner from "@/components/home/CTABanner";
 import { getDictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/i18n";
+import { buildPageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -12,12 +13,15 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const dict = await getDictionary(locale as Locale);
+  const lang = locale as Locale;
+  const dict = await getDictionary(lang);
 
-  return {
+  return buildPageMetadata({
+    locale: lang,
+    routeKey: "home",
     title: dict.metadata.home.title,
     description: dict.metadata.home.description,
-  };
+  });
 }
 
 export default async function Home({

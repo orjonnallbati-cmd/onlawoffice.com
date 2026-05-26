@@ -3,44 +3,22 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import HtmlLangSetter from "@/components/layout/HtmlLangSetter";
 import CookieConsent from "@/components/layout/CookieConsent";
-import { LOCALES, DEFAULT_LOCALE, getLocalizedPath } from "@/lib/i18n";
+import { LOCALES } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
 import { getDictionary } from "@/lib/dictionaries";
+import { SITE_URL } from "@/lib/seo";
 
 export async function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
-  const lang = locale as Locale;
-  const dict = await getDictionary(lang);
-  const baseUrl = "https://www.onlawoffice.com";
-
-  // Build hreflang alternates for the home page
-  const languages: Record<string, string> = {};
-  for (const l of LOCALES) {
-    const path = getLocalizedPath(l, "home");
-    languages[l] = `${baseUrl}${path}`;
-  }
-
-  const ogLocaleMap: Record<string, string> = {
-    sq: "sq_AL",
-    en: "en_US",
-    it: "it_IT",
-  };
-
+export function generateMetadata(): Metadata {
   return {
-    metadataBase: new URL(baseUrl),
+    metadataBase: new URL(SITE_URL),
     title: {
-      default: dict.metadata.home.title,
+      default: "OnLaw Office",
       template: "%s | OnLaw Office",
     },
-    description: dict.metadata.home.description,
     keywords: [
       "avokat",
       "tiranë",
@@ -51,19 +29,6 @@ export async function generateMetadata({
       "tirana",
     ],
     authors: [{ name: "Av. Orjon Nallbati" }],
-    openGraph: {
-      type: "website",
-      locale: ogLocaleMap[lang] || "sq_AL",
-      url: `${baseUrl}${getLocalizedPath(lang, "home")}`,
-      siteName: "OnLaw Office",
-      title: dict.metadata.home.title,
-      description: dict.metadata.home.description,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: dict.metadata.home.title,
-      description: dict.metadata.home.description,
-    },
     robots: {
       index: true,
       follow: true,
@@ -74,10 +39,6 @@ export async function generateMetadata({
         "max-image-preview": "large",
         "max-snippet": -1,
       },
-    },
-    alternates: {
-      canonical: `${baseUrl}${getLocalizedPath(lang, "home")}`,
-      languages,
     },
     verification: {
       google: "HqakyWy5o6kDcoMNEkd7_p3CsDZI5soRPV53eS29aic",

@@ -5,6 +5,7 @@ import GoldDivider from "@/components/ui/GoldDivider";
 import CTABanner from "@/components/home/CTABanner";
 import { getDictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/i18n";
+import { buildPageMetadata } from "@/lib/seo";
 import {
   ScaleIcon,
   BuildingOffice2Icon,
@@ -20,11 +21,14 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const dict = await getDictionary(locale as Locale);
-  return {
+  const lang = locale as Locale;
+  const dict = await getDictionary(lang);
+  return buildPageMetadata({
+    locale: lang,
+    routeKey: "services",
     title: dict.metadata.services.title,
     description: dict.metadata.services.description,
-  };
+  });
 }
 
 const ICONS: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {

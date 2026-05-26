@@ -9,6 +9,7 @@ import { OFFICE } from "@/lib/constants";
 import { LOCALES, getLocalizedPath } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
 import { getDictionary } from "@/lib/dictionaries";
+import { buildPageMetadata } from "@/lib/seo";
 import {
   CalendarIcon,
   ClockIcon,
@@ -38,17 +39,18 @@ export async function generateMetadata({
   const post = getPostBySlug(slug, lang);
   if (!post) return { title: dict.notFound?.title || "Not Found" };
 
-  return {
+  return buildPageMetadata({
+    locale: lang,
+    routeKey: "blog",
+    subPath: slug,
     title: post.meta.title,
     description: post.meta.excerpt,
-    openGraph: {
-      title: post.meta.title,
-      description: post.meta.excerpt,
-      type: "article",
+    ogType: "article",
+    ogExtra: {
       publishedTime: post.meta.date,
       authors: [post.meta.author],
     },
-  };
+  });
 }
 
 const LOCALE_DATE_MAP: Record<string, string> = {

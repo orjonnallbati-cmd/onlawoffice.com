@@ -6,6 +6,7 @@ import { OFFICE } from "@/lib/constants";
 import { getDictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/i18n";
 import { getLocalizedPath } from "@/lib/i18n";
+import { buildPageMetadata } from "@/lib/seo";
 import {
   MapPinIcon,
   PhoneIcon,
@@ -19,11 +20,14 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const dict = await getDictionary(locale as Locale);
-  return {
+  const lang = locale as Locale;
+  const dict = await getDictionary(lang);
+  return buildPageMetadata({
+    locale: lang,
+    routeKey: "contact",
     title: dict.metadata.contact.title,
     description: dict.metadata.contact.description,
-  };
+  });
 }
 
 export default async function KontaktPage({
