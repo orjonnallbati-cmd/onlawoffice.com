@@ -12,6 +12,7 @@ import {
   DocumentTextIcon,
   BookOpenIcon,
   BuildingOfficeIcon,
+  ShieldCheckIcon,
   Cog6ToothIcon,
   ArrowLeftOnRectangleIcon,
 } from '@heroicons/react/24/outline';
@@ -25,6 +26,7 @@ const navigation = [
   { name: 'Legjislacioni', href: '/app/legislation', icon: BookOpenIcon },
   { name: 'Regjistri QKB', href: '/app/qkb', icon: BuildingOfficeIcon },
   { name: 'Dokumente', href: '/app/documents', icon: DocumentTextIcon },
+  { name: 'Suite DPO', href: '/app/dpo', icon: ShieldCheckIcon },
 ];
 
 export default function AppSidebar() {

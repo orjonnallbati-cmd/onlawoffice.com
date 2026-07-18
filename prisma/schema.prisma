@@ -30,6 +30,10 @@ model User {
   events         CalendarEvent[]
   timeEntries    TimeEntry[]
   savedDecisions SavedDecision[]
+  ropaEntries    RopaEntry[]
+  dataBreaches   DataBreach[]
+  dsarRequests   DsarRequest[]
+  dpias          Dpia[]
 
   @@map("users")
 }
@@ -62,6 +66,10 @@ model Client {
   userId      String
   user        User       @relation(fields: [userId], references: [id])
   cases       CaseClient[]
+  ropaEntries RopaEntry[]
+  dataBreaches DataBreach[]
+  dsarRequests DsarRequest[]
+  dpias       Dpia[]
 
   @@map("clients")
 }
@@ -328,4 +336,173 @@ enum ScrapeStatus {
   RUNNING
   SUCCESS
   FAILED
+}
+
+// ============================================================
+// DPO SUITE — Privacy & Data Protection (Ligji 124/2024, GDPR)
+// ============================================================
+
+// Regjistri i Aktiviteteve të Përpunimit (RoPA)
+model RopaEntry {
+  id               String        @id @default(cuid())
+  name             String        // Emri i aktivitetit të përpunimit
+  department       String?       // Departamenti / funksioni përgjegjës
+  purpose          String        // Qëllimi i përpunimit
+  legalBasis       LegalBasis    @default(CONTRACT)
+  dataCategories   String?       // Kategoritë e të dhënave
+  dataSubjects     String?       // Kategoritë e subjekteve
+  recipients       String?       // Marrësit e të dhënave
+  transfers        String?       // Transferime ndërkombëtare (vende të treta)
+  retention        String?       // Afati i ruajtjes
+  securityMeasures String?       // Masat teknike dhe organizative
+  status           RopaStatus    @default(ACTIVE)
+  notes            String?
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+
+  userId           String
+  user             User          @relation(fields: [userId], references: [id])
+  clientId         String?       // Kontrolluesi (klienti) të cilit i përket
+  client           Client?       @relation(fields: [clientId], references: [id])
+
+  @@index([userId, status])
+  @@map("ropa_entries")
+}
+
+enum LegalBasis {
+  CONSENT              // Pëlqimi
+  CONTRACT             // Ekzekutimi i kontratës
+  LEGAL_OBLIGATION     // Detyrim ligjor
+  VITAL_INTEREST       // Interes jetik
+  PUBLIC_INTEREST      // Interes publik
+  LEGITIMATE_INTEREST  // Interes legjitim
+}
+
+enum RopaStatus {
+  DRAFT
+  ACTIVE
+  ARCHIVED
+}
+
+// Regjistri i Incidenteve të Sigurisë (Data Breach)
+model DataBreach {
+  id                 String         @id @default(cuid())
+  title              String
+  description        String?
+  occurredAt         DateTime?      // Kur ka ndodhur incidenti
+  discoveredAt       DateTime       // Kur është zbuluar (fillon afati 72h)
+  notifiedAuthorityAt DateTime?     // Njoftimi i Komisionerit
+  notifiedSubjectsAt DateTime?      // Njoftimi i subjekteve
+  severity           BreachSeverity @default(MEDIUM)
+  status             BreachStatus   @default(DETECTED)
+  affectedSubjects   Int?           // Numri i subjekteve të prekur
+  dataCategories     String?        // Kategoritë e të dhënave të prekura
+  measures           String?        // Masat e marra
+  notes              String?
+  createdAt          DateTime       @default(now())
+  updatedAt          DateTime       @updatedAt
+
+  userId             String
+  user               User           @relation(fields: [userId], references: [id])
+  clientId           String?
+  client             Client?        @relation(fields: [clientId], references: [id])
+
+  @@index([userId, status])
+  @@map("data_breaches")
+}
+
+enum BreachSeverity {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+enum BreachStatus {
+  DETECTED       // I zbuluar
+  INVESTIGATING  // Në hetim
+  CONTAINED      // I izoluar
+  NOTIFIED       // Autoriteti i njoftuar
+  CLOSED         // I mbyllur
+}
+
+// Regjistri i Kërkesave të Subjekteve (DSAR)
+model DsarRequest {
+  id           String      @id @default(cuid())
+  subjectName  String      // Emri i subjektit të të dhënave
+  subjectEmail String?
+  type         DsarType    @default(ACCESS)
+  receivedAt   DateTime    // Data e marrjes (fillon afati 30-ditor)
+  dueDate      DateTime    // Afati i përgjigjes
+  completedAt  DateTime?
+  status       DsarStatus  @default(RECEIVED)
+  description  String?
+  response     String?     // Përmbledhje e përgjigjes
+  notes        String?
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+
+  userId       String
+  user         User        @relation(fields: [userId], references: [id])
+  clientId     String?
+  client       Client?     @relation(fields: [clientId], references: [id])
+
+  @@index([userId, status])
+  @@map("dsar_requests")
+}
+
+enum DsarType {
+  ACCESS         // E drejta e aksesit
+  RECTIFICATION  // Korrigjim
+  ERASURE        // Fshirje
+  RESTRICTION    // Kufizim përpunimi
+  PORTABILITY    // Portabilitet
+  OBJECTION      // Kundërshtim
+}
+
+enum DsarStatus {
+  RECEIVED
+  IN_PROGRESS
+  EXTENDED     // Afat i zgjatur
+  COMPLETED
+  REJECTED
+}
+
+// Vlerësimi i Ndikimit në Mbrojtjen e të Dhënave (DPIA)
+model Dpia {
+  id                 String     @id @default(cuid())
+  title              String
+  processName        String?    // Përpunimi që vlerësohet
+  description        String?
+  riskLevel          DpiaRisk   @default(MEDIUM)
+  status             DpiaStatus @default(DRAFT)
+  mitigations        String?    // Masat zbutëse
+  consultedAuthority Boolean    @default(false) // Konsultim paraprak me Komisionerin
+  startedAt          DateTime   @default(now())
+  completedAt        DateTime?
+  reviewDate         DateTime?  // Data e rishikimit të radhës
+  notes              String?
+  createdAt          DateTime   @default(now())
+  updatedAt          DateTime   @updatedAt
+
+  userId             String
+  user               User       @relation(fields: [userId], references: [id])
+  clientId           String?
+  client             Client?    @relation(fields: [clientId], references: [id])
+
+  @@index([userId, status])
+  @@map("dpias")
+}
+
+enum DpiaRisk {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum DpiaStatus {
+  DRAFT
+  IN_PROGRESS
+  COMPLETED
+  REVIEW_NEEDED
 }
