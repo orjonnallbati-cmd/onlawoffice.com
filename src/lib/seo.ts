@@ -17,6 +17,13 @@ type BuildOptions = {
   description: string;
   /** Optional sub-path appended after the route slug (e.g. blog post slug). */
   subPath?: string;
+  /**
+   * Per-locale sub-paths for pages whose slug is localized (e.g. blog posts).
+   * When set, hreflang alternates are emitted only for the locales present in
+   * this map, each with its own slug — never the current locale's slug, which
+   * would point to a 404 on the other locales.
+   */
+  subPathByLocale?: Partial<Record<Locale, string>>;
   /** Override the OpenGraph type. Defaults to "website". */
   ogType?: "website" | "article";
   ogExtra?: Record<string, unknown>;
@@ -34,17 +41,25 @@ export function buildPageMetadata({
   title,
   description,
   subPath,
+  subPathByLocale,
   ogType = "website",
   ogExtra,
 }: BuildOptions): Metadata {
-  const suffix = subPath ? `/${subPath.replace(/^\/+/, "")}` : "";
+  const toSuffix = (p?: string) => (p ? `/${p.replace(/^\/+/, "")}` : "");
+  const suffix = toSuffix(subPathByLocale?.[locale] ?? subPath);
   const canonicalPath = `${getLocalizedPath(locale, routeKey)}${suffix}`;
 
   const languages: Record<string, string> = {};
   for (const l of LOCALES) {
-    languages[l] = `${SITE_URL}${getLocalizedPath(l, routeKey)}${suffix}`;
+    if (subPathByLocale && !(l in subPathByLocale)) continue;
+    const localeSuffix = subPathByLocale ? toSuffix(subPathByLocale[l]) : suffix;
+    languages[l] = `${SITE_URL}${getLocalizedPath(l, routeKey)}${localeSuffix}`;
   }
-  languages["x-default"] = `${SITE_URL}${getLocalizedPath("sq", routeKey)}${suffix}`;
+  if (languages["sq"]) {
+    languages["x-default"] = languages["sq"];
+  } else {
+    languages["x-default"] = `${SITE_URL}${canonicalPath}`;
+  }
 
   return {
     title,
