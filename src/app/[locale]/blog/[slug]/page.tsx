@@ -4,7 +4,7 @@ import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Container from "@/components/ui/Container";
 import GoldDivider from "@/components/ui/GoldDivider";
-import { getPostBySlug, getAllSlugs } from "@/lib/blog";
+import { getPostBySlug, getAllSlugs, getAlternateSlugs } from "@/lib/blog";
 import { OFFICE } from "@/lib/constants";
 import { LOCALES, getLocalizedPath } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
@@ -43,6 +43,7 @@ export async function generateMetadata({
     locale: lang,
     routeKey: "blog",
     subPath: slug,
+    subPathByLocale: getAlternateSlugs(slug, lang),
     title: post.meta.title,
     description: post.meta.excerpt,
     ogType: "article",

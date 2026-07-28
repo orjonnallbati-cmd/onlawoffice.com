@@ -3,6 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import readingTime from "reading-time";
 import type { BlogPostMeta } from "@/types";
+import { LOCALES } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
 
 const BLOG_BASE = path.join(process.cwd(), "src/content/blog");
@@ -91,4 +92,53 @@ export function getPostBySlug(slug: string, locale: Locale) {
 
 export function getAllSlugs(locale: Locale): string[] {
   return getAllPosts(locale).map((p) => p.slug);
+}
+
+/**
+ * Resolve the slug of the same article in every locale that has a
+ * translation, via the `translationKey` frontmatter field. Used to emit
+ * correct hreflang alternates — slugs are localized, so reusing the same
+ * slug across locales produces 404 URLs.
+ */
+export function getAlternateSlugs(
+  slug: string,
+  locale: Locale,
+): Partial<Record<Locale, string>> {
+  const readKeyAndSlug = (dir: string, filename: string) => {
+    const { data } = matter(fs.readFileSync(path.join(dir, filename), "utf-8"));
+    return {
+      key: data.translationKey as string | undefined,
+      slug: (data.slug as string | undefined) || filename.replace(".mdx", ""),
+      published: data.published !== false,
+    };
+  };
+
+  const ownDir = getBlogDir(locale);
+  if (!fs.existsSync(ownDir)) return {};
+
+  let translationKey: string | undefined;
+  for (const filename of fs.readdirSync(ownDir).filter((f) => f.endsWith(".mdx"))) {
+    const entry = readKeyAndSlug(ownDir, filename);
+    if (entry.slug === slug) {
+      translationKey = entry.key;
+      break;
+    }
+  }
+
+  const alternates: Partial<Record<Locale, string>> = { [locale]: slug };
+  if (!translationKey) return alternates;
+
+  for (const l of LOCALES) {
+    if (l === locale) continue;
+    const dir = getBlogDir(l);
+    if (!fs.existsSync(dir)) continue;
+    for (const filename of fs.readdirSync(dir).filter((f) => f.endsWith(".mdx"))) {
+      const entry = readKeyAndSlug(dir, filename);
+      if (entry.key === translationKey && entry.published) {
+        alternates[l] = entry.slug;
+        break;
+      }
+    }
+  }
+  return alternates;
 }
