@@ -1,17 +1,22 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
 import { getLocalizedPath } from "@/lib/i18n";
 
 interface CookieConsentDict {
   title: string;
   description: string;
-  acceptAll: string;
-  acceptNecessary: string;
+  ok: string;
   privacyLink: string;
 }
 
+/**
+ * Informative-only cookie notice. The site sets no optional cookies
+ * (no analytics, marketing or profiling), so no consent choice is
+ * required — the notice informs and links to the cookie policy.
+ */
 export default function CookieConsent({
   locale,
   dict,
@@ -22,21 +27,16 @@ export default function CookieConsent({
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem("cookie-consent");
-    if (!consent) {
+    const acknowledged = localStorage.getItem("cookie-consent");
+    if (!acknowledged) {
       // Small delay so it doesn't flash on page load
       const timer = setTimeout(() => setVisible(true), 1000);
       return () => clearTimeout(timer);
     }
   }, []);
 
-  const handleAcceptAll = () => {
-    localStorage.setItem("cookie-consent", "all");
-    setVisible(false);
-  };
-
-  const handleAcceptNecessary = () => {
-    localStorage.setItem("cookie-consent", "necessary");
+  const handleDismiss = () => {
+    localStorage.setItem("cookie-consent", "acknowledged");
     setVisible(false);
   };
 
@@ -46,35 +46,23 @@ export default function CookieConsent({
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-[9999] p-4 sm:p-6">
-      <div className="max-w-4xl mx-auto bg-navy-700 border-t-2 border-gold shadow-2xl p-6 sm:p-8">
-        {/* Title */}
-        <h3 className="text-lg text-white mb-3">{dict.title}</h3>
-
-        {/* Description */}
-        <p className="text-gray-300 text-sm leading-relaxed mb-5">
-          {dict.description}{" "}
-          <a
-            href={privacyPath}
-            className="text-gold-300 hover:text-gold-200 underline underline-offset-2"
-          >
-            {dict.privacyLink}
-          </a>
-          .
-        </p>
-
-        {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-3">
+      <div className="max-w-3xl mx-auto bg-navy-700 border-t-2 border-gold shadow-2xl p-5 sm:p-6">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+          <p className="text-gray-300 text-sm leading-relaxed flex-1">
+            {dict.description}{" "}
+            <Link
+              href={privacyPath}
+              className="text-gold-300 hover:text-gold-200 underline underline-offset-2"
+            >
+              {dict.privacyLink}
+            </Link>
+            .
+          </p>
           <button
-            onClick={handleAcceptNecessary}
-            className="flex-1 px-5 py-2.5 border border-white/25 text-gray-300 hover:bg-white/10 transition-colors text-sm font-medium cursor-pointer"
+            onClick={handleDismiss}
+            className="shrink-0 px-6 py-2.5 bg-gold text-white hover:bg-gold-500 transition-colors text-sm font-semibold cursor-pointer"
           >
-            {dict.acceptNecessary}
-          </button>
-          <button
-            onClick={handleAcceptAll}
-            className="flex-1 px-5 py-2.5 bg-gold text-white hover:bg-gold-500 transition-colors text-sm font-semibold cursor-pointer"
-          >
-            {dict.acceptAll}
+            {dict.ok}
           </button>
         </div>
       </div>

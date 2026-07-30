@@ -2,9 +2,8 @@
   "cookieConsent": {
     "title": "Cookie Policy",
     "description": "This website uses only essential technical cookies necessary for its operation. We do not use marketing or profiling cookies. For more information, please read our",
-    "acceptAll": "Accept all",
-    "acceptNecessary": "Necessary only",
-    "privacyLink": "Cookie Policy"
+    "privacyLink": "Cookie Policy",
+    "ok": "Got it"
   },
   "metadata": {
     "home": {
@@ -339,14 +338,38 @@
           "title": "What are your rights?",
           "intro": "Under Articles 13-20 of Law 124/2024, you have the following rights:",
           "items": [
-            { "label": "Right to information", "text": "(Article 13) — to be informed about data processing" },
-            { "label": "Right of access", "text": "(Article 14) — to obtain a copy of your data" },
-            { "label": "Right to rectification", "text": "(Article 15) — to correct inaccurate data" },
-            { "label": "Right to erasure", "text": "(Article 15) — to request deletion of data" },
-            { "label": "Right to restriction", "text": "(Article 16) — to restrict processing" },
-            { "label": "Right to portability", "text": "(Article 18) — to receive your data in electronic format" },
-            { "label": "Right to object", "text": "(Article 19) — to object to processing" },
-            { "label": "Right to withdraw consent", "text": "— at any time, without affecting the lawfulness of prior processing" }
+            {
+              "label": "Right to information",
+              "text": "(Article 13) — to be informed about data processing"
+            },
+            {
+              "label": "Right of access",
+              "text": "(Article 14) — to obtain a copy of your data"
+            },
+            {
+              "label": "Right to rectification",
+              "text": "(Article 15) — to correct inaccurate data"
+            },
+            {
+              "label": "Right to erasure",
+              "text": "(Article 15) — to request deletion of data"
+            },
+            {
+              "label": "Right to restriction",
+              "text": "(Article 16) — to restrict processing"
+            },
+            {
+              "label": "Right to portability",
+              "text": "(Article 18) — to receive your data in electronic format"
+            },
+            {
+              "label": "Right to object",
+              "text": "(Article 19) — to object to processing"
+            },
+            {
+              "label": "Right to withdraw consent",
+              "text": "— at any time, without affecting the lawfulness of prior processing"
+            }
           ],
           "exerciseTitle": "How to exercise them?",
           "exerciseText": "Send your request by email to {email}. We will respond within 30 days."
@@ -420,10 +443,22 @@
           "title": "How to manage cookies?",
           "intro": "You can manage or delete cookies through your browser settings:",
           "browsers": [
-            { "name": "Chrome", "path": "Settings → Privacy and Security → Cookies" },
-            { "name": "Firefox", "path": "Settings → Privacy & Security → Cookies" },
-            { "name": "Safari", "path": "Preferences → Privacy → Cookies" },
-            { "name": "Edge", "path": "Settings → Privacy → Cookies" }
+            {
+              "name": "Chrome",
+              "path": "Settings → Privacy and Security → Cookies"
+            },
+            {
+              "name": "Firefox",
+              "path": "Settings → Privacy & Security → Cookies"
+            },
+            {
+              "name": "Safari",
+              "path": "Preferences → Privacy → Cookies"
+            },
+            {
+              "name": "Edge",
+              "path": "Settings → Privacy → Cookies"
+            }
           ],
           "warning": "Warning: Disabling technical cookies may affect the website's functionality, such as the ability to use the contact form."
         }
