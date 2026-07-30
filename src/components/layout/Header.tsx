@@ -47,7 +47,7 @@ export default function Header({ locale, dict }: { locale: Locale; dict: Record<
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href={getLocalizedPath(locale, "home")} className="flex flex-col">
-            <span className="text-xl lg:text-2xl font-bold text-navy">
+            <span className="font-serif text-xl lg:text-2xl font-semibold text-navy">
               OnLaw Office
             </span>
             <span className="text-xs text-gray-500 hidden sm:block">
