@@ -2,9 +2,8 @@
   "cookieConsent": {
     "title": "Politica dei Cookie",
     "description": "Questo sito web utilizza esclusivamente cookie tecnici essenziali per il suo funzionamento. Non utilizziamo cookie di marketing o profilazione. Per maggiori informazioni, consultate la nostra",
-    "acceptAll": "Accetta tutti",
-    "acceptNecessary": "Solo necessari",
-    "privacyLink": "Politica dei Cookie"
+    "privacyLink": "Politica dei Cookie",
+    "ok": "Ho capito"
   },
   "metadata": {
     "home": {
@@ -339,14 +338,38 @@
           "title": "Quali sono i vostri diritti?",
           "intro": "Ai sensi degli Articoli 13-20 della Legge 124/2024, avete i seguenti diritti:",
           "items": [
-            { "label": "Diritto all'informazione", "text": "(Articolo 13) — essere informati sul trattamento dei dati" },
-            { "label": "Diritto di accesso", "text": "(Articolo 14) — ottenere una copia dei vostri dati" },
-            { "label": "Diritto di rettifica", "text": "(Articolo 15) — correggere dati inesatti" },
-            { "label": "Diritto alla cancellazione", "text": "(Articolo 15) — richiedere la cancellazione dei dati" },
-            { "label": "Diritto alla limitazione", "text": "(Articolo 16) — limitare il trattamento" },
-            { "label": "Diritto alla portabilità", "text": "(Articolo 18) — ricevere i dati in formato elettronico" },
-            { "label": "Diritto di opposizione", "text": "(Articolo 19) — opporsi al trattamento" },
-            { "label": "Diritto di revocare il consenso", "text": "— in qualsiasi momento, senza pregiudicare la liceità del trattamento precedente" }
+            {
+              "label": "Diritto all'informazione",
+              "text": "(Articolo 13) — essere informati sul trattamento dei dati"
+            },
+            {
+              "label": "Diritto di accesso",
+              "text": "(Articolo 14) — ottenere una copia dei vostri dati"
+            },
+            {
+              "label": "Diritto di rettifica",
+              "text": "(Articolo 15) — correggere dati inesatti"
+            },
+            {
+              "label": "Diritto alla cancellazione",
+              "text": "(Articolo 15) — richiedere la cancellazione dei dati"
+            },
+            {
+              "label": "Diritto alla limitazione",
+              "text": "(Articolo 16) — limitare il trattamento"
+            },
+            {
+              "label": "Diritto alla portabilità",
+              "text": "(Articolo 18) — ricevere i dati in formato elettronico"
+            },
+            {
+              "label": "Diritto di opposizione",
+              "text": "(Articolo 19) — opporsi al trattamento"
+            },
+            {
+              "label": "Diritto di revocare il consenso",
+              "text": "— in qualsiasi momento, senza pregiudicare la liceità del trattamento precedente"
+            }
           ],
           "exerciseTitle": "Come esercitarli?",
           "exerciseText": "Inviate la vostra richiesta via email a {email}. Vi risponderemo entro 30 giorni."
@@ -420,10 +443,22 @@
           "title": "Come gestire i cookie?",
           "intro": "Potete gestire o eliminare i cookie attraverso le impostazioni del vostro browser:",
           "browsers": [
-            { "name": "Chrome", "path": "Impostazioni → Privacy e sicurezza → Cookie" },
-            { "name": "Firefox", "path": "Impostazioni → Privacy e sicurezza → Cookie" },
-            { "name": "Safari", "path": "Preferenze → Privacy → Cookie" },
-            { "name": "Edge", "path": "Impostazioni → Privacy → Cookie" }
+            {
+              "name": "Chrome",
+              "path": "Impostazioni → Privacy e sicurezza → Cookie"
+            },
+            {
+              "name": "Firefox",
+              "path": "Impostazioni → Privacy e sicurezza → Cookie"
+            },
+            {
+              "name": "Safari",
+              "path": "Preferenze → Privacy → Cookie"
+            },
+            {
+              "name": "Edge",
+              "path": "Impostazioni → Privacy → Cookie"
+            }
           ],
           "warning": "Attenzione: La disattivazione dei cookie tecnici potrebbe influire sul funzionamento del sito, come ad esempio la possibilità di utilizzare il modulo di contatto."
         }

@@ -2,9 +2,8 @@
   "cookieConsent": {
     "title": "Politika e Cookies",
     "description": "Kjo faqe përdor vetëm cookies teknike të domosdoshme për funksionimin e saj. Nuk përdorim cookies marketingu ose profilizimi. Për më shumë informacion, lexoni",
-    "acceptAll": "Pranoj të gjitha",
-    "acceptNecessary": "Vetëm të domosdoshmet",
-    "privacyLink": "Politikën e Cookies"
+    "privacyLink": "Politikën e Cookies",
+    "ok": "Në rregull"
   },
   "metadata": {
     "home": {
@@ -339,14 +338,38 @@
           "title": "Cilat jane te drejtat tuaja?",
           "intro": "Sipas Neneve 13-20 te Ligjit 124/2024, ju gezoni keto te drejta:",
           "items": [
-            { "label": "E drejta per informim", "text": "(Neni 13) — te informoheni mbi perpunimin e te dhenave" },
-            { "label": "E drejta e aksesit", "text": "(Neni 14) — te merrni nje kopje te te dhenave tuaja" },
-            { "label": "E drejta per korrigjim", "text": "(Neni 15) — te korrigjoni te dhena te pasakta" },
-            { "label": "E drejta per fshirje", "text": "(Neni 15) — te kerkoni fshirjen e te dhenave" },
-            { "label": "E drejta per kufizim", "text": "(Neni 16) — te kufizoni perpunimin" },
-            { "label": "E drejta per transferueshmeri", "text": "(Neni 18) — te merrni te dhenat ne format elektronik" },
-            { "label": "E drejta per te kundershtuar", "text": "(Neni 19) — te kundershtoni perpunimin" },
-            { "label": "E drejta per terheqjen e pelqimit", "text": "— ne cdo kohe, pa ndikuar ligjshmerine e perpunimit te meparshem" }
+            {
+              "label": "E drejta per informim",
+              "text": "(Neni 13) — te informoheni mbi perpunimin e te dhenave"
+            },
+            {
+              "label": "E drejta e aksesit",
+              "text": "(Neni 14) — te merrni nje kopje te te dhenave tuaja"
+            },
+            {
+              "label": "E drejta per korrigjim",
+              "text": "(Neni 15) — te korrigjoni te dhena te pasakta"
+            },
+            {
+              "label": "E drejta per fshirje",
+              "text": "(Neni 15) — te kerkoni fshirjen e te dhenave"
+            },
+            {
+              "label": "E drejta per kufizim",
+              "text": "(Neni 16) — te kufizoni perpunimin"
+            },
+            {
+              "label": "E drejta per transferueshmeri",
+              "text": "(Neni 18) — te merrni te dhenat ne format elektronik"
+            },
+            {
+              "label": "E drejta per te kundershtuar",
+              "text": "(Neni 19) — te kundershtoni perpunimin"
+            },
+            {
+              "label": "E drejta per terheqjen e pelqimit",
+              "text": "— ne cdo kohe, pa ndikuar ligjshmerine e perpunimit te meparshem"
+            }
           ],
           "exerciseTitle": "Si t'i ushtroni?",
           "exerciseText": "Dergoni kerkesen tuaj me email ne {email}. Do t'ju pergjigjemi brenda 30 diteve."
@@ -420,10 +443,22 @@
           "title": "Si t'i menaxhoni cookies?",
           "intro": "Ju mund t'i menaxhoni ose fshini cookies nepermjet cilesimeve te shfletuesit tuaj:",
           "browsers": [
-            { "name": "Chrome", "path": "Settings → Privacy and Security → Cookies" },
-            { "name": "Firefox", "path": "Settings → Privacy & Security → Cookies" },
-            { "name": "Safari", "path": "Preferences → Privacy → Cookies" },
-            { "name": "Edge", "path": "Settings → Privacy → Cookies" }
+            {
+              "name": "Chrome",
+              "path": "Settings → Privacy and Security → Cookies"
+            },
+            {
+              "name": "Firefox",
+              "path": "Settings → Privacy & Security → Cookies"
+            },
+            {
+              "name": "Safari",
+              "path": "Preferences → Privacy → Cookies"
+            },
+            {
+              "name": "Edge",
+              "path": "Settings → Privacy → Cookies"
+            }
           ],
           "warning": "Kujdes: Caktivizimi i cookies teknike mund te ndikoje funksionimin e faqes, si p.sh. mundesine e perdorimit te formularit te kontaktit."
         }
