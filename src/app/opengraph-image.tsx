@@ -14,7 +14,7 @@ export default function OGImage() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          background: "linear-gradient(135deg, #1B3A5C 0%, #0F2440 100%)",
+          background: "linear-gradient(135deg, #1C1C21 0%, #0D0D10 100%)",
           padding: "60px",
           position: "relative",
         }}
@@ -27,7 +27,7 @@ export default function OGImage() {
             left: 0,
             right: 0,
             height: "6px",
-            background: "linear-gradient(90deg, #C4A35A, #D4B366, #C4A35A)",
+            background: "linear-gradient(90deg, #B85F6D, #7D2231, #B85F6D)",
           }}
         />
 
@@ -45,13 +45,13 @@ export default function OGImage() {
               width: "64px",
               height: "64px",
               borderRadius: "12px",
-              background: "linear-gradient(135deg, #C4A35A, #D4B366)",
+              background: "linear-gradient(135deg, #B85F6D, #7D2231)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               fontSize: "32px",
               fontWeight: 800,
-              color: "#1B3A5C",
+              color: "#FFFFFF",
             }}
           >
             OL
@@ -60,7 +60,7 @@ export default function OGImage() {
             style={{
               fontSize: "28px",
               fontWeight: 700,
-              color: "#C4A35A",
+              color: "#B85F6D",
               letterSpacing: "2px",
             }}
           >
@@ -92,7 +92,7 @@ export default function OGImage() {
             style={{
               fontSize: "32px",
               fontWeight: 400,
-              color: "#C4A35A",
+              color: "#B85F6D",
               margin: "16px 0 0 0",
             }}
           >
@@ -125,7 +125,7 @@ export default function OGImage() {
           <span
             style={{
               fontSize: "20px",
-              color: "#C4A35A",
+              color: "#B85F6D",
               fontWeight: 600,
             }}
           >

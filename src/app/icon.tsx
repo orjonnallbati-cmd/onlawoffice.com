@@ -13,7 +13,7 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(135deg, #1B3A5C 0%, #0F2440 100%)",
+          background: "linear-gradient(135deg, #1C1C21 0%, #0D0D10 100%)",
           borderRadius: "6px",
         }}
       >
@@ -25,7 +25,7 @@ export default function Icon() {
             display: "flex",
           }}
         >
-          <span style={{ color: "#C4A35A" }}>O</span>
+          <span style={{ color: "#B85F6D" }}>O</span>
           <span style={{ color: "#FFFFFF" }}>L</span>
         </span>
       </div>
