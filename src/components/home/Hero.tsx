@@ -1,98 +1,81 @@
 import Link from "next/link";
 import Container from "@/components/ui/Container";
+import { OFFICE } from "@/lib/constants";
 import { getLocalizedPath } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
-import {
-  ScaleIcon,
-  ShieldCheckIcon,
-  DocumentTextIcon,
-} from "@heroicons/react/24/outline";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function Hero({ dict, locale }: { dict: Record<string, any>; locale: Locale }) {
   const h = dict.hero;
+  const practiceAreas = Object.values(h.features as Record<string, string>);
 
   return (
-    <section className="relative bg-navy pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden">
-      {/* Subtle pattern overlay */}
-      <div className="absolute inset-0 opacity-5">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 25% 50%, rgba(196, 163, 90, 0.3) 0%, transparent 50%), radial-gradient(circle at 75% 50%, rgba(196, 163, 90, 0.2) 0%, transparent 50%)",
-          }}
-        />
-      </div>
-
-      <Container className="relative">
-        <div className="max-w-3xl mx-auto text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 rounded-full mb-8">
-            <div className="w-2 h-2 bg-gold rounded-full" />
-            <span className="text-gold text-sm font-medium">
+    <section className="relative bg-navy pt-28 pb-16 lg:pt-40 lg:pb-24">
+      <Container>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Editorial text block */}
+          <div className="lg:col-span-8">
+            <p className="flex items-center gap-4 text-gold text-xs sm:text-sm font-medium uppercase tracking-[0.2em] mb-8">
+              <span className="inline-block w-10 h-px bg-gold" aria-hidden="true" />
               {h.badge}
-            </span>
-          </div>
+            </p>
 
-          {/* Title */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-            <span className="text-white">On</span>
-            <span className="text-gold">Law</span>{" "}
-            <span className="text-white">Office</span>
-          </h1>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl text-white leading-[1.1]">
+              {OFFICE.lawyer}
+            </h1>
 
-          <p className="mt-4 text-lg sm:text-xl text-gray-300">
-            {h.subtitle}
-          </p>
+            <p className="mt-6 text-lg sm:text-xl text-gray-300 max-w-2xl leading-relaxed">
+              {h.description}
+            </p>
 
-          <p className="mt-6 text-base sm:text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            {h.description}
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href={getLocalizedPath(locale, "contact")}
-              className="px-8 py-3.5 bg-gold text-navy font-semibold rounded-md hover:bg-gold-300 transition-colors text-base"
-            >
-              {h.ctaPrimary}
-            </Link>
-            <Link
-              href={getLocalizedPath(locale, "services")}
-              className="px-8 py-3.5 border-2 border-white/30 text-white font-semibold rounded-md hover:bg-white/10 transition-colors text-base"
-            >
-              {h.ctaSecondary}
-            </Link>
-          </div>
-
-          {/* Platform CTA */}
-          <div className="mt-6">
-            <Link
-              href={locale === "sq" ? "/app/login" : `/${locale}/app/login`}
-              className="inline-flex items-center gap-2 px-6 py-2.5 bg-white/10 border border-gold/30 text-gold font-medium rounded-md hover:bg-gold/10 transition-colors text-sm"
-            >
-              <ScaleIcon className="w-4 h-4" />
-              {dict.nav.appCta || "Hyr në Platformë"}
-            </Link>
-          </div>
-
-          {/* Quick features */}
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {[
-              { icon: ScaleIcon, label: h.features.civil },
-              { icon: ShieldCheckIcon, label: h.features.constitutional },
-              { icon: DocumentTextIcon, label: h.features.data },
-            ].map((item) => (
-              <div
-                key={item.label}
-                className="flex items-center gap-3 justify-center text-gray-300"
+            <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-6">
+              <Link
+                href={getLocalizedPath(locale, "contact")}
+                className="inline-flex justify-center px-8 py-3.5 bg-white text-navy font-semibold hover:bg-gray-100 transition-colors text-base"
               >
-                <item.icon className="w-5 h-5 text-gold shrink-0" />
-                <span className="text-sm">{item.label}</span>
-              </div>
-            ))}
+                {h.ctaPrimary}
+              </Link>
+              <Link
+                href={getLocalizedPath(locale, "services")}
+                className="inline-flex items-center gap-2 text-white font-medium border-b border-gold pb-1 hover:text-gold transition-colors text-base w-fit"
+              >
+                {h.ctaSecondary}
+                <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+
+            <div className="mt-6">
+              <Link
+                href={locale === "sq" ? "/app/login" : `/${locale}/app/login`}
+                className="text-sm text-gray-400 hover:text-gold transition-colors"
+              >
+                {dict.nav.appCta || "Hyr në Platformë"} →
+              </Link>
+            </div>
           </div>
+
+          {/* Monogram */}
+          <div className="hidden lg:flex lg:col-span-4 justify-end">
+            <div className="border border-white/15 p-3">
+              <div className="border border-gold/40 px-12 py-14 text-center">
+                <span className="font-serif text-8xl text-gold leading-none">
+                  ON
+                </span>
+                <p className="mt-6 text-[11px] uppercase tracking-[0.25em] text-gray-400 leading-relaxed">
+                  {OFFICE.full}
+                  <br />
+                  {OFFICE.city}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Practice areas line */}
+        <div className="mt-16 border-t border-white/10 pt-6">
+          <p className="text-sm text-gray-400 tracking-wide">
+            {practiceAreas.join("  ·  ")}
+          </p>
         </div>
       </Container>
     </section>

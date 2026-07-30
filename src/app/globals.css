@@ -28,6 +28,7 @@
   --color-cta: #CC0000;
 
   --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
 }
 
 html {
@@ -41,7 +42,9 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-weight: 700;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 /* Gold divider utility classes */

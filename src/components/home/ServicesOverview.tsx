@@ -3,23 +3,6 @@ import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { getLocalizedPath } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
-import {
-  ScaleIcon,
-  BuildingOffice2Icon,
-  DocumentTextIcon,
-  ShieldCheckIcon,
-  LockClosedIcon,
-  PencilSquareIcon,
-} from "@heroicons/react/24/outline";
-
-const ICONS: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
-  civile: ScaleIcon,
-  tregtare: BuildingOffice2Icon,
-  administrative: DocumentTextIcon,
-  kushtetuese: ShieldCheckIcon,
-  gdpr: LockClosedIcon,
-  kontrata: PencilSquareIcon,
-};
 
 const SERVICE_IDS = ["civile", "tregtare", "administrative", "kushtetuese", "gdpr", "kontrata"] as const;
 
@@ -35,27 +18,34 @@ export default function ServicesOverview({ dict, locale }: { dict: Record<string
           subtitle={dict.servicesOverview.subtitle}
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {SERVICE_IDS.map((serviceId) => {
-            const Icon = ICONS[serviceId];
+        {/* Typographic index of practice areas */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 max-w-5xl mx-auto">
+          {SERVICE_IDS.map((serviceId, index) => {
             const service = dict.services[serviceId];
+            const number = String(index + 1).padStart(2, "0");
             return (
               <Link
                 key={serviceId}
                 href={`${servicesPath}#${serviceId}`}
-                className="group p-6 lg:p-8 rounded-lg border border-gray-100 hover:border-gold/30 hover:shadow-lg transition-all duration-300"
+                className="group flex gap-6 border-t border-gray-200 py-7"
               >
-                <div className="w-12 h-12 bg-navy-50 rounded-lg flex items-center justify-center mb-4 group-hover:bg-gold-50 transition-colors">
-                  {Icon && (
-                    <Icon className="w-6 h-6 text-navy group-hover:text-gold transition-colors" />
-                  )}
+                <span className="font-serif text-gold text-lg leading-snug w-8 shrink-0">
+                  {number}
+                </span>
+                <div>
+                  <h3 className="text-xl text-navy group-hover:text-gold transition-colors flex items-center gap-2">
+                    {service.title}
+                    <span
+                      aria-hidden="true"
+                      className="text-gold opacity-0 group-hover:opacity-100 transition-opacity text-base"
+                    >
+                      →
+                    </span>
+                  </h3>
+                  <p className="mt-2 text-sm text-gray-500 leading-relaxed">
+                    {service.description}
+                  </p>
                 </div>
-                <h3 className="text-lg font-bold text-navy mb-2">
-                  {service.title}
-                </h3>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  {service.description}
-                </p>
               </Link>
             );
           })}
