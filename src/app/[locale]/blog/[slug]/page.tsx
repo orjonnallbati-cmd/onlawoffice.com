@@ -119,14 +119,14 @@ export default async function BlogPostPage({
         <Container className="max-w-3xl">
           <Link
             href={blogPath}
-            className="inline-flex items-center gap-2 text-gray-300 hover:text-gold transition-colors text-sm mb-6"
+            className="inline-flex items-center gap-2 text-gray-300 hover:text-gold-300 transition-colors text-sm mb-6"
           >
             <ArrowLeftIcon className="w-4 h-4" />
             {backText}
           </Link>
 
           {post.meta.category && (
-            <span className="inline-block px-3 py-1 bg-white/10 text-gold text-xs font-medium rounded-full mb-4">
+            <span className="inline-block px-3 py-1 bg-white/10 text-gold-300 text-xs font-medium rounded-full mb-4">
               {post.meta.category}
             </span>
           )}
@@ -137,15 +137,15 @@ export default async function BlogPostPage({
 
           <div className="flex flex-wrap items-center gap-4 text-sm text-gray-300">
             <span className="flex items-center gap-1.5">
-              <UserIcon className="w-4 h-4 text-gold" />
+              <UserIcon className="w-4 h-4 text-gold-300" />
               {post.meta.author}
             </span>
             <span className="flex items-center gap-1.5">
-              <CalendarIcon className="w-4 h-4 text-gold" />
+              <CalendarIcon className="w-4 h-4 text-gold-300" />
               {formattedDate}
             </span>
             <span className="flex items-center gap-1.5">
-              <ClockIcon className="w-4 h-4 text-gold" />
+              <ClockIcon className="w-4 h-4 text-gold-300" />
               {post.meta.readingTime}
             </span>
           </div>
@@ -157,7 +157,7 @@ export default async function BlogPostPage({
       {/* Article Content */}
       <article className="py-12 lg:py-16 bg-white">
         <Container className="max-w-3xl">
-          <div className="prose prose-lg max-w-none prose-headings:text-navy prose-a:text-navy prose-a:underline hover:prose-a:text-gold prose-strong:text-dark">
+          <div className="prose prose-lg max-w-none prose-headings:text-navy prose-a:text-navy prose-a:underline hover:prose-a:text-gold-300 prose-strong:text-dark">
             <MDXRemote source={post.content} />
           </div>
         </Container>

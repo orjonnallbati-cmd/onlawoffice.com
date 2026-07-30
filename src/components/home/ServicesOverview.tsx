@@ -29,7 +29,7 @@ export default function ServicesOverview({ dict, locale }: { dict: Record<string
                 href={`${servicesPath}#${serviceId}`}
                 className="group flex gap-6 border-t border-gray-200 py-7"
               >
-                <span className="font-serif text-gold text-lg leading-snug w-8 shrink-0">
+                <span className="font-display text-gold text-lg leading-snug w-8 shrink-0">
                   {number}
                 </span>
                 <div>

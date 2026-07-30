@@ -2,33 +2,38 @@
 @plugin "@tailwindcss/typography";
 
 @theme inline {
-  --color-navy-50: #F0F4F8;
-  --color-navy-100: #D6E0EC;
-  --color-navy-200: #A8BEDA;
-  --color-navy-300: #7A9CC8;
-  --color-navy-400: #4C7AB6;
-  --color-navy: #1B3A5C;
-  --color-navy-600: #162F4A;
-  --color-navy-700: #112438;
-  --color-navy-800: #0C1926;
-  --color-navy-900: #070E14;
+  /*
+   * Brand palette — "navy" is legacy naming and now maps to graphite/charcoal,
+   * "gold" maps to burgundy/oxblood. Kept the token names so every existing
+   * bg-navy / text-gold usage across the site reskins at once.
+   */
+  --color-navy-50: #F5F5F6;
+  --color-navy-100: #E6E6E8;
+  --color-navy-200: #C9C9CE;
+  --color-navy-300: #A3A3AB;
+  --color-navy-400: #6B6B75;
+  --color-navy: #1C1C21;
+  --color-navy-600: #17171B;
+  --color-navy-700: #121216;
+  --color-navy-800: #0D0D10;
+  --color-navy-900: #08080A;
 
-  --color-gold-50: #FAF6ED;
-  --color-gold-100: #F0E5C8;
-  --color-gold-200: #E3CB92;
-  --color-gold-300: #D4B06C;
-  --color-gold: #C4A35A;
-  --color-gold-500: #B08D3E;
-  --color-gold-600: #8C7032;
-  --color-gold-700: #685326;
+  --color-gold-50: #F9F0F1;
+  --color-gold-100: #EFD6D9;
+  --color-gold-200: #DFAAB1;
+  --color-gold-300: #B85F6D;
+  --color-gold: #7D2231;
+  --color-gold-500: #6A1C29;
+  --color-gold-600: #541620;
+  --color-gold-700: #3E1018;
 
-  --color-dark: #2D2D2D;
-  --color-light: #F5F5F8;
-  --color-alt: #F0F4F8;
-  --color-cta: #CC0000;
+  --color-dark: #232326;
+  --color-light: #F6F5F3;
+  --color-alt: #EDECEA;
+  --color-cta: #7D2231;
 
   --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-display: "Archivo", "Inter", system-ui, sans-serif;
 }
 
 html {
@@ -42,9 +47,9 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: var(--font-serif);
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 /* Gold divider utility classes */

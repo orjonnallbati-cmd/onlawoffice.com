@@ -34,7 +34,7 @@ export default function Footer({ locale, dict }: { locale: Locale; dict: Record<
           {/* Column 1: About */}
           <div>
             <h3 className="text-xl font-bold text-white mb-2">OnLaw Office</h3>
-            <p className="text-gold text-sm mb-4">{OFFICE.full}</p>
+            <p className="text-gold-300 text-sm mb-4">{OFFICE.full}</p>
             <p className="text-gray-300 text-sm leading-relaxed">
               {dict.footer.description}
             </p>
@@ -50,7 +50,7 @@ export default function Footer({ locale, dict }: { locale: Locale; dict: Record<
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="block text-gray-300 hover:text-gold transition-colors text-sm"
+                  className="block text-gray-300 hover:text-gold-300 transition-colors text-sm"
                 >
                   {link.label}
                 </Link>
@@ -65,23 +65,23 @@ export default function Footer({ locale, dict }: { locale: Locale; dict: Record<
             </h3>
             <div className="space-y-3">
               <div className="flex items-start gap-3">
-                <MapPinIcon className="w-5 h-5 text-gold shrink-0 mt-0.5" />
+                <MapPinIcon className="w-5 h-5 text-gold-300 shrink-0 mt-0.5" />
                 <span className="text-gray-300 text-sm">{OFFICE.address}</span>
               </div>
               <div className="flex items-center gap-3">
-                <PhoneIcon className="w-5 h-5 text-gold shrink-0" />
+                <PhoneIcon className="w-5 h-5 text-gold-300 shrink-0" />
                 <a
                   href={`tel:${OFFICE.phone}`}
-                  className="text-gray-300 hover:text-gold transition-colors text-sm"
+                  className="text-gray-300 hover:text-gold-300 transition-colors text-sm"
                 >
                   {OFFICE.phone}
                 </a>
               </div>
               <div className="flex items-center gap-3">
-                <EnvelopeIcon className="w-5 h-5 text-gold shrink-0" />
+                <EnvelopeIcon className="w-5 h-5 text-gold-300 shrink-0" />
                 <a
                   href={`mailto:${OFFICE.email}`}
-                  className="text-gray-300 hover:text-gold transition-colors text-sm"
+                  className="text-gray-300 hover:text-gold-300 transition-colors text-sm"
                 >
                   {OFFICE.email}
                 </a>
@@ -99,7 +99,7 @@ export default function Footer({ locale, dict }: { locale: Locale; dict: Record<
             <div className="flex items-center gap-3">
               <Link
                 href={getLocalizedPath(locale, "privacy")}
-                className="hover:text-gold transition-colors"
+                className="hover:text-gold-300 transition-colors"
               >
                 {dict.footer.privacyLink}
               </Link>

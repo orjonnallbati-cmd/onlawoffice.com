@@ -10,71 +10,62 @@ export default function Hero({ dict, locale }: { dict: Record<string, any>; loca
   const practiceAreas = Object.values(h.features as Record<string, string>);
 
   return (
-    <section className="relative bg-navy pt-28 pb-16 lg:pt-40 lg:pb-24">
-      <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Editorial text block */}
-          <div className="lg:col-span-8">
-            <p className="flex items-center gap-4 text-gold text-xs sm:text-sm font-medium uppercase tracking-[0.2em] mb-8">
-              <span className="inline-block w-10 h-px bg-gold" aria-hidden="true" />
-              {h.badge}
-            </p>
+    <section className="relative bg-navy pt-28 pb-16 lg:pt-40 lg:pb-24 overflow-hidden">
+      {/* Ghost monogram watermark */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute -right-8 top-1/2 -translate-y-1/2 hidden lg:block"
+      >
+        <span className="font-display font-bold text-[22rem] leading-none text-white/[0.04]">
+          ON
+        </span>
+      </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl text-white leading-[1.1]">
-              {OFFICE.lawyer}
-            </h1>
+      <Container className="relative">
+        <div className="max-w-3xl">
+          <p className="flex items-center gap-4 text-xs sm:text-sm font-medium uppercase tracking-[0.25em] text-gray-400 mb-8">
+            <span className="inline-block w-10 h-px bg-gold-300" aria-hidden="true" />
+            {h.badge}
+          </p>
 
-            <p className="mt-6 text-lg sm:text-xl text-gray-300 max-w-2xl leading-relaxed">
-              {h.description}
-            </p>
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl text-white leading-[1.05]">
+            {OFFICE.lawyer}
+          </h1>
 
-            <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-6">
-              <Link
-                href={getLocalizedPath(locale, "contact")}
-                className="inline-flex justify-center px-8 py-3.5 bg-white text-navy font-semibold hover:bg-gray-100 transition-colors text-base"
-              >
-                {h.ctaPrimary}
-              </Link>
-              <Link
-                href={getLocalizedPath(locale, "services")}
-                className="inline-flex items-center gap-2 text-white font-medium border-b border-gold pb-1 hover:text-gold transition-colors text-base w-fit"
-              >
-                {h.ctaSecondary}
-                <span aria-hidden="true">→</span>
-              </Link>
-            </div>
+          <p className="mt-6 text-lg sm:text-xl text-gray-300 max-w-2xl leading-relaxed">
+            {h.description}
+          </p>
 
-            <div className="mt-6">
-              <Link
-                href={locale === "sq" ? "/app/login" : `/${locale}/app/login`}
-                className="text-sm text-gray-400 hover:text-gold transition-colors"
-              >
-                {dict.nav.appCta || "Hyr në Platformë"} →
-              </Link>
-            </div>
+          <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-6">
+            <Link
+              href={getLocalizedPath(locale, "contact")}
+              className="inline-flex justify-center px-8 py-4 bg-gold text-white font-semibold hover:bg-gold-500 transition-colors text-base"
+            >
+              {h.ctaPrimary}
+            </Link>
+            <Link
+              href={getLocalizedPath(locale, "services")}
+              className="inline-flex items-center gap-2 text-white font-medium border-b border-gold-300 pb-1 hover:text-gold-300 transition-colors text-base w-fit"
+            >
+              {h.ctaSecondary}
+              <span aria-hidden="true">→</span>
+            </Link>
           </div>
 
-          {/* Monogram */}
-          <div className="hidden lg:flex lg:col-span-4 justify-end">
-            <div className="border border-white/15 p-3">
-              <div className="border border-gold/40 px-12 py-14 text-center">
-                <span className="font-serif text-8xl text-gold leading-none">
-                  ON
-                </span>
-                <p className="mt-6 text-[11px] uppercase tracking-[0.25em] text-gray-400 leading-relaxed">
-                  {OFFICE.full}
-                  <br />
-                  {OFFICE.city}
-                </p>
-              </div>
-            </div>
+          <div className="mt-6">
+            <Link
+              href={locale === "sq" ? "/app/login" : `/${locale}/app/login`}
+              className="text-sm text-gray-500 hover:text-gold-300 transition-colors"
+            >
+              {dict.nav.appCta || "Hyr në Platformë"} →
+            </Link>
           </div>
         </div>
 
         {/* Practice areas line */}
         <div className="mt-16 border-t border-white/10 pt-6">
-          <p className="text-sm text-gray-400 tracking-wide">
-            {practiceAreas.join("  ·  ")}
+          <p className="text-xs sm:text-sm text-gray-500 uppercase tracking-[0.15em]">
+            {practiceAreas.join("   /   ")}
           </p>
         </div>
       </Container>
