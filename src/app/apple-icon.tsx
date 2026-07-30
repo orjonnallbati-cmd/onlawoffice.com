@@ -14,7 +14,7 @@ export default function AppleIcon() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(135deg, #1B3A5C 0%, #0F2440 100%)",
+          background: "linear-gradient(135deg, #1C1C21 0%, #0D0D10 100%)",
           borderRadius: "32px",
         }}
       >
@@ -26,14 +26,14 @@ export default function AppleIcon() {
             display: "flex",
           }}
         >
-          <span style={{ color: "#C4A35A" }}>O</span>
+          <span style={{ color: "#B85F6D" }}>O</span>
           <span style={{ color: "#FFFFFF" }}>L</span>
         </span>
         <span
           style={{
             fontSize: "18px",
             fontWeight: 600,
-            color: "#C4A35A",
+            color: "#B85F6D",
             letterSpacing: "6px",
             marginTop: "-4px",
             opacity: 0.8,
