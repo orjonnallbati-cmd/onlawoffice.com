@@ -22,13 +22,13 @@ export default function CTABanner({ dict, locale }: { dict: Record<string, any>;
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
           <Link
             href={getLocalizedPath(locale, "contact")}
-            className="px-8 py-3.5 bg-white text-navy font-semibold hover:bg-gray-100 transition-colors"
+            className="px-8 py-4 bg-gold text-white font-semibold hover:bg-gold-500 transition-colors"
           >
             {cta.button}
           </Link>
           <a
             href={`tel:${OFFICE.phone}`}
-            className="text-white font-medium border-b border-gold pb-1 hover:text-gold transition-colors"
+            className="text-white font-medium border-b border-gold-300 pb-1 hover:text-gold-300 transition-colors"
           >
             {OFFICE.phone}
           </a>

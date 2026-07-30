@@ -47,7 +47,7 @@ export default function Header({ locale, dict }: { locale: Locale; dict: Record<
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href={getLocalizedPath(locale, "home")} className="flex flex-col">
-            <span className="font-serif text-xl lg:text-2xl font-semibold text-navy">
+            <span className="font-display text-xl lg:text-2xl font-semibold text-navy">
               OnLaw Office
             </span>
             <span className="text-xs text-gray-500 hidden sm:block">
@@ -78,7 +78,7 @@ export default function Header({ locale, dict }: { locale: Locale; dict: Record<
             </Link>
             <Link
               href={locale === "sq" ? "/app/login" : `/${locale}/app/login`}
-              className="ml-2 px-5 py-2.5 bg-gold text-navy text-sm font-semibold rounded-md hover:bg-gold/90 transition-colors"
+              className="ml-2 px-5 py-2.5 bg-gold text-white text-sm font-semibold rounded-md hover:bg-gold-500 transition-colors"
             >
               {dict.nav.appCta}
             </Link>
@@ -134,7 +134,7 @@ export default function Header({ locale, dict }: { locale: Locale; dict: Record<
               </Link>
               <Link
                 href={locale === "sq" ? "/app/login" : `/${locale}/app/login`}
-                className="block text-center px-4 py-3 bg-gold text-navy font-semibold rounded-md"
+                className="block text-center px-4 py-3 bg-gold text-white font-semibold rounded-md"
               >
                 {dict.nav.appCta}
               </Link>
