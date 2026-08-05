@@ -75,12 +75,21 @@ export function buildPageMetadata({
       siteName: "OnLaw Office",
       title,
       description,
+      images: [
+        {
+          url: `${SITE_URL}/opengraph-image`,
+          width: 1200,
+          height: 630,
+          alt: "OnLaw Office — Studio Ligjore, Av. Orjon Nallbati",
+        },
+      ],
       ...ogExtra,
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: [`${SITE_URL}/opengraph-image`],
     },
   };
 }
