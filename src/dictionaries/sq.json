@@ -131,7 +131,7 @@
   "aboutPreview": {
     "label": "Rreth Nesh",
     "title": "Përvojë dhe Profesionalizëm në Shërbim të Drejtësisë",
-    "description1": "{name} është studio ligjore e themeluar nga {lawyer}, anëtar i {chamber}. Me përvojë të gjerë në fushat e së drejtës civile, tregtare, administrative, kushtetuese, si dhe në mbrojtjen e të dhënave personale, zyra jonë ofron shërbime juridike të standardit më të lartë.",
+    "description1": "{name} është studio ligjore e themeluar nga {lawyer}, anëtar i Dhomës së Avokatisë Tiranë. Me përvojë të gjerë në fushat e së drejtës civile, tregtare, administrative, kushtetuese, si dhe në mbrojtjen e të dhënave personale, zyra jonë ofron shërbime juridike të standardit më të lartë.",
     "description2": "Besojmë se çdo klient meriton përfaqësim cilësor, strategji të personalizuar dhe përkushtim profesional për arritjen e rezultatit më të mirë të mundshëm.",
     "readMore": "Lexo Më Shumë",
     "features": {
@@ -162,7 +162,7 @@
     },
     "lawyerProfile": {
       "founderTitle": "Themelues & Drejtor i {name}",
-      "licenseLabel": "Liçensë: {license}",
+      "licenseLabel": "Licencë: {license}",
       "nuisLabel": "NUIS: {nuis}",
       "bio": "Av. Orjon Nallbati ka përvojë të gjerë në përfaqësimin e klientëve para të gjitha niveleve të gjykatave shqiptare, përfshirë Gjykatën e Lartë dhe Gjykatën Kushtetuese. I specializuar në çështje civile komplekse, kontrata tregtare ndërkombëtare, dhe mbrojtjen e të dhënave personale."
     },
@@ -174,7 +174,7 @@
       },
       "integrity": {
         "title": "Integritet",
-        "description": "Transparenca dhe ndershmëria janë baza e marrëdhënies tonë me klientët. Besimi ndërtohet me vepra."
+        "description": "Transparenca dhe ndershmëria janë baza e marrëdhënies sonë me klientët. Besimi ndërtohet me vepra."
       },
       "results": {
         "title": "Rezultate",
@@ -240,208 +240,208 @@
   "privacy": {
     "hero": {
       "badge": "Ligji Nr. 124/2024",
-      "title": "Politika e Privatesise",
+      "title": "Politika e Privatësisë",
       "titleHighlight": "& Cookie Policy",
-      "subtitle": "Si i mbrojme te dhenat tuaja personale — OnLaw Office, Studio Ligjore e Av. Orjon Nallbati"
+      "subtitle": "Si i mbrojmë të dhënat tuaja personale — OnLaw Office, Studio Ligjore e Av. Orjon Nallbati"
     },
     "tabs": {
-      "privacy": "Politika e Privatesise",
+      "privacy": "Politika e Privatësisë",
       "cookies": "Cookie Policy"
     },
     "privacyTab": {
-      "introTitle": "Informacion mbi mbrojtjen e te dhenave personale",
-      "introText": "Kjo politike privatësie shpjegon se si OnLaw Office mbledh, perdor dhe mbron te dhenat tuaja personale kur vizitoni faqen tone te internetit onlawoffice.com ose na kontaktoni nepermjet saj, ne perputhje me Ligjin Nr. 124/2024 \"Per mbrojtjen e te dhenave personale\".",
-      "updated": "Perditesuar: Mars 2026",
+      "introTitle": "Informacion mbi mbrojtjen e të dhënave personale",
+      "introText": "Kjo politikë privatësie shpjegon se si OnLaw Office mbledh, përdor dhe mbron të dhënat tuaja personale kur vizitoni faqen tonë të internetit onlawoffice.com ose na kontaktoni nëpërmjet saj, në përputhje me Ligjin Nr. 124/2024 \"Për mbrojtjen e të dhënave personale\".",
+      "updated": "Përditësuar: Mars 2026",
       "lawReference": "Ligji 124/2024, Neni 13",
       "sections": {
         "controller": {
-          "title": "Kush jemi ne? (Kontrolluesi i te dhenave)",
-          "text": "Kontrolluesi i te dhenave personale eshte:",
+          "title": "Kush jemi ne? (Kontrolluesi i të dhënave)",
+          "text": "Kontrolluesi i të dhënave personale është:",
           "boxTitle": "OnLaw Office — Studio Ligjore",
-          "contactNote": "Per cdo pyetje ne lidhje me perpunimin e te dhenave tuaja personale, mund te na kontaktoni ne adresen e emailit te mesiperm."
+          "contactNote": "Për çdo pyetje në lidhje me përpunimin e të dhënave tuaja personale, mund të na kontaktoni në adresën e emailit të mësipërm."
         },
         "dataCollected": {
-          "title": "Cfare te dhenash mbledhim?",
-          "intro": "Kur perdorni faqen tone te internetit, mund te mbledhim keto kategori te dhenash:",
-          "contactFormTitle": "a) Te dhena nga formulari i kontaktit:",
+          "title": "Çfarë të dhënash mbledhim?",
+          "intro": "Kur përdorni faqen tonë të internetit, mund të mbledhim këto kategori të dhënash:",
+          "contactFormTitle": "a) Të dhëna nga formulari i kontaktit:",
           "contactFormItems": [
-            "Emri i plote",
+            "Emri i plotë",
             "Adresa e emailit",
             "Numri i telefonit (opsionale)",
-            "Subjekti dhe permbajtja e mesazhit"
+            "Subjekti dhe përmbajtja e mesazhit"
           ],
-          "technicalTitle": "b) Te dhena teknike (automatike):",
+          "technicalTitle": "b) Të dhëna teknike (automatike):",
           "technicalItems": [
-            "Adresa IP (per sigurine teknike)",
+            "Adresa IP (për sigurinë teknike)",
             "Lloji i shfletuesit (browser) dhe pajisjes",
-            "Data dhe ora e vizites"
+            "Data dhe ora e vizitës"
           ],
           "noSensitive": "Nëpërmjet faqes sonë nuk kërkojmë në mënyrë aktive të dhëna sensitive. Megjithatë, nëse ju vendosni vullnetarisht të na komunikoni informacione të tilla nëpërmjet formularit të kontaktit (si p.sh. informacione mbi gjendjen shëndetësore, çështje penale ose situata familjare), përpunimi i tyre do të bazohet në pëlqimin tuaj të shprehur sipas Nenit 9, pika 2, shkronja \"a\" të Ligjit 124/2024. Këto të dhëna do të përdoren vetëm për qëllimin e vlerësimit të kërkesës suaj juridike."
         },
         "purpose": {
-          "title": "Pse i perpunojme dhe mbi cfare baze ligjore?",
-          "intro": "Te dhenat tuaja perpunohen per qellimet e meposhtme:",
+          "title": "Pse i përpunojmë dhe mbi çfarë baze ligjore?",
+          "intro": "Të dhënat tuaja përpunohen për qëllimet e mëposhtme:",
           "contactResponse": {
-            "title": "Pergjigja ndaj kerkeses suaj (Formulari i kontaktit)",
-            "text": "Baza ligjore: Masat paraprake me kerkese tuajen per te lidhur nje marredhenie kontraktore, ose pelqimi juaj (Neni 7, shkronja \"b\" dhe \"a\", Ligji 124/2024)."
+            "title": "Përgjigjja ndaj kërkesës suaj (Formulari i kontaktit)",
+            "text": "Baza ligjore: Masat paraprake me kërkesën tuaj për të lidhur një marrëdhënie kontraktore, ose pëlqimi juaj (Neni 7, shkronja \"b\" dhe \"a\", Ligji 124/2024)."
           },
           "technicalFunction": {
             "title": "Funksionimi teknik i faqes",
-            "text": "Baza ligjore: Interesi i ligjshem i kontrolluesit per sigurimin e funksionimit teknik te faqes (Neni 7, shkronja \"dh\", Ligji 124/2024)."
+            "text": "Baza ligjore: Interesi i ligjshëm i kontrolluesit për sigurimin e funksionimit teknik të faqes (Neni 7, shkronja \"dh\", Ligji 124/2024)."
           },
           "legalObligation": {
-            "title": "Permbushja e detyrimeve ligjore",
+            "title": "Përmbushja e detyrimeve ligjore",
             "text": "Baza ligjore: Detyrimi ligjor i kontrolluesit (Neni 7, shkronja \"c\", Ligji 124/2024), si p.sh. ruajtja e dokumentacionit sipas legjislacionit fiskal ose arkivor."
           }
         },
         "retention": {
-          "title": "Sa kohe i ruajme te dhenat?",
-          "intro": "Zbatojme parimin e kufizimit te periudhes se ruajtjes sipas Nenit 6, pika 1, shkronja \"dh\" te Ligjit 124/2024:",
+          "title": "Sa kohë i ruajmë të dhënat?",
+          "intro": "Zbatojmë parimin e kufizimit të periudhës së ruajtjes sipas Nenit 6, pika 1, shkronja \"dh\" të Ligjit 124/2024:",
           "items": [
             {
-              "label": "Te dhena kontakti:",
-              "text": "Ruhen deri ne perfundimin e komunikimit me ju dhe jo me gjate se 12 muaj nga kontakti i fundit, pervecse kur krijohet nje marredhenie kontraktore."
+              "label": "Të dhëna kontakti:",
+              "text": "Ruhen deri në përfundimin e komunikimit me ju dhe jo më gjatë se 12 muaj nga kontakti i fundit, përveçse kur krijohet një marrëdhënie kontraktore."
             },
             {
-              "label": "Te dhena teknike (log):",
-              "text": "Ruhen deri ne 90 dite, vetem per qellime sigurie teknike."
+              "label": "Të dhëna teknike (log):",
+              "text": "Ruhen deri në 90 ditë, vetëm për qëllime sigurie teknike."
             },
             {
               "label": "Dokumentacion ligjor/kontraktual:",
-              "text": "Ruhen sipas afateve ligjore ne fuqi (deri ne 10 vjet sipas legjislacionit fiskal)."
+              "text": "Ruhen sipas afateve ligjore në fuqi (deri në 10 vjet sipas legjislacionit fiskal)."
             }
           ],
-          "afterExpiry": "Pas perfundimit te afatit, te dhenat fshihen ose anonimizohen."
+          "afterExpiry": "Pas përfundimit të afatit, të dhënat fshihen ose anonimizohen."
         },
         "sharing": {
-          "title": "Me ke ndahen te dhenat?",
-          "intro": "Te dhenat tuaja personale nuk shiten, nuk tregtohen dhe nuk ndahen me pale te treta per qellime marketingu.",
-          "availableTo": "Ato mund t'u vihen ne dispozicion vetem:",
+          "title": "Me kë ndahen të dhënat?",
+          "intro": "Të dhënat tuaja personale nuk shiten, nuk tregtohen dhe nuk ndahen me palë të treta për qëllime marketingu.",
+          "availableTo": "Ato mund t'u vihen në dispozicion vetëm:",
           "items": [
             {
-              "label": "Ofruesve te sherbimit teknik",
-              "text": "(hosting, email) — qe veprojne si perpunues te dhenash sipas udhezimeve tona dhe me garancite perkatese kontraktore;"
+              "label": "Ofruesve të shërbimit teknik",
+              "text": "(hosting, email) — që veprojnë si përpunues të dhënash sipas udhëzimeve tona dhe me garancitë përkatëse kontraktore;"
             },
             {
               "label": "Autoriteteve publike",
-              "text": "— vetem kur kerkohet me ligj ose me urdher gjykate."
+              "text": "— vetëm kur kërkohet me ligj ose me urdhër gjykate."
             }
           ],
-          "formNote": "Formulari i kontaktit funksionon nepermjet sherbimit te dergimit me email. Te dhenat e derguara nepermjet formularit dergohen drejtperdrejt ne emailin tone profesional dhe nuk ruhen ne baza te dhenash te jashtme."
+          "formNote": "Formulari i kontaktit funksionon nëpërmjet shërbimit të dërgimit me email. Të dhënat e dërguara nëpërmjet formularit dërgohen drejtpërdrejt në emailin tonë profesional dhe nuk ruhen në baza të dhënash të jashtme."
         },
         "transfers": {
-          "title": "A transferohen te dhenat jashte Shqiperise?",
-          "text1": "Si rregull, te dhenat tuaja perpunohen brenda territorit te Republikes se Shqiperise ose ne vende qe ofrojne nivel adekuat mbrojtjeje.",
-          "text2": "Nese per arsye teknike (si p.sh. infrastruktura e sherbimit te emailit) te dhenat transferohen ne nje vend tjeter, ne sigurohemi qe transferimi te mbeshetet ne garanci te pershtatshme sipas Pjeses II, Kapitulli V (Nenet 37-44) te Ligjit 124/2024, duke perfshire klauza standarde kontraktore ose vendime pershtatshmerie."
+          "title": "A transferohen të dhënat jashtë Shqipërisë?",
+          "text1": "Si rregull, të dhënat tuaja përpunohen brenda territorit të Republikës së Shqipërisë ose në vende që ofrojnë nivel adekuat mbrojtjeje.",
+          "text2": "Nëse për arsye teknike (si p.sh. infrastruktura e shërbimit të emailit) të dhënat transferohen në një vend tjetër, ne sigurohemi që transferimi të mbështetet në garanci të përshtatshme sipas Pjesës II, Kapitulli V (Nenet 37-44) të Ligjit 124/2024, duke përfshirë klauzola standarde kontraktore ose vendime përshtatshmërie."
         },
         "rights": {
-          "title": "Cilat jane te drejtat tuaja?",
-          "intro": "Sipas Neneve 13-20 te Ligjit 124/2024, ju gezoni keto te drejta:",
+          "title": "Cilat janë të drejtat tuaja?",
+          "intro": "Sipas Neneve 13-20 të Ligjit 124/2024, ju gëzoni këto të drejta:",
           "items": [
             {
-              "label": "E drejta per informim",
-              "text": "(Neni 13) — te informoheni mbi perpunimin e te dhenave"
+              "label": "E drejta për informim",
+              "text": "(Neni 13) — të informoheni mbi përpunimin e të dhënave"
             },
             {
               "label": "E drejta e aksesit",
-              "text": "(Neni 14) — te merrni nje kopje te te dhenave tuaja"
+              "text": "(Neni 14) — të merrni një kopje të të dhënave tuaja"
             },
             {
-              "label": "E drejta per korrigjim",
-              "text": "(Neni 15) — te korrigjoni te dhena te pasakta"
+              "label": "E drejta për korrigjim",
+              "text": "(Neni 15) — të korrigjoni të dhëna të pasakta"
             },
             {
-              "label": "E drejta per fshirje",
-              "text": "(Neni 15) — te kerkoni fshirjen e te dhenave"
+              "label": "E drejta për fshirje",
+              "text": "(Neni 15) — të kërkoni fshirjen e të dhënave"
             },
             {
-              "label": "E drejta per kufizim",
-              "text": "(Neni 16) — te kufizoni perpunimin"
+              "label": "E drejta për kufizim",
+              "text": "(Neni 16) — të kufizoni përpunimin"
             },
             {
-              "label": "E drejta per transferueshmeri",
-              "text": "(Neni 18) — te merrni te dhenat ne format elektronik"
+              "label": "E drejta për transferueshmëri",
+              "text": "(Neni 18) — të merrni të dhënat në format elektronik"
             },
             {
-              "label": "E drejta per te kundershtuar",
-              "text": "(Neni 19) — te kundershtoni perpunimin"
+              "label": "E drejta për të kundërshtuar",
+              "text": "(Neni 19) — të kundërshtoni përpunimin"
             },
             {
-              "label": "E drejta per terheqjen e pelqimit",
-              "text": "— ne cdo kohe, pa ndikuar ligjshmerine e perpunimit te meparshem"
+              "label": "E drejta për tërheqjen e pëlqimit",
+              "text": "— në çdo kohë, pa ndikuar ligjshmërinë e përpunimit të mëparshëm"
             }
           ],
           "exerciseTitle": "Si t'i ushtroni?",
-          "exerciseText": "Dergoni kerkesen tuaj me email ne {email}. Do t'ju pergjigjemi brenda 30 diteve."
+          "exerciseText": "Dërgoni kërkesën tuaj me email në {email}. Do t'ju përgjigjemi brenda 30 ditëve."
         },
         "complaint": {
-          "title": "E drejta per ankese te Komisioneri",
-          "intro": "Nese konsideroni se te drejtat tuaja te mbrojtjes se te dhenave personale jane cenuar, keni te drejte te paraqisni ankese prane:",
-          "boxTitle": "Komisioneri per te Drejten e Informimit dhe Mbrojtjen e te Dhenave Personale",
-          "boxAddress": "Adresa: Rruga \"Abdi Toptani\", Nd. 5, Tirane",
+          "title": "E drejta për ankesë te Komisioneri",
+          "intro": "Nëse konsideroni se të drejtat tuaja të mbrojtjes së të dhënave personale janë cenuar, keni të drejtë të paraqisni ankesë pranë:",
+          "boxTitle": "Komisioneri për të Drejtën e Informimit dhe Mbrojtjen e të Dhënave Personale",
+          "boxAddress": "Adresa: Rruga \"Abdi Toptani\", Nd. 5, Tiranë",
           "boxTel": "Tel: +355 42 237 200",
           "boxWeb": "www.idp.al",
           "boxEmail": "Email: info@idp.al",
-          "legalRemedy": "Gjithashtu, sipas Nenit 88 te Ligjit 124/2024, keni te drejte per mjet juridik efektiv prane gjykates kompetente."
+          "legalRemedy": "Gjithashtu, sipas Nenit 88 të Ligjit 124/2024, keni të drejtë për mjet juridik efektiv pranë gjykatës kompetente."
         },
         "automated": {
           "title": "A merren vendime automatike?",
-          "text": "Jo. OnLaw Office nuk perdor asnje sistem vendimmarrjeje automatike ose profilizimi sipas Nenit 20 te Ligjit 124/2024 ne lidhje me vizitoret e faqes ose klientet."
+          "text": "Jo. OnLaw Office nuk përdor asnjë sistem vendimmarrjeje automatike ose profilizimi sipas Nenit 20 të Ligjit 124/2024 në lidhje me vizitorët e faqes ose klientët."
         },
         "changes": {
-          "title": "Ndryshimet e kesaj politike",
-          "text": "Kjo politike mund te perditësohet here pas here per te pasqyruar ndryshime ligjore ose te praktikes sone. Versioni i perditesuar do te publikohet ne kete faqe me daten e perditesimit. Ju inkurajojme ta rishikoni periodikisht.",
+          "title": "Ndryshimet e kësaj politike",
+          "text": "Kjo politikë mund të përditësohet herë pas here për të pasqyruar ndryshime ligjore ose të praktikës sonë. Versioni i përditësuar do të publikohet në këtë faqe me datën e përditësimit. Ju inkurajojmë ta rishikoni periodikisht.",
           "currentVersion": "Versioni aktual:",
           "versionDate": "Mars 2026"
         }
       }
     },
     "cookieTab": {
-      "introTitle": "Politika e Cookies (Skedareve te Perkohshem)",
-      "introText": "Kjo politike shpjegon se si faqja onlawoffice.com perdor cookies — skedare te vegjel teksti qe ruhen ne pajisjen tuaj kur vizitoni faqen tone.",
-      "updated": "Perditesuar: Mars 2026",
+      "introTitle": "Politika e Cookies (Skedarëve të Përkohshëm)",
+      "introText": "Kjo politikë shpjegon se si faqja onlawoffice.com përdor cookies — skedarë të vegjël teksti që ruhen në pajisjen tuaj kur vizitoni faqen tonë.",
+      "updated": "Përditësuar: Mars 2026",
       "lawReference": "Ligji 124/2024",
       "sections": {
         "whatAreCookies": {
-          "title": "Cfare jane cookies?",
-          "text1": "Cookies jane skedare te vegjel teksti qe faqet e internetit ruajne ne pajisjen tuaj (kompjuter, telefon, tablet). Ato ndihmojne faqen te funksionoje sic duhet, te ruaje preferencat tuaja dhe te ofroje nje pervoje me te mire navigimi.",
-          "text2": "Cookies nuk permbajne viruse dhe nuk mund te aksesojne informacione te tjera ne pajisjen tuaj."
+          "title": "Çfarë janë cookies?",
+          "text1": "Cookies janë skedarë të vegjël teksti që faqet e internetit ruajnë në pajisjen tuaj (kompjuter, telefon, tablet). Ato ndihmojnë faqen të funksionojë siç duhet, të ruajë preferencat tuaja dhe të ofrojë një përvojë më të mirë navigimi.",
+          "text2": "Cookies nuk përmbajnë viruse dhe nuk mund të aksesojnë informacione të tjera në pajisjen tuaj."
         },
         "whichCookies": {
-          "title": "Cilat cookies perdorim?",
-          "intro": "Faqja onlawoffice.com perdor vetem cookies teknike (te domosdoshme) per funksionimin e faqes. Nuk perdorim cookies analitike, marketingu ose profilizimi.",
+          "title": "Cilat cookies përdorim?",
+          "intro": "Faqja onlawoffice.com përdor vetëm cookies teknike (të domosdoshme) për funksionimin e faqes. Nuk përdorim cookies analitike, marketingu ose profilizimi.",
           "tableHeaders": {
             "cookie": "Cookie",
-            "purpose": "Qellimi",
-            "duration": "Kohezgjatja",
+            "purpose": "Qëllimi",
+            "duration": "Kohëzgjatja",
             "type": "Lloji"
           },
           "cookies": [
             {
               "name": "session_id",
-              "purpose": "Menaxhimi i sesionit te navigimit",
-              "duration": "Deri ne mbylljen e shfletuesit",
-              "type": "I domosdoshem"
+              "purpose": "Menaxhimi i sesionit të navigimit",
+              "duration": "Deri në mbylljen e shfletuesit",
+              "type": "I domosdoshëm"
             },
             {
               "name": "csrf_token",
               "purpose": "Mbrojtja e formularit nga sulme",
-              "duration": "Deri ne mbylljen e shfletuesit",
-              "type": "I domosdoshem"
+              "duration": "Deri në mbylljen e shfletuesit",
+              "type": "I domosdoshëm"
             }
           ],
           "noAnalyticsTitle": "Pa cookies analitike ose marketingu",
-          "noAnalyticsText": "Nuk perdorim Google Analytics, Facebook Pixel ose ndonje mjet tjeter gjurmimi. Navigimi juaj ne faqen tone nuk gjurmohet per qellime profilizimi ose reklamimi."
+          "noAnalyticsText": "Nuk përdorim Google Analytics, Facebook Pixel ose ndonjë mjet tjetër gjurmimi. Navigimi juaj në faqen tonë nuk gjurmohet për qëllime profilizimi ose reklamimi."
         },
         "legalBasis": {
           "title": "Baza ligjore e cookies",
-          "text1": "Cookies teknike (te domosdoshme) nuk kerkojne pelqimin tuaj, pasi jane te nevojshme per funksionimin baze te faqes.",
-          "text2": "Baza ligjore: Interesi i ligjshem i kontrolluesit (Neni 7, shkronja \"dh\", Ligji 124/2024) per sigurimin e funksionimit teknik dhe sigurise se faqes.",
-          "text3": "Nese ne te ardhmen vendosim te perdorim cookies analitike ose marketingu, do te perditesojme kete politike dhe do te kerkojme pelqimin tuaj te shprehur perpara aktivizimit te tyre."
+          "text1": "Cookies teknike (të domosdoshme) nuk kërkojnë pëlqimin tuaj, pasi janë të nevojshme për funksionimin bazë të faqes.",
+          "text2": "Baza ligjore: Interesi i ligjshëm i kontrolluesit (Neni 7, shkronja \"dh\", Ligji 124/2024) për sigurimin e funksionimit teknik dhe sigurisë së faqes.",
+          "text3": "Nëse në të ardhmen vendosim të përdorim cookies analitike ose marketingu, do të përditësojmë këtë politikë dhe do të kërkojmë pëlqimin tuaj të shprehur përpara aktivizimit të tyre."
         },
         "manageCookies": {
           "title": "Si t'i menaxhoni cookies?",
-          "intro": "Ju mund t'i menaxhoni ose fshini cookies nepermjet cilesimeve te shfletuesit tuaj:",
+          "intro": "Ju mund t'i menaxhoni ose fshini cookies nëpërmjet cilësimeve të shfletuesit tuaj:",
           "browsers": [
             {
               "name": "Chrome",
@@ -460,13 +460,13 @@
               "path": "Settings → Privacy → Cookies"
             }
           ],
-          "warning": "Kujdes: Caktivizimi i cookies teknike mund te ndikoje funksionimin e faqes, si p.sh. mundesine e perdorimit te formularit te kontaktit."
+          "warning": "Kujdes: Çaktivizimi i cookies teknike mund të ndikojë në funksionimin e faqes, si p.sh. mundësinë e përdorimit të formularit të kontaktit."
         }
       }
     },
     "contactFooter": {
-      "title": "Keni pyetje per te dhenat tuaja?",
-      "text": "Na kontaktoni per cdo ceshtje qe lidhet me privatesine dhe mbrojtjen e te dhenave personale."
+      "title": "Keni pyetje për të dhënat tuaja?",
+      "text": "Na kontaktoni për çdo çështje që lidhet me privatësinë dhe mbrojtjen e të dhënave personale."
     }
   }
 }

@@ -131,7 +131,7 @@
   "aboutPreview": {
     "label": "Chi Siamo",
     "title": "Esperienza e Professionalità al Servizio della Giustizia",
-    "description1": "{name} è uno studio legale fondato dall'Avv. {lawyer}, membro della {chamber}. Con ampia esperienza nel diritto civile, commerciale, amministrativo, costituzionale e nella protezione dei dati personali, il nostro studio offre servizi legali del più alto standard.",
+    "description1": "{name} è uno studio legale fondato da {lawyer}, membro dell'Ordine degli Avvocati di Tirana (Dhoma e Avokatisë Tiranë). Con ampia esperienza nel diritto civile, commerciale, amministrativo, costituzionale e nella protezione dei dati personali, il nostro studio offre servizi legali del più alto standard.",
     "description2": "Crediamo che ogni cliente meriti una rappresentanza di qualità, una strategia personalizzata e una dedizione professionale per raggiungere il miglior risultato possibile.",
     "readMore": "Scopri di Più",
     "features": {
