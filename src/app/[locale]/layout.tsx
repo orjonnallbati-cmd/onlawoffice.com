@@ -74,6 +74,22 @@ export default async function LocaleLayout({
       addressCountry: "AL",
     },
     areaServed: { "@type": "Country", name: "Albania" },
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "17:00",
+    },
+    knowsLanguage: ["sq", "it", "en"],
+    serviceType: [
+      "E drejta civile",
+      "E drejta e pronësisë",
+      "E drejta tregtare",
+      "E drejta administrative",
+      "E drejta kushtetuese",
+      "Mbrojtja e të dhënave personale (GDPR, Ligji 124/2024)",
+      "Hartim kontratash",
+    ],
     founder: {
       "@type": "Person",
       name: "Orjon Nallbati",
