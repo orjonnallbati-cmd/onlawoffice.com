@@ -1,0 +1,22 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 1280, "h": 720, "title": "01 · Kopertina" },
+    { "file": "Axhenda.dc.html", "x": 1380, "y": 0, "w": 1280, "h": 720, "title": "02 · Axhenda" },
+    { "file": "KreuI.dc.html", "x": 2760, "y": 0, "w": 1280, "h": 720, "title": "03 · Kreu I" },
+    { "file": "PseRendesi.dc.html", "x": 4140, "y": 0, "w": 1280, "h": 720, "title": "04 · Pse ky trajnim" },
+    { "file": "Parimet.dc.html", "x": 0, "y": 860, "w": 1280, "h": 720, "title": "05 · Parimet (Neni 6)" },
+    { "file": "BazatLigjore.dc.html", "x": 1380, "y": 860, "w": 1280, "h": 720, "title": "06 · Bazat ligjore (Neni 7)" },
+    { "file": "TeDrejtat.dc.html", "x": 2760, "y": 860, "w": 1280, "h": 720, "title": "07 · Të drejtat (Nenet 11–22)" },
+    { "file": "KreuII.dc.html", "x": 4140, "y": 860, "w": 1280, "h": 720, "title": "08 · Kreu II" },
+    { "file": "RregullaPraktike.dc.html", "x": 0, "y": 1720, "w": 1280, "h": 720, "title": "09 · Rregullat e arta" },
+    { "file": "DataBreach.dc.html", "x": 1380, "y": 1720, "w": 1280, "h": 720, "title": "10 · Cenimi (Nenet 29–30)" },
+    { "file": "RekomandimVendim.dc.html", "x": 2760, "y": 1720, "w": 1280, "h": 720, "title": "11 · Rekomandim vs Vendim" },
+    { "file": "Sanksionet.dc.html", "x": 4140, "y": 1720, "w": 1280, "h": 720, "title": "12 · Sanksionet" },
+    { "file": "Citim.dc.html", "x": 0, "y": 2580, "w": 1280, "h": 720, "title": "13 · Citimi" },
+    { "file": "Falenderim.dc.html", "x": 1380, "y": 2580, "w": 1280, "h": 720, "title": "14 · Mbyllja" }
+  ],
+  "annotations": [
+    { "id": "shenim-perdorimi", "x": 2780, "y": 2580, "w": 340, "text": "Kursi i Privatësisë ITAKA7 — Ligji 124/2024.\nPara çdo mbajtjeje trajnimi: plotëso [EMRI I KLIENTIT] dhe [DATA E TRAJNIMIT] në kopertinë dhe në footer-ët e sllajdeve.\nRendi i leximit: majtas → djathtas, rresht pas rreshti." }
+  ],
+  "launch": { "view": "canvas" }
+}
