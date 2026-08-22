@@ -1,0 +1,10 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 1280, "h": 720, "title": "Moduli 1 · Player" },
+    { "file": "Skripti.dc.html", "x": 1380, "y": 0, "w": 900, "h": 2050, "title": "Skripti i narracionit", "print": "flow" }
+  ],
+  "annotations": [
+    { "id": "udhezim-audio", "x": 0, "y": -190, "w": 360, "text": "Moduli 1 i animuar — kliko mbi playerin dhe shtyp \"Luaj\" për rrjedhën automatike; \"Narracioni\" tregon tekstin e folur për çdo sllajd.\nAudio në shqip: regjistro sipas skriptit djathtas (m1-s01…m1-s11) dhe dërgoji regjistrimet — futen në modul dhe sinkronizohen me sllajdet." }
+  ],
+  "launch": { "view": "focused", "file": "Main.dc.html" }
+}
