@@ -16,7 +16,7 @@
     { "file": "Falenderim.dc.html", "x": 1380, "y": 2580, "w": 1280, "h": 720, "title": "14 · Mbyllja" }
   ],
   "annotations": [
-    { "id": "shenim-perdorimi", "x": 2780, "y": 2580, "w": 340, "text": "Kursi i Privatësisë ITAKA7 — Ligji 124/2024.\nPara çdo mbajtjeje trajnimi: plotëso [EMRI I KLIENTIT] dhe [DATA E TRAJNIMIT] në kopertinë dhe në footer-ët e sllajdeve.\nRendi i leximit: majtas → djathtas, rresht pas rreshti." }
+    { "id": "shenim-perdorimi", "x": 2780, "y": 2580, "w": 340, "text": "Kursi i Privatësisë ITAKA7 — Ligji 124/2024.\nPara çdo mbajtjeje trajnimi plotëso: [EMRI I KLIENTIT] (kopertinë + footer-ët e sllajdeve), [DATA E TRAJNIMIT] (kopertinë) dhe [DPO / personin përgjegjës] në sllajdin e cenimit.\nRendi i leximit: majtas → djathtas, rresht pas rreshti." }
   ],
   "launch": { "view": "canvas" }
 }
