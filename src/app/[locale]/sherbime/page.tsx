@@ -67,17 +67,17 @@ export default async function SherbimePage({
             <section
               key={serviceId}
               id={serviceId}
-              className={`py-12 lg:py-16 ${isAlt ? "bg-alt" : "bg-white"}`}
+              className={`py-12 lg:py-16 ${isAlt ? "bg-alt" : "bg-light"}`}
             >
               <Container>
                 <div className="max-w-3xl mx-auto">
                   <div className="flex items-center gap-4 mb-4">
                     {Icon && (
-                      <div className="w-12 h-12 bg-navy-50 rounded-lg flex items-center justify-center shrink-0">
+                      <div className="w-12 h-12 border border-gray-300 flex items-center justify-center shrink-0">
                         <Icon className="w-6 h-6 text-navy" />
                       </div>
                     )}
-                    <h2 className="text-2xl lg:text-3xl font-bold text-navy">
+                    <h2 className="text-3xl lg:text-4xl text-navy">
                       {service.title}
                     </h2>
                   </div>

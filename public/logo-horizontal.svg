@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230 100" role="img" aria-label="OnLawOffice">
+  <title>OnLawOffice</title>
+  <!-- Le parti in "currentColor" seguono il color del contenitore CSS:
+       una sola classe cambia il logo da tema chiaro a tema scuro.
+       Il verde resta fisso: e' lo stato "acceso", non un colore di tema. -->
+  <g fill="currentColor">
+    <text x="104" y="50" font-family="Georgia, 'Times New Roman', 'Liberation Serif', serif" font-size="30" letter-spacing="1.5">ONLAW</text>
+  </g>
+  <path d="M34.2 28 A 26 26 0 1 0 61.8 28" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+  <path d="M48 18 L 48 50" fill="none" stroke="#146B4A" stroke-width="7" stroke-linecap="round"/>
+  <path d="M88 24 L 88 76" stroke="currentColor" stroke-width="1" opacity="0.25"/>
+  <text x="106" y="70" font-family="Georgia, 'Times New Roman', 'Liberation Serif', serif" font-size="12" fill="#146B4A" letter-spacing="5.5">OFFICE</text>
+</svg>

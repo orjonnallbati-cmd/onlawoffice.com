@@ -27,10 +27,10 @@ export default function AboutPreview({ dict, locale }: { dict: Record<string, an
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Text Content */}
           <div>
-            <p className="text-gold font-medium text-sm uppercase tracking-[0.2em] mb-3">
+            <p className="text-gold text-xs font-medium uppercase tracking-[0.25em] mb-4">
               {ap.label}
             </p>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl text-navy mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl leading-tight text-navy mb-4">
               {ap.title}
             </h2>
             <GoldDivider short className="!mx-0 mb-6" />
@@ -48,8 +48,8 @@ export default function AboutPreview({ dict, locale }: { dict: Record<string, an
           {/* Qualities as a typographic list */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10">
             {features.map((item) => (
-              <div key={item.title} className="border-t border-gold/40 pt-4">
-                <h3 className="text-lg text-navy mb-2">{item.title}</h3>
+              <div key={item.title} className="border-t border-gray-300 pt-4">
+                <h3 className="text-xl text-navy mb-2">{item.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">
                   {item.description}
                 </p>

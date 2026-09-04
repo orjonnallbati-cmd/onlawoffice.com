@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 200" width="260" height="200" role="img" aria-label="OnLawOffice — Av. Orjon Nallbati">
+  <title>OnLawOffice</title>
+  <path d="M114 26.6 A 30 30 0 1 0 146 26.6" fill="none" stroke="#1B1F24" stroke-width="8" stroke-linecap="round"/>
+  <path d="M130 14 L 130 52" fill="none" stroke="#146B4A" stroke-width="8" stroke-linecap="round"/>
+  <text x="130" y="125" text-anchor="middle" font-family="Times New Roman, Liberation Serif, Georgia, serif" font-size="34" fill="#1B1F24" letter-spacing="1.5">ONLAW</text>
+  <text x="133.5" y="147" text-anchor="middle" font-family="Times New Roman, Liberation Serif, Georgia, serif" font-size="13" fill="#146B4A" letter-spacing="7">OFFICE</text>
+  <path d="M90 161 L 170 161" stroke="#C9C4B8" stroke-width="1"/>
+  <text x="131.25" y="178" text-anchor="middle" font-family="Times New Roman, Liberation Serif, Georgia, serif" font-size="9.5" fill="#6E6A63" letter-spacing="2.5">ORJON NALLBATI</text>
+</svg>

@@ -11,7 +11,7 @@ export default function ServicesOverview({ dict, locale }: { dict: Record<string
   const servicesPath = getLocalizedPath(locale, "services");
 
   return (
-    <section className="py-16 lg:py-24 bg-white">
+    <section className="py-16 lg:py-24 bg-light">
       <Container>
         <SectionHeading
           title={dict.servicesOverview.title}
@@ -33,7 +33,7 @@ export default function ServicesOverview({ dict, locale }: { dict: Record<string
                   {number}
                 </span>
                 <div>
-                  <h3 className="text-xl text-navy group-hover:text-gold transition-colors flex items-center gap-2">
+                  <h3 className="text-2xl text-navy group-hover:text-gold transition-colors flex items-center gap-2">
                     {service.title}
                     <span
                       aria-hidden="true"

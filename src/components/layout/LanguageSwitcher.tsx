@@ -47,9 +47,9 @@ export default function LanguageSwitcher({ locale }: { locale: Locale }) {
           {i > 0 && <span className="text-gray-300 text-xs mx-0.5">|</span>}
           <Link
             href={getEquivalentPath(pathname, locale, l)}
-            className={`px-1.5 py-0.5 text-xs font-semibold rounded transition-colors ${
+            className={`px-1.5 py-0.5 text-xs font-semibold tracking-wide transition-colors ${
               l === locale
-                ? "text-gold bg-navy-50"
+                ? "text-gold"
                 : "text-gray-400 hover:text-navy"
             }`}
           >

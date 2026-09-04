@@ -3,37 +3,64 @@
 
 @theme inline {
   /*
-   * Brand palette — "navy" is legacy naming and now maps to graphite/charcoal,
-   * "gold" maps to burgundy/oxblood. Kept the token names so every existing
-   * bg-navy / text-gold usage across the site reskins at once.
+   * OnLawOffice — token-at e markës (2026).
+   * Grafit + letër e ngrohtë. Jeshilja është sinjali i markës — gjendja "ON"
+   * e simbolit — jo dekor: stema, vija të holla, etiketa dhe gjendje hover.
+   * Butonat janë grafit ose të bardhë, kurrë jeshilë.
    */
-  --color-navy-50: #F5F5F6;
-  --color-navy-100: #E6E6E8;
-  --color-navy-200: #C9C9CE;
-  --color-navy-300: #A3A3AB;
-  --color-navy-400: #6B6B75;
-  --color-navy: #1C1C21;
-  --color-navy-600: #17171B;
-  --color-navy-700: #121216;
-  --color-navy-800: #0D0D10;
-  --color-navy-900: #08080A;
+  --color-ink: #1B1F24;
+  --color-paper: #FBFAF8;
+  --color-sand: #F2F0EB;
+  --color-muted: #6E6A63;
+  --color-rule: #C9C4B8;
+  --color-green: #146B4A;
+  --color-green-lift: #2E9E6F;
 
-  --color-gold-50: #F9F0F1;
-  --color-gold-100: #EFD6D9;
-  --color-gold-200: #DFAAB1;
-  --color-gold-300: #B85F6D;
-  --color-gold: #7D2231;
-  --color-gold-500: #6A1C29;
-  --color-gold-600: #541620;
-  --color-gold-700: #3E1018;
+  /*
+   * Emrat e vjetër të token-ave mbahen që klasat ekzistuese (bg-navy, text-gold …)
+   * të marrin paletën e re menjëherë: "navy" = shkalla e grafitit, "gold" = jeshilja.
+   */
+  --color-navy-50: #F4F3F0;
+  --color-navy-100: #E8E6E1;
+  --color-navy-200: #C9C4B8;
+  --color-navy-300: #A29D93;
+  --color-navy-400: #6E6A63;
+  --color-navy: #1B1F24;
+  --color-navy-600: #15181C;
+  --color-navy-700: #101317;
+  --color-navy-800: #0B0D10;
+  --color-navy-900: #070809;
 
-  --color-dark: #232326;
-  --color-light: #F6F5F3;
-  --color-alt: #EDECEA;
-  --color-cta: #7D2231;
+  --color-gold-50: #EEF5F1;
+  --color-gold-100: #D6E9DF;
+  --color-gold-200: #A9D1BE;
+  --color-gold-300: #2E9E6F;
+  --color-gold: #146B4A;
+  --color-gold-500: #115A3E;
+  --color-gold-600: #0D4730;
+  --color-gold-700: #093521;
+
+  --color-dark: #1B1F24;
+  --color-light: #FBFAF8;
+  --color-alt: #F2F0EB;
+  --color-cta: #1B1F24;
+
+  /* Shkallë neutrale e ngrohtë në vend të grive të ftohta të Tailwind-it */
+  --color-gray-50: #F7F6F3;
+  --color-gray-100: #EDEBE6;
+  --color-gray-200: #DCD9D2;
+  --color-gray-300: #C9C4B8;
+  --color-gray-400: #9A958B;
+  --color-gray-500: #6E6A63;
+  --color-gray-600: #56534D;
+  --color-gray-700: #3F3D39;
+  --color-gray-800: #2A2926;
+  --color-gray-900: #1B1F24;
+  --color-gray-950: #101317;
 
   --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-display: "Archivo", "Inter", system-ui, sans-serif;
+  /* I njëjti serif që përdor stema: sajti dhe logoja janë një familje */
+  --font-display: Georgia, "Times New Roman", "Liberation Serif", serif;
 }
 
 html {
@@ -41,18 +68,25 @@ html {
 }
 
 body {
+  background-color: var(--color-light);
   color: var(--color-dark);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Titujt: serif, peshë normale — eleganca vjen nga madhësia, jo nga trashësia */
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
-/* Gold divider utility classes */
+::selection {
+  background-color: var(--color-green);
+  color: #ffffff;
+}
+
+/* Vija e hollë jeshile — e njëjta që mbyll kokën e letrës zyrtare */
 .gold-divider {
   height: 2px;
   background-color: var(--color-gold);
@@ -62,7 +96,7 @@ h1, h2, h3, h4 {
 .gold-divider-short {
   height: 2px;
   background-color: var(--color-gold);
-  width: 6rem;
+  width: 3rem;
   margin-left: auto;
   margin-right: auto;
 }

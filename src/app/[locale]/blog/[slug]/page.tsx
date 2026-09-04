@@ -126,12 +126,12 @@ export default async function BlogPostPage({
           </Link>
 
           {post.meta.category && (
-            <span className="inline-block px-3 py-1 bg-white/10 text-gold-300 text-xs font-medium rounded-full mb-4">
+            <span className="block text-gold-300 text-[11px] font-medium uppercase tracking-[0.2em] mb-5">
               {post.meta.category}
             </span>
           )}
 
-          <h1 className="text-3xl sm:text-4xl font-bold text-white leading-tight mb-4">
+          <h1 className="text-4xl sm:text-5xl text-white leading-[1.1] mb-6">
             {post.meta.title}
           </h1>
 
@@ -155,9 +155,9 @@ export default async function BlogPostPage({
       <GoldDivider />
 
       {/* Article Content */}
-      <article className="py-12 lg:py-16 bg-white">
+      <article className="py-12 lg:py-16 bg-light">
         <Container className="max-w-3xl">
-          <div className="prose prose-lg max-w-none prose-headings:text-navy prose-a:text-navy prose-a:underline hover:prose-a:text-gold-300 prose-strong:text-dark">
+          <div className="prose prose-lg max-w-none prose-headings:font-normal prose-headings:text-navy prose-a:text-navy prose-a:underline hover:prose-a:text-gold prose-strong:text-dark prose-strong:font-semibold">
             <MDXRemote source={post.content} />
           </div>
         </Container>
@@ -166,12 +166,12 @@ export default async function BlogPostPage({
       {/* Author Box */}
       <section className="py-8 bg-alt">
         <Container className="max-w-3xl">
-          <div className="flex items-center gap-4 p-6 bg-white rounded-lg">
-            <div className="w-14 h-14 bg-navy-50 rounded-full flex items-center justify-center shrink-0">
-              <UserIcon className="w-7 h-7 text-navy" />
+          <div className="flex items-center gap-4 p-6 bg-white border border-gray-200">
+            <div className="w-14 h-14 bg-navy flex items-center justify-center shrink-0">
+              <UserIcon className="w-7 h-7 text-white" />
             </div>
             <div>
-              <p className="font-bold text-navy">{OFFICE.lawyer}</p>
+              <p className="font-medium text-navy">{OFFICE.lawyer}</p>
               <p className="text-sm text-gray-500">{OFFICE.full}</p>
             </div>
           </div>

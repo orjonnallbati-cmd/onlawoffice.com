@@ -13,9 +13,9 @@ interface CookieConsentDict {
 }
 
 /**
- * Informative-only cookie notice. The site sets no optional cookies
- * (no analytics, marketing or profiling), so no consent choice is
- * required — the notice informs and links to the cookie policy.
+ * Njoftim thjesht informues. Faqja nuk vendos cookies opsionale
+ * (as analitikë, as marketing, as profilizim), ndaj nuk kërkohet zgjedhje —
+ * njoftimi informon dhe lidh te politika e cookies.
  */
 export default function CookieConsent({
   locale,
@@ -29,7 +29,6 @@ export default function CookieConsent({
   useEffect(() => {
     const acknowledged = localStorage.getItem("cookie-consent");
     if (!acknowledged) {
-      // Small delay so it doesn't flash on page load
       const timer = setTimeout(() => setVisible(true), 1000);
       return () => clearTimeout(timer);
     }
@@ -46,13 +45,13 @@ export default function CookieConsent({
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-[9999] p-4 sm:p-6">
-      <div className="max-w-3xl mx-auto bg-navy-700 border-t-2 border-gold shadow-2xl p-5 sm:p-6">
+      <div className="max-w-3xl mx-auto bg-navy border-t-2 border-gold shadow-2xl p-5 sm:p-6">
         <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
           <p className="text-gray-300 text-sm leading-relaxed flex-1">
             {dict.description}{" "}
             <Link
               href={privacyPath}
-              className="text-gold-300 hover:text-gold-200 underline underline-offset-2"
+              className="text-gold-300 hover:text-white underline underline-offset-2 transition-colors"
             >
               {dict.privacyLink}
             </Link>
@@ -60,7 +59,7 @@ export default function CookieConsent({
           </p>
           <button
             onClick={handleDismiss}
-            className="shrink-0 px-6 py-2.5 bg-gold text-white hover:bg-gold-500 transition-colors text-sm font-semibold cursor-pointer"
+            className="shrink-0 px-6 py-3 bg-white text-navy text-xs font-semibold uppercase tracking-[0.16em] hover:bg-gray-200 transition-colors cursor-pointer"
           >
             {dict.ok}
           </button>

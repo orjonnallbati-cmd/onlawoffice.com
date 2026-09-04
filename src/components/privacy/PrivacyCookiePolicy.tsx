@@ -19,7 +19,7 @@ function AccordionItem({
 }) {
   return (
     <div
-      className={`bg-white border rounded-xl mb-3 overflow-hidden transition-all duration-300 ${
+      className={`bg-white border mb-3 overflow-hidden transition-all duration-300 ${
         isOpen
           ? "border-gold/50 shadow-lg"
           : "border-gray-200 shadow-sm hover:border-gold/30 hover:shadow-md"
@@ -30,7 +30,7 @@ function AccordionItem({
         className="flex items-center gap-3.5 w-full px-6 py-5 text-left hover:bg-gold/[0.03] transition-colors"
       >
         <div
-          className={`w-9 h-9 rounded-lg flex items-center justify-center text-sm font-bold shrink-0 transition-colors ${
+          className={`w-9 h-9 flex items-center justify-center text-sm font-bold shrink-0 transition-colors ${
             isOpen
               ? "bg-gradient-to-br from-gold to-gold-300 text-navy"
               : "bg-gradient-to-br from-navy to-navy-600 text-gold-100"
@@ -75,7 +75,7 @@ function HighlightBox({
   children: React.ReactNode;
 }) {
   return (
-    <div className="bg-gradient-to-r from-navy/[0.04] to-gold/[0.06] border-l-[3px] border-gold rounded-r-lg px-4 py-3.5 text-sm">
+    <div className="bg-gradient-to-r from-navy/[0.04] to-gold/[0.06] border-l-[3px] border-gold-lg px-4 py-3.5 text-sm">
       {title && (
         <strong className="block text-navy mb-1 text-[0.9rem]">{title}</strong>
       )}
@@ -122,11 +122,11 @@ export default function PrivacyCookiePolicy({ dict }: { dict: Record<string, any
       {/* HERO */}
       <section className="bg-navy text-white py-20 px-6 text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-gold rounded-full blur-[120px]" />
-          <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-white rounded-full blur-[100px]" />
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-gold blur-[120px]" />
+          <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-white blur-[100px]" />
         </div>
         <div className="relative z-10 max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 bg-gold/15 border border-gold/30 text-gold-100 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase mb-6">
+          <div className="inline-flex items-center gap-2 bg-gold/15 border border-gold/30 text-gold-100 px-4 py-1.5 text-xs font-semibold tracking-wide uppercase mb-6">
             <svg
               className="w-3.5 h-3.5"
               viewBox="0 0 24 24"
@@ -138,7 +138,7 @@ export default function PrivacyCookiePolicy({ dict }: { dict: Record<string, any
             </svg>
             {dict.hero.badge}
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl mb-4 leading-tight">
             {dict.hero.title}
             <br />
             <span className="text-gold">{dict.hero.titleHighlight}</span>
@@ -156,9 +156,9 @@ export default function PrivacyCookiePolicy({ dict }: { dict: Record<string, any
             setActiveTab("privacy");
             setOpenItem(null);
           }}
-          className={`px-8 py-3.5 rounded-t-xl font-semibold text-sm border transition-all ${
+          className={`px-8 py-3.5-xl font-semibold text-sm border transition-all ${
             activeTab === "privacy"
-              ? "bg-white text-navy border-gray-200 border-b-2 border-b-gold shadow-md"
+              ? "bg-white text-navy border-gray-200 border-b-2 border-b-gold"
               : "bg-gray-50 text-gray-500 border-gray-200 hover:text-navy hover:bg-white"
           }`}
         >
@@ -169,9 +169,9 @@ export default function PrivacyCookiePolicy({ dict }: { dict: Record<string, any
             setActiveTab("cookies");
             setOpenItem(null);
           }}
-          className={`px-8 py-3.5 rounded-t-xl font-semibold text-sm border transition-all ${
+          className={`px-8 py-3.5-xl font-semibold text-sm border transition-all ${
             activeTab === "cookies"
-              ? "bg-white text-navy border-gray-200 border-b-2 border-b-gold shadow-md"
+              ? "bg-white text-navy border-gray-200 border-b-2 border-b-gold"
               : "bg-gray-50 text-gray-500 border-gray-200 hover:text-navy hover:bg-white"
           }`}
         >
@@ -185,9 +185,9 @@ export default function PrivacyCookiePolicy({ dict }: { dict: Record<string, any
         {activeTab === "privacy" && (
           <div>
             {/* Intro Card */}
-            <div className="bg-white border border-gray-200 rounded-xl p-7 mb-8 shadow-md relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-gold to-navy rounded-l" />
-              <h3 className="text-lg font-bold text-navy mb-3">
+            <div className="bg-white border border-gray-200 p-7 mb-8 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-gold to-navy" />
+              <h3 className="text-lg text-navy mb-3">
                 {pt.introTitle}
               </h3>
               <p className="text-sm text-gray-600 leading-relaxed">
@@ -231,13 +231,13 @@ export default function PrivacyCookiePolicy({ dict }: { dict: Record<string, any
               <p><strong className="text-navy">{pt.sections.dataCollected.contactFormTitle}</strong></p>
               <ul className="list-none space-y-1.5 ml-0">
                 {pt.sections.dataCollected.contactFormItems.map((item: string) => (
-                  <li key={item} className="relative pl-5 before:content-[''] before:absolute before:left-0 before:top-[0.55rem] before:w-1.5 before:h-1.5 before:rounded-full before:bg-gold">{item}</li>
+                  <li key={item} className="relative pl-5 before:content-[''] before:absolute before:left-0 before:top-[0.55rem] before:w-1.5 before:h-1.5  before:bg-gold">{item}</li>
                 ))}
               </ul>
               <p><strong className="text-navy">{pt.sections.dataCollected.technicalTitle}</strong></p>
               <ul className="list-none space-y-1.5 ml-0">
                 {pt.sections.dataCollected.technicalItems.map((item: string) => (
-                  <li key={item} className="relative pl-5 before:content-[''] before:absolute before:left-0 before:top-[0.55rem] before:w-1.5 before:h-1.5 before:rounded-full before:bg-gold">{item}</li>
+                  <li key={item} className="relative pl-5 before:content-[''] before:absolute before:left-0 before:top-[0.55rem] before:w-1.5 before:h-1.5  before:bg-gold">{item}</li>
                 ))}
               </ul>
               <p>{pt.sections.dataCollected.noSensitive}</p>
@@ -262,7 +262,7 @@ export default function PrivacyCookiePolicy({ dict }: { dict: Record<string, any
               <p>{pt.sections.retention.intro}</p>
               <ul className="list-none space-y-1.5 ml-0">
                 {pt.sections.retention.items.map((item: { label: string; text: string }) => (
-                  <li key={item.label} className="relative pl-5 before:content-[''] before:absolute before:left-0 before:top-[0.55rem] before:w-1.5 before:h-1.5 before:rounded-full before:bg-gold">
+                  <li key={item.label} className="relative pl-5 before:content-[''] before:absolute before:left-0 before:top-[0.55rem] before:w-1.5 before:h-1.5  before:bg-gold">
                     <strong className="text-navy">{item.label}</strong> {item.text}
                   </li>
                 ))}
@@ -276,7 +276,7 @@ export default function PrivacyCookiePolicy({ dict }: { dict: Record<string, any
               <p>{pt.sections.sharing.availableTo}</p>
               <ul className="list-none space-y-1.5 ml-0">
                 {pt.sections.sharing.items.map((item: { label: string; text: string }) => (
-                  <li key={item.label} className="relative pl-5 before:content-[''] before:absolute before:left-0 before:top-[0.55rem] before:w-1.5 before:h-1.5 before:rounded-full before:bg-gold">
+                  <li key={item.label} className="relative pl-5 before:content-[''] before:absolute before:left-0 before:top-[0.55rem] before:w-1.5 before:h-1.5  before:bg-gold">
                     <strong className="text-navy">{item.label}</strong> {item.text}
                   </li>
                 ))}
@@ -295,7 +295,7 @@ export default function PrivacyCookiePolicy({ dict }: { dict: Record<string, any
               <p>{pt.sections.rights.intro}</p>
               <ul className="list-none space-y-1.5 ml-0">
                 {pt.sections.rights.items.map((item: { label: string; text: string }) => (
-                  <li key={item.label} className="relative pl-5 before:content-[''] before:absolute before:left-0 before:top-[0.55rem] before:w-1.5 before:h-1.5 before:rounded-full before:bg-gold">
+                  <li key={item.label} className="relative pl-5 before:content-[''] before:absolute before:left-0 before:top-[0.55rem] before:w-1.5 before:h-1.5  before:bg-gold">
                     <strong className="text-navy">{item.label}</strong> {item.text}
                   </li>
                 ))}
@@ -338,9 +338,9 @@ export default function PrivacyCookiePolicy({ dict }: { dict: Record<string, any
         {activeTab === "cookies" && (
           <div>
             {/* Intro Card */}
-            <div className="bg-white border border-gray-200 rounded-xl p-7 mb-8 shadow-md relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-gold to-navy rounded-l" />
-              <h3 className="text-lg font-bold text-navy mb-3">
+            <div className="bg-white border border-gray-200 p-7 mb-8 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-gold to-navy" />
+              <h3 className="text-lg text-navy mb-3">
                 {ct.introTitle}
               </h3>
               <p className="text-sm text-gray-600 leading-relaxed">
@@ -371,7 +371,7 @@ export default function PrivacyCookiePolicy({ dict }: { dict: Record<string, any
             <AccordionItem icon="2" title={ct.sections.whichCookies.title} isOpen={openItem === "c2"} onClick={() => toggle("c2")}>
               <p>{ct.sections.whichCookies.intro}</p>
               <div className="overflow-x-auto my-4">
-                <table className="w-full text-sm border-collapse rounded-lg overflow-hidden border border-gray-200">
+                <table className="w-full text-sm border-collapse overflow-hidden border border-gray-200">
                   <thead>
                     <tr className="bg-navy text-white">
                       <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide">{ct.sections.whichCookies.tableHeaders.cookie}</th>
@@ -387,7 +387,7 @@ export default function PrivacyCookiePolicy({ dict }: { dict: Record<string, any
                         <td className="px-4 py-3">{cookie.purpose}</td>
                         <td className="px-4 py-3">{cookie.duration}</td>
                         <td className="px-4 py-3">
-                          <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-green-100 text-green-700">{cookie.type}</span>
+                          <span className="inline-block px-2.5 py-0.5 text-xs font-semibold bg-green-100 text-green-700">{cookie.type}</span>
                         </td>
                       </tr>
                     ))}
@@ -409,7 +409,7 @@ export default function PrivacyCookiePolicy({ dict }: { dict: Record<string, any
               <p>{ct.sections.manageCookies.intro}</p>
               <ul className="list-none space-y-1.5 ml-0">
                 {ct.sections.manageCookies.browsers.map((browser: { name: string; path: string }) => (
-                  <li key={browser.name} className="relative pl-5 before:content-[''] before:absolute before:left-0 before:top-[0.55rem] before:w-1.5 before:h-1.5 before:rounded-full before:bg-gold">
+                  <li key={browser.name} className="relative pl-5 before:content-[''] before:absolute before:left-0 before:top-[0.55rem] before:w-1.5 before:h-1.5  before:bg-gold">
                     <strong className="text-navy">{browser.name}:</strong> {browser.path}
                   </li>
                 ))}
@@ -420,9 +420,9 @@ export default function PrivacyCookiePolicy({ dict }: { dict: Record<string, any
         )}
 
         {/* CONTACT FOOTER */}
-        <div className="bg-navy text-white rounded-xl p-8 mt-10 text-center relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-48 h-48 bg-gold/15 rounded-full blur-[80px]" />
-          <h3 className="text-xl font-bold mb-2 relative">
+        <div className="bg-navy text-white p-8 mt-10 text-center relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-48 h-48 bg-gold/15 blur-[80px]" />
+          <h3 className="text-xl mb-2 relative">
             {dict.contactFooter.title}
           </h3>
           <p className="text-white/70 text-sm mb-5 relative">
@@ -431,7 +431,7 @@ export default function PrivacyCookiePolicy({ dict }: { dict: Record<string, any
           <div className="flex flex-wrap justify-center gap-3 relative">
             <a
               href={`mailto:${OFFICE.email}`}
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 border border-white/15 rounded-full text-white text-sm font-medium hover:bg-gold/20 hover:border-gold/40 transition-all"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 border border-white/15 text-white text-sm font-medium hover:bg-gold/20 hover:border-gold/40 transition-all"
             >
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
@@ -441,7 +441,7 @@ export default function PrivacyCookiePolicy({ dict }: { dict: Record<string, any
             </a>
             <a
               href={`tel:${OFFICE.phone.replace(/\s/g, "")}`}
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 border border-white/15 rounded-full text-white text-sm font-medium hover:bg-gold/20 hover:border-gold/40 transition-all"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 border border-white/15 text-white text-sm font-medium hover:bg-gold/20 hover:border-gold/40 transition-all"
             >
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
