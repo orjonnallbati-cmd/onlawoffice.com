@@ -7,6 +7,7 @@ import { OFFICE } from "@/lib/constants";
 import { getLocalizedPath } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
 import LanguageSwitcher from "./LanguageSwitcher";
+import Logo from "./Logo";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -39,20 +40,19 @@ export default function Header({ locale, dict }: { locale: Locale; dict: Record<
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-sm shadow-md"
-          : "bg-white shadow-sm"
+          ? "bg-light/95 backdrop-blur-sm shadow-sm"
+          : "bg-light"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link href={getLocalizedPath(locale, "home")} className="flex flex-col">
-            <span className="font-display text-xl lg:text-2xl font-semibold text-navy">
-              OnLaw Office
-            </span>
-            <span className="text-xs text-gray-500 hidden sm:block">
-              {OFFICE.full}
-            </span>
+          <Link
+            href={getLocalizedPath(locale, "home")}
+            className="text-navy leading-none"
+            aria-label={OFFICE.name}
+          >
+            <Logo className="block h-9 w-auto lg:h-11" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -61,10 +61,10 @@ export default function Header({ locale, dict }: { locale: Locale; dict: Record<
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
+                className={`px-3 py-2 text-sm font-medium transition-colors ${
                   pathname === link.href
-                    ? "text-navy bg-navy-50"
-                    : "text-dark hover:text-navy hover:bg-navy-50"
+                    ? "text-navy underline decoration-gold decoration-2 underline-offset-8"
+                    : "text-gray-500 hover:text-navy"
                 }`}
               >
                 {link.label}
@@ -72,13 +72,13 @@ export default function Header({ locale, dict }: { locale: Locale; dict: Record<
             ))}
             <Link
               href={contactHref}
-              className="ml-4 px-5 py-2.5 bg-navy text-white text-sm font-medium rounded-md hover:bg-navy-600 transition-colors"
+              className="ml-4 px-5 py-3 bg-navy text-white text-xs font-semibold uppercase tracking-[0.14em] hover:bg-navy-700 transition-colors"
             >
               {dict.nav.contactCta}
             </Link>
             <Link
               href={locale === "sq" ? "/app/login" : `/${locale}/app/login`}
-              className="ml-2 px-5 py-2.5 bg-gold text-white text-sm font-semibold rounded-md hover:bg-gold-500 transition-colors"
+              className="ml-2 px-5 py-3 border border-navy text-navy text-xs font-semibold uppercase tracking-[0.14em] hover:bg-navy hover:text-white transition-colors"
             >
               {dict.nav.appCta}
             </Link>
@@ -110,16 +110,16 @@ export default function Header({ locale, dict }: { locale: Locale; dict: Record<
 
       {/* Mobile Navigation */}
       {mobileOpen && (
-        <div className="lg:hidden bg-white border-t border-gray-100">
+        <div className="lg:hidden bg-light border-t border-gray-200">
           <nav className="px-4 py-4 space-y-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`block px-4 py-3 text-base font-medium rounded-md ${
+                className={`block px-4 py-3 text-base font-medium ${
                   pathname === link.href
                     ? "text-navy bg-navy-50"
-                    : "text-dark hover:text-navy hover:bg-gray-50"
+                    : "text-gray-600 hover:text-navy hover:bg-navy-50"
                 }`}
               >
                 {link.label}
@@ -128,13 +128,13 @@ export default function Header({ locale, dict }: { locale: Locale; dict: Record<
             <div className="pt-2 space-y-2">
               <Link
                 href={contactHref}
-                className="block text-center px-4 py-3 bg-navy text-white font-medium rounded-md"
+                className="block text-center px-4 py-3.5 bg-navy text-white text-xs font-semibold uppercase tracking-[0.14em]"
               >
                 {dict.nav.contactCta}
               </Link>
               <Link
                 href={locale === "sq" ? "/app/login" : `/${locale}/app/login`}
-                className="block text-center px-4 py-3 bg-gold text-white font-semibold rounded-md"
+                className="block text-center px-4 py-3.5 border border-navy text-navy text-xs font-semibold uppercase tracking-[0.14em]"
               >
                 {dict.nav.appCta}
               </Link>

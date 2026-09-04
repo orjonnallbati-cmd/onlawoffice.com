@@ -38,9 +38,9 @@ export default function ContactForm({ dict, locale, privacyPath }: { dict: Recor
 
   if (status === "sent") {
     return (
-      <div className="bg-green-50 border border-green-200 rounded-lg p-8 text-center">
+      <div className="bg-white border border-gold p-8 text-center">
         <svg
-          className="w-12 h-12 text-green-500 mx-auto mb-4"
+          className="w-12 h-12 text-gold mx-auto mb-4"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
@@ -52,10 +52,10 @@ export default function ContactForm({ dict, locale, privacyPath }: { dict: Recor
             d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
           />
         </svg>
-        <h3 className="text-lg font-bold text-green-800 mb-2">
+        <h3 className="text-2xl text-navy mb-2">
           {dict.successTitle}
         </h3>
-        <p className="text-green-600 text-sm">
+        <p className="text-gray-600 text-sm">
           {dict.successMessage}
         </p>
       </div>
@@ -80,7 +80,7 @@ export default function ContactForm({ dict, locale, privacyPath }: { dict: Recor
             id="name"
             name="name"
             required
-            className="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-colors text-sm"
+            className="w-full px-4 py-3 bg-white border border-gray-300 focus:outline-none focus:ring-1 focus:ring-navy focus:border-navy transition-colors text-sm"
             placeholder={dict.namePlaceholder}
           />
         </div>
@@ -96,7 +96,7 @@ export default function ContactForm({ dict, locale, privacyPath }: { dict: Recor
             id="email"
             name="email"
             required
-            className="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-colors text-sm"
+            className="w-full px-4 py-3 bg-white border border-gray-300 focus:outline-none focus:ring-1 focus:ring-navy focus:border-navy transition-colors text-sm"
             placeholder={dict.emailPlaceholder}
           />
         </div>
@@ -114,7 +114,7 @@ export default function ContactForm({ dict, locale, privacyPath }: { dict: Recor
             type="tel"
             id="phone"
             name="phone"
-            className="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-colors text-sm"
+            className="w-full px-4 py-3 bg-white border border-gray-300 focus:outline-none focus:ring-1 focus:ring-navy focus:border-navy transition-colors text-sm"
             placeholder={dict.phonePlaceholder}
           />
         </div>
@@ -129,7 +129,7 @@ export default function ContactForm({ dict, locale, privacyPath }: { dict: Recor
             type="text"
             id="subject"
             name="subject"
-            className="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-colors text-sm"
+            className="w-full px-4 py-3 bg-white border border-gray-300 focus:outline-none focus:ring-1 focus:ring-navy focus:border-navy transition-colors text-sm"
             placeholder={dict.subjectPlaceholder}
           />
         </div>
@@ -147,7 +147,7 @@ export default function ContactForm({ dict, locale, privacyPath }: { dict: Recor
           name="message"
           required
           rows={5}
-          className="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-colors text-sm resize-none"
+          className="w-full px-4 py-3 bg-white border border-gray-300 focus:outline-none focus:ring-1 focus:ring-navy focus:border-navy transition-colors text-sm resize-none"
           placeholder={dict.messagePlaceholder}
         />
       </div>
@@ -159,7 +159,7 @@ export default function ContactForm({ dict, locale, privacyPath }: { dict: Recor
           id="consent"
           name="consent"
           required
-          className="mt-1 h-4 w-4 rounded border-gray-300 text-navy focus:ring-navy/20 cursor-pointer"
+          className="mt-1 h-4 w-4 border-gray-300 text-navy focus:ring-navy/20 cursor-pointer"
         />
         <label htmlFor="consent" className="text-sm text-gray-600 leading-relaxed cursor-pointer">
           {dict.consentText}{" "}
@@ -177,7 +177,7 @@ export default function ContactForm({ dict, locale, privacyPath }: { dict: Recor
       <button
         type="submit"
         disabled={status === "sending"}
-        className="w-full sm:w-auto px-8 py-3.5 bg-navy text-white font-semibold rounded-md hover:bg-navy-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full sm:w-auto px-8 py-4 bg-navy text-white text-xs font-semibold uppercase tracking-[0.16em] hover:bg-navy-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {status === "sending" ? dict.sending : dict.submit}
       </button>

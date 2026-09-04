@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import HtmlLangSetter from "@/components/layout/HtmlLangSetter";
@@ -11,6 +11,10 @@ import { SITE_URL } from "@/lib/seo";
 export async function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
 }
+
+export const viewport: Viewport = {
+  themeColor: "#1B1F24",
+};
 
 export function generateMetadata(): Metadata {
   return {
@@ -29,6 +33,14 @@ export function generateMetadata(): Metadata {
       "tirana",
     ],
     authors: [{ name: "Av. Orjon Nallbati" }],
+    icons: {
+      icon: [
+        { url: "/favicon.ico", sizes: "32x32" },
+        { url: "/favicon.svg", type: "image/svg+xml" },
+      ],
+      apple: [{ url: "/apple-touch-icon.png" }],
+    },
+    manifest: "/site.webmanifest",
     robots: {
       index: true,
       follow: true,

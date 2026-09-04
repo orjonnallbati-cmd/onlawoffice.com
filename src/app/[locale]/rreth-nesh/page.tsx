@@ -61,13 +61,13 @@ export default async function RrethNeshPage({
       <PageHeader title={ap.title} subtitle={ap.subtitle} />
 
       {/* Firm Overview */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-16 lg:py-24 bg-light">
         <Container>
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold text-navy mb-4">
+            <h2 className="text-3xl sm:text-4xl text-navy mb-4">
               {OFFICE.name}
             </h2>
-            <p className="text-gold font-medium mb-6">{OFFICE.full}</p>
+            <p className="text-gold text-xs font-medium uppercase tracking-[0.2em] mb-6">{OFFICE.full}</p>
             <GoldDivider short className="mb-8" />
             <p className="text-gray-600 leading-relaxed mb-6">{firmDesc1}</p>
             <p className="text-gray-600 leading-relaxed">{firmDesc2}</p>
@@ -79,21 +79,21 @@ export default async function RrethNeshPage({
       <section className="py-16 lg:py-24 bg-alt">
         <Container>
           <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-xl shadow-sm p-8 lg:p-12">
+            <div className="bg-white border border-gray-200 p-8 lg:p-12">
               <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
                 {/* Photo placeholder */}
                 <div className="shrink-0">
-                  <div className="w-40 h-40 lg:w-48 lg:h-48 bg-navy-50 rounded-xl flex items-center justify-center mx-auto lg:mx-0">
+                  <div className="w-40 h-40 lg:w-48 lg:h-48 bg-navy-50 border border-gray-200 flex items-center justify-center mx-auto lg:mx-0">
                     <AcademicCapIcon className="w-16 h-16 text-navy/30" />
                   </div>
                 </div>
 
                 {/* Info */}
                 <div className="flex-1">
-                  <h2 className="text-2xl lg:text-3xl font-bold text-navy mb-1">
+                  <h2 className="text-3xl lg:text-4xl text-navy mb-1">
                     {OFFICE.lawyer}
                   </h2>
-                  <p className="text-gold font-medium mb-4">{founderTitle}</p>
+                  <p className="text-gold text-xs font-medium uppercase tracking-[0.2em] mb-4">{founderTitle}</p>
                   <GoldDivider short className="!mx-0 mb-4" />
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
@@ -124,10 +124,10 @@ export default async function RrethNeshPage({
       </section>
 
       {/* Values */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-16 lg:py-24 bg-light">
         <Container>
           <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-navy mb-4">
+            <h2 className="text-3xl sm:text-4xl text-navy mb-4">
               {ap.values.title}
             </h2>
             <GoldDivider short />
@@ -136,10 +136,10 @@ export default async function RrethNeshPage({
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {values.map((item) => (
               <div key={item.title} className="text-center p-6">
-                <div className="w-14 h-14 bg-navy-50 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-14 h-14 border border-gray-300 flex items-center justify-center mx-auto mb-4">
                   <item.icon className="w-7 h-7 text-navy" />
                 </div>
-                <h3 className="text-lg font-bold text-navy mb-2">
+                <h3 className="text-lg text-navy mb-2">
                   {item.title}
                 </h3>
                 <p className="text-sm text-gray-500 leading-relaxed">

@@ -12,22 +12,20 @@ export default function SectionHeading({
   light?: boolean;
 }) {
   return (
-    <div className={`mb-10 lg:mb-14 ${centered ? "text-center" : ""}`}>
+    <div className={`mb-12 lg:mb-16 ${centered ? "text-center" : ""}`}>
+      <GoldDivider short className={`mb-6 ${centered ? "" : "!mx-0"}`} />
       <h2
-        className={`text-2xl sm:text-3xl lg:text-4xl font-bold ${light ? "text-white" : "text-navy"}`}
+        className={`text-3xl sm:text-4xl lg:text-5xl leading-tight ${light ? "text-white" : "text-navy"}`}
       >
         {title}
       </h2>
       {subtitle && (
         <p
-          className={`mt-3 text-base lg:text-lg ${light ? "text-gray-300" : "text-gray-500"}`}
+          className={`mt-4 text-base lg:text-lg max-w-2xl ${centered ? "mx-auto" : ""} ${light ? "text-gray-300" : "text-gray-500"}`}
         >
           {subtitle}
         </p>
       )}
-      <div className="mt-4">
-        <GoldDivider short />
-      </div>
     </div>
   );
 }

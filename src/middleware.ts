@@ -36,7 +36,8 @@ const SKIP_PREFIXES = [
   "/robots.txt",
 ];
 
-const STATIC_EXT = /\.(?:ico|png|jpg|jpeg|gif|svg|webp|woff2?|ttf|eot|css|js|map|json|xml|txt)$/;
+const STATIC_EXT =
+  /\.(?:ico|png|jpg|jpeg|gif|svg|webp|woff2?|ttf|eot|css|js|map|json|xml|txt|webmanifest)$/;
 
 function isAppPath(p: string) {
   return p === "app" || p.startsWith("app/");

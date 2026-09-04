@@ -44,12 +44,12 @@ export default async function KontaktPage({
     <>
       <PageHeader title={cp.title} subtitle={cp.subtitle} />
 
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-16 lg:py-24 bg-light">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
             {/* Contact Form */}
             <div className="lg:col-span-3">
-              <h2 className="text-xl font-bold text-navy mb-2">
+              <h2 className="text-2xl text-navy mb-2">
                 {cp.formTitle}
               </h2>
               <p className="text-gray-500 text-sm mb-6">
@@ -60,14 +60,14 @@ export default async function KontaktPage({
 
             {/* Contact Info */}
             <div className="lg:col-span-2">
-              <div className="bg-alt rounded-xl p-8">
-                <h2 className="text-xl font-bold text-navy mb-6">
+              <div className="bg-white border border-gray-200 p-8">
+                <h2 className="text-2xl text-navy mb-6">
                   {cp.infoTitle}
                 </h2>
 
                 <div className="space-y-5">
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-navy-50 rounded-lg flex items-center justify-center shrink-0">
+                    <div className="w-10 h-10 border border-gray-300 flex items-center justify-center shrink-0">
                       <MapPinIcon className="w-5 h-5 text-navy" />
                     </div>
                     <div>
@@ -77,7 +77,7 @@ export default async function KontaktPage({
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-navy-50 rounded-lg flex items-center justify-center shrink-0">
+                    <div className="w-10 h-10 border border-gray-300 flex items-center justify-center shrink-0">
                       <PhoneIcon className="w-5 h-5 text-navy" />
                     </div>
                     <div>
@@ -92,7 +92,7 @@ export default async function KontaktPage({
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-navy-50 rounded-lg flex items-center justify-center shrink-0">
+                    <div className="w-10 h-10 border border-gray-300 flex items-center justify-center shrink-0">
                       <EnvelopeIcon className="w-5 h-5 text-navy" />
                     </div>
                     <div>
@@ -107,7 +107,7 @@ export default async function KontaktPage({
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-navy-50 rounded-lg flex items-center justify-center shrink-0">
+                    <div className="w-10 h-10 border border-gray-300 flex items-center justify-center shrink-0">
                       <ClockIcon className="w-5 h-5 text-navy" />
                     </div>
                     <div>

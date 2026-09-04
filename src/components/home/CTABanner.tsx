@@ -9,20 +9,18 @@ export default function CTABanner({ dict, locale }: { dict: Record<string, any>;
   const cta = dict.cta;
 
   return (
-    <section className="bg-navy py-16 lg:py-20">
-      <Container className="text-center">
-        <div className="gold-divider-short mb-8" />
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl text-white mb-4">
+    <section className="bg-navy py-20 lg:py-28">
+      <Container className="max-w-3xl text-center">
+        <div className="gold-divider-short mb-10" />
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl text-white leading-tight">
           {cta.title}
         </h2>
-        <p className="text-gray-300 mb-8 max-w-xl mx-auto">
-          {cta.description}
-        </p>
+        <p className="mt-6 text-lg text-gray-300">{cta.description}</p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
           <Link
             href={getLocalizedPath(locale, "contact")}
-            className="px-8 py-4 bg-gold text-white font-semibold hover:bg-gold-500 transition-colors"
+            className="inline-flex justify-center px-8 py-4 bg-white text-navy text-xs font-semibold uppercase tracking-[0.16em] hover:bg-gray-200 transition-colors"
           >
             {cta.button}
           </Link>

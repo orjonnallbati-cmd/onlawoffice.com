@@ -40,7 +40,7 @@ export default async function BlogPage({
         subtitle={dict.blogPage.subtitle}
       />
 
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-16 lg:py-24 bg-light">
         <Container>
           {posts.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">

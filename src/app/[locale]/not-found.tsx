@@ -5,8 +5,8 @@ export default function NotFound() {
   return (
     <section className="bg-navy min-h-screen flex items-center pt-20">
       <Container className="text-center">
-        <p className="text-gold text-6xl font-bold mb-4">404</p>
-        <h1 className="text-3xl font-bold text-white mb-4">
+        <p className="font-display text-gold text-7xl mb-4">404</p>
+        <h1 className="text-3xl text-white mb-4">
           Faqja Nuk u Gjet
         </h1>
         <p className="text-gray-300 mb-8 max-w-md mx-auto">
@@ -14,7 +14,7 @@ export default function NotFound() {
         </p>
         <Link
           href="/"
-          className="inline-block px-8 py-3.5 bg-gold text-navy font-semibold rounded-md hover:bg-gold-300 transition-colors"
+          className="inline-block px-8 py-4 bg-white text-navy text-xs font-semibold uppercase tracking-[0.16em] hover:bg-gray-200 transition-colors"
         >
           Kthehu në Kryefaqje
         </Link>

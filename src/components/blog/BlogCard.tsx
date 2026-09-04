@@ -23,34 +23,31 @@ export default function BlogCard({ post, locale }: { post: BlogPostMeta; locale:
   return (
     <Link
       href={`${blogPath}/${post.slug}`}
-      className="group block bg-white rounded-lg border border-gray-100 hover:border-gold/30 hover:shadow-lg transition-all duration-300 overflow-hidden"
+      className="group flex flex-col bg-white border border-gray-200 hover:border-gold transition-colors p-7 lg:p-8"
     >
-      {/* Category badge */}
-      <div className="p-6">
-        {post.category && (
-          <span className="inline-block px-3 py-1 bg-navy-50 text-navy text-xs font-medium rounded-full mb-3">
-            {post.category}
-          </span>
-        )}
+      {post.category && (
+        <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-gold mb-4">
+          {post.category}
+        </span>
+      )}
 
-        <h3 className="text-lg font-bold text-navy group-hover:text-gold transition-colors mb-2 line-clamp-2">
-          {post.title}
-        </h3>
+      <h3 className="text-xl lg:text-2xl text-navy group-hover:text-gold transition-colors leading-snug mb-3">
+        {post.title}
+      </h3>
 
-        <p className="text-sm text-gray-500 leading-relaxed mb-4 line-clamp-3">
-          {post.excerpt}
-        </p>
+      <p className="text-sm text-gray-500 leading-relaxed mb-6 line-clamp-3">
+        {post.excerpt}
+      </p>
 
-        <div className="flex items-center gap-4 text-xs text-gray-400">
-          <span className="flex items-center gap-1">
-            <CalendarIcon className="w-3.5 h-3.5" />
-            {formattedDate}
-          </span>
-          <span className="flex items-center gap-1">
-            <ClockIcon className="w-3.5 h-3.5" />
-            {post.readingTime}
-          </span>
-        </div>
+      <div className="mt-auto flex items-center gap-5 text-xs text-gray-400 pt-4 border-t border-gray-100">
+        <span className="flex items-center gap-1.5">
+          <CalendarIcon className="w-3.5 h-3.5" />
+          {formattedDate}
+        </span>
+        <span className="flex items-center gap-1.5">
+          <ClockIcon className="w-3.5 h-3.5" />
+          {post.readingTime}
+        </span>
       </div>
     </Link>
   );
