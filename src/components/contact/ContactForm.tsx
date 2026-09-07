@@ -63,7 +63,7 @@ export default function ContactForm({ dict, locale, privacyPath }: { dict: Recor
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <form onSubmit={handleSubmit} method="post" action="https://formspree.io/f/xreylerv" className="space-y-5">
       {/* Honeypot */}
       <input type="text" name="_gotcha" className="hidden" tabIndex={-1} />
 

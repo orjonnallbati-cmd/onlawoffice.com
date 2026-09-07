@@ -215,7 +215,7 @@
     "successTitle": "Mesazhi u dërgua me sukses!",
     "successMessage": "Do t'ju kontaktojmë sa më shpejt të jetë e mundur.",
     "errorMessage": "Ndodhi një gabim. Ju lutem provoni përsëri ose na kontaktoni direkt me telefon.",
-    "consentText": "Pranoj përpunimin e të dhënave të mia personale, përfshirë çdo të dhënë sensitive që mund të përfshihet në mesazhin tim, për t'u kontaktuar në lidhje me kërkesën time, sipas",
+    "consentText": "Kam lexuar Politikën e Privatësisë dhe pranoj që të dhënat e këtij mesazhi të përpunohen për t'u kontaktuar në lidhje me kërkesën time. Nuk përfshij të dhëna sensitive (shëndetësore, penale) apo dokumente konfidenciale — këto do t'i komunikoj më pas me kanal të mbrojtur, sipas",
     "consentLink": "Politikës së Privatësisë"
   },
   "blogPage": {
@@ -250,8 +250,8 @@
     },
     "privacyTab": {
       "introTitle": "Informacion mbi mbrojtjen e të dhënave personale",
-      "introText": "Kjo politikë privatësie shpjegon se si OnLaw Office mbledh, përdor dhe mbron të dhënat tuaja personale kur vizitoni faqen tonë të internetit onlawoffice.com ose na kontaktoni nëpërmjet saj, në përputhje me Ligjin Nr. 124/2024 \"Për mbrojtjen e të dhënave personale\".",
-      "updated": "Përditësuar: Mars 2026",
+      "introText": "Kjo politikë privatësie shpjegon se si OnLaw Office mbledh, përdor dhe mbron të dhënat tuaja personale kur vizitoni faqen tonë të internetit onlawoffice.com, kur na kontaktoni nëpërmjet saj dhe kur përdorni platformën e brendshme të studios, në përputhje me Ligjin Nr. 124/2024 \"Për mbrojtjen e të dhënave personale\".",
+      "updated": "Përditësuar: Shtator 2026",
       "lawReference": "Ligji 124/2024, Neni 13",
       "sections": {
         "controller": {
@@ -262,7 +262,7 @@
         },
         "dataCollected": {
           "title": "Çfarë të dhënash mbledhim?",
-          "intro": "Kur përdorni faqen tonë të internetit, mund të mbledhim këto kategori të dhënash:",
+          "intro": "Kur përdorni faqen tonë të internetit ose platformën, mund të mbledhim këto kategori të dhënash:",
           "contactFormTitle": "a) Të dhëna nga formulari i kontaktit:",
           "contactFormItems": [
             "Emri i plotë",
@@ -274,41 +274,58 @@
           "technicalItems": [
             "Adresa IP (për sigurinë teknike)",
             "Lloji i shfletuesit (browser) dhe pajisjes",
-            "Data dhe ora e vizitës"
+            "Data dhe ora e vizitës",
+            "Gjatë ngarkimit të faqes, shfletuesi juaj kërkon shkronjat nga Google Fonts dhe hartën nga Google Maps: kjo i transmeton Google LLC adresën tuaj IP"
           ],
-          "noSensitive": "Nëpërmjet faqes sonë nuk kërkojmë në mënyrë aktive të dhëna sensitive. Megjithatë, nëse ju vendosni vullnetarisht të na komunikoni informacione të tilla nëpërmjet formularit të kontaktit (si p.sh. informacione mbi gjendjen shëndetësore, çështje penale ose situata familjare), përpunimi i tyre do të bazohet në pëlqimin tuaj të shprehur sipas Nenit 9, pika 2, shkronja \"a\" të Ligjit 124/2024. Këto të dhëna do të përdoren vetëm për qëllimin e vlerësimit të kërkesës suaj juridike."
+          "noSensitive": "Ju lutemi mos dërgoni të dhëna sensitive nëpërmjet formularit të kontaktit: informacione shëndetësore, të dhëna për procedime penale, dokumente konfidenciale ose të dhëna të personave të tjerë. Përshkruani çështjen në vija të përgjithshme; nëse angazhimi vazhdon, këto të dhëna do t'i marrim më pas me kanal të mbrojtur dhe me informimin përkatës. Të dhënat sensitive që na komunikohen gjithsesi vullnetarisht përpunohen vetëm për vlerësimin e kërkesës suaj, mbi bazën e nenit 9 të Ligjit 124/2024, dhe fshihen nëse angazhimi nuk vazhdon.",
+          "platformTitle": "c) Të dhëna të platformës së brendshme (vetëm për llogaritë e hapura me ftesë):",
+          "platformItems": [
+            "Emri, adresa e emailit, numri i telefonit",
+            "Fjalëkalimi — ruhet vetëm në formë të koduar (hash), asnjëherë në tekst të hapur",
+            "Numri i licencës dhe dhoma e avokatisë, kur jepen",
+            "Të dhënat profesionale që përdoruesi regjistron vetë në platformë (çështje, klientë, dokumente, afate)"
+          ],
+          "platformNote": "Platforma është mjet pune i studios: llogaritë hapen vetëm me ftesë nga OnLaw Office dhe përdoren nga bashkëpunëtorët e saj. Nuk është shërbim i hapur për publikun."
         },
         "purpose": {
           "title": "Pse i përpunojmë dhe mbi çfarë baze ligjore?",
           "intro": "Të dhënat tuaja përpunohen për qëllimet e mëposhtme:",
           "contactResponse": {
             "title": "Përgjigjja ndaj kërkesës suaj (Formulari i kontaktit)",
-            "text": "Baza ligjore: Masat paraprake me kërkesën tuaj për të lidhur një marrëdhënie kontraktore, ose pëlqimi juaj (Neni 7, shkronja \"b\" dhe \"a\", Ligji 124/2024)."
+            "text": "Baza ligjore: marrja e masave paraprake, me kërkesën tuaj, për të lidhur një marrëdhënie kontraktore, ose pëlqimi juaj (neni 7, Ligji 124/2024)."
           },
           "technicalFunction": {
             "title": "Funksionimi teknik i faqes",
-            "text": "Baza ligjore: Interesi i ligjshëm i kontrolluesit për sigurimin e funksionimit teknik të faqes (Neni 7, shkronja \"dh\", Ligji 124/2024)."
+            "text": "Baza ligjore: interesi i ligjshëm i kontrolluesit për funksionimin teknik dhe sigurinë e faqes (neni 7, Ligji 124/2024)."
           },
           "legalObligation": {
             "title": "Përmbushja e detyrimeve ligjore",
-            "text": "Baza ligjore: Detyrimi ligjor i kontrolluesit (Neni 7, shkronja \"c\", Ligji 124/2024), si p.sh. ruajtja e dokumentacionit sipas legjislacionit fiskal ose arkivor."
+            "text": "Baza ligjore: detyrimi ligjor i kontrolluesit (neni 7, Ligji 124/2024), si p.sh. ruajtja e dokumentacionit sipas legjislacionit fiskal ose arkivor."
+          },
+          "platformAccount": {
+            "title": "Llogaria në platformën e brendshme",
+            "text": "Baza ligjore: zbatimi i marrëdhënies së punës ose të bashkëpunimit me OnLaw Office, si dhe interesi i ligjshëm i kontrolluesit për sigurinë e sistemit (neni 7, Ligji 124/2024). Të dhënat e llogarisë përdoren vetëm për identifikim, kontroll të aksesit dhe siguri."
           }
         },
         "retention": {
           "title": "Sa kohë i ruajmë të dhënat?",
-          "intro": "Zbatojmë parimin e kufizimit të periudhës së ruajtjes sipas Nenit 6, pika 1, shkronja \"dh\" të Ligjit 124/2024:",
+          "intro": "Zbatojmë parimin e kufizimit të periudhës së ruajtjes (neni 6, Ligji 124/2024):",
           "items": [
             {
               "label": "Të dhëna kontakti:",
-              "text": "Ruhen deri në përfundimin e komunikimit me ju dhe jo më gjatë se 12 muaj nga kontakti i fundit, përveçse kur krijohet një marrëdhënie kontraktore."
+              "text": "Ruhen deri në përfundimin e komunikimit me ju dhe jo më gjatë se 12 muaj nga kontakti i fundit, përveçse kur krijohet një marrëdhënie kontraktore. Kopja e mesazhit te ofruesi i formularit (Formspree) fshihet automatikisht pas 30 ditësh."
             },
             {
               "label": "Të dhëna teknike (log):",
               "text": "Ruhen deri në 90 ditë, vetëm për qëllime sigurie teknike."
             },
             {
+              "label": "Llogaritë e platformës:",
+              "text": "Ruhen për sa kohë llogaria është aktive dhe deri në 12 muaj pas mbylljes së saj; mbyllja mund të kërkohet në çdo kohë me email."
+            },
+            {
               "label": "Dokumentacion ligjor/kontraktual:",
-              "text": "Ruhen sipas afateve ligjore në fuqi (deri në 10 vjet sipas legjislacionit fiskal)."
+              "text": "Ruhet sipas afateve ligjore në fuqi (deri në 10 vjet sipas legjislacionit fiskal)."
             }
           ],
           "afterExpiry": "Pas përfundimit të afatit, të dhënat fshihen ose anonimizohen."
@@ -316,55 +333,67 @@
         "sharing": {
           "title": "Me kë ndahen të dhënat?",
           "intro": "Të dhënat tuaja personale nuk shiten, nuk tregtohen dhe nuk ndahen me palë të treta për qëllime marketingu.",
-          "availableTo": "Ato mund t'u vihen në dispozicion vetëm:",
+          "availableTo": "Ato mund t'u vihen në dispozicion vetëm përpunuesve që veprojnë sipas udhëzimeve tona, me kontratë sipas nenit 26 të Ligjit 124/2024, dhe autoriteteve publike kur kërkohet me ligj:",
           "items": [
             {
-              "label": "Ofruesve të shërbimit teknik",
-              "text": "(hosting, email) — që veprojnë si përpunues të dhënash sipas udhëzimeve tona dhe me garancitë përkatëse kontraktore;"
+              "label": "Vercel Inc. (SHBA)",
+              "text": "— hosting dhe shpërndarja e faqes; përpunon të dhënat teknike të çdo vizite."
+            },
+            {
+              "label": "Supabase Inc.",
+              "text": "— baza e të dhënave dhe ruajtja e dokumenteve të platformës; serverët ndodhen në Frankfurt (BE)."
+            },
+            {
+              "label": "Formspree Inc. (SHBA)",
+              "text": "— shërbimi që dërgon mesazhet e formularit të kontaktit në emailin tonë dhe i ruan ato deri në 30 ditë."
+            },
+            {
+              "label": "Google LLC (SHBA)",
+              "text": "— shkronjat (Google Fonts) dhe harta (Google Maps) të ngarkuara në faqe; merr adresën tuaj IP gjatë ngarkimit."
             },
             {
               "label": "Autoriteteve publike",
               "text": "— vetëm kur kërkohet me ligj ose me urdhër gjykate."
             }
           ],
-          "formNote": "Formulari i kontaktit funksionon nëpërmjet shërbimit të dërgimit me email. Të dhënat e dërguara nëpërmjet formularit dërgohen drejtpërdrejt në emailin tonë profesional dhe nuk ruhen në baza të dhënash të jashtme."
+          "formNote": "Formulari i kontaktit funksionon nëpërmjet Formspree: mesazhi juaj na mbërrin me email dhe një kopje e tij ruhet përkohësisht te Formspree (deri në 30 ditë), pas së cilës fshihet automatikisht. Nuk e përdorim për asnjë qëllim tjetër dhe nuk e ndajmë me palë të treta."
         },
         "transfers": {
           "title": "A transferohen të dhënat jashtë Shqipërisë?",
-          "text1": "Si rregull, të dhënat tuaja përpunohen brenda territorit të Republikës së Shqipërisë ose në vende që ofrojnë nivel adekuat mbrojtjeje.",
-          "text2": "Nëse për arsye teknike (si p.sh. infrastruktura e shërbimit të emailit) të dhënat transferohen në një vend tjetër, ne sigurohemi që transferimi të mbështetet në garanci të përshtatshme sipas Pjesës II, Kapitulli V (Nenet 37-44) të Ligjit 124/2024, duke përfshirë klauzola standarde kontraktore ose vendime përshtatshmërie."
+          "text1": "Baza e të dhënave e platformës ndodhet brenda Bashkimit Evropian (Frankfurt). Për hosting-un e faqes, formularin e kontaktit dhe shërbimet e Google, të dhënat përpunohen edhe në Shtetet e Bashkuara të Amerikës.",
+          "text2": "Në mungesë të një vendimi përshtatshmërie të Komisionerit për këtë vend, transferimi mbështetet në garancitë e përshtatshme të parashikuara nga nenet 39–41 të Ligjit 124/2024: kontratat e përpunimit me këta ofrues përfshijnë klauzola standarde kontraktore për mbrojtjen e të dhënave. Kopjet e dokumenteve përkatëse mund t'i kërkoni në adresën tonë të emailit."
         },
         "rights": {
           "title": "Cilat janë të drejtat tuaja?",
-          "intro": "Sipas Neneve 13-20 të Ligjit 124/2024, ju gëzoni këto të drejta:",
+          "intro": "Sipas neneve 13–20 të Ligjit 124/2024, ju gëzoni këto të drejta:",
           "items": [
             {
               "label": "E drejta për informim",
-              "text": "(Neni 13) — të informoheni mbi përpunimin e të dhënave"
+              "text": "(neni 13) — të informoheni mbi përpunimin e të dhënave"
             },
             {
-              "label": "E drejta e aksesit",
-              "text": "(Neni 14) — të merrni një kopje të të dhënave tuaja"
+              "label": "E drejta për akses",
+              "text": "(neni 14) — të merrni një kopje të të dhënave tuaja"
             },
             {
-              "label": "E drejta për korrigjim",
-              "text": "(Neni 15) — të korrigjoni të dhëna të pasakta"
+              "label": "E drejta për korrigjim dhe fshirje",
+              "text": "(neni 15) — të korrigjoni të dhëna të pasakta ose të kërkoni fshirjen e tyre"
             },
             {
-              "label": "E drejta për fshirje",
-              "text": "(Neni 15) — të kërkoni fshirjen e të dhënave"
+              "label": "E drejta për t'u harruar",
+              "text": "(neni 16) — të kërkoni fshirjen edhe te palët me të cilat të dhënat janë ndarë"
             },
             {
               "label": "E drejta për kufizim",
-              "text": "(Neni 16) — të kufizoni përpunimin"
+              "text": "(neni 17) — të kufizoni përpunimin"
             },
             {
               "label": "E drejta për transferueshmëri",
-              "text": "(Neni 18) — të merrni të dhënat në format elektronik"
+              "text": "(neni 18) — të merrni të dhënat në format elektronik të lexueshëm"
             },
             {
               "label": "E drejta për të kundërshtuar",
-              "text": "(Neni 19) — të kundërshtoni përpunimin"
+              "text": "(neni 19) — të kundërshtoni përpunimin"
             },
             {
               "label": "E drejta për tërheqjen e pëlqimit",
@@ -376,30 +405,30 @@
         },
         "complaint": {
           "title": "E drejta për ankesë te Komisioneri",
-          "intro": "Nëse konsideroni se të drejtat tuaja të mbrojtjes së të dhënave personale janë cenuar, keni të drejtë të paraqisni ankesë pranë:",
+          "intro": "Nëse konsideroni se të drejtat tuaja janë cenuar, keni të drejtë të paraqisni ankesë pranë Komisionerit (neni 86, Ligji 124/2024):",
           "boxTitle": "Komisioneri për të Drejtën e Informimit dhe Mbrojtjen e të Dhënave Personale",
           "boxAddress": "Adresa: Rruga \"Abdi Toptani\", Nd. 5, Tiranë",
           "boxTel": "Tel: +355 42 237 200",
           "boxWeb": "www.idp.al",
           "boxEmail": "Email: info@idp.al",
-          "legalRemedy": "Gjithashtu, sipas Nenit 88 të Ligjit 124/2024, keni të drejtë për mjet juridik efektiv pranë gjykatës kompetente."
+          "legalRemedy": "Gjithashtu, sipas nenit 88 të Ligjit 124/2024, keni të drejtë për dëmshpërblim për dëmin e pësuar nga një përpunim në kundërshtim me ligjin."
         },
         "automated": {
           "title": "A merren vendime automatike?",
-          "text": "Jo. OnLaw Office nuk përdor asnjë sistem vendimmarrjeje automatike ose profilizimi sipas Nenit 20 të Ligjit 124/2024 në lidhje me vizitorët e faqes ose klientët."
+          "text": "Jo. OnLaw Office nuk përdor asnjë sistem vendimmarrjeje automatike ose profilizimi (neni 20, Ligji 124/2024) në lidhje me vizitorët e faqes, klientët ose përdoruesit e platformës."
         },
         "changes": {
           "title": "Ndryshimet e kësaj politike",
           "text": "Kjo politikë mund të përditësohet herë pas here për të pasqyruar ndryshime ligjore ose të praktikës sonë. Versioni i përditësuar do të publikohet në këtë faqe me datën e përditësimit. Ju inkurajojmë ta rishikoni periodikisht.",
           "currentVersion": "Versioni aktual:",
-          "versionDate": "Mars 2026"
+          "versionDate": "Shtator 2026"
         }
       }
     },
     "cookieTab": {
       "introTitle": "Politika e Cookies (Skedarëve të Përkohshëm)",
       "introText": "Kjo politikë shpjegon se si faqja onlawoffice.com përdor cookies — skedarë të vegjël teksti që ruhen në pajisjen tuaj kur vizitoni faqen tonë.",
-      "updated": "Përditësuar: Mars 2026",
+      "updated": "Përditësuar: Shtator 2026",
       "lawReference": "Ligji 124/2024",
       "sections": {
         "whatAreCookies": {
@@ -409,7 +438,7 @@
         },
         "whichCookies": {
           "title": "Cilat cookies përdorim?",
-          "intro": "Faqja onlawoffice.com përdor vetëm cookies teknike (të domosdoshme) për funksionimin e faqes. Nuk përdorim cookies analitike, marketingu ose profilizimi.",
+          "intro": "Faqja publike onlawoffice.com nuk vendos asnjë cookie. Cookies teknike vendosen vetëm kur hyni në platformën e brendshme (/app), për të mbajtur sesionin tuaj të hapur dhe për të mbrojtur formularët nga sulme:",
           "tableHeaders": {
             "cookie": "Cookie",
             "purpose": "Qëllimi",
@@ -418,20 +447,27 @@
           },
           "cookies": [
             {
-              "name": "session_id",
-              "purpose": "Menaxhimi i sesionit të navigimit",
+              "name": "__Secure-next-auth.session-token",
+              "purpose": "Sesioni i hyrjes në platformë (identifikimi i përdoruesit)",
+              "duration": "Deri në 30 ditë ose deri në dalje (logout)",
+              "type": "I domosdoshëm"
+            },
+            {
+              "name": "__Host-next-auth.csrf-token",
+              "purpose": "Mbrojtja e formularëve të platformës nga sulme CSRF",
               "duration": "Deri në mbylljen e shfletuesit",
               "type": "I domosdoshëm"
             },
             {
-              "name": "csrf_token",
-              "purpose": "Mbrojtja e formularit nga sulme",
+              "name": "__Secure-next-auth.callback-url",
+              "purpose": "Kthimi në faqen e duhur pas hyrjes",
               "duration": "Deri në mbylljen e shfletuesit",
               "type": "I domosdoshëm"
             }
           ],
           "noAnalyticsTitle": "Pa cookies analitike ose marketingu",
-          "noAnalyticsText": "Nuk përdorim Google Analytics, Facebook Pixel ose ndonjë mjet tjetër gjurmimi. Navigimi juaj në faqen tonë nuk gjurmohet për qëllime profilizimi ose reklamimi."
+          "noAnalyticsText": "Nuk përdorim Google Analytics, Facebook Pixel ose ndonjë mjet tjetër gjurmimi. Navigimi juaj në faqen tonë nuk gjurmohet për qëllime profilizimi ose reklamimi.",
+          "localStorageNote": "Njoftimi për cookies nuk vendos cookie: kur e mbyllni, shfletuesi juaj ruan lokalisht (localStorage) vetëm shënimin \"cookie-consent\", që njoftimi të mos shfaqet përsëri. Ky shënim nuk përmban të dhëna personale dhe nuk i dërgohet askujt."
         },
         "legalBasis": {
           "title": "Baza ligjore e cookies",

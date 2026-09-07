@@ -215,7 +215,7 @@
     "successTitle": "Message sent successfully!",
     "successMessage": "We will contact you as soon as possible.",
     "errorMessage": "An error occurred. Please try again or contact us directly by phone.",
-    "consentText": "I consent to the processing of my personal data, including any sensitive data that may be included in my message, for the purpose of being contacted regarding my request, in accordance with the",
+    "consentText": "I have read the Privacy Policy and consent to the processing of the data in this message so that I can be contacted about my request. I am not including sensitive data (health, criminal proceedings) or confidential documents, which I will share later through a protected channel, in accordance with the",
     "consentLink": "Privacy Policy"
   },
   "blogPage": {
@@ -250,8 +250,8 @@
     },
     "privacyTab": {
       "introTitle": "Information on personal data protection",
-      "introText": "This privacy policy explains how OnLaw Office collects, uses and protects your personal data when you visit our website onlawoffice.com or contact us through it, in compliance with Law No. 124/2024 \"On the protection of personal data\".",
-      "updated": "Updated: March 2026",
+      "introText": "This notice explains how OnLaw Office collects, uses and protects your personal data when you visit onlawoffice.com, when you contact us through the site, and when you use the firm's internal platform, in accordance with Law No. 124/2024 \"On the protection of personal data\".",
+      "updated": "Updated: September 2026",
       "lawReference": "Law 124/2024, Article 13",
       "sections": {
         "controller": {
@@ -262,7 +262,7 @@
         },
         "dataCollected": {
           "title": "What data do we collect?",
-          "intro": "When you use our website, we may collect the following categories of data:",
+          "intro": "When you use the site or the platform, we may collect the following categories of data:",
           "contactFormTitle": "a) Data from the contact form:",
           "contactFormItems": [
             "Full name",
@@ -274,41 +274,58 @@
           "technicalItems": [
             "IP address (for technical security)",
             "Browser and device type",
-            "Date and time of visit"
+            "Date and time of the visit",
+            "While the page loads, your browser requests fonts from Google Fonts and the map from Google Maps, which transmits your IP address to Google LLC"
           ],
-          "noSensitive": "We do not actively request sensitive data through our website. However, if you voluntarily choose to communicate such information through the contact form (e.g., information about health conditions, criminal matters, or family situations), the processing thereof shall be based on your explicit consent pursuant to Article 9, paragraph 2, letter \"a\" of Law 124/2024. Such data will be used solely for the purpose of assessing your legal request."
+          "noSensitive": "Please do not send sensitive data through the contact form: health information, data on criminal proceedings, confidential documents or data about other people. Describe the matter in general terms; if the engagement proceeds, we will collect such data later through a protected channel and with the appropriate notice. Sensitive data you nevertheless send voluntarily is processed only to assess your request, on the basis of article 9 of Law 124/2024, and deleted if the engagement does not proceed.",
+          "platformTitle": "c) Internal platform data (only for accounts opened by invitation):",
+          "platformItems": [
+            "Name, email address, phone number",
+            "Password — stored only in hashed form, never in plain text",
+            "Licence number and bar association, where provided",
+            "Professional data the user records in the platform (cases, clients, documents, deadlines)"
+          ],
+          "platformNote": "The platform is a working tool of the firm: accounts are opened only by invitation from OnLaw Office and used by its collaborators. It is not a service open to the public."
         },
         "purpose": {
           "title": "Why do we process data and on what legal basis?",
           "intro": "Your data is processed for the following purposes:",
           "contactResponse": {
             "title": "Responding to your request (Contact form)",
-            "text": "Legal basis: Pre-contractual measures at your request, or your consent (Article 7, letters \"b\" and \"a\", Law 124/2024)."
+            "text": "Legal basis: pre-contractual steps taken at your request, or your consent (article 7, Law 124/2024)."
           },
           "technicalFunction": {
             "title": "Technical operation of the website",
-            "text": "Legal basis: Legitimate interest of the controller to ensure the technical operation of the website (Article 7, letter \"dh\", Law 124/2024)."
+            "text": "Legal basis: the controller's legitimate interest in the technical operation and security of the site (article 7, Law 124/2024)."
           },
           "legalObligation": {
             "title": "Fulfilment of legal obligations",
-            "text": "Legal basis: Legal obligation of the controller (Article 7, letter \"c\", Law 124/2024), such as document retention under fiscal or archival legislation."
+            "text": "Legal basis: the controller's legal obligation (article 7, Law 124/2024), such as keeping records under tax or archiving legislation."
+          },
+          "platformAccount": {
+            "title": "Account on the internal platform",
+            "text": "Legal basis: performance of the employment or collaboration relationship with OnLaw Office, and the controller's legitimate interest in system security (article 7, Law 124/2024). Account data is used only for identification, access control and security."
           }
         },
         "retention": {
           "title": "How long do we keep data?",
-          "intro": "We apply the principle of storage limitation pursuant to Article 6, paragraph 1, letter \"dh\" of Law 124/2024:",
+          "intro": "We apply the principle of storage limitation (article 6, Law 124/2024):",
           "items": [
             {
               "label": "Contact data:",
-              "text": "Retained until the end of communication with you and no longer than 12 months from the last contact, unless a contractual relationship is established."
+              "text": "Kept until the exchange with you ends and no longer than 12 months after the last contact, unless a contractual relationship is established. The copy of the message held by the form provider (Formspree) is deleted automatically after 30 days."
             },
             {
               "label": "Technical data (logs):",
-              "text": "Retained for up to 90 days, solely for technical security purposes."
+              "text": "Kept for up to 90 days, solely for technical security."
             },
             {
-              "label": "Legal/contractual documentation:",
-              "text": "Retained according to applicable legal deadlines (up to 10 years under fiscal legislation)."
+              "label": "Platform accounts:",
+              "text": "Kept while the account is active and for up to 12 months after it is closed; closure can be requested at any time by email."
+            },
+            {
+              "label": "Legal/contractual records:",
+              "text": "Kept for the statutory periods in force (up to 10 years under tax legislation)."
             }
           ],
           "afterExpiry": "After the expiry of the retention period, data is deleted or anonymised."
@@ -316,55 +333,67 @@
         "sharing": {
           "title": "With whom do we share data?",
           "intro": "Your personal data is not sold, traded or shared with third parties for marketing purposes.",
-          "availableTo": "They may only be made available to:",
+          "availableTo": "They may be made available only to processors acting on our instructions under a contract pursuant to article 26 of Law 124/2024, and to public authorities where the law requires it:",
           "items": [
             {
-              "label": "Technical service providers",
-              "text": "(hosting, email) — who act as data processors under our instructions and with appropriate contractual safeguards;"
+              "label": "Vercel Inc. (USA)",
+              "text": "— hosting and delivery of the site; processes the technical data of each visit."
+            },
+            {
+              "label": "Supabase Inc.",
+              "text": "— database and document storage for the platform; servers located in Frankfurt (EU)."
+            },
+            {
+              "label": "Formspree Inc. (USA)",
+              "text": "— the service that forwards contact-form messages to our email and stores them for up to 30 days."
+            },
+            {
+              "label": "Google LLC (USA)",
+              "text": "— fonts (Google Fonts) and the map (Google Maps) loaded on the site; receives your IP address when the page loads."
             },
             {
               "label": "Public authorities",
-              "text": "— only when required by law or court order."
+              "text": "— only where required by law or by court order."
             }
           ],
-          "formNote": "The contact form operates through an email delivery service. Data submitted through the form is sent directly to our professional email and is not stored in external databases."
+          "formNote": "The contact form runs on Formspree: your message reaches us by email and a copy is held temporarily by Formspree (up to 30 days), after which it is deleted automatically. We use it for no other purpose and do not share it with third parties."
         },
         "transfers": {
           "title": "Is data transferred outside Albania?",
-          "text1": "As a rule, your data is processed within the territory of the Republic of Albania or in countries that provide an adequate level of protection.",
-          "text2": "If, for technical reasons (such as email service infrastructure), data is transferred to another country, we ensure that the transfer is supported by appropriate safeguards under Part II, Chapter V (Articles 37-44) of Law 124/2024, including standard contractual clauses or adequacy decisions."
+          "text1": "The platform database is located within the European Union (Frankfurt). For site hosting, the contact form and Google services, data is also processed in the United States of America.",
+          "text2": "In the absence of an adequacy decision by the Commissioner for that country, the transfer relies on the appropriate safeguards provided for in articles 39–41 of Law 124/2024: our processing agreements with these providers include standard contractual clauses for data protection. Copies of the relevant documents can be requested at our email address."
         },
         "rights": {
           "title": "What are your rights?",
-          "intro": "Under Articles 13-20 of Law 124/2024, you have the following rights:",
+          "intro": "Under articles 13–20 of Law 124/2024 you have the following rights:",
           "items": [
             {
               "label": "Right to information",
-              "text": "(Article 13) — to be informed about data processing"
+              "text": "(article 13) — to be informed about the processing"
             },
             {
               "label": "Right of access",
-              "text": "(Article 14) — to obtain a copy of your data"
+              "text": "(article 14) — to obtain a copy of your data"
             },
             {
-              "label": "Right to rectification",
-              "text": "(Article 15) — to correct inaccurate data"
+              "label": "Right to rectification and erasure",
+              "text": "(article 15) — to correct inaccurate data or request its deletion"
             },
             {
-              "label": "Right to erasure",
-              "text": "(Article 15) — to request deletion of data"
+              "label": "Right to be forgotten",
+              "text": "(article 16) — to request deletion also from parties with whom the data was shared"
             },
             {
               "label": "Right to restriction",
-              "text": "(Article 16) — to restrict processing"
+              "text": "(article 17) — to restrict processing"
             },
             {
-              "label": "Right to portability",
-              "text": "(Article 18) — to receive your data in electronic format"
+              "label": "Right to data portability",
+              "text": "(article 18) — to receive your data in a readable electronic format"
             },
             {
               "label": "Right to object",
-              "text": "(Article 19) — to object to processing"
+              "text": "(article 19) — to object to processing"
             },
             {
               "label": "Right to withdraw consent",
@@ -376,30 +405,30 @@
         },
         "complaint": {
           "title": "Right to complain to the Commissioner",
-          "intro": "If you consider that your personal data protection rights have been violated, you have the right to file a complaint with:",
+          "intro": "If you consider that your rights have been infringed, you may lodge a complaint with the Commissioner (article 86, Law 124/2024):",
           "boxTitle": "Commissioner for the Right to Information and Personal Data Protection",
           "boxAddress": "Address: Rruga \"Abdi Toptani\", Nd. 5, Tirana",
           "boxTel": "Tel: +355 42 237 200",
           "boxWeb": "www.idp.al",
           "boxEmail": "Email: info@idp.al",
-          "legalRemedy": "Furthermore, under Article 88 of Law 124/2024, you have the right to an effective legal remedy before the competent court."
+          "legalRemedy": "Under article 88 of Law 124/2024 you are also entitled to compensation for damage suffered as a result of unlawful processing."
         },
         "automated": {
           "title": "Are automated decisions made?",
-          "text": "No. OnLaw Office does not use any automated decision-making system or profiling under Article 20 of Law 124/2024 in relation to website visitors or clients."
+          "text": "No. OnLaw Office does not use any automated decision-making or profiling system (article 20, Law 124/2024) in relation to site visitors, clients or platform users."
         },
         "changes": {
           "title": "Changes to this policy",
           "text": "This policy may be updated from time to time to reflect legal changes or changes in our practice. The updated version will be published on this page with the date of update. We encourage you to review it periodically.",
           "currentVersion": "Current version:",
-          "versionDate": "March 2026"
+          "versionDate": "September 2026"
         }
       }
     },
     "cookieTab": {
       "introTitle": "Cookie Policy (Temporary Files)",
       "introText": "This policy explains how the website onlawoffice.com uses cookies — small text files stored on your device when you visit our website.",
-      "updated": "Updated: March 2026",
+      "updated": "Updated: September 2026",
       "lawReference": "Law 124/2024",
       "sections": {
         "whatAreCookies": {
@@ -409,7 +438,7 @@
         },
         "whichCookies": {
           "title": "Which cookies do we use?",
-          "intro": "The website onlawoffice.com uses only technical (essential) cookies for the website to function. We do not use analytics, marketing or profiling cookies.",
+          "intro": "The public site onlawoffice.com sets no cookies. Technical cookies are set only when you sign in to the internal platform (/app), to keep your session open and protect forms against attacks:",
           "tableHeaders": {
             "cookie": "Cookie",
             "purpose": "Purpose",
@@ -418,20 +447,27 @@
           },
           "cookies": [
             {
-              "name": "session_id",
-              "purpose": "Browsing session management",
-              "duration": "Until browser is closed",
-              "type": "Essential"
+              "name": "__Secure-next-auth.session-token",
+              "purpose": "Platform sign-in session (user identification)",
+              "duration": "Up to 30 days or until sign-out",
+              "type": "Necessary"
             },
             {
-              "name": "csrf_token",
-              "purpose": "Form protection against attacks",
-              "duration": "Until browser is closed",
-              "type": "Essential"
+              "name": "__Host-next-auth.csrf-token",
+              "purpose": "Protection of platform forms against CSRF attacks",
+              "duration": "Until the browser is closed",
+              "type": "Necessary"
+            },
+            {
+              "name": "__Secure-next-auth.callback-url",
+              "purpose": "Return to the right page after sign-in",
+              "duration": "Until the browser is closed",
+              "type": "Necessary"
             }
           ],
           "noAnalyticsTitle": "No analytics or marketing cookies",
-          "noAnalyticsText": "We do not use Google Analytics, Facebook Pixel or any other tracking tool. Your browsing on our website is not tracked for profiling or advertising purposes."
+          "noAnalyticsText": "We do not use Google Analytics, Facebook Pixel or any other tracking tool. Your browsing on our website is not tracked for profiling or advertising purposes.",
+          "localStorageNote": "The cookie notice sets no cookie: when you dismiss it, your browser stores locally (localStorage) only the entry \"cookie-consent\", so the notice is not shown again. This entry contains no personal data and is not sent to anyone."
         },
         "legalBasis": {
           "title": "Legal basis for cookies",

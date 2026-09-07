@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import Container from "@/components/ui/Container";
 import GoldDivider from "@/components/ui/GoldDivider";
 import { getPostBySlug, getAllSlugs, getAlternateSlugs } from "@/lib/blog";
@@ -158,7 +159,7 @@ export default async function BlogPostPage({
       <article className="py-12 lg:py-16 bg-light">
         <Container className="max-w-3xl">
           <div className="prose prose-lg max-w-none prose-headings:font-normal prose-headings:text-navy prose-a:text-navy prose-a:underline hover:prose-a:text-gold prose-strong:text-dark prose-strong:font-semibold">
-            <MDXRemote source={post.content} />
+            <MDXRemote source={post.content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
           </div>
         </Container>
       </article>
@@ -172,7 +173,7 @@ export default async function BlogPostPage({
             </div>
             <div>
               <p className="font-medium text-navy">{OFFICE.lawyer}</p>
-              <p className="text-sm text-gray-500">{OFFICE.full}</p>
+              <p className="text-sm text-gray-500">{dict.hero.subtitle}</p>
             </div>
           </div>
         </Container>

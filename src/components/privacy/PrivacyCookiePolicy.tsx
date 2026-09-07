@@ -240,6 +240,17 @@ export default function PrivacyCookiePolicy({ dict }: { dict: Record<string, any
                   <li key={item} className="relative pl-5 before:content-[''] before:absolute before:left-0 before:top-[0.55rem] before:w-1.5 before:h-1.5  before:bg-gold">{item}</li>
                 ))}
               </ul>
+              {pt.sections.dataCollected.platformTitle && (
+                <>
+                  <p><strong className="text-navy">{pt.sections.dataCollected.platformTitle}</strong></p>
+                  <ul className="list-none space-y-1.5 ml-0">
+                    {pt.sections.dataCollected.platformItems.map((item: string) => (
+                      <li key={item} className="relative pl-5 before:content-[''] before:absolute before:left-0 before:top-[0.55rem] before:w-1.5 before:h-1.5 before:bg-gold">{item}</li>
+                    ))}
+                  </ul>
+                  <p>{pt.sections.dataCollected.platformNote}</p>
+                </>
+              )}
               <p>{pt.sections.dataCollected.noSensitive}</p>
             </AccordionItem>
 
@@ -255,6 +266,11 @@ export default function PrivacyCookiePolicy({ dict }: { dict: Record<string, any
               <HighlightBox title={pt.sections.purpose.legalObligation.title}>
                 <span className="text-gray-600">{pt.sections.purpose.legalObligation.text}</span>
               </HighlightBox>
+            {pt.sections.purpose.platformAccount && (
+                <HighlightBox title={pt.sections.purpose.platformAccount.title}>
+                  <span className="text-gray-600">{pt.sections.purpose.platformAccount.text}</span>
+                </HighlightBox>
+              )}
             </AccordionItem>
 
             {/* Section 4: Retention */}
@@ -302,7 +318,7 @@ export default function PrivacyCookiePolicy({ dict }: { dict: Record<string, any
               </ul>
               <HighlightBox title={pt.sections.rights.exerciseTitle}>
                 <span className="text-gray-600">
-                  {pt.sections.rights.exerciseText.replace("{email}", "")}<a href={`mailto:${OFFICE.email}`} className="text-navy hover:text-gold transition-colors font-medium">{OFFICE.email}</a>
+                  {pt.sections.rights.exerciseText.split("{email}")[0]}<a href={`mailto:${OFFICE.email}`} className="text-navy hover:text-gold transition-colors font-medium">{OFFICE.email}</a>{pt.sections.rights.exerciseText.split("{email}")[1] ?? ""}
                 </span>
               </HighlightBox>
             </AccordionItem>
@@ -394,6 +410,9 @@ export default function PrivacyCookiePolicy({ dict }: { dict: Record<string, any
                   </tbody>
                 </table>
               </div>
+              {ct.sections.whichCookies.localStorageNote && (
+                <p>{ct.sections.whichCookies.localStorageNote}</p>
+              )}
               <HighlightBox title={ct.sections.whichCookies.noAnalyticsTitle}>
                 <span className="text-gray-600">{ct.sections.whichCookies.noAnalyticsText}</span>
               </HighlightBox>

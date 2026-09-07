@@ -5,7 +5,7 @@ import { prisma } from '@/lib/db/prisma';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, password, phone, licenseNumber, barAssociation } = body;
+    const { name, email, password, phone, licenseNumber, barAssociation, inviteCode } = body;
 
     if (!name || !email || !password) {
       return NextResponse.json(
@@ -19,6 +19,25 @@ export async function POST(request: NextRequest) {
         { error: 'Fjalëkalimi duhet të ketë të paktën 8 karaktere' },
         { status: 400 }
       );
+    }
+
+    // Platformë e brendshme: llogaria e parë hapet lirisht (administratori),
+    // çdo llogari tjetër kërkon kodin e ftesës të vendosur në REGISTRATION_CODE.
+    const userCount = await prisma.user.count();
+    if (userCount > 0) {
+      const expected = process.env.REGISTRATION_CODE;
+      if (!expected) {
+        return NextResponse.json(
+          { error: 'Regjistrimi është i mbyllur. Kontaktoni administratorin e OnLaw Office.' },
+          { status: 403 }
+        );
+      }
+      if (!inviteCode || inviteCode !== expected) {
+        return NextResponse.json(
+          { error: 'Kodi i ftesës nuk është i saktë' },
+          { status: 403 }
+        );
+      }
     }
 
     const existingUser = await prisma.user.findUnique({

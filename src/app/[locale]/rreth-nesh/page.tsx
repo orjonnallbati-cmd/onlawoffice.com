@@ -67,7 +67,7 @@ export default async function RrethNeshPage({
             <h2 className="text-3xl sm:text-4xl text-navy mb-4">
               {OFFICE.name}
             </h2>
-            <p className="text-gold text-xs font-medium uppercase tracking-[0.2em] mb-6">{OFFICE.full}</p>
+            <p className="text-gold text-xs font-medium uppercase tracking-[0.2em] mb-6">{dict.hero.subtitle}</p>
             <GoldDivider short className="mb-8" />
             <p className="text-gray-600 leading-relaxed mb-6">{firmDesc1}</p>
             <p className="text-gray-600 leading-relaxed">{firmDesc2}</p>

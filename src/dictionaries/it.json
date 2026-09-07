@@ -60,7 +60,7 @@
   "services": {
     "civile": {
       "title": "Diritto Civile",
-      "description": "Rappresentanza in cause civili, proprietarie, familiari, ereditarie e obbligazioni.",
+      "description": "Assistenza e rappresentanza in controversie civili, immobiliari, familiari, successorie e in materia di obbligazioni.",
       "details": [
         "Questioni di proprietà e registrazione immobiliare",
         "Diritto di famiglia — divorzio, custodia, adozione",
@@ -215,7 +215,7 @@
     "successTitle": "Messaggio inviato con successo!",
     "successMessage": "Ti contatteremo il prima possibile.",
     "errorMessage": "Si è verificato un errore. Riprova o contattaci direttamente per telefono.",
-    "consentText": "Acconsento al trattamento dei miei dati personali, inclusi eventuali dati sensibili che potrebbero essere contenuti nel mio messaggio, al fine di essere contattato/a in merito alla mia richiesta, in conformità con la",
+    "consentText": "Ho letto l'Informativa sulla privacy e acconsento al trattamento dei dati di questo messaggio per essere ricontattato in merito alla mia richiesta. Non inserisco dati sensibili (salute, procedimenti penali) né documenti riservati, che comunicherò successivamente tramite un canale protetto, ai sensi della",
     "consentLink": "Privacy Policy"
   },
   "blogPage": {
@@ -250,8 +250,8 @@
     },
     "privacyTab": {
       "introTitle": "Informazioni sulla protezione dei dati personali",
-      "introText": "Questa informativa sulla privacy spiega come OnLaw Office raccoglie, utilizza e protegge i vostri dati personali quando visitate il nostro sito web onlawoffice.com o ci contattate attraverso di esso, in conformità con la Legge n. 124/2024 \"Sulla protezione dei dati personali\".",
-      "updated": "Aggiornato: Marzo 2026",
+      "introText": "Questa informativa spiega come OnLaw Office raccoglie, utilizza e protegge i vostri dati personali quando visitate il sito onlawoffice.com, quando ci contattate tramite il sito e quando utilizzate la piattaforma interna dello studio, ai sensi della Legge n. 124/2024 \"Sulla protezione dei dati personali\".",
+      "updated": "Aggiornato: settembre 2026",
       "lawReference": "Legge 124/2024, Articolo 13",
       "sections": {
         "controller": {
@@ -262,7 +262,7 @@
         },
         "dataCollected": {
           "title": "Quali dati raccogliamo?",
-          "intro": "Quando utilizzate il nostro sito web, potremmo raccogliere le seguenti categorie di dati:",
+          "intro": "Quando utilizzate il sito o la piattaforma possiamo raccogliere le seguenti categorie di dati:",
           "contactFormTitle": "a) Dati dal modulo di contatto:",
           "contactFormItems": [
             "Nome completo",
@@ -273,42 +273,59 @@
           "technicalTitle": "b) Dati tecnici (automatici):",
           "technicalItems": [
             "Indirizzo IP (per la sicurezza tecnica)",
-            "Tipo di browser e dispositivo",
-            "Data e ora della visita"
+            "Tipo di browser e di dispositivo",
+            "Data e ora della visita",
+            "Durante il caricamento della pagina il browser richiede i caratteri a Google Fonts e la mappa a Google Maps: ciò trasmette a Google LLC il vostro indirizzo IP"
           ],
-          "noSensitive": "Non richiediamo attivamente dati sensibili attraverso il nostro sito web. Tuttavia, se scegliete volontariamente di comunicarci tali informazioni attraverso il modulo di contatto (ad es. informazioni sulle condizioni di salute, questioni penali o situazioni familiari), il loro trattamento sarà basato sul vostro consenso esplicito ai sensi dell'Articolo 9, comma 2, lettera \"a\" della Legge 124/2024. Tali dati saranno utilizzati esclusivamente ai fini della valutazione della vostra richiesta legale."
+          "noSensitive": "Vi chiediamo di non inviare dati sensibili tramite il modulo di contatto: informazioni sulla salute, dati relativi a procedimenti penali, documenti riservati o dati di terze persone. Descrivete la questione in termini generali; se l'incarico prosegue, raccoglieremo questi dati successivamente attraverso un canale protetto e con la relativa informativa. I dati sensibili comunicati comunque spontaneamente sono trattati solo per valutare la richiesta, sulla base dell'articolo 9 della Legge 124/2024, e cancellati se l'incarico non prosegue.",
+          "platformTitle": "c) Dati della piattaforma interna (solo per gli account aperti su invito):",
+          "platformItems": [
+            "Nome, indirizzo email, numero di telefono",
+            "Password — conservata esclusivamente in forma cifrata (hash), mai in chiaro",
+            "Numero di licenza e Ordine degli avvocati, se indicati",
+            "Dati professionali che l'utente registra nella piattaforma (pratiche, clienti, documenti, scadenze)"
+          ],
+          "platformNote": "La piattaforma è uno strumento di lavoro dello studio: gli account sono aperti solo su invito di OnLaw Office e utilizzati dai suoi collaboratori. Non è un servizio aperto al pubblico."
         },
         "purpose": {
           "title": "Perché trattiamo i dati e su quale base giuridica?",
           "intro": "I vostri dati vengono trattati per le seguenti finalità:",
           "contactResponse": {
             "title": "Risposta alla vostra richiesta (Modulo di contatto)",
-            "text": "Base giuridica: Misure precontrattuali su vostra richiesta, o il vostro consenso (Articolo 7, lettere \"b\" e \"a\", Legge 124/2024)."
+            "text": "Base giuridica: misure precontrattuali adottate su vostra richiesta, oppure il vostro consenso (articolo 7, Legge 124/2024)."
           },
           "technicalFunction": {
             "title": "Funzionamento tecnico del sito web",
-            "text": "Base giuridica: Interesse legittimo del titolare per garantire il funzionamento tecnico del sito (Articolo 7, lettera \"dh\", Legge 124/2024)."
+            "text": "Base giuridica: interesse legittimo del titolare al funzionamento tecnico e alla sicurezza del sito (articolo 7, Legge 124/2024)."
           },
           "legalObligation": {
             "title": "Adempimento degli obblighi legali",
-            "text": "Base giuridica: Obbligo legale del titolare (Articolo 7, lettera \"c\", Legge 124/2024), come la conservazione della documentazione secondo la legislazione fiscale o archivistica."
+            "text": "Base giuridica: obbligo di legge del titolare (articolo 7, Legge 124/2024), ad esempio la conservazione della documentazione secondo la normativa fiscale o archivistica."
+          },
+          "platformAccount": {
+            "title": "Account nella piattaforma interna",
+            "text": "Base giuridica: esecuzione del rapporto di lavoro o di collaborazione con OnLaw Office e interesse legittimo del titolare alla sicurezza del sistema (articolo 7, Legge 124/2024). I dati dell'account servono solo per l'identificazione, il controllo degli accessi e la sicurezza."
           }
         },
         "retention": {
           "title": "Per quanto tempo conserviamo i dati?",
-          "intro": "Applichiamo il principio di limitazione della conservazione ai sensi dell'Articolo 6, paragrafo 1, lettera \"dh\" della Legge 124/2024:",
+          "intro": "Applichiamo il principio della limitazione della conservazione (articolo 6, Legge 124/2024):",
           "items": [
             {
               "label": "Dati di contatto:",
-              "text": "Conservati fino alla conclusione della comunicazione con voi e non oltre 12 mesi dall'ultimo contatto, salvo che si instauri un rapporto contrattuale."
+              "text": "Conservati fino alla conclusione della comunicazione e comunque non oltre 12 mesi dall'ultimo contatto, salvo instaurazione di un rapporto contrattuale. La copia del messaggio presso il fornitore del modulo (Formspree) viene cancellata automaticamente dopo 30 giorni."
             },
             {
               "label": "Dati tecnici (log):",
-              "text": "Conservati fino a 90 giorni, esclusivamente per finalità di sicurezza tecnica."
+              "text": "Conservati fino a 90 giorni, solo per finalità di sicurezza tecnica."
+            },
+            {
+              "label": "Account della piattaforma:",
+              "text": "Conservati per la durata dell'account e fino a 12 mesi dopo la sua chiusura; la chiusura può essere richiesta in qualsiasi momento via email."
             },
             {
               "label": "Documentazione legale/contrattuale:",
-              "text": "Conservata secondo i termini legali vigenti (fino a 10 anni secondo la legislazione fiscale)."
+              "text": "Conservata secondo i termini di legge in vigore (fino a 10 anni secondo la normativa fiscale)."
             }
           ],
           "afterExpiry": "Alla scadenza del periodo di conservazione, i dati vengono cancellati o anonimizzati."
@@ -316,58 +333,70 @@
         "sharing": {
           "title": "Con chi condividiamo i dati?",
           "intro": "I vostri dati personali non vengono venduti, scambiati o condivisi con terzi per finalità di marketing.",
-          "availableTo": "Possono essere resi disponibili esclusivamente a:",
+          "availableTo": "Possono essere comunicati soltanto a responsabili del trattamento che operano secondo le nostre istruzioni, con contratto ai sensi dell'articolo 26 della Legge 124/2024, e alle autorità pubbliche quando la legge lo richiede:",
           "items": [
             {
-              "label": "Fornitori di servizi tecnici",
-              "text": "(hosting, email) — che agiscono come responsabili del trattamento secondo le nostre istruzioni e con le appropriate garanzie contrattuali;"
+              "label": "Vercel Inc. (USA)",
+              "text": "— hosting e distribuzione del sito; tratta i dati tecnici di ogni visita."
+            },
+            {
+              "label": "Supabase Inc.",
+              "text": "— database e archiviazione dei documenti della piattaforma; i server si trovano a Francoforte (UE)."
+            },
+            {
+              "label": "Formspree Inc. (USA)",
+              "text": "— servizio che inoltra i messaggi del modulo di contatto alla nostra email e li conserva fino a 30 giorni."
+            },
+            {
+              "label": "Google LLC (USA)",
+              "text": "— caratteri (Google Fonts) e mappa (Google Maps) caricati nel sito; riceve il vostro indirizzo IP al caricamento."
             },
             {
               "label": "Autorità pubbliche",
-              "text": "— solo quando richiesto dalla legge o da ordine del tribunale."
+              "text": "— solo quando richiesto dalla legge o da un ordine dell'autorità giudiziaria."
             }
           ],
-          "formNote": "Il modulo di contatto funziona tramite un servizio di invio email. I dati inviati attraverso il modulo vengono trasmessi direttamente alla nostra email professionale e non vengono archiviati in database esterni."
+          "formNote": "Il modulo di contatto funziona tramite Formspree: il messaggio ci arriva via email e una copia resta temporaneamente presso Formspree (fino a 30 giorni), dopodiché viene cancellata automaticamente. Non lo utilizziamo per altre finalità e non lo condividiamo con terzi."
         },
         "transfers": {
           "title": "I dati vengono trasferiti fuori dall'Albania?",
-          "text1": "Di norma, i vostri dati vengono trattati nel territorio della Repubblica d'Albania o in paesi che offrono un livello adeguato di protezione.",
-          "text2": "Se, per ragioni tecniche (come l'infrastruttura del servizio email), i dati vengono trasferiti in un altro paese, ci assicuriamo che il trasferimento sia supportato da garanzie adeguate ai sensi della Parte II, Capitolo V (Articoli 37-44) della Legge 124/2024, incluse clausole contrattuali standard o decisioni di adeguatezza."
+          "text1": "Il database della piattaforma si trova nell'Unione europea (Francoforte). Per l'hosting del sito, il modulo di contatto e i servizi Google, i dati sono trattati anche negli Stati Uniti d'America.",
+          "text2": "In assenza di una decisione di adeguatezza del Commissario per tale Paese, il trasferimento si fonda sulle garanzie adeguate previste dagli articoli 39–41 della Legge 124/2024: i contratti di trattamento con questi fornitori includono clausole contrattuali standard per la protezione dei dati. Copia della documentazione può essere richiesta al nostro indirizzo email."
         },
         "rights": {
           "title": "Quali sono i vostri diritti?",
-          "intro": "Ai sensi degli Articoli 13-20 della Legge 124/2024, avete i seguenti diritti:",
+          "intro": "Ai sensi degli articoli 13–20 della Legge 124/2024 avete i seguenti diritti:",
           "items": [
             {
               "label": "Diritto all'informazione",
-              "text": "(Articolo 13) — essere informati sul trattamento dei dati"
+              "text": "(articolo 13) — essere informati sul trattamento"
             },
             {
               "label": "Diritto di accesso",
-              "text": "(Articolo 14) — ottenere una copia dei vostri dati"
+              "text": "(articolo 14) — ottenere una copia dei vostri dati"
             },
             {
-              "label": "Diritto di rettifica",
-              "text": "(Articolo 15) — correggere dati inesatti"
+              "label": "Diritto di rettifica e cancellazione",
+              "text": "(articolo 15) — correggere dati inesatti o chiederne la cancellazione"
             },
             {
-              "label": "Diritto alla cancellazione",
-              "text": "(Articolo 15) — richiedere la cancellazione dei dati"
+              "label": "Diritto all'oblio",
+              "text": "(articolo 16) — chiedere la cancellazione anche presso i soggetti a cui i dati sono stati comunicati"
             },
             {
-              "label": "Diritto alla limitazione",
-              "text": "(Articolo 16) — limitare il trattamento"
+              "label": "Diritto di limitazione",
+              "text": "(articolo 17) — limitare il trattamento"
             },
             {
               "label": "Diritto alla portabilità",
-              "text": "(Articolo 18) — ricevere i dati in formato elettronico"
+              "text": "(articolo 18) — ricevere i dati in formato elettronico leggibile"
             },
             {
               "label": "Diritto di opposizione",
-              "text": "(Articolo 19) — opporsi al trattamento"
+              "text": "(articolo 19) — opporsi al trattamento"
             },
             {
-              "label": "Diritto di revocare il consenso",
+              "label": "Diritto di revoca del consenso",
               "text": "— in qualsiasi momento, senza pregiudicare la liceità del trattamento precedente"
             }
           ],
@@ -376,30 +405,30 @@
         },
         "complaint": {
           "title": "Diritto di reclamo al Commissario",
-          "intro": "Se ritenete che i vostri diritti di protezione dei dati personali siano stati violati, avete il diritto di presentare un reclamo presso:",
+          "intro": "Se ritenete che i vostri diritti siano stati violati, potete proporre reclamo al Commissario (articolo 86, Legge 124/2024):",
           "boxTitle": "Commissario per il Diritto all'Informazione e la Protezione dei Dati Personali",
           "boxAddress": "Indirizzo: Rruga \"Abdi Toptani\", Nd. 5, Tirana",
           "boxTel": "Tel: +355 42 237 200",
           "boxWeb": "www.idp.al",
           "boxEmail": "Email: info@idp.al",
-          "legalRemedy": "Inoltre, ai sensi dell'Articolo 88 della Legge 124/2024, avete diritto a un ricorso giurisdizionale effettivo dinanzi al tribunale competente."
+          "legalRemedy": "Ai sensi dell'articolo 88 della Legge 124/2024 avete inoltre diritto al risarcimento del danno subito per un trattamento contrario alla legge."
         },
         "automated": {
           "title": "Vengono prese decisioni automatizzate?",
-          "text": "No. OnLaw Office non utilizza alcun sistema di decisione automatizzata o profilazione ai sensi dell'Articolo 20 della Legge 124/2024 in relazione ai visitatori del sito o ai clienti."
+          "text": "No. OnLaw Office non utilizza alcun sistema di decisione automatizzata o di profilazione (articolo 20, Legge 124/2024) nei confronti dei visitatori del sito, dei clienti o degli utenti della piattaforma."
         },
         "changes": {
           "title": "Modifiche a questa informativa",
           "text": "Questa informativa può essere aggiornata periodicamente per riflettere modifiche legislative o della nostra pratica. La versione aggiornata sarà pubblicata su questa pagina con la data di aggiornamento. Vi invitiamo a consultarla periodicamente.",
           "currentVersion": "Versione attuale:",
-          "versionDate": "Marzo 2026"
+          "versionDate": "Settembre 2026"
         }
       }
     },
     "cookieTab": {
       "introTitle": "Cookie Policy (File Temporanei)",
       "introText": "Questa informativa spiega come il sito onlawoffice.com utilizza i cookie — piccoli file di testo che vengono memorizzati sul vostro dispositivo quando visitate il nostro sito.",
-      "updated": "Aggiornato: Marzo 2026",
+      "updated": "Aggiornato: settembre 2026",
       "lawReference": "Legge 124/2024",
       "sections": {
         "whatAreCookies": {
@@ -409,7 +438,7 @@
         },
         "whichCookies": {
           "title": "Quali cookie utilizziamo?",
-          "intro": "Il sito onlawoffice.com utilizza solo cookie tecnici (essenziali) per il funzionamento del sito. Non utilizziamo cookie analitici, di marketing o di profilazione.",
+          "intro": "Il sito pubblico onlawoffice.com non installa alcun cookie. I cookie tecnici vengono impostati solo quando accedete alla piattaforma interna (/app), per mantenere aperta la sessione e proteggere i moduli da attacchi:",
           "tableHeaders": {
             "cookie": "Cookie",
             "purpose": "Finalità",
@@ -418,20 +447,27 @@
           },
           "cookies": [
             {
-              "name": "session_id",
-              "purpose": "Gestione della sessione di navigazione",
-              "duration": "Fino alla chiusura del browser",
-              "type": "Essenziale"
+              "name": "__Secure-next-auth.session-token",
+              "purpose": "Sessione di accesso alla piattaforma (identificazione dell'utente)",
+              "duration": "Fino a 30 giorni o fino al logout",
+              "type": "Necessario"
             },
             {
-              "name": "csrf_token",
-              "purpose": "Protezione del modulo da attacchi",
+              "name": "__Host-next-auth.csrf-token",
+              "purpose": "Protezione dei moduli della piattaforma da attacchi CSRF",
               "duration": "Fino alla chiusura del browser",
-              "type": "Essenziale"
+              "type": "Necessario"
+            },
+            {
+              "name": "__Secure-next-auth.callback-url",
+              "purpose": "Ritorno alla pagina corretta dopo l'accesso",
+              "duration": "Fino alla chiusura del browser",
+              "type": "Necessario"
             }
           ],
           "noAnalyticsTitle": "Nessun cookie analitico o di marketing",
-          "noAnalyticsText": "Non utilizziamo Google Analytics, Facebook Pixel o qualsiasi altro strumento di tracciamento. La vostra navigazione sul nostro sito non viene tracciata per finalità di profilazione o pubblicità."
+          "noAnalyticsText": "Non utilizziamo Google Analytics, Facebook Pixel o qualsiasi altro strumento di tracciamento. La vostra navigazione sul nostro sito non viene tracciata per finalità di profilazione o pubblicità.",
+          "localStorageNote": "L'avviso sui cookie non installa cookie: quando lo chiudete, il browser conserva localmente (localStorage) solo la voce \"cookie-consent\", perché l'avviso non venga mostrato di nuovo. Questa voce non contiene dati personali e non viene trasmessa a nessuno."
         },
         "legalBasis": {
           "title": "Base giuridica dei cookie",
