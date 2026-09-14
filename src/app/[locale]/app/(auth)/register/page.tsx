@@ -5,6 +5,14 @@ import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { ScaleIcon } from '@heroicons/react/24/outline';
 
+
+const T = {
+  sq: { tagline: 'Krijo llogarinë e re', title: 'Regjistrimi', name: 'Emri i plotë *', namePh: 'Av. Emri Mbiemri', email: 'Email *', password: 'Fjalëkalimi *', confirm: 'Konfirmo fjalëkalimin *', phone: 'Telefoni', license: 'Nr. Licence Avokati', licensePh: 'Nr. XXXX', bar: 'Dhoma e Avokatisë', barPh: 'Zgjidhni dhomën...', invite: 'Kodi i ftesës *', invitePh: 'E jep administratori i studios', inviteHint: 'Platforma është e brendshme: llogaritë hapen vetëm me ftesë nga OnLaw Office.', submit: 'Regjistrohu', submitting: 'Duke u regjistruar...', mismatch: 'Fjalëkalimet nuk përputhen', short: 'Fjalëkalimi duhet të ketë të paktën 8 karaktere', error: 'Ndodhi një gabim. Provoni përsëri.', genericError: 'Ndodhi një gabim gjatë regjistrimit', have: 'Keni tashmë llogari?', login: 'Hyni' },
+  en: { tagline: 'Create a new account', title: 'Registration', name: 'Full name *', namePh: 'Av. First Last', email: 'Email *', password: 'Password *', confirm: 'Confirm password *', phone: 'Phone', license: 'Lawyer licence no.', licensePh: 'No. XXXX', bar: 'Bar association', barPh: 'Select the bar association...', invite: 'Invitation code *', invitePh: 'Provided by the firm administrator', inviteHint: 'The platform is internal: accounts are opened only by invitation from OnLaw Office.', submit: 'Register', submitting: 'Registering...', mismatch: 'Passwords do not match', short: 'The password must be at least 8 characters', error: 'Something went wrong. Please try again.', genericError: 'An error occurred during registration', have: 'Already have an account?', login: 'Sign in' },
+  it: { tagline: 'Crea un nuovo account', title: 'Registrazione', name: 'Nome completo *', namePh: 'Avv. Nome Cognome', email: 'Email *', password: 'Password *', confirm: 'Conferma password *', phone: 'Telefono', license: 'N. licenza avvocato', licensePh: 'N. XXXX', bar: 'Ordine degli avvocati', barPh: "Seleziona l'Ordine...", invite: 'Codice di invito *', invitePh: "Fornito dall'amministratore dello studio", inviteHint: 'La piattaforma è interna: gli account si aprono solo su invito di OnLaw Office.', submit: 'Registrati', submitting: 'Registrazione in corso...', mismatch: 'Le password non coincidono', short: 'La password deve avere almeno 8 caratteri', error: 'Si è verificato un errore. Riprova.', genericError: 'Errore durante la registrazione', have: 'Hai già un account?', login: 'Accedi' },
+} as const;
+type Lang = keyof typeof T;
+
 export default function RegisterPage() {
   const [form, setForm] = useState({
     name: '',
@@ -21,6 +29,7 @@ export default function RegisterPage() {
   const router = useRouter();
   const params = useParams();
   const locale = (params.locale as string) || 'sq';
+  const t = T[(locale in T ? locale : 'sq') as Lang];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -32,13 +41,13 @@ export default function RegisterPage() {
     setError('');
 
     if (form.password !== form.confirmPassword) {
-      setError('Fjalëkalimet nuk përputhen');
+      setError(t.mismatch);
       setLoading(false);
       return;
     }
 
     if (form.password.length < 8) {
-      setError('Fjalëkalimi duhet të ketë të paktën 8 karaktere');
+      setError(t.short);
       setLoading(false);
       return;
     }
@@ -62,10 +71,10 @@ export default function RegisterPage() {
         router.push(locale === 'sq' ? '/app/login' : `/${locale}/app/login`);
       } else {
         const data = await res.json();
-        setError(data.error || 'Ndodhi një gabim gjatë regjistrimit');
+        setError(data.error || t.genericError);
       }
     } catch {
-      setError('Ndodhi një gabim. Provoni përsëri.');
+      setError(t.error);
     } finally {
       setLoading(false);
     }
@@ -98,12 +107,12 @@ export default function RegisterPage() {
             <ScaleIcon className="h-8 w-8 text-amber-400" />
           </div>
           <h1 className="text-2xl font-bold text-white">OnLaw Office</h1>
-          <p className="mt-1 text-sm text-gray-400">Krijo llogarinë e re</p>
+          <p className="mt-1 text-sm text-gray-400">{t.tagline}</p>
         </div>
 
         {/* Register Form */}
         <div className="rounded-2xl border border-gray-700/50 bg-gray-800/50 p-8 shadow-xl backdrop-blur-sm">
-          <h2 className="mb-6 text-xl font-semibold text-white">Regjistrimi</h2>
+          <h2 className="mb-6 text-xl font-semibold text-white">{t.title}</h2>
 
           {error && (
             <div className="mb-4 rounded-lg bg-red-500/10 px-4 py-3 text-sm text-red-400">
@@ -115,7 +124,7 @@ export default function RegisterPage() {
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div className="sm:col-span-2">
                 <label htmlFor="reg-name" className="mb-1 block text-sm font-medium text-gray-300">
-                    Emri i plotë *
+                    {t.name}
                 </label>
                 <input
                   id="reg-name"
@@ -125,14 +134,14 @@ export default function RegisterPage() {
                   value={form.name}
                   onChange={handleChange}
                   className="w-full rounded-lg border border-gray-600 bg-gray-700/50 px-4 py-2.5 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                  placeholder="Av. Emri Mbiemri"
+                  placeholder={t.namePh}
                   required
                 />
               </div>
 
               <div className="sm:col-span-2">
                 <label htmlFor="reg-email" className="mb-1 block text-sm font-medium text-gray-300">
-                    Email *
+                    {t.email}
                 </label>
                 <input
                   id="reg-email"
@@ -149,7 +158,7 @@ export default function RegisterPage() {
 
               <div>
                 <label htmlFor="reg-password" className="mb-1 block text-sm font-medium text-gray-300">
-                    Fjalëkalimi *
+                    {t.password}
                 </label>
                 <input
                   id="reg-password"
@@ -166,7 +175,7 @@ export default function RegisterPage() {
 
               <div>
                 <label htmlFor="reg-confirmPassword" className="mb-1 block text-sm font-medium text-gray-300">
-                    Konfirmo fjalëkalimin *
+                    {t.confirm}
                 </label>
                 <input
                   id="reg-confirmPassword"
@@ -183,7 +192,7 @@ export default function RegisterPage() {
 
               <div>
                 <label htmlFor="reg-phone" className="mb-1 block text-sm font-medium text-gray-300">
-                    Telefoni
+                    {t.phone}
                 </label>
                 <input
                   id="reg-phone"
@@ -199,7 +208,7 @@ export default function RegisterPage() {
 
               <div>
                 <label htmlFor="reg-licenseNumber" className="mb-1 block text-sm font-medium text-gray-300">
-                    Nr. Licence Avokati
+                    {t.license}
                 </label>
                 <input
                   id="reg-licenseNumber"
@@ -209,13 +218,13 @@ export default function RegisterPage() {
                   value={form.licenseNumber}
                   onChange={handleChange}
                   className="w-full rounded-lg border border-gray-600 bg-gray-700/50 px-4 py-2.5 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                  placeholder="Nr. XXXX"
+                  placeholder={t.licensePh}
                 />
               </div>
 
               <div className="sm:col-span-2">
                 <label htmlFor="reg-barAssociation" className="mb-1 block text-sm font-medium text-gray-300">
-                  Dhoma e Avokatisë
+                  {t.bar}
                 </label>
                 <select
                   id="reg-barAssociation"
@@ -224,7 +233,7 @@ export default function RegisterPage() {
                   onChange={handleChange}
                   className="w-full rounded-lg border border-gray-600 bg-gray-700/50 px-4 py-2.5 text-white focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
                 >
-                  <option value="">Zgjidhni dhomën...</option>
+                  <option value="">{t.barPh}</option>
                   {barAssociations.map((ba) => (
                     <option key={ba} value={ba}>
                       {ba}
@@ -236,7 +245,7 @@ export default function RegisterPage() {
 
             <div>
               <label htmlFor="reg-inviteCode" className="mb-1 block text-sm font-medium text-gray-300">
-                Kodi i ftesës
+                {t.invite}
               </label>
               <input
                 id="reg-inviteCode"
@@ -246,10 +255,11 @@ export default function RegisterPage() {
                 value={form.inviteCode}
                 onChange={handleChange}
                 className="w-full rounded-lg border border-gray-600 bg-gray-700/50 px-4 py-2.5 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                placeholder="E jep administratori i studios"
+                placeholder={t.invitePh}
+                required
               />
               <p className="mt-1 text-xs text-gray-400">
-                Platforma është e brendshme: llogaritë hapen vetëm me ftesë nga OnLaw Office.
+                {t.inviteHint}
               </p>
             </div>
 
@@ -258,14 +268,14 @@ export default function RegisterPage() {
               disabled={loading}
               className="mt-2 w-full rounded-lg bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-700 disabled:opacity-50"
             >
-              {loading ? 'Duke u regjistruar...' : 'Regjistrohu'}
+              {loading ? t.submitting : t.submit}
             </button>
           </form>
 
           <p className="mt-6 text-center text-sm text-gray-400">
-            Keni tashmë llogari?{' '}
+            {t.have}{' '}
             <Link href={loginHref} className="text-blue-400 hover:text-blue-300">
-              Hyni
+              {t.login}
             </Link>
           </p>
         </div>

@@ -1,0 +1,20 @@
+name: Supabase keep-alive
+
+# Rezervë e pavarur nga Vercel Cron: një kërkesë në ditë drejt /api/health,
+# që projekti Supabase (plani falas) të regjistrojë aktivitet API dhe të mos
+# pezullohet. Dështon (dhe njofton) nëse endpoint-i kthen "degraded".
+on:
+  schedule:
+    - cron: "0 7 * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping /api/health
+        run: |
+          set -e
+          out=$(curl -fsS --max-time 60 https://www.onlawoffice.com/api/health)
+          echo "$out"
+          echo "$out" | grep -q '"status":"ok"'

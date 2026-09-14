@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
+import { timingSafeEqual } from 'crypto';
 import { prisma } from '@/lib/db/prisma';
 
 export async function POST(request: NextRequest) {
@@ -21,23 +22,22 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Platformë e brendshme: llogaria e parë hapet lirisht (administratori),
-    // çdo llogari tjetër kërkon kodin e ftesës të vendosur në REGISTRATION_CODE.
-    const userCount = await prisma.user.count();
-    if (userCount > 0) {
-      const expected = process.env.REGISTRATION_CODE;
-      if (!expected) {
-        return NextResponse.json(
-          { error: 'Regjistrimi është i mbyllur. Kontaktoni administratorin e OnLaw Office.' },
-          { status: 403 }
-        );
-      }
-      if (!inviteCode || inviteCode !== expected) {
-        return NextResponse.json(
-          { error: 'Kodi i ftesës nuk është i saktë' },
-          { status: 403 }
-        );
-      }
+    // Platformë e brendshme: çdo llogari kërkon kodin e ftesës të vendosur në
+    // REGISTRATION_CODE (Vercel → Environment Variables). Pa këtë variabël,
+    // regjistrimi është i mbyllur — asnjë llogari nuk hapet lirisht.
+    const expected = process.env.REGISTRATION_CODE;
+    if (!expected) {
+      return NextResponse.json(
+        { error: 'Regjistrimi është i mbyllur. Kontaktoni administratorin e OnLaw Office.' },
+        { status: 403 }
+      );
+    }
+    if (typeof inviteCode !== 'string' || inviteCode.length !== expected.length ||
+        !timingSafeEqual(Buffer.from(inviteCode), Buffer.from(expected))) {
+      return NextResponse.json(
+        { error: 'Kodi i ftesës nuk është i saktë' },
+        { status: 403 }
+      );
     }
 
     const existingUser = await prisma.user.findUnique({

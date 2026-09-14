@@ -1,6 +1,25 @@
 import type { NextConfig } from "next";
 import path from "node:path";
 
+// Content-Security-Policy. Skriptet inline të Next.js (hidratimi) kërkojnë
+// 'unsafe-inline' pa nonce; pjesa tjetër është e mbyllur në burimet reale:
+// Google Fonts, harta e Google, Formspree (formulari i kontaktit), Supabase.
+const IS_DEV = process.env.NODE_ENV !== "production";
+const CSP = [
+  "default-src 'self'",
+  `script-src 'self' 'unsafe-inline'${IS_DEV ? " 'unsafe-eval'" : ""}`,
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "font-src 'self' data: https://fonts.gstatic.com",
+  "img-src 'self' data: blob: https:",
+  `connect-src 'self' https://formspree.io https://*.supabase.co${IS_DEV ? " ws://localhost:* http://localhost:*" : ""}`,
+  "frame-src https://www.google.com",
+  "frame-ancestors 'none'",
+  "form-action 'self' https://formspree.io",
+  "base-uri 'self'",
+  "object-src 'none'",
+  "upgrade-insecure-requests",
+].join("; ");
+
 const nextConfig: NextConfig = {
   turbopack: {
     root: path.resolve(__dirname),
@@ -12,7 +31,7 @@ const nextConfig: NextConfig = {
         headers: [
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "X-Frame-Options", value: "DENY" },
-          { key: "Content-Security-Policy", value: "frame-ancestors 'none'" },
+          { key: "Content-Security-Policy", value: CSP },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), payment=()" },
         ],

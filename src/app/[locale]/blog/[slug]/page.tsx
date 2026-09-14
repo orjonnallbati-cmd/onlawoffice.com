@@ -45,8 +45,8 @@ export async function generateMetadata({
     routeKey: "blog",
     subPath: slug,
     subPathByLocale: getAlternateSlugs(slug, lang),
-    title: post.meta.title,
-    description: post.meta.excerpt,
+    title: post.meta.seoTitle ?? post.meta.title,
+    description: post.meta.seoDescription ?? post.meta.excerpt,
     ogType: "article",
     ogExtra: {
       publishedTime: post.meta.date,

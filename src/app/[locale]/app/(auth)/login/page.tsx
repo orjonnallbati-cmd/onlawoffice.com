@@ -6,6 +6,14 @@ import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { ScaleIcon } from '@heroicons/react/24/outline';
 
+
+const T = {
+  sq: { tagline: 'Sistemi i Menaxhimit Ligjor', title: 'Hyni në llogarinë', email: 'Email', password: 'Fjalëkalimi', submit: 'Hyr', submitting: 'Duke hyrë...', badCreds: 'Email ose fjalëkalimi nuk është i saktë', error: 'Ndodhi një gabim. Provoni përsëri.', noAccount: 'Nuk keni llogari?', register: 'Regjistrohuni' },
+  en: { tagline: 'Legal Practice Management', title: 'Sign in to your account', email: 'Email', password: 'Password', submit: 'Sign in', submitting: 'Signing in...', badCreds: 'Incorrect email or password', error: 'Something went wrong. Please try again.', noAccount: "Don't have an account?", register: 'Register' },
+  it: { tagline: 'Sistema di gestione dello studio', title: 'Accedi al tuo account', email: 'Email', password: 'Password', submit: 'Accedi', submitting: 'Accesso in corso...', badCreds: 'Email o password non corretti', error: 'Si è verificato un errore. Riprova.', noAccount: 'Non hai un account?', register: 'Registrati' },
+} as const;
+type Lang = keyof typeof T;
+
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -14,6 +22,7 @@ export default function LoginPage() {
   const router = useRouter();
   const params = useParams();
   const locale = (params.locale as string) || 'sq';
+  const t = T[(locale in T ? locale : 'sq') as Lang];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,10 +39,10 @@ export default function LoginPage() {
       if (res?.ok) {
         router.push(locale === 'sq' ? '/app/dashboard' : `/${locale}/app/dashboard`);
       } else {
-        setError('Email ose fjalëkalimi nuk është i saktë');
+        setError(t.badCreds);
       }
     } catch {
-      setError('Ndodhi një gabim. Provoni përsëri.');
+      setError(t.error);
     } finally {
       setLoading(false);
     }
@@ -50,12 +59,12 @@ export default function LoginPage() {
             <ScaleIcon className="h-8 w-8 text-amber-400" />
           </div>
           <h1 className="text-2xl font-bold text-white">OnLaw Office</h1>
-          <p className="mt-1 text-sm text-gray-400">Sistemi i Menaxhimit Ligjor</p>
+          <p className="mt-1 text-sm text-gray-400">{t.tagline}</p>
         </div>
 
         {/* Login Form */}
         <div className="rounded-2xl border border-gray-700/50 bg-gray-800/50 p-8 shadow-xl backdrop-blur-sm">
-          <h2 className="mb-6 text-xl font-semibold text-white">Hyni në llogarinë</h2>
+          <h2 className="mb-6 text-xl font-semibold text-white">{t.title}</h2>
 
           {error && (
             <div className="mb-4 rounded-lg bg-red-500/10 px-4 py-3 text-sm text-red-400">
@@ -66,7 +75,7 @@ export default function LoginPage() {
           <form onSubmit={handleSubmit} method="post" className="space-y-4">
             <div>
               <label htmlFor="login-email" className="mb-1 block text-sm font-medium text-gray-300">
-                Email
+                {t.email}
               </label>
               <input
                 id="login-email"
@@ -83,7 +92,7 @@ export default function LoginPage() {
 
             <div>
               <label htmlFor="login-password" className="mb-1 block text-sm font-medium text-gray-300">
-                Fjalëkalimi
+                {t.password}
               </label>
               <input
                 id="login-password"
@@ -103,14 +112,14 @@ export default function LoginPage() {
               disabled={loading}
               className="w-full rounded-lg bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-700 disabled:opacity-50"
             >
-              {loading ? 'Duke hyrë...' : 'Hyr'}
+              {loading ? t.submitting : t.submit}
             </button>
           </form>
 
           <p className="mt-6 text-center text-sm text-gray-400">
-            Nuk keni llogari?{' '}
+            {t.noAccount}{' '}
             <Link href={registerHref} className="text-blue-400 hover:text-blue-300">
-              Regjistrohuni
+              {t.register}
             </Link>
           </p>
         </div>
