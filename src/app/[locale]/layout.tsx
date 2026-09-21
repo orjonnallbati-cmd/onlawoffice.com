@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
+import { notFound } from "next/navigation";
+import "../globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import HtmlLangSetter from "@/components/layout/HtmlLangSetter";
 import CookieConsent from "@/components/layout/CookieConsent";
 import { LOCALES } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
@@ -66,6 +67,7 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
+  if (!(LOCALES as readonly string[]).includes(locale)) notFound();
   const lang = locale as Locale;
   const dict = await getDictionary(lang);
 
@@ -109,17 +111,28 @@ export default async function LocaleLayout({
     },
   };
 
+  // Ky është layout-i rrënjë (nuk ka `app/layout.tsx`): kështu `<html lang>`
+  // del nga serveri me gjuhën e saktë të faqes — sq, en ose it.
   return (
-    <>
-      <HtmlLangSetter lang={lang} />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <Header locale={lang} dict={dict} />
-      <main className="min-h-screen">{children}</main>
-      <Footer locale={lang} dict={dict} />
-      <CookieConsent locale={lang} dict={dict.cookieConsent} />
-    </>
+    <html lang={lang} suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="font-sans antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <Header locale={lang} dict={dict} />
+        <main className="min-h-screen">{children}</main>
+        <Footer locale={lang} dict={dict} />
+        <CookieConsent locale={lang} dict={dict.cookieConsent} />
+      </body>
+    </html>
   );
 }

@@ -21,6 +21,11 @@ const CSP = [
 ].join("; ");
 
 const nextConfig: NextConfig = {
+  experimental: {
+    // 404 globale me <html> të vetin: lejon që layout-i rrënjë të jetë
+    // `[locale]/layout.tsx` dhe `lang` të dalë i saktë për çdo gjuhë.
+    globalNotFound: true,
+  },
   turbopack: {
     root: path.resolve(__dirname),
   },

@@ -1,13 +1,23 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import "./globals.css";
 import Logo from "@/components/layout/Logo";
 
 /**
  * 404 në rrënjë: kapet për çdo adresë që nuk përputhet me asnjë rrugë
  * (edhe pas rishkrimit të middleware-it), kur `[locale]/not-found.tsx`
- * nuk arrihet. Pa Header/Footer — layout-i i rrënjës nuk i ka.
+ * nuk arrihet. Meqë layout-i rrënjë është `[locale]/layout.tsx`, kjo faqe
+ * sjell vetë `<html>` dhe `<body>` (konventa `global-not-found` e Next.js).
  */
-export default function RootNotFound() {
+export const metadata: Metadata = {
+  title: "404 — OnLaw Office",
+  robots: { index: false, follow: false },
+};
+
+export default function GlobalNotFound() {
   return (
+    <html lang="sq">
+      <body className="font-sans antialiased">
     <main className="min-h-screen bg-navy text-white flex items-center">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="max-w-xl">
@@ -30,5 +40,7 @@ export default function RootNotFound() {
         </div>
       </div>
     </main>
+      </body>
+    </html>
   );
 }
