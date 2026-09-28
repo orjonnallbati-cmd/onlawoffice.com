@@ -104,10 +104,13 @@ export default async function LocaleLayout({
       "Mbrojtja e të dhënave personale (GDPR, Ligji 124/2024)",
       "Hartim kontratash",
     ],
+    image: "https://www.onlawoffice.com/images/orjon-nallbati-studio.jpg",
     founder: {
       "@type": "Person",
       name: "Orjon Nallbati",
       jobTitle: "Avokat",
+      image: "https://www.onlawoffice.com/images/orjon-nallbati.jpg",
+      sameAs: ["https://www.linkedin.com/in/orjon-nallbati-4889b7293/"],
     },
   };
 

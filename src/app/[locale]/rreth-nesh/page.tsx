@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import PageHeader from "@/components/ui/PageHeader";
 import Container from "@/components/ui/Container";
 import GoldDivider from "@/components/ui/GoldDivider";
@@ -81,10 +82,16 @@ export default async function RrethNeshPage({
           <div className="max-w-4xl mx-auto">
             <div className="bg-white border border-gray-200 p-8 lg:p-12">
               <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
-                {/* Photo placeholder */}
+                {/* Portreti */}
                 <div className="shrink-0">
-                  <div className="w-40 h-40 lg:w-48 lg:h-48 bg-navy-50 border border-gray-200 flex items-center justify-center mx-auto lg:mx-0">
-                    <AcademicCapIcon className="w-16 h-16 text-navy/30" />
+                  <div className="relative w-56 lg:w-64 aspect-[4/5] mx-auto lg:mx-0 bg-navy-50">
+                    <Image
+                      src="/images/orjon-nallbati-zyra.webp"
+                      alt={OFFICE.lawyer}
+                      fill
+                      sizes="(min-width: 1024px) 256px, 224px"
+                      className="object-cover"
+                    />
                   </div>
                 </div>
 

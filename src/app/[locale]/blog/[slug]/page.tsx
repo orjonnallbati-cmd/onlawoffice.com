@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
@@ -94,6 +95,7 @@ export default async function BlogPostPage({
       "@type": "Person",
       name: post.meta.author,
       url: `https://www.onlawoffice.com${aboutPath}`,
+      image: "https://www.onlawoffice.com/images/orjon-nallbati.jpg",
     },
     publisher: {
       "@type": "Organization",
@@ -167,15 +169,22 @@ export default async function BlogPostPage({
       {/* Author Box */}
       <section className="py-8 bg-alt">
         <Container className="max-w-3xl">
-          <div className="flex items-center gap-4 p-6 bg-white border border-gray-200">
-            <div className="w-14 h-14 bg-navy flex items-center justify-center shrink-0">
-              <UserIcon className="w-7 h-7 text-white" />
-            </div>
+          <Link
+            href={aboutPath}
+            className="flex items-center gap-4 p-6 bg-white border border-gray-200 hover:border-gray-400 transition-colors"
+          >
+            <Image
+              src="/images/orjon-nallbati.jpg"
+              alt={OFFICE.lawyer}
+              width={64}
+              height={64}
+              className="w-16 h-16 object-cover shrink-0"
+            />
             <div>
               <p className="font-medium text-navy">{OFFICE.lawyer}</p>
               <p className="text-sm text-gray-500">{dict.hero.subtitle}</p>
             </div>
-          </div>
+          </Link>
         </Container>
       </section>
     </>

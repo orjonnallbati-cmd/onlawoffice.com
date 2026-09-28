@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import PageHeader from "@/components/ui/PageHeader";
 import Container from "@/components/ui/Container";
 import ContactForm from "@/components/contact/ContactForm";
@@ -60,6 +61,16 @@ export default async function KontaktPage({
 
             {/* Contact Info */}
             <div className="lg:col-span-2">
+              {/* Av. Nallbati në zyrë — pamja nga dritarja është ajo reale e studios */}
+              <div className="relative w-full max-w-[360px] aspect-[4/5] mx-auto lg:mx-0 mb-8 bg-navy-50">
+                <Image
+                  src="/images/orjon-nallbati-studio.jpg"
+                  alt={`${OFFICE.lawyer} — ${OFFICE.name}, ${OFFICE.address}`}
+                  fill
+                  sizes="360px"
+                  className="object-cover"
+                />
+              </div>
               <div className="bg-white border border-gray-200 p-8">
                 <h2 className="text-2xl text-navy mb-6">
                   {cp.infoTitle}

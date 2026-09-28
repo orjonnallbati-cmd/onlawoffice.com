@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/ui/Container";
 import { OFFICE } from "@/lib/constants";
@@ -15,9 +16,23 @@ export default function Hero({ dict, locale }: { dict: Record<string, any>; loca
       {/* Filigranë "ON" — jehonë e stemës */}
       <div
         aria-hidden="true"
-        className="pointer-events-none select-none absolute -right-6 top-1/2 -translate-y-1/2 hidden lg:block"
+        className="pointer-events-none select-none absolute -right-6 top-1/2 -translate-y-1/2 hidden lg:block xl:hidden"
       >
         <span className="font-display text-[26rem] leading-none text-white/[0.035]">ON</span>
+      </div>
+
+      {/* Portreti — vetëm në ekrane të gjera, i shkrirë me sfondin grafit */}
+      <div className="pointer-events-none absolute inset-y-0 right-0 hidden xl:block w-[38%]">
+        <Image
+          src="/images/orjon-nallbati-hero.webp"
+          alt={OFFICE.lawyer}
+          fill
+          priority
+          sizes="38vw"
+          className="object-cover object-[50%_15%]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/30 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-navy to-transparent" />
       </div>
 
       <Container className="relative">
