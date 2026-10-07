@@ -48,6 +48,11 @@ const nextConfig: NextConfig = {
     // hreflang alternates used to reuse the same slug across locales. Point
     // each dead cross-locale URL at the article that actually exists.
     return [
+      // Ikonat/og-image dinamike të versionit të vjetër (ende në indeksin e Google)
+      // → skedarët statikë ekuivalentë
+      { source: "/icon", destination: "/icon-192.png", permanent: true },
+      { source: "/apple-icon", destination: "/apple-touch-icon.png", permanent: true },
+      { source: "/opengraph-image", destination: "/og-image.png", permanent: true },
       // Kontaktet pa prefiks gjuhe (linke të vjetra në artikuj) → faqja e saktë
       { source: "/contact", destination: "/en/contact", permanent: true },
       { source: "/contatto", destination: "/it/contatto", permanent: true },

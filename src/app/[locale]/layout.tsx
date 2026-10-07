@@ -13,6 +13,10 @@ export async function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
 }
 
+// Vetëm sq/en/it: çdo segment tjetër (p.sh. /icon, /favicon-99.png — rrugë që
+// middleware-i i lë pa rishkruar) kthen 404, jo 500 nga getDictionary.
+export const dynamicParams = false;
+
 export const viewport: Viewport = {
   themeColor: "#1B1F24",
 };
