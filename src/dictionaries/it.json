@@ -126,7 +126,37 @@
   },
   "servicesPage": {
     "title": "Servizi Legali",
-    "subtitle": "Forniamo assistenza legale completa in sei aree principali di pratica"
+    "subtitle": "Forniamo assistenza legale completa in sei aree principali di pratica",
+    "faq": {
+      "title": "Domande frequenti",
+      "subtitle": "Le risposte alle domande che riceviamo più spesso prima del primo incontro",
+      "items": [
+        {
+          "q": "Come posso fissare un appuntamento?",
+          "a": "Chiamate il +355 69 331 4640 o scrivete a orjon.nallbati@onlawoffice.com. Lo studio è aperto dal lunedì al venerdì, dalle 9:00 alle 17:00, sul Bulevardi \"Gjergj Fishta\" a Tirana. Il primo incontro può svolgersi anche online, per i clienti fuori Tirana o fuori dall'Albania."
+        },
+        {
+          "q": "Lavorate con clienti italiani?",
+          "a": "Sì. L'Avv. Orjon Nallbati si è laureato in giurisprudenza all'Università degli Studi di Camerino e assiste i clienti italiani direttamente in italiano, senza intermediari. I clienti che non possono essere presenti in Albania vengono rappresentati tramite procura."
+        },
+        {
+          "q": "Quanto costa una consulenza o l'assistenza?",
+          "a": "Il costo dipende dal tipo e dalla complessità della questione. Dopo una breve descrizione del problema ricevete un preventivo scritto prima di qualsiasi incarico, così sapete in anticipo cosa è compreso e quanto costa."
+        },
+        {
+          "q": "Quali documenti devo portare al primo incontro?",
+          "a": "Tutto ciò che riguarda la questione: contratti, certificati di proprietà, sentenze, comunicazioni di enti pubblici, corrispondenza con la controparte. Non serve che siano tradotti o ordinati; li esaminiamo insieme."
+        },
+        {
+          "q": "Seguite cause fuori Tirana?",
+          "a": "Sì. Lo studio rappresenta i clienti davanti ai tribunali di primo grado e d'appello di tutta l'Albania, davanti all'Alta Corte e alla Corte Costituzionale, e davanti a enti amministrativi come l'Agenzia del Catasto e il Commissario per la protezione dei dati personali."
+        },
+        {
+          "q": "Offrite servizi di DPO e adeguamento alla legge 124/2024?",
+          "a": "Sì. L'Avv. Nallbati svolge la funzione di responsabile della protezione dei dati (DPO) dal 2014 per società albanesi e italiane. I servizi comprendono DPO esterno, audit di conformità, regolamenti interni e accordi sul trattamento, preparazione alle ispezioni e risposte alle Raccomandazioni o Decisioni del Commissario."
+        }
+      ]
+    }
   },
   "aboutPreview": {
     "label": "Chi Siamo",

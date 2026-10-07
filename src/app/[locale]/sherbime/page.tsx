@@ -50,6 +50,9 @@ export default async function SherbimePage({
   const { locale } = await params;
   const lang = locale as Locale;
   const dict = await getDictionary(lang);
+  const faq = dict.servicesPage.faq as
+    | { title: string; subtitle: string; items: { q: string; a: string }[] }
+    | undefined;
 
   return (
     <>
@@ -114,6 +117,41 @@ export default async function SherbimePage({
           );
         })}
       </div>
+
+      {/* Pyetje të shpeshta — me FAQPage JSON-LD për rezultate të pasura në Google */}
+      {faq && (
+        <section className="py-16 lg:py-24 bg-navy text-white">
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                mainEntity: faq.items.map((item: { q: string; a: string }) => ({
+                  "@type": "Question",
+                  name: item.q,
+                  acceptedAnswer: { "@type": "Answer", text: item.a },
+                })),
+              }),
+            }}
+          />
+          <Container>
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-3xl lg:text-4xl mb-3">{faq.title}</h2>
+              <p className="text-gray-300 mb-4">{faq.subtitle}</p>
+              <GoldDivider short className="!mx-0 mb-10" />
+              <dl className="divide-y divide-white/15 border-t border-b border-white/15">
+                {faq.items.map((item: { q: string; a: string }) => (
+                  <div key={item.q} className="py-6">
+                    <dt className="text-xl font-display mb-3">{item.q}</dt>
+                    <dd className="text-gray-300 leading-relaxed">{item.a}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </Container>
+        </section>
+      )}
 
       <CTABanner dict={dict} locale={lang} />
     </>

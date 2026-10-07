@@ -126,7 +126,37 @@
   },
   "servicesPage": {
     "title": "Legal Services",
-    "subtitle": "We provide comprehensive legal assistance across six core practice areas"
+    "subtitle": "We provide comprehensive legal assistance across six core practice areas",
+    "faq": {
+      "title": "Frequently asked questions",
+      "subtitle": "Answers to the questions we hear most often before a first meeting",
+      "items": [
+        {
+          "q": "How do I book an appointment?",
+          "a": "Call +355 69 331 4640 or write to orjon.nallbati@onlawoffice.com. The office is open Monday to Friday, 09:00–17:00, on Gjergj Fishta Boulevard in Tirana. The first meeting can also take place online for clients outside Tirana or outside Albania."
+        },
+        {
+          "q": "Do you work with foreign clients?",
+          "a": "Yes. Av. Orjon Nallbati graduated in law from the University of Camerino in Italy and assists Italian clients directly in Italian. Documentation can be prepared in English. Clients who cannot be present in Albania are represented by power of attorney."
+        },
+        {
+          "q": "How much does a consultation or representation cost?",
+          "a": "Fees depend on the type and complexity of the matter. After a short description of the problem you receive a written quote before any engagement, so you know in advance what is included and what it costs."
+        },
+        {
+          "q": "What documents should I bring to the first meeting?",
+          "a": "Anything related to the matter: contracts, certificates of ownership, court decisions, notices from public bodies, correspondence with the other party. They do not need to be translated or organised; we review them together."
+        },
+        {
+          "q": "Do you handle cases outside Tirana?",
+          "a": "Yes. The firm represents clients before first-instance and appeal courts throughout Albania, before the High Court and the Constitutional Court, and before administrative bodies such as the State Cadastre Agency and the Data Protection Commissioner."
+        },
+        {
+          "q": "Do you provide DPO services and Law 124/2024 compliance?",
+          "a": "Yes. Av. Nallbati has served as data protection officer (DPO) since 2014 for Albanian and Italian companies. Services include external DPO, compliance audits, internal regulations and data processing agreements, inspection preparation and responses to the Commissioner's Recommendations or Decisions."
+        }
+      ]
+    }
   },
   "aboutPreview": {
     "label": "About Us",

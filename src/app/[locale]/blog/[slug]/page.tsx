@@ -111,11 +111,26 @@ export default async function BlogPostPage({
   // Back to blog text
   const backText = lang === "en" ? "Back to Blog" : lang === "it" ? "Torna al Blog" : "Kthehu te Blogu";
 
+  const homePath = getLocalizedPath(lang, "home");
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "OnLaw Office", item: `https://www.onlawoffice.com${homePath}` },
+      { "@type": "ListItem", position: 2, name: dict.blogPage.title, item: `https://www.onlawoffice.com${blogPath}` },
+      { "@type": "ListItem", position: 3, name: post.meta.title, item: `https://www.onlawoffice.com${blogPath}/${slug}` },
+    ],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       {/* Article Header */}
       <section className="bg-navy pt-28 pb-12 lg:pt-36 lg:pb-16">

@@ -126,7 +126,37 @@
   },
   "servicesPage": {
     "title": "Shërbimet Juridike",
-    "subtitle": "Ofrojmë asistencë ligjore të plotë në gjashtë fusha kryesore të praktikës"
+    "subtitle": "Ofrojmë asistencë ligjore të plotë në gjashtë fusha kryesore të praktikës",
+    "faq": {
+      "title": "Pyetje të shpeshta",
+      "subtitle": "Përgjigjet për pyetjet që na bëhen më shpesh para takimit të parë",
+      "items": [
+        {
+          "q": "Si mund të lë një takim me avokatin?",
+          "a": "Na telefononi në +355 69 331 4640 ose na shkruani në orjon.nallbati@onlawoffice.com. Zyra punon nga e hëna në të premte, 09:00–17:00, në Bulevardin \"Gjergj Fishta\" në Tiranë. Takimi i parë mund të zhvillohet edhe online, për klientët jashtë Tiranës ose jashtë Shqipërisë."
+        },
+        {
+          "q": "A punoni me klientë italianë dhe të huaj?",
+          "a": "Po. Av. Orjon Nallbati është diplomuar në drejtësi në Università degli Studi di Camerino dhe ofron asistencë drejtpërdrejt në italisht, pa ndërmjetës. Dokumentacioni mund të përgatitet edhe në anglisht. Klientët që nuk mund të jenë të pranishëm në Shqipëri përfaqësohen me prokurë."
+        },
+        {
+          "q": "Sa kushton konsulta dhe përfaqësimi?",
+          "a": "Kostoja varet nga lloji dhe kompleksiteti i çështjes. Pas një përshkrimi të shkurtër të problemit, merrni një ofertë me shkrim para çdo angazhimi, në mënyrë që të dini paraprakisht çfarë përfshihet dhe sa kushton."
+        },
+        {
+          "q": "Çfarë dokumentesh duhet të sjell në takimin e parë?",
+          "a": "Çdo dokument që lidhet me çështjen: kontrata, certifikata pronësie, vendime gjyqësore, njoftime nga institucionet, korrespondencë me palën tjetër. Nuk ka nevojë të jenë të përkthyera apo të sistemuara; i shqyrtojmë bashkë gjatë takimit."
+        },
+        {
+          "q": "A merrni çështje jashtë Tiranës?",
+          "a": "Po. Zyra përfaqëson klientë para gjykatave të shkallës së parë dhe të apelit në të gjithë vendin, para Gjykatës së Lartë dhe Gjykatës Kushtetuese, si dhe para institucioneve administrative si ASHK-ja dhe Komisioneri për Mbrojtjen e të Dhënave Personale."
+        },
+        {
+          "q": "A ofroni shërbime DPO dhe përputhshmëri me Ligjin 124/2024?",
+          "a": "Po. Av. Nallbati ushtron si nëpunës i mbrojtjes së të dhënave (DPO) që nga viti 2014 për shoqëri shqiptare dhe italiane. Shërbimet përfshijnë DPO të jashtëm, auditim të përputhshmërisë, hartim rregulloresh dhe kontratash përpunimi, përgatitje për inspektim dhe përgjigje ndaj Rekomandimeve ose Vendimeve të Komisionerit."
+        }
+      ]
+    }
   },
   "aboutPreview": {
     "label": "Rreth Nesh",
