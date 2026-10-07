@@ -32,6 +32,11 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        // Fotot publike lexohen edhe nga faqe të tjera (p.sh. ngarkim në profilin Google)
+        source: "/images/(.*)",
+        headers: [{ key: "Access-Control-Allow-Origin", value: "*" }],
+      },
+      {
         source: "/(.*)",
         headers: [
           { key: "X-Content-Type-Options", value: "nosniff" },
