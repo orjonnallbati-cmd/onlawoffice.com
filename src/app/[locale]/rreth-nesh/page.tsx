@@ -5,9 +5,11 @@ import Container from "@/components/ui/Container";
 import GoldDivider from "@/components/ui/GoldDivider";
 import CTABanner from "@/components/home/CTABanner";
 import { OFFICE } from "@/lib/constants";
+import { PERSON_ID, PROFILES, SITE, personJsonLd } from "@/lib/entity";
 import { getDictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/i18n";
 import { buildPageMetadata } from "@/lib/seo";
+import { getLocalizedPath } from "@/lib/i18n";
 import {
   ShieldCheckIcon,
   HandRaisedIcon,
@@ -51,6 +53,18 @@ export default async function RrethNeshPage({
   const licLabel = ap.lawyerProfile.licenseLabel.replace("{license}", OFFICE.license);
   const nuisLabel = ap.lawyerProfile.nuisLabel.replace("{nuis}", OFFICE.nuis);
 
+  const [bio2Before, bio2After] = (ap.lawyerProfile.bio2 as string).split("{itaka7}");
+  const roles: string[] = ap.lawyerProfile.roles ?? [];
+
+  const profileJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "@id": `${SITE}${getLocalizedPath(lang, "about")}#profile`,
+    inLanguage: lang,
+    dateModified: "2026-10-27",
+    mainEntity: personJsonLd(lang),
+  };
+
   const values = [
     { icon: ShieldCheckIcon, ...ap.values.professionalism },
     { icon: HandRaisedIcon, ...ap.values.integrity },
@@ -59,6 +73,10 @@ export default async function RrethNeshPage({
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(profileJsonLd) }}
+      />
       <PageHeader title={ap.title} subtitle={ap.subtitle} />
 
       {/* Firm Overview */}
@@ -120,9 +138,47 @@ export default async function RrethNeshPage({
                     ))}
                   </div>
 
-                  <p className="text-gray-600 text-sm leading-relaxed">
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
                     {ap.lawyerProfile.bio}
                   </p>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                    {bio2Before}
+                    <a
+                      href={PROFILES.itaka7}
+                      target="_blank"
+                      rel="noopener"
+                      className="text-navy underline decoration-gold underline-offset-4 hover:text-gold transition-colors"
+                    >
+                      ITAKA7
+                    </a>
+                    {bio2After}
+                  </p>
+
+                  {roles.length > 0 && (
+                    <>
+                      <p className="text-gold text-xs font-medium uppercase tracking-[0.2em] mb-3">
+                        {ap.lawyerProfile.rolesTitle}
+                      </p>
+                      <ul className="space-y-2 mb-6">
+                        {roles.map((role) => (
+                          <li key={role} className="flex items-start gap-2 text-sm text-gray-600">
+                            <span aria-hidden="true" className="mt-2 w-1.5 h-1.5 bg-gold shrink-0" />
+                            <span>{role}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
+
+                  <a
+                    href={PROFILES.linkedin}
+                    target="_blank"
+                    rel="noopener"
+                    className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-navy hover:text-gold transition-colors"
+                    data-person={PERSON_ID}
+                  >
+                    LinkedIn →
+                  </a>
                 </div>
               </div>
             </div>

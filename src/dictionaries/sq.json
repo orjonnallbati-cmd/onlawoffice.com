@@ -15,8 +15,8 @@
       "description": "Avokat në Tiranë për çështje civile, pronësore, tregtare, administrative e kushtetuese, mbrojtje të dhënash personale dhe hartim kontratash."
     },
     "about": {
-      "title": "Av. Orjon Nallbati — Avokat në Tiranë",
-      "description": "Avokat që nga viti 2013, me formim juridik në Itali dhe përvojë përfaqësimi deri në Gjykatën e Lartë dhe Gjykatën Kushtetuese. Njihuni me OnLaw Office."
+      "title": "Av. Orjon Nallbati — Avokat dhe DPO në Tiranë",
+      "description": "Avokat që nga 2013, DPO që nga 2014 dhe bashkëthemelues i ITAKA7. Formim juridik në Itali, përfaqësim deri në Gjykatën e Lartë dhe Gjykatën Kushtetuese."
     },
     "contact": {
       "title": "Kontakt — Avokat në Tiranë",
@@ -194,7 +194,17 @@
       "founderTitle": "Themelues & Drejtor i {name}",
       "licenseLabel": "Licencë: {license}",
       "nuisLabel": "NUIS: {nuis}",
-      "bio": "Av. Orjon Nallbati ka përvojë të gjerë në përfaqësimin e klientëve para të gjitha niveleve të gjykatave shqiptare, përfshirë Gjykatën e Lartë dhe Gjykatën Kushtetuese. I specializuar në çështje civile komplekse, kontrata tregtare ndërkombëtare, dhe mbrojtjen e të dhënave personale."
+      "bio": "Av. Orjon Nallbati ka përvojë të gjerë në përfaqësimin e klientëve para të gjitha niveleve të gjykatave shqiptare, përfshirë Gjykatën e Lartë dhe Gjykatën Kushtetuese. I specializuar në çështje civile komplekse, kontrata tregtare ndërkombëtare, dhe mbrojtjen e të dhënave personale.",
+      "bio2": "Që nga viti 2014 ushtron edhe funksionin e Përgjegjësit për Mbrojtjen e të Dhënave (DPO) për shoqëri shqiptare dhe italiane dhe është bashkëthemelues i {itaka7}, shoqëri e specializuar në privacy, mbrojtje të dhënash dhe siguri kibernetike. Ka studiuar drejtësi në Università degli Studi di Camerino (Itali, 2001–2007), është autor i dy studimeve mbi të drejtën civile italiane dhe punon në shqip, italisht dhe anglisht.",
+      "rolesTitle": "Rolet dhe kualifikimet",
+      "roles": [
+        "Avokat, OnLaw Office, Tiranë (që nga 2013)",
+        "Përgjegjës për Mbrojtjen e të Dhënave (DPO) për shoqëri në Shqipëri dhe Itali (që nga 2014)",
+        "Bashkëthemelues i ITAKA7 sh.p.k., privacy dhe mbrojtje të dhënash",
+        "Diplomë dhe magjistraturë në drejtësi, Università degli Studi di Camerino (Itali)",
+        "Anëtar i Dhomës së Avokatisë Tiranë, licencë nr. 6656",
+        "Gjuhët e punës: shqip, italisht, anglisht"
+      ]
     },
     "values": {
       "title": "Vlerat Tona",
@@ -252,7 +262,8 @@
     "title": "Blog Juridik",
     "subtitle": "Artikuj, analiza dhe komente mbi legjislacionin shqiptar",
     "emptyTitle": "Artikujt e blogut do të publikohen së shpejti.",
-    "emptySubtitle": "Na ndiqni për përditësime mbi legjislacionin shqiptar."
+    "emptySubtitle": "Na ndiqni për përditësime mbi legjislacionin shqiptar.",
+    "authorCredentials": "Avokat (Lic. nr. 6656) · DPO që nga 2014 · Bashkëthemelues i ITAKA7"
   },
   "notFound": {
     "code": "404",
@@ -265,7 +276,8 @@
     "quickLinks": "Lidhje të Shpejta",
     "contact": "Kontakt",
     "copyright": "© {year} {name}. Të gjitha të drejtat e rezervuara.",
-    "privacyLink": "Privatësia & Cookies"
+    "privacyLink": "Privatësia & Cookies",
+    "alsoOn": "Na gjeni edhe në"
   },
   "privacy": {
     "hero": {

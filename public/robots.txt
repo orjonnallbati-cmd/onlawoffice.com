@@ -1,3 +1,42 @@
+# OnLaw Office — www.onlawoffice.com
+# Faqja është e hapur për motorët e kërkimit dhe për asistentët e AI-së.
+
 User-agent: *
 Allow: /
+
+# Asistentët e AI-së (kërkim live dhe indeksim)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
 Sitemap: https://www.onlawoffice.com/sitemap.xml
+# Përmbledhje për modelet gjuhësore: https://www.onlawoffice.com/llms.txt

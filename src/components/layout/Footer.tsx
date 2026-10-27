@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Logo from "./Logo";
 import { OFFICE } from "@/lib/constants";
+import { PROFILES } from "@/lib/entity";
 import { getLocalizedPath } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
 import {
@@ -78,6 +79,19 @@ export default function Footer({ locale, dict }: { locale: Locale; dict: Record<
                   {OFFICE.email}
                 </a>
               </div>
+            </div>
+
+            <p className={`${LABEL} mt-8`}>{dict.footer.alsoOn}</p>
+            <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
+              <a href={PROFILES.linkedin} target="_blank" rel="noopener" className="text-gray-300 hover:text-white transition-colors">
+                LinkedIn
+              </a>
+              <a href={PROFILES.googleMaps} target="_blank" rel="noopener" className="text-gray-300 hover:text-white transition-colors">
+                Google Maps
+              </a>
+              <a href={PROFILES.itaka7} target="_blank" rel="noopener" className="text-gray-300 hover:text-white transition-colors">
+                ITAKA7 · Privacy &amp; DPO
+              </a>
             </div>
           </div>
         </div>

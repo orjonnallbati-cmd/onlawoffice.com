@@ -8,6 +8,7 @@ import Container from "@/components/ui/Container";
 import GoldDivider from "@/components/ui/GoldDivider";
 import { getPostBySlug, getAllSlugs, getAlternateSlugs } from "@/lib/blog";
 import { OFFICE } from "@/lib/constants";
+import { authorJsonLd } from "@/lib/entity";
 import { LOCALES, getLocalizedPath } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
 import { getDictionary } from "@/lib/dictionaries";
@@ -91,12 +92,7 @@ export default async function BlogPostPage({
     description: post.meta.excerpt,
     datePublished: post.meta.date,
     inLanguage: lang,
-    author: {
-      "@type": "Person",
-      name: post.meta.author,
-      url: `https://www.onlawoffice.com${aboutPath}`,
-      image: "https://www.onlawoffice.com/images/orjon-nallbati.jpg",
-    },
+    author: authorJsonLd(lang),
     publisher: {
       "@type": "Organization",
       name: "OnLaw Office",
@@ -198,6 +194,7 @@ export default async function BlogPostPage({
             <div>
               <p className="font-medium text-navy">{OFFICE.lawyer}</p>
               <p className="text-sm text-gray-500">{dict.hero.subtitle}</p>
+              <p className="text-xs text-gray-400 mt-1">{dict.blogPage.authorCredentials}</p>
             </div>
           </Link>
         </Container>

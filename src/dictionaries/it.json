@@ -15,8 +15,8 @@
       "description": "Avvocato a Tirana per questioni civili, immobiliari, commerciali, amministrative e costituzionali, protezione dei dati e redazione contratti. Assistenza in italiano."
     },
     "about": {
-      "title": "Avv. Orjon Nallbati — Avvocato a Tirana, Albania",
-      "description": "Avvocato dal 2013, laureato in Italia (Università di Camerino), con esperienza fino alla Corte Suprema e alla Corte Costituzionale albanese. Assistenza in italiano."
+      "title": "Avv. Orjon Nallbati — Avvocato e DPO a Tirana",
+      "description": "Avvocato dal 2013, DPO dal 2014 e co-fondatore di ITAKA7. Laureato in Italia (Camerino), esperienza fino alla Corte Suprema e alla Corte Costituzionale albanese. Assistenza in italiano."
     },
     "contact": {
       "title": "Contatti — Avvocato a Tirana",
@@ -194,7 +194,17 @@
       "founderTitle": "Fondatore e Direttore di {name}",
       "licenseLabel": "Licenza: {license}",
       "nuisLabel": "NUIS: {nuis}",
-      "bio": "L'Avv. Orjon Nallbati ha un'ampia esperienza nella rappresentanza dei clienti davanti a tutti i livelli dei tribunali albanesi, inclusa la Corte Suprema e la Corte Costituzionale. Specializzato in cause civili complesse, contratti commerciali internazionali e protezione dei dati personali."
+      "bio": "L'Avv. Orjon Nallbati ha un'ampia esperienza nella rappresentanza dei clienti davanti a tutti i livelli dei tribunali albanesi, inclusa la Corte Suprema e la Corte Costituzionale. Specializzato in cause civili complesse, contratti commerciali internazionali e protezione dei dati personali.",
+      "bio2": "Dal 2014 ricopre anche la funzione di Data Protection Officer (DPO) per società albanesi e italiane ed è co-fondatore di {itaka7}, società specializzata in privacy, protezione dei dati e sicurezza informatica. Ha studiato giurisprudenza all'Università degli Studi di Camerino (2001–2007), è autore di due studi di diritto civile italiano e lavora in albanese, italiano e inglese.",
+      "rolesTitle": "Ruoli e qualifiche",
+      "roles": [
+        "Avvocato, OnLaw Office, Tirana (dal 2013)",
+        "Data Protection Officer (DPO) per società in Albania e in Italia (dal 2014)",
+        "Co-fondatore di ITAKA7 sh.p.k., privacy e protezione dei dati",
+        "Laurea e laurea magistrale in giurisprudenza, Università degli Studi di Camerino",
+        "Iscritto alla Camera degli Avvocati di Tirana, licenza n. 6656",
+        "Lingue di lavoro: albanese, italiano, inglese"
+      ]
     },
     "values": {
       "title": "I Nostri Valori",
@@ -252,7 +262,8 @@
     "title": "Blog Giuridico",
     "subtitle": "Articoli, analisi e commenti sulla legislazione albanese",
     "emptyTitle": "Gli articoli del blog saranno pubblicati a breve.",
-    "emptySubtitle": "Seguici per aggiornamenti sulla legislazione albanese."
+    "emptySubtitle": "Seguici per aggiornamenti sulla legislazione albanese.",
+    "authorCredentials": "Avvocato (Lic. n. 6656) · DPO dal 2014 · Co-fondatore di ITAKA7"
   },
   "notFound": {
     "code": "404",
@@ -265,7 +276,8 @@
     "quickLinks": "Link Rapidi",
     "contact": "Contatto",
     "copyright": "© {year} {name}. Tutti i diritti riservati.",
-    "privacyLink": "Privacy e Cookies"
+    "privacyLink": "Privacy e Cookies",
+    "alsoOn": "Siamo anche su"
   },
   "privacy": {
     "hero": {

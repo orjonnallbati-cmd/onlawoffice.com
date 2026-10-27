@@ -8,6 +8,7 @@ import { LOCALES } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
 import { getDictionary } from "@/lib/dictionaries";
 import { SITE_URL } from "@/lib/seo";
+import { ORG_ID, PERSON_ID, PROFILES, personJsonLd } from "@/lib/entity";
 
 export async function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
@@ -78,6 +79,7 @@ export default async function LocaleLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LegalService",
+    "@id": ORG_ID,
     name: "OnLaw Office",
     alternateName: "Studio Ligjore — Av. Orjon Nallbati",
     url: "https://www.onlawoffice.com",
@@ -109,13 +111,9 @@ export default async function LocaleLayout({
       "Hartim kontratash",
     ],
     image: "https://www.onlawoffice.com/images/orjon-nallbati-studio.jpg",
-    founder: {
-      "@type": "Person",
-      name: "Orjon Nallbati",
-      jobTitle: "Avokat",
-      image: "https://www.onlawoffice.com/images/orjon-nallbati.jpg",
-      sameAs: ["https://www.linkedin.com/in/orjon-nallbati-4889b7293/"],
-    },
+    founder: personJsonLd(lang),
+    employee: { "@id": PERSON_ID },
+    sameAs: [PROFILES.googleMaps, PROFILES.linkedin, PROFILES.facebook],
   };
 
   // Ky është layout-i rrënjë (nuk ka `app/layout.tsx`): kështu `<html lang>`
