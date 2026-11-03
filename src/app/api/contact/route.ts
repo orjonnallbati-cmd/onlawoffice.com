@@ -12,7 +12,7 @@ export const dynamic = "force-dynamic";
  * Mesazhet që klasifikohen si spam kthejnë 200 si të ishin dërguar, që
  * roboti të mos mësojë çfarë e bllokoi; arsyeja shkruhet në log-un e Vercel.
  */
-const FORM_ID = process.env.FORMSPREE_FORM_ID || "xreylerv";
+const FORM_ID = process.env.FORMSPREE_FORM_ID;
 const MIN_FILL_MS = 3_000; // më shpejt se kaq nuk e plotëson dot një njeri
 const MAX_AGE_MS = 24 * 60 * 60 * 1000;
 const MAX_LEN = 5_000;
@@ -116,6 +116,11 @@ export async function POST(request: Request) {
     console.warn(`[contact] spam i bllokuar (${reason}) nga ${ip}: ${f.email}`);
     // Për robotin duket si sukses
     return NextResponse.json({ ok: true });
+  }
+
+  if (!FORM_ID) {
+    console.error("[contact] FORMSPREE_FORM_ID mungon");
+    return NextResponse.json({ ok: false, error: "upstream" }, { status: 502 });
   }
 
   try {
