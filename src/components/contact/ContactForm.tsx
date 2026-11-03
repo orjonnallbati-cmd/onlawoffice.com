@@ -1,12 +1,18 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function ContactForm({ dict, locale, privacyPath }: { dict: Record<string, any>; locale: string; privacyPath: string }) {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle"
   );
+  // Koha kur formulari u shfaq: serveri refuzon dërgimet pa të ose më të
+  // shpejta se disa sekonda (robotët postojnë menjëherë ose pa e hapur faqen).
+  const openedAt = useRef(0);
+  useEffect(() => {
+    openedAt.current = Date.now();
+  }, []);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -15,11 +21,11 @@ export default function ContactForm({ dict, locale, privacyPath }: { dict: Recor
     const form = e.currentTarget;
     const data = new FormData(form);
 
-    // Check honeypot
-    if (data.get("_gotcha")) return;
+    data.set("_t", String(openedAt.current));
+    data.set("_lang", locale);
 
     try {
-      const res = await fetch("https://formspree.io/f/xreylerv", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         body: data,
         headers: { Accept: "application/json" },
@@ -63,9 +69,9 @@ export default function ContactForm({ dict, locale, privacyPath }: { dict: Recor
   }
 
   return (
-    <form onSubmit={handleSubmit} method="post" action="https://formspree.io/f/xreylerv" className="space-y-5">
+    <form onSubmit={handleSubmit} method="post" action="/api/contact" className="space-y-5">
       {/* Honeypot */}
-      <input type="text" name="_gotcha" className="hidden" tabIndex={-1} />
+      <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>

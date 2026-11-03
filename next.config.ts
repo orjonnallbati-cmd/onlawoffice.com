@@ -3,7 +3,8 @@ import path from "node:path";
 
 // Content-Security-Policy. Skriptet inline të Next.js (hidratimi) kërkojnë
 // 'unsafe-inline' pa nonce; pjesa tjetër është e mbyllur në burimet reale:
-// Google Fonts, harta e Google, Formspree (formulari i kontaktit), Supabase.
+// Google Fonts, harta e Google, Supabase. Formulari i kontaktit kalon nga
+// /api/contact, ndaj Formspree nuk i duhet shfletuesit.
 const IS_DEV = process.env.NODE_ENV !== "production";
 const CSP = [
   "default-src 'self'",
@@ -11,10 +12,10 @@ const CSP = [
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "font-src 'self' data: https://fonts.gstatic.com",
   "img-src 'self' data: blob: https:",
-  `connect-src 'self' https://formspree.io https://*.supabase.co${IS_DEV ? " ws://localhost:* http://localhost:*" : ""}`,
+  `connect-src 'self' https://*.supabase.co${IS_DEV ? " ws://localhost:* http://localhost:*" : ""}`,
   "frame-src https://www.google.com",
   "frame-ancestors 'none'",
-  "form-action 'self' https://formspree.io",
+  "form-action 'self'",
   "base-uri 'self'",
   "object-src 'none'",
   "upgrade-insecure-requests",
